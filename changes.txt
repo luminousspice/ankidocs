@@ -1,5 +1,8 @@
-++++++++++++++++++++++
+/////
 <br><br><b>Users upgrading from Anki 1: please see <a href="#v2">here</a></b>.
+/////
+++++++++++++++++++++++
+<br><br><b>Anki 1からアップグレードするユーザーの方は、 <a href="#v2">こちら</a>をご覧ください。</b>
 ++++++++++++++++++++++
 
 [[latest]]
@@ -487,159 +490,463 @@ Python version.
 * Various fixes to the Mnemosyne importer
 * Fix find duplicates feature when fieldname case differs
 
+/////
 = Changes in 2.0.8 =
+/////
+= 変更点: 2.0.8 = 
 
+/////
  * Fix recording on Windows.
+/////
+ * Windows上での録音を修正しました。
+/////
  * Better error when Anki blocked by firewall.
+/////
+ * Ankiがファイアウォールを通過できない時のエラーを改善しました。
+/////
  * Fixed an issue with upgrading some Anki 1 decks.
+/////
+ * いくつかのAnki 1の単語帳をアップグレードする際に発生する問題を修正しました。
+/////
  * Allow apostrophe in deck names.
+/////
+ * 単語帳の名前にアポストロフィーが使えるようになりました。
+/////
  * Some changes which should speed up upgrading old Anki 1 decks.
+/////
+ * いくつかの変更を行って、古いAnki 1の単語帳のアップグレード処理を高速化しました。
+/////
  * When rescheduling is off in a filtered deck, show "(end)" on buttons that
    will end studying of that card.
+/////
+ * フィルター単語帳で [この単語帳の解答に基づいてカードをスケジュールし直す] オプションを外したとき、カードの学習を終了する「(end)」ボタンを表示することにしました。(訳注: 以後のバージョンでこのボタンは「(終了)」ボタンに翻訳する予定です。)
+/////
  * Fix extra spaces being included when showing tags on card.
+/////
+ * カードにタグを表示した時に余分な空白できる問題を修正しました。
+/////
  * Make sure we switch back to the previous deck when creation of a filtered
    deck cancelled.
+/////
+ * フィルター単語帳の作成を取り消した時に、確実に元の単語帳に戻るようにしました。
+/////
  * Fix a bug that was causing the automatically generated Reading field in the
    Japanese Support add-on to be blanked out again if you clicked directly on
    the Reading field.
+/////
+ * Japanese Supportアドオンで、自動生成するReadingフィールドを直接クリックすると中身が消えてしまうバグを修正しました。
 
+/////
 = Changes in 2.0.7 =
+/////
+= 変更点: 2.0.7 =
 
+/////
  * Add a "suspend card" option to the review screen.
+/////
+ * レビュースクリーンに [カードを保留する] オプションを追加しました。
+/////
  * Don't set browser font/size when cards are created, so they take on the
    system font until customized.
+/////
+ * カードを作成した時に、ブラウザーのフォントとそのサイズは設定しなくなりました。このため、カスタマイズするまではシステムフォントを使用します。
+/////
  * Work around slow initial audio playing on Windows caused by antivirus
    software.
+/////
+ * アンチウイルスソフトが原因で発生するWindows上での音声再生の起動時の遅延に対応しました。
+/////
  * Allow Qt4.6 again, but warn on startup that it has known issues.
+/////
+ * Qt4.6の利用を再開しました。起動時に既知の問題を警告するようになりました。
+/////
  * Work around for Japanese furigana on Qt4.6
+/////
+ * Qt4.6上の日本語ふりがなの問題に対応しました。
+/////
  * Fix incorrect error message when media sync fails.
+/////
+ * メディア同期が失敗した時のエラーメッセージの間違いを修正しました。
+/////
  * Fix crashes on Windows/Linux when performing a long search operation in the
    browser.
+/////
+ * ブラウザーで長い検索処理を行った時にWindowsとLinux上でクラッシュする問題を修正しました。
+/////
  * Fix links appearing twice when clicked in card layout window.
+/////
+ * カードレイアウトウィンドウでクリックした時に、リンクが2度現れる問題を修正しました。
+/////
  * Conditional tags now ignore formatting, and require actual text to be
    considered non-empty.
+/////
+ * 条件タグは書式を無視し、実際のテキストは空でないと見なされることが必要となりました。
+/////
  * Don't trigger links when ctrl+shift etc pressed on Windows
+/////
+ * Windows上でctrl+shiftなどを押した時にリンクを開かないようにしました。
+/////
  * Better warning when sync fails due to Linux distro packaging error.
+/////
+ * Linuxディストリビューションのパッケージングエラーが原因で同期が失敗した場合の警告を改善しました。
+/////
  * Fix "Focus Note" menu option in the browser.
+/////
+ * ブラウザーのメニュー項目の「ノートにフォーカス」を修正しました。
 
+/////
 = Changes in 2.0.6 =
+/////
+= 変更点: 2.0.6 =
 
+/////
  * Fix a bug where suspended cards imported from Anki 1 would have the wrong
    due date.
+/////
+ * Anki 1から読み込んだ保留済みカードに間違った期日を設定するバグを修正しました。
+/////
  * Fix a bug where re-failing a relearning card would not honour the minimum
    interval setting.
+/////
+ * 再学習カードを忘却した場合に間隔の下限が割り当てられないバグを修正しました。
+/////
  * Anki will now automatically recover from a syncing error instead of asking
    the user to post a bunch of numbers on the forum.
+/////
+ * Ankiは同期エラーから自動復旧するようになりました。ユーザーがフォーラムにたくさん投稿を投げなくても済むようになります。
+/////
  * Fix a bug when anki1.2 decks that hadn't been opened in Anki 1.2.8 were
    failing to import.
+/////
+ * Anki 1.2.8で開けなかったanki1.2単語帳を読み込むと失敗する時のバグを修正しました。
+/////
  * Change from ospalh to make it easier to style the type in the answer box.
+/////
+ * ospalhから解答ボックス内の書式を簡単にする変更を取り込みました。
+/////
  * Remove automatic newlines after field reference that were added in 2.0.5.
+/////
+ * 2.0.5で追加したフィールド参照の後の自動改行 (newline) を削除しました。
+/////
  * Fix bug when appending note type to an existing search.
+/////
+ * 現在の検索結果にノートタイプを追加する時のバグを修正しました。
 
+/////
 = Changes in 2.0.5 =
+/////
+= 変更点: 2.0.5 =
 
+/////
  * Possible fix for "host not found" errors when syncing via proxy.
+/////
+ * プロキシ経由の同期をした場合に、「ホストが見つからない」エラーに対して可能な限り対応しました。
+/////
  * Fix a problem when creating filtered deck for deck with spaces.
+/////
+ * スペースを含む単語帳からフィルター単語帳を作った時に発生する問題を修正しました。
+/////
  * Don't fail when importing decks that contain media references to subdirs.
+/////
+ * メディアがサブディレクトリへの参照している単語帳の読み込みができるようになりました。
+/////
  * Don't open a web browser when 'more...' clicked on study overview.
+/////
+ * 学習概要で「more...」をクリックしてもウェブブラウザは起動しなくなりました。
+/////
  * Add "Close" to browser edit menu; support Command+W to close.
+/////
+ * ブラウザーの [編集] メニューに [閉じる] を追加しました。閉じるのにショートカット [Command+W] も使えます。
+/////
  * Better warning when trying to import non-UTF8 content.
+/////
+ * UTF8形式でないコンテンツを読み込もうとした時の警告を改善しました。
+/////
  * Possible fix for supermemo importer.
+/////
+ * supermemoの読み込みを可能な限り修正しました。
+/////
  * Fix 'show duplicates' when fields contain newlines/formatting.
+/////
+ * フィールドが改行 (newline) や書式を含んでいる時に「重複を表示する」処理の問題を修正しました。
+/////
  * When a user has multiple note types with the same name, clicking on one in
    the browser will now show only cards for that note type, not all of them.
+/////
+ * ユーザーが同じ名前の複数のノートを持っている時、ブラウザーでそのうち一つのノートをクリックすると、クリックした方のノートをカードだけを表示するようにしました。全て表示はしません。
+/////
  * Fix bug caused by applying settings to subdecks when a subdeck was a
    filtered deck.
+/////
+ * サブ単語帳がフィルター単語帳の時にサブ単語帳に設定を適用すると起るバグを修正しました。
+/////
  * Fix errors caused by burying (re)learning cards. Like suspending, burying
    now removes the cards from the learning queue first.
+/////
+ * (再)学習中のカードを延期すると発生するエラーを修正しました。保留のように、延期は学習キューの最初からカードを移動することにしました。
+/////
  * Other minor updates.
+/////
+ * その他の軽微な更新。
 
+/////
 = Changes in 2.0.4 =
+/////
+= 変更点: 2.0.4 =
 
+/////
  * You should no longer need to fix decks in Anki 1 when upgrading; if any
    errors are found, Anki 2 should automatically fix them.
+/////
+ * アップグレードの際に、Anki 1の単語帳を修正する必要がなくなりました。Anki 2はエラーを見つけると自動的に修正します。
+/////
  * The duplicate check while adding cards now ignores HTML when comparing. If
    your cards have any bold/italics/colours/etc, please run
    Tools>Maintenance>Full Sync after upgrading so that the duplicate cache can
    be updated.
+/////
+ * カードの追加で重複をチェックする場合、HTMLを無視して比較します。カードに太字/斜字/文字色などの書式を設定している場合、アップグレードした後は重複キャッシュを更新するために、[ツール]>[メンテナンス]>[完全同期] を実行してください。
+/////
  * Anki will now apply a fuzz to review intervals so they spread out more.
    This fuzz is not reported on the answer buttons, as it is only calculated
    when the card is actually answered. You can check it in the review history.
+/////
+ * 復習間隔がもっと広がるようにゆらぎを設定するようになりました。ゆらぎは解答ボタンには表示しません。カードを実際に解答する時にだけ計算します。これは復習履歴で確認できます。
+/////
  * If you have a failure multiplier set so that failed reviews have their
    interval reduced rather than zero out, that multiplier will now be applied
    if you refail the card in the relearning queue as well.
+/////
+ * 復習を失敗した時に間隔をゼロではなく、縮小した値を設定できるように失敗時の乗数を設定した場合、再学習中のキューにカードを失敗する場合にその乗数を設定できるようになりました。
+/////
  * You can now customize note types from the tools menu.
+/////
+ * ツールメニューよりノートタイプを設定できるようになりました。
+/////
  * Possible fixes for proxy connections. Thanks to Arfrever for the heads up
    on the new httplib2 version.
+/////
+ * プロキシ接続の修正をしました。新しいバージョンのhttplib2について注意してくれたArfreverのおかげです。
 
+/////
 Import/export:
+/////
+読み込みと書き出し:
 
+/////
  * Remember the "allow HTML" setting in the import dialog.
+/////
+ * 読み込みダイアログで、HTMLの使用を許可する[フィールドに HTML を使う]を記憶するようにしました。
+/////
  * Remember import mode across invocations.
+/////
+ * 読み込み処理全体にわたって、設定内容を記憶するようにしました。
+/////
  * Add an option to export card q/a rather than notes.
+/////
+ * 書き出しのオプションに質問解答のノートではなくカードの書き出しを追加しました。
+/////
  * Fix importing of LaTeX cache files.
+/////
+ * LaTeXキャッシュファイルの読み込みを修正しました。
+/////
  * When importing a .apkg, make sure the descriptions of the parent decks are
    imported too.
+/////
+ * .apkg形式のファイルを読み込む際に、元の単語帳の説明を確実に読み込むようにしました。
 
+/////
 Browser/Add changes:
+/////
+ブラウザーと追加についての変更点:
 
+/////
  * Allow browser font customization on a per-template basis, via the Cards
    dialog. Should default to system font.
+/////
+ * テンプレートでの指定を基準としたブラウザーフォントのカスタマイズがカードダイアログからできるようになりました。既定設定はシステムフォントです。
+/////
  * Don't lose card selection when using "change deck".
+/////
+ * [単語帳を変更]を使った場合、カードの選択状態が失われなくなりました。
+/////
  * Newlines in fields should now be converted to a space in the card list.
+/////
+ * フィールド内の改行 (Newlines) は、カード一覧では一つの空白に変換することになりました。
+/////
  * Allow unlimited nesting of decks in browser sidebar.
+/////
+ * ブラウザーのサイドバー内の単語帳を制限なく入れ子できるようになりました。
+/////
  * Don't show 'marked' or 'leeched' tag in browser sidebar, as it's listed
    near the top already.
+/////
+ * ブラウザーのサードバーに「marked」や「leeched」タグを表示を止めました。既に先頭近くに表示しているためです。
+/////
  * When an existing search term is reused, move it to top of the history.
+/////
+ * 既存の検索条件を再利用すると、履歴の先頭に移動するようにしました。
+/////
  * When Add window opened, start with empty tag list instead of last tags used
    by that note type.
+/////
+ * 追加ウィンドウを開くと、使用ノートタイプに最後に使ったタグではなく、タグは空欄で起動することになりました。
+/////
  * Disable editor buttons until a field is focused.
+/////
+ * フィールドにフォーカスしてからエディタのボタン群が利用できるようになりました。
 
+/////
 The rest:
+/////
+その他:
 
+/////
  * When restoring from a backup, force a full sync.
+/////
+ * バックアップから復元する時には、完全同期が必須になりました。
+/////
  * Don't autorepeat delete key during review.
+/////
+ * 復習中に削除キーのオートリーピートが使えなくなりました。
+/////
  * Force full sync if any problems found in db check.
+/////
+ * データベースのチェックで問題が見つかった場合には、完全同期が必須になりました。
+/////
  * When reviewing new cards in a filtered deck, don't log them as a cram
    review.
+/////
+ * フィルター単語帳で新規カードを復習すると、詰め込み学習として記録しなくなりました。
+/////
  * Fix bug when renaming foo::bar foo to new parent.
+/////
+ * 「foo::bar」の名前変更してfooから新しい親単語帳に割り当てる際のバグを修正しました
+/////
  * Catch missing notes in DB check.
+/////
+ * データベースのチェックでノートがないカードを検出するようにしました。
+/////
  * Fixed a sync error caused by importing note types from an .apkg
+/////
+ * .apkg形式のファイルからノートタイプを読み込む場合に起る同期エラーを修正しました。
+/////
  * When checking if note types match in import, consider question/answer
    templates as well.
+/////
+ * 読み込みでノートタイプが一致するか調べる際に、質問、解答テンプレートを同様に検討するようになりました。
+/////
  * Fix lapsed reviews getting learn steps instead of relearn steps.
+/////
+ * 復習が忘却 (lapse) になった場合、再学習ステップではなく学習ステップを割り当てる問題を修正しました。
+/////
  * Fix pasting of image URLs with %s.
+/////
+ * %sを含む画像URLを貼り付けた場合の問題を修正しました。
+/////
  * Custom study's "preview" should not reschedule cards.
+/////
+ * カスタム学習のプレビューではスケジュールの再設定は行わなくなりました。
+/////
  * Fix custom study search for failed cards with 2+ days.
+/////
+ * 過去2日以上前に忘却したカードをカスタム学習の検索する場合の問題を修正しました。
+/////
  * Fix possible error in Makefile
+/////
+ * Makefileで起こりうるエラーを修正しました。
+/////
  * Refuse to run on Qt4.6, as it's broken.
+/////
+ * Qt4.6が壊れているため、Qt4.6上での実行はできなくなりました。
+/////
  * Don't use native filepicker on OSX due to crash.
+/////
+ * クラッシュを引き起こすためMacOS X上で、ネイティブのファイルピッカーの使用を止めました。
+/////
  * Force XP theme on Windows so Anki on Win8 looks better.
+/////
+ * Windows 8上での表示が向上するため、Windows上ではXP themeが必須になりました。
+/////
  * Add Cmd+W shortcut to add cards window & stats window on OSX
+/////
+ * MacOS Xのカード追加ウィンドウと統計情報ウィンドウにCmd+Wショートカットを追加しました。
+/////
  * Improve various error messages.
+/////
+ * さまざまなエラーメッセージを改善しました。
+/////
  * Some tweaks from Ospalh
+/////
+ * Ospalhからいくつかの微調整を取り込みました。
+/////
  * Addon editor tweaks from Thomas
+/////
+ * Thomasからアドオンエディタの微調整を取り込みました。
+/////
  * Update old beta.ankiweb references.
+/////
+ * 古いbeta.ankiwebのreferencesを更新しました。
+/////
  * Increase minimum size of editing area so it can't be accidentally hidden.
+/////
+ * 編集領域の最小サイズを広げ、誤って隠れてしまうことがないようにしました。
+/////
  * Fix a bug where a progress window would appear blank.
+/////
+ * プログレスウィンドウの表示が真っ白になるバグを修正しました。
+/////
  * Display count of notes deleted.
+/////
+ * 削除したノートの数を表示するようになりました。
+/////
  * Fix issues where unbolding parts of a field would fail.
+/////
+ * フィールドの太字でない部分の表示の問題を修正しました。
+/////
  * Disable undo when switching profiles.
+/////
+ * プロファイルを変更処理は取消できなくなりました。
+/////
  * Fix issues with clozes and <% %>.
+/////
+ * 穴埋めと<% %>に関する問題を修正しました。
+/////
  * Prevent access to main window while auth dialog shown.
+/////
+ * 認証ダイアログを表示している間は、メインウィンドウにアクセスできなくなりました。
+/////
  * Don't rename if note type rename cancelled.
+/////
+ * ノートタイプの名前変更を取り消した場合、名前変更はしなくなりました。
+/////
  * Sort clone: note type items.
+/////
+ * ノートタイプの一覧表示でクローンの位置を並び替えました。
+/////
  * Clarify that deck description is not in option group.
+/////
+ * 単語帳の説明はオプショングループの中にはないこと明確にしました。
 
+/////
 Add-on authors:
+/////
+アドオン作者へ:
 
+/////
 2.0.4 removed some unnecessary imports, which unfortunately broke some add-ons
 that assumed those imports would exist. One example is add-ons that import
 'anki' and then try to access 'anki.stats' without specifically importing
 'anki.stats' first.
+/////
+2.0.4でいくつかの不要なimportsを取り除きました。これによって不幸にして、これらのimportsの存在を前提としたアドオンが破損することになります。一つの例は、「anki.stats」を具体的に指定して読み込まないで、「anki」を読み込んで「anki.stats」にアクセスしようとするアドオンです。
 
+/////
 = Changes in 2.0.3 =
+/////
+= 変更点: 2.0.3 =
 
+/////
  * Fix some more issues with importing content that used a modified version of
    models already present in your collection. Decks (including 1.2 decks) are
    now imported in such a way that repeatedly importing them will no longer
@@ -647,207 +954,501 @@ that assumed those imports would exist. One example is add-ons that import
    works against previous imports made in 2.0.3 however, so if you imported
    decks with divergent models in a previous Anki 2 version, the first time
    you import that content again, a duplicate will be created.
+/////
+ * 修正したバージョンのモデルがコレクションに既に存在する場合、そのモデルが使ったコンテンツの読み込みの問題を修正しました。単語帳 (Anki 1.2単語帳を含めて) を繰り返し読み込んでも、ノートタイプ、ノート、カードは重複しなくなりました。重複のチェックは2.0.3より以前のバージョンで行った読み込みに対してだけ機能しますが、Anki 2 の以前のバージョンでモデルが不一致の単語帳から読み込んだ場合には、最初にコンテンツを再度読み込み、その後重複を作成します。
+/////
  * Fix a few errors that could occur when renaming decks.
+/////
+ * 単語帳の名前変更の際に発生する問題を修正しました。
+/////
  * Fix timeboxing counting one too many cards on the first session and
    not accounting for undone reviews.
+/////
+ * タイムボックスで、最初のセッションで一枚余計に数えて、未復習を報告できない問題を修正しました。
+/////
  * Suspended cards now have their due date shown surrounded by brackets in the
    browser.
+/////
+ * ブラウザー内で保留済みのカードの期日を括弧でくくって表示するようにしました。
+/////
  * When a learning card is suspended, it is moved back to new if it was in
    initial learning, or moved back to a review card if it was in relearning.
+/////
+ * 学習中のカードが保留になった時、初回の学習中であれば、新規カードに戻し、再学習中であれば復習カードに戻すようにしました。
+/////
  * Fix 1+ day steps not working for relearning cards.
+/////
+ * 再学習カードの1日後のステップが機能しない問題を修正しました。
+/////
  * Fixed some issues with settings not syncing due to the collection being
    accidentally marked as modified when it was loaded.
+/////
+ * 誤って修正済みと記録したコレクションを読み込んで、それが原因で同期しない設定になった問題を修正しました。
+/////
  * Add decimal point to reviews a day statistic.
+/////
+ * 一日あたりの復習の統計情報に小数点を追加しました。
+/////
  * When creating a filtered deck, default to searching through the current
    deck.
+/////
+ * フィルター単語帳を作成した時に、既定で選択中の単語帳全体を検索する設定にしました。
+/////
  * Display a progress window when closing the collection, as it may take a
    while.
+/////
+ * コレクションを閉じる時、多少時間がかかるので、プログレスウィンドウを表示することにしました。
+/////
  * Fix font size setting in Add Field button.
+/////
+ * [フィールドを追加]ボタンのフォントサイズの設定を修正しました。
 
-
+/////
 = Changes in 2.0.2 =
+/////
+= 変更点: 2.0.2 =
 
+/////
  * Filtered deck changes:
+/////
+ * フィルター単語帳の変更点:
+/////
  ** The filtered deck presets have been moved into a new button called "Custom
     Study" which appears at the bottom of the overview. Daily new & review
     limits can also be adjusted from that screen.
+/////
+ ** フィルター単語帳の設定は、概要の画面の下部に配置した [カスタム学習] という名称の新しいボタンを押すと表示します。一日の新規カード、復習カードの上限をそのスクリーンから調整できます。
+/////
  ** The "filter by tags" preset now presents a dialog like Anki 1.2's active
     tags dialog, to make it easier to select tags. If the custom study window
     is opened again later, Anki will remember the previously selected tags for
     that deck.
+/////
+ ** タグによるフィルターの設定は、Anki 1.2の有効なタグのダイアログと同じようなダイアログを表示して、タグの選択を簡単にした。その後カスタム学習のウィンドウのを再度開いた場合、Ankiは以前その単語帳で選択したタグ情報を保持します。
+/////
  ** Correctly show 3 buttons when showing new cards in a filtered deck.
+/////
+ ** フィルター単語帳の中に新しいカードを表示している時には、正しくボタンを3つ表示するようになりました。
+/////
  ** Moved the Filter/Cram button on the decks/overview screen to the tools
     menu.
+/////
+ ** [フィルター単語帳/詰め込み勉強] ボタンを単語帳/概要スクリーンからツールメニューに移動しました。
+/////
  ** Filtered decks no longer show their search terms, as they're confusing to
     new users and easily findable in the options.
+/////
+ ** フィルター単語帳がその検索条件を表示することを止めました。新規ユーザーに混乱をもたらしていることと、オプションを表示すると簡単に見つけられるためです。
+/////
  ** Filtered decks now show a brief description of how they work.
+/////
+ ** フィルター単語帳はどのように機能しているか簡単な説明を表示するようになりました。
+/////
  ** The custom study option automatically names the filtered deck "Custom
     Study Session", and will reuse an existing deck if one exists. If you wish
     to keep a custom study session, you can rename it.
+/////
+ ** カスタム学習オプションは自動的に「カスタム学習セッション」という名前のフィルター単語帳が割り当て、既に存在しているときは既存の単語帳を再利用します。カスタム学習セッションを保存したい場合は、名前を変更することができます。
+/////
  ** Filtered decks now appear in the deck list as blue.
+/////
+ ** フィルター単語帳は、単語帳一覧に青字で表示します。
+/////
  ** When creating a filtered deck, it uses a default name instead of asking
     you for a name, as you can rename it afterwards if you wish.
+/////
+ ** フィルター単語帳を作成すると、名前の入力を求める代わりに既定の名前を割り当てます。必要であれば後ほど名前を変更することができます。
+/////
  ** Change Deck will now move cards out of a filtered deck instead of ignoring
    them.
+/////
+ ** [単語帳を変更] 処理は、カードをフィルター単語帳から移動します。この場合も無視しません。
 
+/////
  * Stats changes:
+/////
+ * 統計情報の変更点:
+/////
  ** Information about the current day is now included at the top.
+/////
+ ** 当日の情報を先頭に追加しました。
+/////
  ** The # of cards due tomorrow is listed in the Forecast section. 
+/////
+ ** 明日期日に達するカードの枚数を予測セクションに掲載しました。
+/////
  ** Information about the generated date and limit is included at the bottom.
+/////
+ ** 統計情報の作成日と対象範囲を最後に追加しました。
+/////
  ** "Save Image" now saves the image to the desktop, making it easier for
     students to locate it. The stats screen also uses a subtle background now,
     to make it harder for students to fake the graphs.
+/////
+ ** [画像として保存] 処理は、画像の保存先をデスクトップにして、見つけやすくしました。
+/////
  ** Make sure we display the review card/time graphs even if there's only a
    single data point.
+/////
+ ** データポイントがただ一つの場合でも、復習枚数、時間の表示を確実に行うようにした。
+/////
  ** Fix x-axis on interval graph when using deck life period.
+/////
+ ** 単語帳の全期間にわたっての復習間隔グラフのX軸を修正しました。
+/////
  ** Fix rounding error in history graphs.
+/////
+ ** 履歴グラフの色々な箇所に生じているエラーを修正しました。
 
+/////
  * Importing changes:
+/////
+ * 読み込み処理の変更点:
+/////
  ** Fix some issues where your collection could become corrupt if you
     previously saved or exported a model to different decks and then modified
     it in different ways.
+/////
+ ** 以前に、モデルを別の単語帳に保存したり書き出して、その単語帳を別の方法で修正した場合、コレクションが破損する問題点をいくつか修正しました。
+/////
  ** When you export your entire collection, it will automatically be named
     "collection.apkg" and placed on your desktop.
+/////
+ ** コレクション全体を書き出す時は、自動的に「collection.apkg」という名前でデスクトップに保存するようにしました。
+/////
  ** There is no add/replace question when importing - Anki will ask to replace
     if the imported file is called collection.apkg or is a backup file, and
     will otherwise add.
+/////
+ ** 読み込みの際に、追加するか、上書きするか質問することは止めました。読み込むファイルがcollection.apkgという名前のファイルやバックアップファイルの時には上書きし、その他の場合は追加することにしました。
+/////
  ** Use a tooltip instead of a big box when showing "xxx notes imported".
+/////
+ ** 「xxx個のノートを読み込みました」というメッセージの表示に大きなボックスの代わりにツールチップを使うことにしました。
+/////
  ** Imports from a CSV file now give you the option of escaping HTML
     characters.
+/////
+ ** CSVファイルを読み込む際に、HTMLキャラクタをエスケープするオプションが使えるようになりました。
+/////
  ** Imports from a CSV file now let you choose whether you want to allow
     duplicates.
+/////
+ ** CSVファイルを読み込む際に、重複を許すか選択できるようになりました。
+/////
  ** When importing a CSV file, make sure to update field list when separator
     is changed.
+/////
+ ** CSVファイルを読み込む際に、区切り文字の指定を変更すると、フィールド一覧を確実に更新するようにしました。
+/////
  ** When importing cards from a filtered deck, convert them to normal cards.
+/////
+ ** フィルター単語帳からカードを読み込む際に、通常のカードに変換するようにしました。
 
+/////
  * The Cards screen now has an "Add Field" button for people who feel
    uncomfortable editing HTML.
+/////
+ * HTMLの編集に苦痛を感じている人のために、カードスクリーンに[フィールドを追加]ボタンを追加しました。
+/////
  * Newly created collections now include two new note types: forward&reverse
    type, and a forward&optional reverse type.
+/////
+ * 新たに作成したコレクションには新しい2つのノートタイプが含まれるようになりました。「表面と裏面」、「表面と裏面を任意選択」の2種類です。
+/////
  * Anki is now stricter about invalid CSS, to make it more consistent with the
    other clients.
+/////
+ * Ankiは、CSSの誤りの検出を厳しくして、他のクライアントとの一貫性を高めました。
+/////
  * Better warning when deleting fields.
+/////
+ * フィールド削除の際の警告を改善しました。
+/////
  * Fixed bugs where counts on the deck list didn't match the overview screen.
+/////
+ * 概要スクリーンで単語帳一覧上の数が一致しないバグを修正しました。
+/////
  * When the browser is opened during study, it will continue to show the
    current note like before, but you can now hit enter to quickly show all
    cards in the deck.
+/////
+ * 学習中にブラウザーを開いた場合、以前のように選択中のノートを表示し続けるようにし、エンターキーを打つと、単語帳内の全てのカードを素早く表示できるようになりました。
+/////
  * The browser will focus on the current card when it's opened.
+/////
+ * ブラウザーを開いた時に選択中のカードにフォーカスを置くようになりました。
+/////
  * Don't return the cursor to the top of the screen when cards are deleted.
+/////
+ * カードを削除した時にスクリーンの先頭にカーソルが戻らないようにしました。
+/////
  * Don't throw an error when the edit screen is open and a card is deleted.
+/////
+ * 編集画面を開いて、カードを削除した時にエラーが発生しないようにしました。
+/////
  * Show due date for suspended cards.
+/////
+ * 保留中のカードの期日を表示するようにしました。
+/////
  * Allow 1 field notes.
+/////
+ * フィールドが一つだけのノートが使えるようになりました。
+/////
  * When the cloze button is clicked in the browser, point the user to the
    Change Note Type option.
+/////
+ * ブラウザーで穴埋めボタンを押した時に、ユーザーにノートタイプ変更オプションを示すようにしました。
+/////
  * The main window will no longer switch to a "resume now" button as soon as
    you start typing in the Add window.
+/////
+ * 追加ウィンドウで入力を始めると、直ちにメインウィンドウが[学習し続ける]ボタンに切り替わらなくなりました。
+/////
  * Better error message when insecure LaTeX word is encountered.
+/////
+ * 危険なLaTeXワードに遭遇した場合のエラーメッセージを改善しました。
+/////
  * Work around some errors in Anki 1.2 decks when upgrading.
+/////
+ * アップグレードの際のAnki 1.2単語帳に関するエラーを対応しました。
+/////
  * Accept newlines in LaTeX like in Anki 1.2.
+/////
+ * Anki 1.2と同様にLaTeX内で改行 (newlines) が使えるようになりました。
+/////
  * When LaTeX fails, point the user to the generated .tex file.
+/////
+ * LaTeXが処理できなかった時に、ユーザーに.tex形式のファイルの生成を示すようにしました。
+/////
  * Unbury cards when returning to the deck list.
+/////
+ * カードの延期解除は、単語帳一覧に戻った時に行ないます。
+/////
  * Don't remove cards from filtered deck when they're buried.
+/////
+ * カードを延期した時にフィルター単語帳からそのカードを削除しなくしました。
+/////
  * Fix error when renaming decks and mixing upper/lowercase.
+/////
+ * 単語帳の名前を変更した時、大文字、小文字を混ぜた時に発生するエラーを修正しました。
+/////
  * When a cloze has a hint, don't show dots.
+/////
+ * ヒントがついている穴埋め問題にドットを表示するのを止めました。
+/////
  * Fix an error that appeared when editing cards that were in a filtered deck.
+/////
+ * フィルター単語帳内のカードを編集する時に発生するエラーを修正しました。
+/////
  * Add a "Create Deck" button back to the deck list.
+/////
+ * [単語帳を作成] ボタンを単語帳一覧に追加しました。
+/////
  * Holding down the delete key will no longer delete multiple cards in the
    browser.
+/////
+ * ブラウザー内で削除キーを押し続けても、複数のカードを削除しなくなりました。
+/////
  * After media has been added to a field, return focus to that field.
+/////
+ * フィールドにメディアを追加した後に、そのフィールドにフォーカスガ戻るようにしました。
+/////
  * Accept enter/space keys when returning to the answer from a different
    program.
+/////
+ * 他のプログラムから解答画面に戻った時に、エンターキー、スペースキーが使えるようになりました。
+/////
  * Properly display minutes when "studied today" exceeds an hour.
+/////
+ * 「今日の学習時間」が1時間を超えた時に表示する「分」を正しくしました。
+/////
  * Work around a few bugs caused by the mobile clients.
+/////
+ * モバイルクライアントで発生するバグを対応しました。
 
 [[v2]]
 = Changes in Anki 2 =
 
+/////
 == Translations ==
 
 This page in other languages:
 
  * http://rightstuff.luminousspice.com/2013/02/changeinanki2/[日本語]
+/////
+== 原文 == 
 
-== Please Read This ==
+このページの原文は英文です。
 
+ * http://ankisrs.net/docs/changes.html[Changes in Anki 2(英語)]
+
+/////
+== Please Read This == 
+/////
+== こちらをお読みください == 
+
+/////
 Your time is precious, and you may not have time to read this whole document -
 that's fine. But please read this section, as it points out a few things that
 are most likely to cause surprises in the new version.
+/////
+非常に急いでいて、この文書全体を読み通す時間がないかもしれません。そのような場合でも、この項目はどうかお読みください。新しいパージョンを使用してびっくりするような点をいくつかまとめています。 
 
+/////
  * If you used Dropbox with previous versions of Anki, please read the next
    section before upgrading.
+/////
+ * 前のバージョンのAnkiでDropboxを使っていた場合、アップグレードの前に次の項目をお読みください。
+/////
  * If you ever exported & imported .anki decks in the previous version, or
    find you are missing cards after upgrading, please read <<missing,this
    section>>.
+/////
+ * これまで、前のバージョンで .anki形式の単語帳の読み込みと書き出しを行っていた方、アップグレードの後にカードが行方不明になった方は、 アップグレードの前に<<missing,この項目>>をお読みください。 
+/////
  * Reviews are <<perday,limited>> to 100/day by default.
+/////
+ * 既定では、復習の<<perday,上限>>を一日あたり100に設定しています。
+/////
  * When you answer "again", there are now two
    link:manual.html#learning[learning] reviews of the card, so the learning
    (orange) count will increase by two.
+/////
+ * [もう一回] を押すと、そのカードのlink:manual.html#learning[学習中]の復習は2になります。従って学習中(オレンジ色の数字)のカード枚数は2増加します。
+/////
  * Cloze deletion has been much improved, but now requires you to select a
    special <<cloze,cloze type>> (the top left button in the Add window).
+/////
+ * 穴埋め問題を大いに改善しましたが、特別な<<cloze,穴埋め(cloze)ノートタイプ>>を選択する必要があります。(追加ウィンドウの左上のボタンから選択できます)
+/////
  * Selective study is still possible, but is done differently. You can either
    move cards into different decks (via 'Change Deck' in the card browser), or
    create a <<filtered,filtered deck>> that searches for particular tags, card
    properties and so on.
+/////
+ * 選択学習はまだ行えますが、これまでとは違った方法になります。カードを別の単語帳に移す(カードブラウザーの [単語帳の変更] を使う)か、特定のタグやカードプロパティを検索する<<filtered,フィルター単語帳>>を作ることになります。
+/////
  * If you study material in multiple directions / used multiple card
    templates, please see <<cardgen,this section>> for info on how cards are
    selected now.
+/////
+ * 複数の面を持つ教材、あるいは複数のカードテンプレートを使った教材を学習する場合は、カードを選択する方法に関する<<cardgen,この項目>>の情報をお読ください。
+/////
  * Anki only checks the <<dupes,first field>> to see if it's unique now.
+/////
+ * Ankiは、重複しているか確認する場合<<dupes,最初のフィールド>>だけを調べます。
+/////
  * If you delete a deck and sync, that deck will now be deleted on your other
    devices as well.
+/////
+ * 単語帳を削除した後に同期すると、その単語帳は他のデバイスからも同様に削除します。
+/////
  * If you use "hide" on any decks in Anki 1, Anki 2 will not automatically
    import them. You can still import them manually, via File>Import. Anki 1
    decks were stored in Documents\Anki by default.
+/////
+ * Anki 1で [一覧に表示しない] を指定していた単語帳は、Anki 2は自動的に読み込みません。[ファイル]>[読み込む] から手動で読み込むことは可能です。Anki 1の単語帳は既定ではDocuments\Ankiに保存しています。
 
+/////
 The rest of this page describes all the changes in more detail. For more
 information, please also see the link:manual.html[user manual], which has been
 completely rewritten for version 2.
+/////
+このページの残りの部分には、更に詳しい変更点を説明しています。更に詳しい情報をご覧になりたい場合は、link:manual.html[ユーザーマニュアル]をご覧ください。前のバージョンから完全に書き直しています。
 
 [[beforeupgrade]]
 == Dropbox ==
 
+/////
 If you didn't use Dropbox in the previous version of Anki, you can skip this
 section.
+/////
+Ankiの前のバージョンでDropboxを使っていない場合は、この項目を読み飛ばして差し支えありません。
 
+/////
 If you used Dropbox, before upgrading, please go to Settings>Preferences and
 change the media section to "keep media next to deck". After that, please open
 and close each deck in turn in order to move the media back to its original
 location, so that Anki 2 can find it.
+/////
+Dropboxを使っていた場合、アップグレードの前に [Settings]>[Preferences] を開き、media項目を [keep media next to deck] に変更してください。その後、順番に一つずつ単語帳を開いて閉じ、メディアファイルを元の場所へ移動します。これで、Anki 2はメディアファイルを見つけることが出来ます。
 
+/////
 == Decks & Profiles ==
+/////
+== 単語帳とプロファイル ==
 
 ++++++++++
 <img src="img/1-decks.png" width=341 height=318 style="float:right;margin:1em;">
 ++++++++++
 
+/////
  * Instead of storing each deck in a separate file, Anki now stores all of
    your decks in a single file called a 'collection'. This makes it easy to
    move cards between decks, and different decks can now share models and
    facts.
+/////
+ * 個々の単語帳を別々のファイルに保存する代わりに、Anki 2では全ての単語帳を一つのファイルに保存することになりました。このファイルのことを「コレクション」と呼びます。これによって、単語帳間のカードの移動が簡単になり、単語帳間でのモデルやファクトの共有が可能になりました。
+/////
  * Decks can now be organized in a tree. Use "::" to mark descending levels,
    like "German::My textbook::Lesson 1".
+/////
+ * 単語帳は木構造で構造化することができます。下位階層を示す記号に「::」を使います。例えば、「German::My textbook::Lesson 1」
+/////
  * Multiple decks can share the same settings group, so updating the settings
    for one deck updates the settings for the other decks using that group.
+/////
+ * 複数の単語帳で同じ設定グループを共有する事が出来ます。一つの単語帳の設定を更新すると同じグループの別の単語帳にも更新内容を反映することが出来るようになりました。
+/////
  * If more than one person uses Anki on your computer, you can now create a
    separate user profile for each user. Each user profile has their own
    collection of decks, and Anki will remember settings separately for each
    user. link:manual.html#profiles[More info].
+/////
+ * 一つのコンピュータ上でAnkiを一人以上で使う場合、ユーザー毎に別々のユーザープロファイルを作ることが出来るようになりました。それぞれのユーザープロファイルは、独自の単語帳のコレクションを持ち、Ankiはユーザー毎に別々の設定を記憶します。link:manual.html#profiles[より詳しい情報]
 
+/////
 == Terminology ==
+/////
+== 用語集 ==
 
+/////
  * A 'fact' is now called a 'note'.
+/////
+ *  「ファクト」は「ノート」に変更しました。
+/////
  * Instead of talking about a note's 'model', we now talk about a note's 'type'.
+/////
+ *  ノートの「モデル」はノートの「タイプ」に変更しました。
+/////
  * A 'collection' stores all your notes, cards, and so on.
+/////
+ *  「コレクション」には全ての単語帳、カードなどを保存しています。
+/////
  * You can divide the cards up into separate groups, called 'decks'.
+/////
+ *  カードを個別のグループに分割でき、それを「単語帳」と呼びます。
+/////
  * 'Plugins' are now called 'add-ons'.
+/////
+ *  「プラグイン」は「アドオン」に変更しました。
 
 [[perday]]
+/////
 == Per-day limiting ==
+/////
+== 一日あたりの制限 ==
 
+/////
  * The new cards per day limit is controllable per deck, and bounded by the
    parent decks. This means if "French" has a limit of 20 cards and
    "French::Lesson 1" and "French::Lesson 2" both have limits of 15 cards,
    you'll get 15 cards from lesson 1 but only 5 cards from lesson 2.
+/////
+ * 新規カードの一日あたりの出題上限は単語帳別に設定でき、親の単語帳の設定に支配されます。つまり、「French」のカードの上限が20枚、「French::Lesson 1」と「French::Lesson 2」がそれぞれ15枚に設定されていれば、「lesson 1」からは15枚出題しますが、「lesson 2」からは5枚しか出題しないことになります。
 
+/////
  * Decks now have a limit on daily reviews as well, which defaults to 100.
    When the limit is reached, Anki will not present further reviews from that
    deck, even if there are cards waiting. When the congratulations page is
@@ -857,62 +1458,116 @@ location, so that Anki 2 can find it.
    returning to Anki from a break. Large due counts can be off-putting, and
    while it's not optimal for a user to leave due cards waiting, if they give
    up in frustration that's an even worse outcome.
+/////
+ * 同様に単語帳は、一日の復習の上限値を設定していて、既定では100です。上限に達すると、たとえ待機中のカードがあってもAnkiはこれ以上その単語帳から復習を表示しません。「おめでとうページ」に達すると、そのユーザーの最適な記憶力に見合う数まで一日の上限を引き上げるよう助言する告知を表示します。この変更は、ユーザーが中断からAnkiに戻ったあとに感じる圧倒されるような感覚を和らげることを意図しています。膨大な数の期日に達した復習を先延ばしにすることができ、待機中の期日に達したカードを残すのはあるユーザーに取って最善のことではないかもしれませんが、フラストレーションがたまって挫折するのはもっと悪い結末です。
 
+/////
  * No limit is applied to cards in learning, as the learning count is a
    product of the number of new cards and reviews that are done each day.
+/////
+ * 学習するカードの上限を外さない限り、学習回数は一日あたりの新規カードと復習の設定値の合計になります。
 
+/////
 == Shared Decks ==
+/////
+== 共有単語帳 ==
 
 ++++++++++
 <img src="img/2-overview.png" style="float:right; margin: 1em;">
 ++++++++++
 
+/////
  * Shared decks can now be browsed on AnkiWeb, and downloaded from your browser.
+/////
+ * 共有単語帳はAnkiWebで一覧でき、ブラウザからダウンロードできます。
+/////
  * You can now rate and comment on shared decks.
+/////
+ * 共有単語帳に評価とコメントを付けることができます。
+/////
  * You can now pull in new cards from a previously downloaded shared deck.
+/////
+ * ダウンロード済みの単語帳から新しいカードを取り出すことができます。
 
 [[selective]]
+/////
 == Selective Study ==
+/////
+== 選択学習 ==
 
+/////
 Anki's new deck system is based on the following observations:
+/////
+Ankiの新しい単語帳システムは次のような観察に基づいています。
 
+/////
  * Nested categories like "French->Book 1->Lesson 3" are more intuitive to the
    typical user than the tags "french book1 lesson3".
+/////
+ * 「French->Book 1->Lesson 3」といった入れ子になったカテゴリは、典型的なユーザーにとっては「french book1 lesson3」より直感的です。
+/////
  * Many users struggled with the old selective study system, be it because
    they'd accidentally used overlapping tags that cancelled out what they
    wanted to do, or because they'd removed particular tags from review and
    forgotten they'd done so.
+/////
+ * 多くのユーザーにとって古い選択学習システムを使いにくいものでした。その理由は、自分がしたいことを相殺するタグを誤って重複して使用したからか、復習から特定のタグを削除したか削除することを忘れてしまったからです。
+/////
  * Tag-based limiting did not perform well - slowdowns of 10x or more were not
    uncommon.
+/////
+ * タグを基本とした制限は上手く機能しませんでした。10倍、場合によっては以上の速度低下が見られました。
+/////
  * Some users wished to assign different study settings to different cards.
    This is not practical with tags, as they overlap, and it would require an
    elaborate system of defining which tags should take precedence for that to
    work.
+/////
+ * カード毎に学習設定することを希望するユーザーがいました。これに対応するにはタグは現実的ではなく、タグが重複した場合、機能するためにどのタグを優先するすべきか定義する複雑なシステムが必要です。
 
+/////
 Those issues are addressed as follows:
+/////
+このような問題点を解決するために次のように取り組みました:
 
+/////
  * In Anki 2, the standard review system is based on the 'current deck',
    rather than a list of allowed/disallowed tags. Decks can be nested,
    allowing you to define the order cards should appear in and allowing you to
    focus on specific subsections individually.
+/////
+ * Anki 2の標準復習システムは、許可/不許可のタグ一覧ではなく「現在の単語帳」に基づいています。
+/////
  * Tag-based study is still possible via a flexible filtered deck
    system, described further below.
+/////
+ * タグベースの学習は、柔軟なフィルター単語帳システムを通じてこれまでどおり利用可能です。後ほど詳しく説明します。
 
+/////
 As there's no way to directly map the old selective study feature into the new
 way of doing things, a little manual setup is required after upgrading if you
 were using selective study before.
+/////
+古い選択学習機能を新しい方法に直接移行する方法は存在しないため、以前の選択学習を使っていた場合、多少の手動の設定が必要となります。
 
+/////
 If you had a small number of tags which you switched between, such as
 "Japanese" and "French", then your best bet is probably to search for each tag
 in turn in the browser, and use "Change Deck" to move the resulting cards into
 separate decks.
+/////
+切り替えのためのタグを少数使っていた場合、(例えば「Japanese」や「French」といった)、最善の方法はおそらく、それぞれのタグを順番にブラウザーで検索し、「単語帳を変更」を使って検索したカードを別の単語帳に移動することになります。
 
+/////
 If you were using selective study to control introduction of new cards (such
 as blocking lessons 5-18 from being displayed), you could also convert each
 lesson into a deck, but that's somewhat cumbersome. An easier method would be
 to suspend the cards you're not ready for, and then unsuspend them on a
 per-lesson basis when you're ready to study them. You could do it like this:
+/////
+新規カードの初回表示を管理するために選択学習を使っていた場合は、(例えばレッスン5から18までは表示しないなど)、それぞれのレッスンを一つずつ単語帳に変換することができます。これは少し面倒です。もっと簡単な方法は、準備が整っていないカードを保留し、準備ができたらレッスン毎の基準に基づいて、保留を解除する方法です。それは次のような手順になります:
 
+/////
  1. Search for "tag:lesson* is:new" to find all new cards with a lesson tag.
     Select them all, and suspend them.
  2. Assuming you were halfway through lesson4 before upgrading, search for
@@ -920,9 +1575,17 @@ per-lesson basis when you're ready to study them. You could do it like this:
     previous step.
  3. When you're ready to move on to lesson 5, search for "tag:lesson5" and
     unsuspend the cards.
+/////
+ 1. lessonタグを持つカードを「tag:lesson* is:new」で検索し、保留にします。
+ 2. アップグレード前、レッスン4(lesson4)の途中だった場合、「tag:lesson4 is:new」を検索し、前の段階で保留したカードの保留を解除します。
+ 3. レッスン5(lesson 5)に移る準備が整ったら、「tag:lesson5」で検索して保留を解除します。
 
+/////
 == Priorities ==
+/////
+== プロパティ ==
 
+/////
  * Like selective study, card display order is now controlled via nested decks
    instead of tags. When you select a given deck, Anki walks the deck
    and its subdecks in alphabetical order looking for cards. So if you have
@@ -932,94 +1595,174 @@ per-lesson basis when you're ready to study them. You could do it like this:
    decks. You can use this property to ensure certain cards are reviewed
    earlier or later than normal: prepending a "!" like "!Vocab" would ensure
    vocab cards come first, and prepending a "_" would ensure they come last.
-
+/////
+ * 選択学習で説明したように、カードの表示順は、タグの代わりに入れ子になった単語帳で制御するようになりました。単語帳を設定すると、Ankiはアルファベット順に単語帳とそのサブ単語帳の中のカードを調べます。「French::Vocab」、「 French::Sentences」、「French:Misc」といった単語帳にカードがあり、単語帳「French」を選択した場合、カードの取得は最初はMisc、次にSentences、そしてVocabから行います。つまりこれらの単語帳名のアルファベット順です。このプロパティを使って特定のカードを標準より早く復習したり遅くしたりできます。単語名の最初に「!」を付ければ(例、!Vocab)この単語帳のカードを最初に表示します。「_」を単語名の最初に付ければ最後に来ます。
+/////
  * For more fine-grained reordering of new card presentation order, the
    browser now has a reposition command which can change the order of new
    cards in the queue. You can use this for prioritizing material, changing
    the order cards of different types will be mixed together, and so on.
+/////
+ * 更に細かい粒度で新規カードの表示順を設定するために、ブラウザーには [新規カードを並び替える] コマンドがあります。これを使えば教材の優先順位を設定し、色々な種類が混在したカードの表示順を変更で来ます。
 
+/////
 == Scheduling ==
+/////
+== スケジュール設定 ==
 
 ++++++++++
 <img src="img/3-review.png" style="float:right; margin: 1em;">
 ++++++++++
 
+/////
  * Anki has a much-improved learning mode. When new cards are introduced or
    old cards forgotten, they can now be shown over a number of increasing
    intervals before they graduate into normal reviews cards. More information
    in the manual: link:manual.html#learning[learning]
+/////
+ * Ankiの学習モードを大きく改善しました。新規カードを初めて表示したとき、古いカードを忘れたときには、通常の復習カードに戻る前に、広がっていく間隔で表示します。詳しい情報はユーザーマニュアルのlink:manual.html#learning[learning]をご覧ください。
+/////
  * Reviews are only scheduled on a per-day basis now. If you wish to divide a
    day's cards into multiple sessions, you can either use the timeboxing
    feature or simply do a certain number of cards and stop until later.
+/////
+ * 復習は一日あたりの基準だけに基づいてスケジュール設定します。ある日のカードを複数のセッションに分割したい場合は、タイムボックス機能を使うか、単純にある枚数だけ復習して中断し、後ほど再開するかどちらかの方法で行えます。
+/////
  * Only when you fail a review card is the card's lapse count increased. This
    means that failures while the card is in learning no longer count towards a
    card being a leech.
+/////
+ * 復習カードを間違えた時だけ、カードの忘却回数が増加します。これは、学習中のカードの間違いは、無駄なカードの判定に利用しないことを意味します。
+/////
  * You can customize the behaviour when failing reviews. By default failed
    reviews are put back in the learn queue to be relearnt. You can have a
    different set of steps for cards that are being relearnt, which allows you
    to reduce the steps required or require longer waits compared to cards that
    are being learnt for the first time.
+/////
+ * 復習を失敗した時の処理をカスタマイズすることができます。既定では復習を失敗すると、再学習のキューに戻します。再学習カードの学習ステップを別の設定にすることもできます。必要な学習ステップを短縮したり、初回学習したカードと比べて、待機時間を長くするような設定もできます。
+/////
  * A multiplier is now available to cause Anki to schedule reviews more
    frequently or less frequently than it would otherwise.
+/////
+ * 復習スケジュールの間隔を他よりも広げたり、縮めたりする乗数を設定できるようになりました。
+/////
  * Due counts are now displayed in the more logical new -> learning ->
    reviewing order. The ETA and progress bars have been removed, and the timer
    is off by default (in the above screenshot, the due counts are not shown as
    they are only shown while the question is visible)
+/////
+ * 期日の数をもっと論理的に、新規->学習中->復習の順番で表示するようにしました。ETAとプログレスバーは削除し、タイマーは既定でオフにしました。(上記のスクリーンショットでは、期日のカードの枚数が見ませんが、質問を表示している間だけに表示するからです）
+/////
  * The learning count is the count of how many answers are required to
    complete the queue, not how many cards. With the default settings of two
    reviews to graduate, the learning count will be twice the number of cards
    to learn.
+/////
+ * 学習の数は、キューを完了するのに必要な解答数であって、カードの枚数ではありません。
+/////
  * In normal study, reviews are always sorted by due order now. If you need to
    change the order to deal with a backlog, you can do it with a filtered
    deck.
+/////
+ * 標準的な学習では、復習は期日の順に並んでいます。この順番を変えたい場合は、フィルター単語帳を使用してください。
+/////
  * While there is no explicit option for "show failed cards at end" anymore,
    you can achieve the same behaviour by setting the learning steps to a
    length longer than your session length (eg, 1 hour), and increasing "learn
    ahead limit" in the preferences to that number as well.
+/////
+ * 「解答できなかったカードを最後に表示する」ための明示的なオプションはなくなりました。同じ処理を実現するには、学習ステップを自分のセッションの長さ以上の時間(例、1時間)に設定し、環境設定の [先取り学習の限度] の値を同様に増やしてください。
 
 [[filtered]]
+/////
 == Filtered Decks, Cramming & Reviewing Early ==
+/////
+== フィルター単語帳、詰め込み学習、復習の先取り ==
 
+/////
  * Filtered decks allow you to gather cards from other decks based on specific
    criteria and with a specific ordering.
+/////
+ * フィルター単語帳を使うと、指定した条件と順番に基づいて別の単語帳からカードを集めることができます。
+/////
  * They are very flexible: they can be used for previewing cards, cramming
    them before a test, studying particular tags like the old selective study
    feature, catching up on a backlog with a particular sort order, reviewing
    ahead, going over the day's failed cards, and more.
+/////
+ * フィルター単語帳は非常に柔軟的です。カードのプレビューをしたり、テスト前の詰め込み学習をしたり、古い選択学習機能のような特定のタグに限定した学習や、特定の並び順で順番待ちのカードを学習したり、復習の先取りをしたり、その日間違えたカードを復習したりすることができます。
+/////
  * They can be set to reschedule based on your answers (like Anki 1.2) or
    leave the original cards alone (like Anki 1.0).
+/////
+ * フィルター単語帳のスケジュールを(Anki 1.2のように)解答に基づいて再設定したり、(Anki 1.0のように)元のカードのままにしておくことができます。
+/////
  * Filtered decks also replace the old "review early" button. They offer two
    advantages: you can now choose how many days to look ahead, and you can
    close Anki and resume reviewing early where you left off, instead of
    starting with the same cards again like in Anki 1.2.
+/////
+ * フィルター単語帳は、古い [予習する] ボタンを置き換えます。これには2つの利点があります。何日間先取りするか指定できることです。そしてAnkiを閉じた後、Anki 1.2のように同じカードをもう一度始める代わりに、終わったところから復習を再開することができます。
+/////
  * For more information, please see
+/////
+ * 詳しい情報は次のページをご覧下さい。
    http://ankisrs.net/docs/manual.html#filtered
 
+/////
 == Syncing ==
+/////
+== 同期 ==
 
+/////
  * In most cases, you can now merge changes from multiple devices instead of
    having to choose which side to keep.
+/////
+ * 多くの場合、複数のデバイスからどちら側を維持するか選択することなく、変更点を統合することができます。
+/////
  * Full syncs are only necessary on the first sync and after changing things
    like the number of fields in a note. If you're about to make a change that
    would force a full sync, you're warned about it and given the option of
    aborting.
+/////
+ * 完全同期が必要なのは初回同期とノートのフィールド数のような変更の後だけです。完全同期が必要になる変更を加えようとする場合には、その点について警告を受け取り、中止する選択肢を選ぶことができます。
+/////
  * Modifying many cards or notes no longer forces a full sync - incremental
    syncs can now handle even large amounts of data.
+/////
+ * 多くのカードやノートの修正は、完全同期が必要になりますが、差分同期でもたくさんのデータを処理できるようになりました。
+/////
  * Clock drift will no longer lead to incorrect syncs. That said, it's still
    confusing to move to another machine with a different clock and find
    greater or fewer cards due, so Anki will still require the clock to be
    within 5 minutes of the real time.
+ /////
+  * 時刻設定の差で同期が不完全になることはなくなりました。それでも、異なる時刻設定のマシンに移動してカードの期日の増減を認識すると混乱が生じます。このためAnkiは依然として実際の時間と5分以内の差の時刻設定を必要とします。
+ /////
  * All data is encrypted before being sent over the internet.
+/////
+ * 全てのデータはインターネットへ送信する前に暗号化されます。
+/////
  * If the connection times out, Anki will automatically retry.
+/////
+ * 接続がタイムアウトすると、Ankiは自動的に再接続を図ります。
 
+/////
 == Media & LaTeX ==
+/////
+== メディアファイルとLaTeX ==
 
+/////
  * AnkiWeb now supports media natively, instead of requiring a third-party
    service like DropBox. No special setup is required - when you sync your
    decks, their media will be automatically synced with it. Anki monitors the
    media folder now, so there are no issues with an out of date media DB like
    there were in the past.
+/////
+ * AnkiWebはDropBoxのようのなサードパーティのサービスを必要とすることなく、独自でメディアファイルをサポートしています。特別な設定も必要としません。単語帳を同期する時に、自動的に単語帳のメディアファイルも同期します。Ankiはメディアフォルダーを監視しています。このため、過去にあったような時代遅れのメディアデータベースに伴う問題はなくなりました。
 
+/////
  * Media and LaTeX references in templates are no longer supported,
    because they don't play well with shared decks. The upgrade routines will
    notice references like [sound:{{field}}.mp3] in your templates and
@@ -1029,49 +1772,78 @@ per-lesson basis when you're ready to study them. You could do it like this:
    that if you had media references comprised of more than one field (eg
    [sound:{{field1}} - {{field2}}.mp3], these will not be imported
    automatically and you will manually have to sort this out.
+/////
+ * メディアとLaTeXの参照はテンプレート内ではもはやサポートしていません。これは共有単語帳で正しく機能しないためです。アップグレード処理では、テンプレートの中にある[sound:{{field}}.mp3]の様な参照を注意していて、このようなファイルを埋め込んだメディアタグ(例えば、[sound:apple.mp3])を持つ新しいフィールドを自動的に作成します。手動で参照を追加し直した場合、メディアデータベースのチェックを行っている時に、Ankiはそのメディアファイルが利用中と認識しません。メディアの参照が一つ以上のフィールドで構成していた場合 (例、[sound:{{field1}} - {{field2}}.mp3])、これらのファイルは自動的に読み込まれず、手動で設定し直す必要があることに注意してください。
 
+/////
  * If you had static media references like `<img src=logo.jpg>` in your
    templates, those media files will not be imported and you'll need to
    manually copy them over. It's recommended that you rename them to have a
    leading underscore, as doing that tells Anki they are used in the template
    and shouldn't be deleted when checking for unused media.
+/////
+ * テンプレートに「<img src=logo.jpg>」というような静的なメディア参照が含まれている場合は、このようなメディアファイルは読み込まれませんので、手動でコピーする必要があります。アンダースコア「_」で始まる名前は変更することをお勧めします。そうすると、このメディアファイルはテンプレート中で使用中で、未使用のメディアをチェックする際に削除してはならないことをAnkiは認識します。
 
+/////
  * When you upgrade, Anki moves the media in each deck's .media folder into
    the new collection's media folder. You had different files with the same
    name in multiple decks, Anki will automatically rename the media for you.
+/////
+ * アップグレードの際に、Ankiはそれぞれの単語帳の.mediaフォルダー内にあるメディアファイルを新しいコレクションのメディアフォルダーに移動します。複数の単語帳内に同じファイル名の別のファイルがあると、Ankiは自動的にそのメディアファイルの名前を変更します。
 
+/////
  * If for some reason Anki wasn't able to move your media from its old
    location, please manually move the media files from the old .media folders
    into your Documents/Anki/User 1/collection.media folder.
+/////
+ * 何らかの理由でAnkiが元の場所からメディアファイルを移動できない場合、元の.mediaフォルダー内にあるメディアファイルをDocuments/Anki/User 1/collection.mediaへ手動で移動してください。
 
+/////
 == The Browser ==
+/////
+== ブラウザー ==
 
 ++++++++++
 <img src="img/4-browsing.png" style="float:right; margin: 1em;">
 ++++++++++
 
+/////
  * Tags and decks are displayed in a panel on the left, and can be clicked to
    search for. Hold down ctrl or command while clicking to append the item to
    the search string.
+/////
+ * タグと単語帳は左側のパネル内に表示し、クリックすると検索します。コントロールキーあるいはコマンドキーを押しながらクリックすると、検索文字列に項目が追加されます。
+/////
  * Columns are now configurable - right click on the header and you can enable
    and disable the columns you want to search on. Click on a column to sort by
    it; drag a column to move it to a different place.
+/////
+ * 列表示は設定可能です。列ヘッダを右クリックすると列の表示、非表示を設定できます。列をクリックするとその列でソートします。列をドラッグして位置を変えることもできます。
+/////
  * Previously you could ask the browser to sort by a particular field, but
    doing so caused any notes without that field not to show. In 2.0, each note
    type has a "sort field". The sort field can be shown as a column, and can
    be sorted on. Click the "Fields..." button to change the sort field. Anki
    will automatically sort in numeric order if the field contains only
    numbers; you don't have to tell it a field is numeric anymore.
+/////
+ * 以前のバージョンではある特定のフィールドでブラウザーをソートしていましたが、そうするとそのフィールド持たないノートは表示できないことが起りました。2.0ではノートタイプ別に「ソートフィールド」を持ちます。ソートフィールドを列として表示することができ、ソートを行うことができます。ソートフィールドを変更するには、[フィールド...] ボタンをクリックしてください。Ankiは、フィールドが数値だけを含む場合は数値で自動的にソートします。もう、数値フィールドであることを設定する必要はありません。
+/////
  * Many search operations are faster than before, but some cases are slower.
    The search box now requires you to hit enter; it will not automatically
    search as you type, as some people type slower than others and for
    expensive searches, automatic searching can be painful.
+/////
+ * 多くの検索処理は以前より速くなりましたが、遅くなる場合もあります。検索ボックスでは、エンターキーを押していただくことになりました。入力すると自動的に検索が開始するのではありません。他の人たちよりもゆっくり入力して、複雑な検索をしようとする人もいて、そのような人たちにとって自動検索は苦痛になりうるからです。
+/////
  * In 1.2, a copy of each field was kept with style information stripped, so
    that you could search for a word and have matches appear even if part of
    the word contained style information (bold, etc). Anki 2 drops this cache,
    as it was expensive to maintain. In Anki 2 if you want to search for
    partially-styled text, you need to limit yourself to the current
    sort field (which Anki can use when searching)
+/////
+ * Anki 1.2では、各フィールドのコピーは外した書式情報は保持していました。このため、たとえ単語の一部に書式情報(太字など)を持っている場合でも、単語を検索し、現れた一致を保持できました。Anki 2ではこのキャッシュの維持は高くつくため外しました。Anki 2では部分的に書式設定されているテキストを検索したい場合、自分で対象を現在のソートフィールドに限定する必要があります。(検索の際にAnkiはそのフィールドを使用します)
 
 ////
 , or go to Edit>Browser
@@ -1080,82 +1852,135 @@ per-lesson basis when you're ready to study them. You could do it like this:
    decks.
 ////
 
+////
  * Selections are now preserved when the search criteria is changed, so you
    can do things like select a bunch of cards, then click on "New" in the side
    bar to narrow the selection to only cards that are new. Preserving the
    selection of many cards at once is slow however, so if the selection is too
    large it is discarded on the next search.
+/////
+ * 検索基準を変更しても、選択結果は保存しています。一群のカードを選択するようなことを行って、サイドバーの[新規]をクリックすると、新規カードだけに選択結果は絞り込まれます。一度に多くのカードの選択結果を保存するのに時間がかかります。そこで選択結果があまりにも大きすぎる場合には、次回の検索では破棄します。
+/////
  * Rescheduling behaves differently now. Cards have their interval and ease
    reset but keep their review history. If you need to remove a card's review
    history, please search for rescheduling in the manual.
+/////
+ * スケジュールの再設定処理が変更になりました。カードの間隔と易しさをリセットしますが、復習履歴は変更しません。
+ カードの復習履歴を削除する必要がある場合は、マニュアルの再スケジュールを検索してください。
+/////
  * The browser now exposes the full review history. Click the info button on
    the toolbar to see it. Note that this data was stored differently in
    previous versions, so the display of whether a card was being learnt,
    reviewed, relearnt or so on may not always be correct for old data.
+/////
+ * ブラウザーは完全な復習履歴を表示します。ツールバーの[情報]ボタンをクリックするとご覧いただけます。このデータは前のバージョンとは違った保存をしていることに注意してください。カードを学んだか、復習したか、再学習したかなど表示は古いデータでは必ずしも正しくなかったかもしれません。
 
+/////
 == Card Layout ==
+/////
+== カードレイアウト ==
 
 ++++++++++
 <img src="img/5-templates.png">
 ++++++++++
 
+/////
  * In Anki 1.2, {{ field }} references were automatically wrapped in style
    information. This meant that the prompt text and field text of a template
    like "What is the capital city of {{ country }}?" often ended up different,
    and users had to use {{{ field }}} instead and figure out the necessary
    HTML.
+/////
+ * Anki 1.2では、{{ field }} 参照は自動的に書式情報を付与しました。これは、"What is the capital city of {{ country }}?" というような、プロンプトのテキストとテンプレートのフィールドのテキストは別の結果になり、ユーザーは代わりに{{{ field }}}を使って必要なHTMLを考えださなくてはならなかったことを意味します。
 
+/////
  * In 2.0, there is no implicit styling: instead of choosing fonts, colors,
    alignment and so on in the GUI, it's all embedded in the template as
    standard HTML and CSS. As a bonus, this allows you to do things like use a
    gradient or image for your card background if you wish.
+/////
+ * Anki 2.0では、暗黙の書式設定は廃止しました。フォントや色、文字寄せなどをGUIで選択する代わりに、標準のHTMLとCSSとして全てテンプレート内に埋め込まれています。利点として、希望すればカードの背景にグラデーションや画像を使うようなこともできるようになりました。
 
+/////
  * The "hide question when showing answer" option has gone away: Anki always
    replaces the question with the answer now. Templates default to including
    the question fields on the answer text however, so Anki will behave like
    always. The "show divider between question and answer" option has gone away
    too, as the divider is included on the template and can be removed if
    desired.
+/////
+ * [解答を表示する時に、質問を隠す] オプションは廃止しました。Anki 常に質問を解答で置き換えます。テンプレートは既定では解答テキストの上に質問フィールドを含んでいます。Ankiは常に同様に処理します。[質問と解答の間に線を引く] オプションも廃止しました。罫線はテンプレートに含まれていて、お望みであれば削除することができます。
 
 [[cardgen]]
+/////
 == Card Generation & Deletion ==
+/////
+== カードの生成と削除 ==
 
+/////
  * In previous versions of Anki, there was a button in the top right of the
    add cards screen that let you enable and disable card templates. As the
    button would only control which cards would be added when you added new
    content, if you wanted to add extra cards to previously added content, you
    had to use the "generate cards" feature in the browser. This caused a lot
    of confusion.
+/////
+ * 以前のバージョンのAnkiでは、カード追加スクリーンの右上にボタンがあり、カードテンプレートの使用可、不可の設定ができました。このボタンだけがコンテンツを新規追加する時にどのカードに追加するか制御していたため、以前追加したコンテンツにカードを追加したい場合、ブラウザーから [カードを作成] 機能を使わなければなりませんでした。これはたくさんの混乱をもたらしました。
+/////
  * In Anki 2, instead of manually specifying which cards to create, cards are
    created depending on whether fields are empty or not. By default, a card
    will be created if at least one field on the front template is non empty.
    You can set Anki up to only create particular cards if certain fields are
    not blank.
+/////
+ * Anki 2では手動でどのカードを作成するか指定する代わりに、フィールドが空どうかによってカードを生成します。既定では表面のテンプレートのフィールドの少なくとも一つが空でない場合、カードを生成します。特定のフィールドが空でないときにだけ特定のカードを生成するようにAnkiを設定することができます。
+/////
  * If you wish to selectively add cards (such as adding a reverse card for
    only your difficult content), you can add a field to your notes that
    controls whether the reverse card will be generated. If you put any text in
    the field (such as "y"), the card is generated, and if you leave the field
    blank, the card is not created.
+/////
+ * カードを選択的に追加したい場合 (難しいコンテンツだけに裏面カードを追加したい場合) には、裏面カードを生成するかどうか制御するフィールドをノートに追加することができます。そのフィールドに任意の文字 (例、「y」) が含まれていると、カードを生成し、空欄の時にはカードは生成しません。
+/////
  * When Anki 2 upgrades your old decks, it will automatically add such a
    required field to notes where you have a card enabled for some but not all
    of the notes.
+/////
+ * Anki 2が古い単語帳をアップグレードする時に、全てのノートではないがいくつかのノートで利用可能なカードがある場合、そのような必須フィールドを自動的にノートに追加します。
+/////
  * There is no option to manually delete individual cards in Anki 2, as if you
    manually deleted a card, Anki would automatically add it again if fields
    were not empty. Instead, you can remove individual cards by blanking out
    one of their required fields.
+/////
+ * Anki 2では個別のカードを手動で削除するオプションはありませんが、手動でカードを削除した場合には、もしフィールドが空でなければ、Ankiは自動的にカードを再度追加します。
+/////
  * Anki doesn't immediately remove cards when one of their required fields is
    blanked out, because that could lead to data loss. To remove cards with
    missing required fields, run Tools>Maintenance>Empty Cards.
+/////
+ * 必須フィールドの一つが空のときAnkiは即座にはカードを削除しません。これはデータの損失につながるからです。必須フィールドがないカードを削除するには、[ツール]>[メンテナンス]>[白紙] を実行してください。
+/////
  * As blanking out fields is a few more steps than just pressing the delete
    button, if you need to remove a number of cards during review, you may find
    it easier to suspend them instead, and then use find&replace at a later
    date to blank out a required field for all the suspended cards in one go.
+/////
+ * フィールドを空欄にするには、[削除] ボタンを押すよりだけよりもさらにいくつかの段階が必要で、もし復習中にたくさんのカードを削除する必要がある場合は、代わりに保留する方が簡単です。その後、[検索と置換] を使って保留した全てのカードの必須フィールドをまとめて空欄にします。
+/////
  * For more information about selectively adding cards, please see
    link:manual.html#_card_generation[this section] of the manual.
+/////
+ * カードを選択的に追加する更に詳しい情報はマニュアルのlink:manual.html#_card_generation[この項目]をご覧ください。
 
 [[dupes]]
+/////
 == Fields and Duplicates ==
+/////
+== フィールドと重複 ==
 
+/////
  * You can no longer specify whether a field should be unique or required.
    Anki makes sure the first field is both provided and unique, but does not
    check the other fields. Anki did not perform well when many cards were
@@ -1163,90 +1988,180 @@ per-lesson basis when you're ready to study them. You could do it like this:
    field is sufficient for determining if a given subject has been entered in
    before. If you wish to look for accidental duplicates in secondary fields
    due to typos, you can use the Find Duplicates feature in the browser.
+/////
+ * フィールドが重複を許さないか、必須かという指定はできなくなりました。Anki は最初のフィールドが空でなく重複していないことを確かめています。しかし、その他のフィールドは確認していません。Ankiは多くのカードが重複していない場合(全てのそのような情報をキャッシュしなければならないため)には、十分なパフォーマンスが得られる訳ではありませんが、単一のフィールドなら与えられた主題が以前入力したものか決定するには十分です。二番目のフィールドにタイプミスが原因の誤った重複があるか調べたい場合は、ブラウザーの[重複を検索する]きのうを使うことができます。
 
+/////
  * For more info, please see <<dupes2,this question>>.
+/////
+ * 更に詳しい情報は、<<dupes2,この質問>>をご覧ください。
 
+/////
  * Fields can now be marked sticky. This means that when you add notes, the
    field content is not erased and is left in the field. This is useful when
    you're adding a series of notes that have similar field content.
+/////
+ * フィールドは消去しにくい特色を持つようになりました。これは、ノートを追加すると、フィールドコンテンツは消去しないでフィールドに残ることを意味します。これは、類似したフィールドコンテンツを持つ一連のノートを追加する時に役立ちます。
 
+/////
 == Performance ==
+/////
+== パフォーマンス ==
 
+/////
  * Decks are considerably smaller now. Most people should see a size drop of
    3-6x.
+/////
+ * 単語帳は以前よりかなり縮小しました。ほとんどの方の場合、1/3から1/6まで圧縮しているのが分かるのではないかと思います。
+/////
  * Many operations have been optimized. You should find your decks load much
    faster now, and studying should be smoother. These changes should be
    especially pronounced on the mobile clients.
+/////
+ * 多くの処理で最適化しました。単語帳の読み込みがずっと速くなり、より円滑に学習できることが分かるのではないかと思います。この変化は、モバイルクライアント上で顕著です。
+/////
  * Anki should now perform much better when your hard disk is being heavily
    accessed.
+/////
+ * ハードディスクへのアクセスが頻繁な場合のAnkiのパフォーマンスが向上しました。
+/////
  * Graphs load much faster, and it's now possible to see graphs of your entire
    collection at once.
+/////
+ * グラフの読み込みがかなり速くなり、直ちにコレクション全体のグラフをご覧いただくことが可能になりました。
 
+/////
 == The Editor ==
+/////
+== エディター ==
 
+/////
  * Fields now dynamically expand to fit their content.
+/////
+ * フィールドはコンテンツに合わせて動的に広がります。
+/////
  * Fields can now display complex HTML without mangling it.
+/////
+ * フィールドは複雑なHTMLを正しく表示できるようになりました。
+/////
  * You can now jump to a conflicting note when conflicts are detected
+/////
+ * 衝突を認識した時に、衝突が起きているノートに移動することができるようになりました。
+/////
  * Images are shown at a reduced size in editing mode.
+/////
+ * 編集モードで画像を縮小サイズで表示しています。
 
 [[cloze]]
+/////
 == Cloze Deletion ==
+/////
+== 穴埋め問題 ==
 
+/////
  * Cloze deletion now makes it easy to generate multiple clozes from a single
    body of text. All of the clozes share the same note, and edits to the note
    will update all cards at once.
+/////
+ * 穴埋め問題によって複数の穴埋めを一つの文章から簡単に生成できるようになりました。全ての穴埋めは同じノートを共有し、ノートを編集すると全てのカードが直ちに更新します。
+/////
  * Cloze deletion works with LaTeX now, too.
+/////
+ * 穴埋め問題にLaTeXが使えるようになりました。
+/////
  * Clozes appear as bold and blue like before, but they can now be customized
    in the template.
+/////
+ * 穴埋めは以前のように太字で青色で表示しますが、テンプレートをカスタマイズすることができます。
+/////
  * Clozes made with previous versions will not be converted to the new
    style; it only applies to newly made cards.
+/////
+ * 以前のバージョンで作った穴埋めは、新しいスタイルに変換できません。新しいカードにだけ適用できます。
 
+/////
 == Graphs and Stats ==
+/////
+== グラフと統計情報 ==
 
 ++++++++++
 <img src="img/6-graphs.png"  style="float:right; margin: 1em;">
 ++++++++++
 
+/////
  * The deck statistics and graphs have been merged into a single report that
    contains both text and graphs, and they have been completely rewritten in
    the process. There's now more information available, and it's easier to
    compare things like the cumulative work spent on reviews vs relearning vs
    initial learning.
+/////
+ * 単語帳の統計情報とグラフは文章とグラフの両方を含む単一のレポートに統合しました。この工程は完全に書き直しました。これまでより詳しい情報をご覧いただけます。復習と再学習、初期の学習の累積学習時間のような比較が簡単になりました。
 
+/////
  * The old period selection boxes have been replaced with a single box down
    the bottom, allowing you to change between a monthly, yearly, and deck life
    view of the data. The data is chunked into weeks or months in the larger
    graphs, which both performs better and offers a clearer view of trends.
+/////
+ * 期間選択ボックスを一つにまとめて一番下に配置しました。データの表示を1か月、1年、単語帳の全期間で変更することができるようになりました。このデータは、グラフの中で週、月毎に区分けしていて、このことによって、パフォーマンスの向上とさらに明確な傾向の表示が両方が提供できるようになりました。
 
+/////
  * There is a button to save the graphs to an image, to make it easier to
    share your graphs with friends or teachers.
+/////
+ * グラフを画像として保存するボタンを配置して、友達や先生とグラフを簡単に共有できるようになりました。
 
+/////
 == Spacing Siblings ==
+/////
+== 関連カード同士の間隔 ==
 
+/////
  * When you start studying, the new cards for the day are gathered - 20 by
    default. When each card is shown, all its siblings are moved to the end of
    the queue, so they're spaced as far apart in those 20 cards as possible.
+/////
+ * 学習を始めると、その日のための新しいカードを収集します。既定では20枚です。それぞれのカードを表示すると、そのカードの関連カード全てキューの最後に移動します。このため、関連カード同士で最低限20枚は離れています。
+/////
  * If you want new siblings to be introduced further apart, you can put them
    in different decks or use the reposition feature of the browser.
+/////
+ * 新しい関連カードをさらに離して初回表示したい場合は、新しいカードを別の単語帳に移動するか、ブラウザーの [新規カードを並び替える] 機能を使います。
+/////
  * When determining the next review time of a review card, Anki now checks the
    surrounding days and tries to place the review on a day when no siblings
    have reviews. The possibilities to consider are configurable.
+/////
+ * 復習カードの次回の時間を決定する時に、Ankiは前後の日を調べて関連カードの復習がない日に復習を設定するよう試みます。検討する予測値は設定可能です。
 
+/////
 == Saving & Undoing ==
+/////
+== 保存と元に戻す ==
 
+/////
  * The "save" and "save as" operations have been removed. Saving is now
    transparent to the user, and happens every 5 minutes of adding/reviews, and
    after various other operations. By having more control over the saving
    process, Anki can save more efficiently, and revert changes when an
    operation goes wrong.
+/////
+ * 「保存」と「別名で保存」処理は削除しました。保存はユーザーの手を介さずに、復習や追加では5分おきに、そしてその他の様々な処理の後に実行します。より複雑な保存プロセスを導入することで、Ankiはより効率的に保存し、間違った処理から復活できるようになりました。
+/////
  * The undo system has been simplified. The old method was comprehensive, but
    made updates to the deck considerably more expensive, and could cause
    inconsistencies under rare circumstances. Multi-level undo has been
    preserved for reviews, but other destructive operations now have a single
    level undo, which is guaranteed to restore the deck to a consistent state.
+/////
+ * アンドゥ (元に戻す) システムを簡略化しました。古いシステムは包括的でしたが、単語帳の更新にかなりのコストが掛かるもので、まれな状況でデータの不一致が起っていました。多段階のアンドゥは復習用に取って置き、その他の破壊的な処理は一段階のアンドゥで対応します。これによって、単語帳を一貫した状態で復元することを保証します。
 
+/////
 == License ==
+/////
+== ライセンス ==
 
+/////
  * In 2.0, Anki will be moving from the GNU GPL3 license to another GNU
    license: the AGPL3. The Affero license is compatible with the GPL3, so
    existing plugins do not need to be relicensed. The major difference from
@@ -1255,83 +2170,152 @@ per-lesson basis when you're ready to study them. You could do it like this:
    service. It effectively means a company can't make an online service using
    Anki's code unless they reciprocate by sharing their changes. This clause
    should not affect regular users at all.
+/////
+ * Anki2.0から、Ankiは、GNU GPL3 licenseから別のGNUライセンス、AGPL3に移行します。このAffero license はGPL3と互換性があり、このため既存のプラグインを再ライセンスする必要がありません。GPL3との主な違いは、webサービスでコードを修正し、実行する人に対して、そのwebサービスのユーザーが修正したコードを入手できることを求めている点です。事実上、ある会社がAnkiのコードの変更点を共有することで返礼しないのであれば、Ankiのコードを使ってオンラインサービスを作ることができないと言えます。この条項は、通常のユーザーには影響がありません。
 
+/////
  * Also of note is that ankiqt is now dual licensed like libanki was. I don't
    have any immediate plans to take advantage of this, but it opens up the
    possibility of custom versions in the future for companies who want to
    distribute a stripped down and/or content-protected version of Anki with their
    content for a fee. The desktop version will continue to be released as open
    source, and I have no plans to change that.
-   
+/////
+ * さらに注意いただきたいのは、ankiqtがlibankiのようなデュアルライセンスになったことです。この点を活用する当面の計画はありませんが、自分たちの有料コンテンツと一緒に、余分な機能を省いたり、コンテンツを保護したバージョンのAnkiを配布したい会社に対して、将来のカスタムバーションの可能性を開いています。デスクトップバージョンはオープンソースでリリースし続けるつもりで、この点を変更する予定はありません。
+/////
  * Because much of the code has been rewritten in 2.0 there is very little
    code contributed by other people remaining. I've contacted the authors of
    the remaining code and asked for their permission for the licensing change.
    I don't think I've missed anyone, but if I have, please let me know.
+/////
+ * Anki 2.0で多くのコードを書き直したので、他の人が貢献してくれたコードは非常にわずかしか残っていません。残りのコードの作者に連絡を取って、ライセンスの変更許諾をお願しました。連絡漏れはないと思いますが、そのような方がいらしたらどうか私まで連絡ください。
 
+/////
 == Add-ons ==
+/////
+== アドオン ==
 
+/////
  * Because of the extensive changes, almost all add-ons will require some
    level of modification to work with 2.0. Some add-ons have been ported
    already, others will likely come in the future.
+/////
+ * 変更が広範にわたるのため、ほとんど全てのアドオンがAnki2.0で動作するには何らかのレベルの修正が必要になります。既に対応済みのアドオンもありますが、その他は将来的に対応する必要があります。
+/////
  * After upgrading, please visit the add-ons site to look for new versions of
    the add-ons you were using in Anki 1. The add-ons site is available from
    the Tools>Add-Ons menu inside Anki 2.
+/////
+ * アップグレードしたら、アドオンサイトにアクセスして、Anki1でお使いになっていたアドオンの新しいバージョンを探してください。アドオンサイトは Anki2 の中のメニューから[ツール]>[アドオン]でアクセスできます。
+/////
  * There's now an add-on writing guide link:addons.html[here] that also covers
    the main things to be aware of when porting an old add-on.
+/////
+ * アドオン作成ガイドをlink:addons.html[こちら]に公開しました。古いアドオンを移行する時に注意すべき主要な点をカバーしています。
 
 [[missing]]
+/////
 == Missing Decks/Cards ==
+/////
+== 行方不明になった単語帳、カード ==
 
+/////
 If you find a deck missing cards or empty when upgrading, this is because in
 the past you have exported cards into another deck and studied both decks in
 parallel. Even if you modified the appearance of the cards in one deck, the
 cards were originally the same, and Anki continues to consider them the same,
 as Anki was not intended to be used in this way.
+/////
+アップグレードした単語帳からなくなったカードがあったり、空の場合、これは過去に別の単語帳にカードを書き出して、両方の単語帳で並行して学習したことが原因です。一方の単語帳の表示を修正していたとしても、カードは元は同じもので、Ankiはこれらを同じものと判断します。Ankiはこのような使い方を想定していません。
 
+/////
 This means that when you try to import the cards in one deck into the other,
 nothing happens (on in the case of 2.0, you end up with the cards in one deck
 appearing but the cards in the other deck not appearing).
+/////
+このことは、一つの単語帳のカードを別の単語帳に読み込んだ時に何も起らないことを意味します。(Anki 2.0の場合は、一方の単語帳ではカードが表示され、別の単語帳では表示されない結果になります)
 
+
+/////
 To fix this, please install Anki 1.2.8 again from the bottom of the Anki 2
 page. Then:
+/////
+この問題を解決するには、Anki 2ページの最後から、Anki 1.2.8を再度インストールしてください。
 
+/////
  * Download
    http://ankisrs.net/download/mirror/archive/plugins-1.2/Make_cards_unique.zip[this
    zip file]
+/////
+* ダウンロード
+  http://ankisrs.net/download/mirror/archive/plugins-1.2/Make_cards_unique.zip[Make_cards_unique.zip]
+/////
  * Open Anki 1.2, and go to Settings>Plugins>Open Plugin Folder
+/////
+ * Anki 1.2を開き、[設定]>[プラグイン]>[プラグインフォルダーを開く]を選択して移動します。
+/////
  * Extract the .py file from the .zip you downloaded, and place it in the
    plugins folder.
+/////
+ * ダウンロードした .zip ファイルから .py (訳注: makecardsunique.py) を抽出して、プラグインフォルダーに配置します。
+/////
  * Restart Anki 1.2
+/////
+ * Anki 1.2を再起動します。
+/////
  * For each deck that didn't import, open it and choose Tools>Make Cards
    Unique.
-
+/////
+ * 読み込めなかったそれぞれの単語帳を開き、[Tools]>[Make Cards Unique] を選択します。
+/////
 After you've done this, you should be able to File>Import the decks in Anki
 2.0.
+/////
+この作業を行った後、Anki 2で[ファイル]>[読み込む] で単語帳を読み込むことができます。
 
+/////
 == Questions ==
+/////
+== 質問 ==
 
+/////
 *Why are all the decks in one file now?*
+/////
+*なぜ全ての単語帳を一つのファイルにしてしまったのですか*
 
+/////
 This change makes many parts of the UI simpler, and combined with the
 performance improvements in version 2, actually performs faster than before.
 For scratch decks, you can create a separate profile.
+/////
+この変更で、たくさんのユーザーインターフェースのパーツが単純になりましたし、バージョン2でのパフォーマンスの向上に関係しています。実際に以前よりかなり実行速度が上がりました。単語帳を別のファイルにしたいなら、別のプロファイルを作成することで実現できます。
 
 [[dupes2]]
+/////
 *Why can't we mark an arbitrary number of fields as unique?*
+/////
+*なぜ任意の数値のフィールドをユニークなフィールドと設定できないのですか*
 
+/////
 Consider the notes section of link:manual.html#basics[the basics]. All three
 of those fields are unique, and so users could (and often did) mark all of
 them as unique in previous versions. The problem is that in order to show
 duplicates, Anki needs to either search all similar fields (which is slow), or
 maintain a cache that rapidly grows in size as more fields are added to it.
+/////
+link:manual.html#basics[the basics]のノートに関する項目をご覧ください。これら3つのフィールドは全てユニークで、前のバージョンではユーザーはユニークに設定できましたし、実際にそのように設定することが頻繁にありました。問題は、重複を表示するために　Ankiが全ての関連フィールドを(時間がかかりますが)検索するか、フィールドを追加するに従って急速に増大するキャッシュを維持する必要があることです。
 
+/////
 In the above example, only one field is actually required for determining if
 you've entered a given element before. Whether it's the element name, number
 or symbol you've chosen, by the time you type the first field, you'll be aware
 if you've previously entered the same note before. For the purposes of
 stopping you from adding duplicate notes that you'll have to delete, one field
 is enough.
+/////
+上記の例で、与えられた要素を以前入力したかどうか決定するには、実際にはただ一つのフィールドが必要でした。それが選択した要素の名前、数値、シンボルであっても、最初のフィールドに入力するときまで、同じノートを以前入力したかどうか、注意しないでしょう。いずれ削除することになる重複したノートの追加を止めるためには、一つのフィールドで十分です。
 
+/////
 Languages are a different matter. If you're studying from foreign->native and
 native->foreign, and you're studying individual words without context, you may
 find you've entered the same meaning on two different notes. While it's not
@@ -1343,14 +2327,23 @@ but simply augmented so that it can be distinguished from the existing
 material. While you're likely to realize you have duplicate meaning during
 reviews when you see a prompt and think of a different answer, there is also a
 "Find Duplicates" function in the browser.
+/////
+言語は事情が異なります。もし、外国語から母国語、母国語から外国語を学習していて、文脈を伴わない個々の単語を学習している場合は、二つの別のノートに同じ意味を入力することもありえます。そのような場合に通知しないのは最善なことではないですが、この場合と上の場合の重要な違いは、上の場合は告知がないと、同じ情報を二度入力するのは無駄な努力になることです。言語の場合は、重複した情報を破棄する必要がありませんが、単に増加し続け、その結果既存の教材と区別されることもあるでしょう。復習している間にプロンプトを見て別の解答を考えている時に、重複した意味が思い浮かぶこと起こりえますが、[重複を検索する] 機能がブラウザーにもあります。
 
+/////
 Because "Find Duplicates" doesn't need to run each time you press a key, it
 could potentially be more sophisticated in the future. While it is limited to
 exact matches at the moment, extending it to fuzzy matching in the future is
 not out of the question.
+/////
+[重複を検索する] はキーを押す度ごとに実行する必要ないので、将来的にはもっと洗練されるかもしれません。現在は厳密に一致するように制限していますが、将来はあいまいな一致が使えるように拡張することは実行不可能ではありません。
 
+/////
 *Why are you moving away from DropBox?*
+/////
+*なぜDropBoxから離れたのですか*
 
+/////
 Anki 1.2's media syncing caused more confusion than almost any other aspect of
 the app. Even when it was working as designed, it was difficult for users to
 set up, and was prone to errors when users changed their media folder without
@@ -1359,26 +2352,44 @@ pushed out a silent update that broke third-party apps that were trying to
 locate the DropBox folder location. And at the end of July 2012, DropBox will
 completely stop providing Public links to new accounts, indicating they don't
 want apps providing functionality like Anki did.
+/////
+Anki 1.2のメディア同期はこのアプリケーションのその他の機能ほとんど全てよりもたくさんの混乱を引き起こしました。設計通りの動作であっても、ユーザーが設定することが困難で、ユーザーがメディアデータベースを更新せずにメディアフォルダーを変更すると、エラーが起きやすくなっていました。DropBoxがDropBox フォルダーの位置を突き止めようとしたサードパーティのアプリケーションを遮断するサイレントアップデートを公開した時に、さらにAnki 1.2のユーザビリティが悪化しました。2012年7月末、DropBoxは新規アカウントに対して公開リンクを提供することを完全に中止しました。このことは、Ankiが提供していた機能を提供するアプリケーションを望んでいないということ示しています。
 
+/////
 I have no immediate plans to charge for media hosting, but in the longer term
 I will probably need to introduce premium accounts for people with media over
 a certain size so that I can cover the increased hosting costs which I'm
 currently paying for out of my pocket.
+/////
+メディアホスティングの課金に関する当面の計画はありませんが、一定のサイズ以上ののメディアファールを使っている人に対しては、おそらく長期的にはプレミアアカウントを導入することが必要になるでしょう。これは、現在自腹で払っているホスティング費用の増加に対応するためです。
 
+/////
 If you're concerned about having to pay in the future, media syncing can be
 disabled in Anki's settings so that only the card/note data is synchronized.
 You are then free to use any third-party synchronization service to keep the
 media folders in sync between separate computers.
+/////
+将来的に支払いが発生することを気にするのであれば、Ankiの環境設定で、同期はカードとノートだけにして、メディアの同期をしないよう設定できます。どのサードパーティの同期サービスを使っても、メディアフォルダーを別のコンピュータと同期することは自由にできます。
 
+/////
 *Why are reviews only scheduled on a per-day basis now?*
+/////
+*なぜ、復習のスケジュールは一日あたりの基準だけになったのですか*
 
+/////
  * The SuperMemo algorithm was not designed to work on a sub-day basis, and is
    not accurate to that level.
+/////
+ * SuperMemoのアルゴリズムは、一日以下の単位を基準で動作するように設計されていません。その程度では、正確な結果が得られません。
+/////
  * In previous versions of Anki, in order to review in the evening and then
    again the next morning, cards had to be scheduled with small intervals like
    8 hours. Unfortunately this meant that cards reviewed in the morning would
    become due again in the evening, when they are better reviewed after a
    night's sleep.
+/////
+ * 前のバージョンのAnkiは、夕方復習をして、翌朝再度復習するためは、カードのスケジュールを8時間といった短い間隔に設定する必要がありました。残念なことに、これは、夜間睡眠後の復習は効果的なのですが、朝復習したカードは夕方また期日に達することになります。
+/////
  * By making all of a day's reviews due in the morning, you can both see at a
    glance how many cards are due that day, and study as many or as few as you
    desire. When you have a busy morning you can leave the cards until later,
@@ -1386,5 +2397,10 @@ media folders in sync between separate computers.
    one session. When cards become due throughout the day, it's not easy to
    find out how many more need to be done that day, and you have to jump
    through hoops to study more than are currently due.
+/////
+ * 一日の復習期日を朝に設定すると、その日何枚のカードが期日に達するか知ることができ、学習したい数あるいはそれよりも少ない数だけ学習できます。朝が忙しい時にはカードを先延ばしにすることができ、同様に空いた時間がたくさんある時には、一回のセッションで全てのカードを学習することができます。一日のどの時点でカードが期日に達するか決まっていないと、その日学習するのは何枚か簡単には分かりませんし、その日が期日の枚数以上を学習しなければならなくなります。
+/////
  * For the initial learning steps where sub-day scheduling is more important,
    you can use Anki's learning mode instead.
+/////
+ * 初回の学習ステップで、一日以下の単位を基準としたスケジュールがより重要な場合には、Ankiの学習モードを代わりに使うことができます。
