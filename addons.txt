@@ -312,7 +312,8 @@ ti.run()
 /////
 
 -----
-file = open("/path/to/text.txt")
+from anki.importing import TextImporter
+file = u"/path/to/text.txt"
 # 基本ノートタイプに変更する
 m = mw.col.models.byName("Basic")
 mw.col.models.setCurrent(m)
