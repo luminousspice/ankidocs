@@ -302,193 +302,559 @@ Python version.
 * Mnemosyne importer tweaks
 * Other minor fixes
 
+/////
 = Changes in 2.0.9 =
+/////
+= 変更点: 2.0.9 =
 
-* Improvements to the type answer feature: no more "the correct answer was"
+/////
+ * Improvements to the type answer feature: no more "the correct answer was"
   text, clearer indications of typed vs correct answer, customizable colours
   (.typeBad/.typeGood/.typeMissed), monospace by default so input+correct
   lines up (code#typeans), an example comparison in the Cards dialog,
   and automatic moving of the answer comparison underneath the Q/A line.
   Example attached.
-* The browser now has a preview button that makes it easier to quickly browse
+/////
+ * 解答を入力(type answer)機能を改善しました。「正解は」という文字は表示せず、入力と正解の表示を分かりやすくしました。色(.typeBad/.typeGood/.typeMissed)はカスタマイズ可能です。入力と正解は等幅フォントで上下に並べて表示(code#typeans)します。カード編集画面のプレビューで比較例を表示し、質問と解答の間の罫線の真下に入力と正解の比較例を自動的に表示します。例を添付しました。
+/////
+ * The browser now has a preview button that makes it easier to quickly browse
   previews of cards.
-* The 'limit to tags' and 'study a random selection of cards' options in the
+/////
+ * ブラウザーに[プレビュー]ボタンを追加しました。もっと簡単に素早くカードをプレビューできるようになりました。
+/////
+ * The 'limit to tags' and 'study a random selection of cards' options in the
   custom study dialog have been merged together into a single new option that
   allows you to study new cards, due cards or all cards (cram), optionally
   limiting to particular tags as well.
-* If Anki detects that the media is out of sync, it will now automatically
+/////
+ * カスタム学習ダイアログのオプション「特定のタグに限定する」と「カードを無作為に選んで学習する」は一つのオプションに統合しました。このオプションを使うと、タグで任意の制限を加えながら、新規カード、期日に達したカード、全てのカード(詰め込み)を学習できます。
+/////
+ * If Anki detects that the media is out of sync, it will now automatically
   recover on the next sync. Furthermore, it no longer needs to send files that
   already exist on each side, so when this change is incorporated into the
   mobile clients you'll be able to copy media over to them to avoid a long
   initial media sync.
-* When media is deleted via a sync or unused media, it's now placed in the
+/////
+ * Anki は同期から外れたメディアファイルを見つけると、自動的に次回の同期で回復を行います。更に、既にどちら側にも存在するファイルを送信する必要はなくなりました。この変更点がモバイルクライアントに反映されると、時間のかかる初回のメディアの同期をしなくても、メディアファイルをモバイルクライアントにコピーできるようになります。
+/////
+ * When media is deleted via a sync or unused media, it's now placed in the
   OS's trash folder instead of deleted completely. Likewise for rotated
   backups and profile deletions.
-* When notes are deleted, their content is logged in a file called deleted.txt
+/////
+ * 同期や未使用のメディア処理で削除したメディアファイルは、完全に削除するのではなくOSのゴミ箱フォルダーに移動するようになりました。定期バックアップやプロファイルの削除と合わせました。
+/////
+ * When notes are deleted, their content is logged in a file called deleted.txt
   in your profile folder.
-* The filter area when selecting decks or note types now matches on
+/////
+ * ノートを削除すると、そのコンテンツはプロファイルフォルダー内のファイル deleted.txt に記録するようになりました。
+/////
+ * The filter area when selecting decks or note types now matches on
   consecutive characters, and uses spaces to separate search terms. So if you
   had a deck called "German::Verbs", you can search for it with "man verb",
   but not "grman"
-* You can now choose a font size > 20px for the card list. It's not possible
+/////
+ * 単語帳やノートタイプを選択する際にフィルターエリアで一文字づつ一致を掛けるようになりました。検索用語を区切るには空白を使います。"German::Verbs"という単語帳がある時は、"man verb"で検索できますが、"grman"ではできません。
+/////
+ * You can now choose a font size > 20px for the card list. It's not possible
   to resize the line height for each individual card, so choosing a large font
   size in one note type will make the line height large for all cards.
-* Anki should output BRs instead of DIV tags when you hit enter in the editor
+/////
+ * カード一覧で20px以上のフォントサイズを指定できるようになりました。ここのカードで行送り(line height)を変更できないため、あるノートタイプで大きいフォントサイズを指定すると、すべでのカードで行送りが大きくなってしまいます。
+/////
+ * Anki should output BRs instead of DIV tags when you hit enter in the editor
   now, which should make editing the resulting text on mobile clients easier.
   Note this will only apply to content you add after upgrading.
-* Card types are removed with an X on the tab instead of an item in More.
-* Check Database, Unused Media and Empty Cards are now in the Tools menu,
+/////
+ * Ankiは、エディター内でエンターキー(Return)を押すと、DIVではなくBRタグを出力するようになりました。これによってモバイルクライアント上で出力結果のテキストを編集するのが簡単になりました。これはアップグレード後に追加したコンテンツだけに適用することに注意してください。
+/////
+ * Card types are removed with an X on the tab instead of an item in More.
+/////
+ * タブの中の[X]をクリックするとカードタイプの削除ができます。[もっと]リストからの選択から変更になりました。
+/////
+ * Check Database, Unused Media and Empty Cards are now in the Tools menu,
   instead of a submenu.
-* Full Sync is now in the preferences, not in the menu.
-* Syncing now checks to see if the database is consistent prior to syncing,
+/////
+ * データベースをチェック、未使用のメディア、白紙はサブメニューから[ツール]メニューに移動しました。
+/////
+ * Full Sync is now in the preferences, not in the menu.
+/////
+ * 完全同期は、メニューではなく環境設定で指定することになりました。
+/////
+ * Syncing now checks to see if the database is consistent prior to syncing,
   and if it finds any errors, it recommends a database check rather than a
   full sync.
-* If a database check finds any errors, it automatically forces a full sync.
-* When closing the collection, check for corruption. This makes closing Anki
+/////
+ * 同期処理は、同期の前にデータベースの一貫性について調べるようになりました。エラーが見つかった場合は、完全同期よりもデータベースのチェックを行うことをお勧めします。
+/////
+ * If a database check finds any errors, it automatically forces a full sync.
+/////
+ * データベースのチェックで何らかのエラーが見つかった場合は、自動的に完全同期することになります。
+/////
+ * When closing the collection, check for corruption. This makes closing Anki
   and switching profiles a bit slower, but ensures that corruption is detected
   early so that backups are useful.
-* If user has Add window open and syncs, ask if they want to keep the content
+/////
+ * コレクションを閉じる時に、エラーが内かチェックしています。このため、Ankiを終了やプロファイルを変更がすこし時間が掛かるになりました。しかしこれによってエラーを早く検出でき、バックアップが役立つようになりました。
+/////
+ * If user has Add window open and syncs, ask if they want to keep the content
   and cancel sync if so.
-* After uploading a collection, notify user they need to download on other
+/////
+ * 追加ウィンドウを開いたまま同期をした場合、コンテンツをそのまま残して同期作業を取り消すか尋ねるようになりました。
+/////
+ * After uploading a collection, notify user they need to download on other
   devices.
-* More verbose sync conflict message.
-* Shift clicking on a sidebar item in the browser will now OR it with the
+/////
+ * コレクションをアップロードした後、他のデバイスにダウンロードする必要があるか確認するようになりました。
+/////
+ * More verbose sync conflict message.
+/////
+ * 同期の不一致に関するメッセージをもっと詳しくしました。
+/////
+ * Shift clicking on a sidebar item in the browser will now OR it with the
   current search.
-* Prioritize HTML over images, so pasting from Microsoft apps pastes text
+/////
+ * ブラウザーでシフトキーを押しながらサイドバー項目をクリックすると、現在の検索項目にOR条件で追加するようになりました。
+/////
+ * Prioritize HTML over images, so pasting from Microsoft apps pastes text
   again.
-* Timeboxing now pops up dialog instead of a tooltip, with options to
+/////
+ * HTMLを画像より優先することにしました。このためマイクロソフトのアプリケーションからのペーストはテキストが2重になります。
+/////
+ * Timeboxing now pops up dialog instead of a tooltip, with options to
    continue or finish.
-* Don't import notes multiple times when the note type has been modified
-* Add mature correct/today stat to graphs.
-* You can now hold down the shift key while starting Anki to disable add-on
+/////
+ * タイムボックス機能はツールチップからダイアログのポップアップに変わりました。選択肢は、[継続]か[終了]です。
+/////
+ * Don't import notes multiple times when the note type has been modified
+/////
+ * ノートタイプを修正した時に。ノートの読み込みを何回も行わないようになりました。
+/////
+ * Add mature correct/today stat to graphs.
+/////
+ * 本日の熟知のカードの正解数についての統計情報をグラフに追加しました。
+/////
+ * You can now hold down the shift key while starting Anki to disable add-on
   loading and automatic syncing (except if you're on an old Linux distro).
-* Make sure to update card order when changing, adding or deleting option
+/////
+ * シフトキーを押したままAnkiを起動すると、アドオンの読み込みと自動的な同期を行わなくなりました。(古いLinuxのディストリビューションをお使いの場合を除きます)
+/////
+ * Make sure to update card order when changing, adding or deleting option
   groups.
-* Make sure to shuffle after importing txt or apkg files if your deck options
+/////
+ * オプショングループの変更、追加や削除を行った時に、カードの順序を確実に更新するようにしました。
+/////
+ * Make sure to shuffle after importing txt or apkg files if your deck options
   say to shuffle.
-* When exporting to an .apkg with scheduling off (or when sharing a deck on
+/////
+ * 単語帳のオプションで新規カードを無作為に学習すると設定している場合は、テキストファイルやAnki単語帳パッケージ(apkg)を読み込んだ後、確実にランダムに並び替えるようにしました。
+/////
+ * When exporting to an .apkg with scheduling off (or when sharing a deck on
   AnkiWeb), new cards now have their current order preserved.
-* Anki will now warn when you try to add a cloze deletion note without any
+/////
+ * スケジュール情報を含めずにAnki単語帳パッケージ(.apkg)を書き出した時(あるいは、AnkiWeb上に単語帳を共有する時)、新規カードの順番は現在のまま維持するようになりました。
+/////
+ * Anki will now warn when you try to add a cloze deletion note without any
   deletions.
-* Anki will allow you to cloze delete when a normal note type is selected,
+/////
+ * 穴埋め問題を作らずに穴埋め(cloze deletion)ノートを追加しようとすると警告を出すようになりました。
+/////
+ * Anki will allow you to cloze delete when a normal note type is selected,
   with a popup warning instead of an error.
-* Anki should now run on an unmapped network drive on Windows and display
+/////
+ * 通常のノートタイプを選択した時に穴埋め問題を追加できるようになりました。エラーが発生する代わりに、注意のポップアップが表示されます。
+/////
+ * Anki should now run on an unmapped network drive on Windows and display
   images correctly.
-* Ctrl+Shift+T (Command+Shift+T on a Mac) now jumps to the Tags entry field.
-* When pasting from field to field, strip <span> tags that were being inserted
+/////
+ * Windows上で、割り当てていないネットワークドライブからAnkiを実行し、画像を正しく表示するようになりました。
+/////
+ * Ctrl+Shift+T (Command+Shift+T on a Mac) now jumps to the Tags entry field.
+/////
+ * Ctrl+Shift+T(MacではCommand+Shift+T)を押すとタグの入力欄に移動します。
+/////
+ * When pasting from field to field, strip <span> tags that were being inserted
   by WebKit.
-* When importing from a text file, include a list of all updated or duplicated
+/////
+ * フィールド間で貼り付けた時も、WebKitが挿入する<span>タグを外すようになりました。
+/////
+ * When importing from a text file, include a list of all updated or duplicated
   notes in the import log.
-* Fix unused media spuriously reporting unused media with leading underscores.
-* Fix cloze+latex issue where multiple answer images were generated.
-* Fix cloze+latex issue where unused media deleted used images and created
+/////
+ * テキストファイルを読み込んだとき、全ての更新ノートと重複ノートの一覧を読み込みログに記録するようになりました。
+/////
+ * Fix unused media spuriously reporting unused media with leading underscores.
+/////
+ * アンダースコアから始まる名前のメディアファイルを間違って未使用と報告する[未使用のメディア]処理を修正しました。
+/////
+ * Fix cloze+latex issue where multiple answer images were generated.
+/////
+ * 複数の解答画像がある時に発生する穴埋めとLATEXの問題を修正しました。
+/////
+ * Fix cloze+latex issue where unused media deleted used images and created
   others.
-* Fix error when trying to reschedule with min>max
-* Add scrollbar to About dialog.
-* Don't allow images to be dragged (and deleted) from the review window.
-* Better warning when importing invalid .apkg file
-* When saving a note, strip quotes from the tags and sort tags in alphabetical
+/////
+ * [未使用のメディア]処理が使用中の画像を削除して、別のファイルを作成する、穴埋めとLATEXの問題を修正しました。
+/////
+ * Fix error when trying to reschedule with min>max
+/////
+ * [スケジュールを変更]処理で最小値が最大値より大きい値を入力した時に発生するエラーを修正しました。
+/////
+ * Add scrollbar to About dialog.
+/////
+ * [Ankiについて]のダイアログにスクロールバーを追加したました。
+/////
+ * Don't allow images to be dragged (and deleted) from the review window.
+/////
+ * 復習ウィンドウから画像をドラッグしたり、削除したりすることはできなくなりました。
+/////
+ * Better warning when importing invalid .apkg file
+/////
+ * 破損した .apkgファイルを読み込んだ時の警告を改善しました。
+/////
+ * When saving a note, strip quotes from the tags and sort tags in alphabetical
   order.
-* Fix an issue with images failing to show up when they had an apostrophe in
+/////
+ * ノートを保存する時に、タグから引用符を取り除いて、アルファベット順に並び替えるようになりました。
+/////
+ * Fix an issue with images failing to show up when they had an apostrophe in
   them.
-* Fix issues with pasting links to sounds/images where the filenames had
+/////
+ * ファイル名にアポストロフィを含む画像ファイルの表示ができない問題を修正しました。
+/////
+ * Fix issues with pasting links to sounds/images where the filenames had
   non-latin characters or punctuation characters.
-* Fix issues with pasting invalid links.
-* Deck descriptions are now always displayed verbatim, and not truncated.
-* Fix issues with syncing media on a vfat drive.
-* When inserting a media file that already exists in the media folder,
+/////
+ * 非ラテン文字や句読点をファイル名に使っている音声ファイルや画像ファイルへのリンクを貼り付けた場合の問題を修正しました。
+/////
+ * Fix issues with pasting invalid links.
+/////
+ * 不正なリンクを貼り付けた場合の問題を修正しました。
+/////
+ * Deck descriptions are now always displayed verbatim, and not truncated.
+/////
+ * 単語帳の説明を一部抜粋せずに、全て表示することになりました。
+/////
+ * Fix issues with syncing media on a vfat drive.
+/////
+ * VFATフォーマットのドライブのメディアファイルを同期する場合に発生する問題を修正しました。
+/////
+ * When inserting a media file that already exists in the media folder,
   checksum all alternative filenames (thanks to Julien Baley)
-* Fix a bug where the number of buttons would decrease from 3 to 2 on the
+/////
+ * メディアフォルダーに既に存在するメディアファイルを挿入した時に、代替ファイル名すべてについてチェックサムを確認します。(Julien Baleyに感謝)
+/////
+ * Fix a bug where the number of buttons would decrease from 3 to 2 on the
   second answer of new cards in a filtered deck.
-* Make it clearer when changing deck options will affect multiple decks.
-* Fix an issue where invalid filenames were generated when pasting a link to a
+/////
+ * フィルター単語帳内で新規カードを2度目に解答する時に、ボタンの数が3から2に減ってしまうバグを修正しました。
+/////
+ * Make it clearer when changing deck options will affect multiple decks.
+/////
+ * 単語帳オプションを変更すると、複数の単語帳に影響が及ぶことをもっと明確に説明するようになりました。
+/////
+ * Fix an issue where invalid filenames were generated when pasting a link to a
   remote filename with non-latin characters.
-* Fix an issue where rescheduling of relearning cards into new cards would
+/////
+ * 非ラテン文字を使っているリモートのファイル名へリンクをペーストした時に、不正なファイル名が生成される問題を修正しました。
+/////
+ * Fix an issue where rescheduling of relearning cards into new cards would
   cause a later "download the fix assertion addon" message.
-* Allow pasting of a few more audio formats.
-* Fix main window appearing on top after pasting on Windows.
-* The 'show duplicates' feature when adding now correctly shows all duplicates
+/////
+ * 再学習カードのスケジュールを変更して新規カードに追加した後で、「fix assertion」アドオンをダウンロードするよう求めるメッセージが表示される問題を修正しました。
+/////
+ * Allow pasting of a few more audio formats.
+/////
+ * いくつかの音声フォーマットが貼り付けられるようになりました。
+/////
+ * Fix main window appearing on top after pasting on Windows.
+/////
+ * Windowsで貼り付けを行うと、メインウィンドウが一番手前に表示される問題を修正しました。
+/////
+ * The 'show duplicates' feature when adding now correctly shows all duplicates
   in the browser, regardless of their embedded formatting.
-* Allow canceling of note type selection.
-* When clicking Add, make sure to reshow Add window if it'd been minimized.
-* Make desktop folder if it was missing when saving stats to image.
-* More checks for the Check Database routine.
-* Fixed a bug where some Windows users were unable to start Anki.
-* Allow overwriting existing files in export (thanks to Chris Burel)
-* Fix an error when user comments out type answer field (thanks to Ospalh)
-* Fixed an issue where a field: search that didn't match would prevent the
+/////
+ * 追加の際の[重複を表示する]機能は、設定している書式に関係なくブラウザーに全ての重複を正しく表示するようになりました。
+/////
+ * Allow canceling of note type selection.
+/////
+ * ノートタイプを選択の際に、キャンセルできるようになりました。
+/////
+ * When clicking Add, make sure to reshow Add window if it'd been minimized.
+/////
+ * [追加]をクリックした時に、追加ウィンドウを最小化している場合でも確実に再表示するようになりました。
+/////
+ * Make desktop folder if it was missing when saving stats to image.
+/////
+ * 統計情報を画像として保存する際に、デスクトップフォルダーがない場合は、作成するようになりました。
+/////
+ * More checks for the Check Database routine.
+/////
+ * データベースをチェックの処理に、更に多くのチェックを盛り込みました。
+/////
+ * Fixed a bug where some Windows users were unable to start Anki.
+/////
+ * 何人かのWindowsユーザーがAnkiを起動できなかったバグを修正しました。
+/////
+ * Allow overwriting existing files in export (thanks to Chris Burel)
+/////
+ * 書き出しの際に既存のファイルを上書きできるようになりました。(Chris Burelに感謝)
+/////
+ * Fix an error when user comments out type answer field (thanks to Ospalh)
+/////
+ * 解答を入力機能を設定した(type:)フィールドをコメントアウトすると発生するエラーを修正しました。(Ospalhに感謝)
+/////
+ * Fixed an issue where a field: search that didn't match would prevent the
   search from matching anything.
-* Handle cloned note types in mnemosyne importer.
-* Don't save note if no changes have been made.
-* Fix an issue with unused media and different file name representations
+/////
+ * あるフィールドで条件に一致しない検索をすると、その後どんな条件でも検索できなくなる問題を修正しました。
+/////
+ * Handle cloned note types in mnemosyne importer.
+/////
+ * Mnemosyneデータの読み込みで穴埋めノートタイプを処理できるようになりました。
+/////
+ * Don't save note if no changes have been made.
+/////
+ * 修正を全く行っていない場合は、ノートを保存できなくなりました。
+/////
+ * Fix an issue with unused media and different file name representations
   (thanks to Ospalh)
-* When changing deck in Add window, switch review deck too.
-* Don't play audio twice when changing templates
-* When hitting 's' on a deck with no due cards, display a tooltip.
-* Handle non-breaking spaces in furigana markup.
-* Fix bug where some text was being swallowed in error messages.
-* Fix a bug where leading whitespace was being cut off in text imports.
-* Fix inverted sub/superscript shortcuts
-* Make sure sort field is updated when field is deleted
-* Allow HTML in Mnemosyne import
-* Fix downloading of add-ons when running from USB disk
-* Fix field outline (thanks to Frostschutz)
-* Workaround a Qt bug that was preventing clicks on the sidebar in the browser
+/////
+ * 未使用のメディアを全く別のファイル名で表示する問題を修正しました。(Ospalhに感謝)
+/////
+ * When changing deck in Add window, switch review deck too.
+/////
+ * 追加ウィンドウで単語帳を変更すると、復習している単語帳も切り替わるようになりました。
+/////
+ * Don't play audio twice when changing templates
+/////
+ * テンプレートと変更する時に、音声ファイルは二度再生しなくなりました。
+/////
+ * When hitting 's' on a deck with no due cards, display a tooltip.
+/////
+ * 期日に達したカードがない単語帳上で「s」を押すと、ツールチップを表示するようになりました。
+/////
+ * Handle non-breaking spaces in furigana markup.
+/////
+ * ルビマークアップ内のノーブレーキングスペース(NBSP)に対応するようになりました。
+/////
+ * Fix bug where some text was being swallowed in error messages.
+/////
+ * エラーメッセージの中で見えなくなっているテキストが存在するバグを修正しました。
+/////
+ * Fix a bug where leading whitespace was being cut off in text imports.
+/////
+ * テキストファイルの読み込みで、先頭の空白が読み込めないバグを修正しました。
+/////
+ * Fix inverted sub/superscript shortcuts
+/////
+ * 上付き文字/下付き文字のショートカットが逆転している問題を修正しました。
+/////
+ * Make sure sort field is updated when field is deleted
+/////
+ * フィールドを削除した場合、ソートフィールドを確実に更新するようにしました。
+/////
+ * Allow HTML in Mnemosyne import
+/////
+ * Mnemosyneからの読み込みでHTMLが使えるようになりました。
+/////
+ * Fix downloading of add-ons when running from USB disk
+/////
+ * USBディスクから実行している時に発生する、アドオンのダウンロードについての問題を修正しました。
+/////
+ * Fix field outline (thanks to Frostschutz)
+/////
+ * フィールドの輪郭の問題を修正しました。(Frostschutzに感謝)
+/////
+ * Workaround a Qt bug that was preventing clicks on the sidebar in the browser
   (thanks to Frostshutz)
-* Pauker importer (thanks to Frostshutz)
-* Added --version option (thanks to Hut)
-* Fixed an error upgrading very old Anki 1 decks.
-* Use "question" and "answer" for browser labels, instead of "front" and
+/////
+ * ブラウザーでサイドバーをクリックできないQTのバグに対応しました。(Frostschutzに感謝)
+/////
+ * Pauker importer (thanks to Frostshutz)
+/////
+ * Paukerからの読み込みに対応しました。(Frostschutzに感謝)
+/////
+ * Added --version option (thanks to Hut)
+/////
+ * --version オプションを追加しました。(Hutに感謝)
+/////
+ * Fixed an error upgrading very old Anki 1 decks.
+/////
+ * 非常に古いAnki1単語帳のアップグレードで発生するエラーを修正しました。
+/////
+ * Use "question" and "answer" for browser labels, instead of "front" and
   "back".
-* When using 'change deck', select the current deck by default.
-* When searching in the browser, use double quotes rather than single quotes.
-* Don't allow invalid characters in filenames when exporting.
-* Allow enter to close the change note type dialog.
-* Fixed a bug where rescheduling learning cards as reviews could cause the
+/////
+ * ブラウザーの見出しに「front」と「back」の代わりに「質問(question)」と「解答(answer)」を使うようになりました。
+/////
+ * When using 'change deck', select the current deck by default.
+/////
+ * [単語帳を変更]を使う時に、現在使っている単語帳を既定で選択するようになりました。
+/////
+ * When searching in the browser, use double quotes rather than single quotes.
+/////
+ * ブラウザーでの検索に、シングルクォートではなくダブルクォートを使用するようになりました。
+/////
+ * Don't allow invalid characters in filenames when exporting.
+/////
+ * 書き出しの際にファイル名に不正な文字は利用できなくなりました。
+/////
+ * Allow enter to close the change note type dialog.
+/////
+ * [ノートタイプを変更]ダイアログでエンターキーを押すとダイアログが閉じるようになりました。
+/////
+ * Fixed a bug where rescheduling learning cards as reviews could cause the
   cards to be in an invalid state.
-* If Anki config can't be loaded, start with new prefs.db
-* Fixed a bug where Anki would close without saving when it was closed while
+/////
+ * 復習途中のカードのスケジュールを変更するとカードの状態が不正になるバグを修正しました。
+/////
+ * If Anki config can't be loaded, start with new prefs.db
+/////
+ * Ankiの設定が読み込めない場合は、新しいprefs.dbを作って起動するようになりました。
+/////
+ * Fixed a bug where Anki would close without saving when it was closed while
   another window was focused.
-* Catch another firewall error.
-* Various other minor fixes.
-* Add shortcut key for history button
-* Work around an issue when backspacing over all text that was formatted.
-* Fix a bug that was causing formatting to be lost when copying between
+/////
+ * 他のウィンドウにフォーカスしている時にAnkiを閉じると保存を行わずに閉じてしまうバグを修正しました。
+/////
+ * Catch another firewall error.
+/////
+ * ファイアウォールエラーを新たに一つ捕捉できるようになりました。
+/////
+ * Various other minor fixes.
+/////
+ * いろいろな軽微な問題を修正しました。
+/////
+ * Add shortcut key for history button
+/////
+ * [履歴]ボタンにショートカットを追加しました。
+/////
+ * Work around an issue when backspacing over all text that was formatted.
+/////
+ * 書式設定したテキスト全体をバックスペースした時に発生する問題に対処しました。
+/////
+ * Fix a bug that was causing formatting to be lost when copying between
   fields.
-* Fix line disappearing in card layout.
-* Resize deck options dialog when it's opened.
-* Ensure cards have correct due number to make sibling spacing work when
+/////
+ * フィールド間でコピーを行った時に、書式が失われるバグを修正しました。
+/////
+ * Fix line disappearing in card layout.
+/////
+ * カードレイアウトで下線が消える問題を修正しました。
+/////
+ * Resize deck options dialog when it's opened.
+/////
+ * 単語帳オプションダイアログを開いた時に、ダイアログの大きさを調整するようになりました。
+/////
+ * Ensure cards have correct due number to make sibling spacing work when
   importing.
-* Show profile name in title bar
-* Make sure we focus first field when adding next note when JP support add-on
+/////
+ * 読み込みの際に、関連カードの同士の間隔が機能するよう正しく期日の数値を設定するようになりました。
+/////
+ * Show profile name in title bar
+/////
+ * タイトルバーにプロファイル名を表示するようになりました。
+/////
+ * Make sure we focus first field when adding next note when JP support add-on
   installed.
-* Fix a bug where hitting enter in the tags completion list could select the
+/////
+ * JP supportアドオンをインストールしている場合、ノートを追加して次のノートに移った時に、フォーカスが最初のフィールドに確実に来るようにしました。
+/////
+ * Fix a bug where hitting enter in the tags completion list could select the
   wrong tag.
-* When studying a filtered card, clicking Add will default to that deck.
-* Add a hideable warning to the bottom of the deck list when there are over 25
+/////
+ * タグの入力補完リストでエンターキーを押すと間違ったタグを選択してしまう問題を修正しました。
+/////
+ * When studying a filtered card, clicking Add will default to that deck.
+/////
+ * フィルター単語帳でカードを学習している時に、[追加]リンクをクリックすると、既定の単語帳はそのカードの単語帳に設定するようになりました。
+/////
+ * Add a hideable warning to the bottom of the deck list when there are over 25
   decks.
-* Fix issues where images with extra properties weren't being found in unused
+/////
+ * 単語帳一覧で単語帳が25以上になると注意を表示するようになりました。この注意は隠すことができます。
+/////
+ * Fix issues where images with extra properties weren't being found in unused
   media.
-* Don't copy the implicit max-width property on images when pasting between fields.
-* Fix a non-rounded number issue in stats
-* Use correct extension when exporting notes/cards as text.
-* Fix alignment issues in top and bottom toolbars
-* Work around a startup problem on misconfigured Windows systems
-* Ignore sticky fields when checking if blank when add window closed
-* Allow multiple spaces in type answer
-* Work around broken images when pasting/attaching on Linux
-* Fix error when sending non-Latin text to trash on Linux
-* Fix a timer bug (thanks to Frostschutz)
-* Fix unicode error on export
-* Fix enter key in add/remove tags dialog
-* Only show browser close menu item on mac
-* Change the way we deal with non-latin chars in filenames on Windows
-* Include full info on sync error
-* Fix modification check in note merge
-* The 'full sync' option should force a sync even if no other changes were
+/////
+ * 追加のプロパティを設定している画像が未使用のメディア処理で見つからない問題を修正しました。
+/////
+ * Don't copy the implicit max-width property on images when pasting between fields.
+/////
+ * フィールド間で貼り付けを行った時に、画像の横幅の最大値の暗黙的なプロパティをコピーしなくなりました。
+/////
+ * Fix a non-rounded number issue in stats
+/////
+ * 統計情報で、数値の丸め込みが行われない問題を修正しました。
+/////
+ * Use correct extension when exporting notes/cards as text.
+/////
+ * ノートやカードをテキストファイルとして出力する時に正しい拡張子を設定するようになりました。
+/////
+ * Fix alignment issues in top and bottom toolbars
+/////
+ * ツールバーの上部と下部の配置の問題を修正しました。
+/////
+ * Work around a startup problem on misconfigured Windows systems
+/////
+ * Windowsシステムを間違って設定している場合の起動に関する問題に対応しました。
+/////
+ * Ignore sticky fields when checking if blank when add window closed
+/////
+ * 追加ウィンドウを閉じる時に、フィールドが空かチェックしますが、前の入力の履歴が残って表示している場合は無視します。
+/////
+ * Allow multiple spaces in type answer
+/////
+ * 解答に複数の空白を入力できるようになりました。
+/////
+ * Work around broken images when pasting/attaching on Linux
+/////
+ * Linux上で、貼り付けたり読み込んだりするする時に画像が破損する問題に対応しました。
+/////
+ * Fix error when sending non-Latin text to trash on Linux
+/////
+ * Linux上で、非ラテン文字のテキストをゴミ箱に移動する時に発生するエラーを修正しました。
+/////
+ * Fix a timer bug (thanks to Frostschutz)
+/////
+ * タイマーのバグを修正しました。(Frostschutzに感謝)
+/////
+ * Fix unicode error on export
+/////
+ * 書き出しの際に発生するユニコードのエラーを修正しました。
+/////
+ * Fix enter key in add/remove tags dialog
+/////
+ * タグを追加、削除のダイアログでのエンターキーの問題を修正しました。
+/////
+ * Only show browser close menu item on mac
+/////
+ * Mac版のみ、ブラウザーを[閉じる]メニュー項目を表示するようになりました。
+/////
+ * Change the way we deal with non-latin chars in filenames on Windows
+/////
+ * Windows上で、非ラテン文字をファル名に使う時の方法を変更しました。
+/////
+ * Include full info on sync error
+/////
+ * 同期エラーに関する完全な情報を含めることになりました。
+/////
+ * Fix modification check in note merge
+/////
+ * ノートをまとめる時の修正のチェックについての問題を修正しました。
+/////
+ * The 'full sync' option should force a sync even if no other changes were
   made
-* Various fixes to the Mnemosyne importer
-* Fix find duplicates feature when fieldname case differs
+/////
+ * 「完全同期」オプションは、他に変更点がない場合でも同期を実行します。
+/////
+ * Various fixes to the Mnemosyne importer
+/////
+ * Mnemosyneの読み込みについての色々な修正を行いました。
+/////
+ * Fix find duplicates feature when fieldname case differs
+/////
+ * 重複を検索機能でファイル名に大文字小文字の違いがある場合の問題を修正しました。
 
 /////
 = Changes in 2.0.8 =

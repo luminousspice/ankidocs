@@ -346,9 +346,14 @@ from anki import Collection
 col = Collection("/path/to/collection.anki2")
 -----
 
+/////
 If you make any modifications to the collection outside of Anki,
 you must make sure to call col.close() when you're done,
 or those changes will be lost.
+/////
+
+Ankiの外部のコレクションに何らかの修正を加えたときは、修正が済んだら col.close() を必ず呼び出さなければなりません。
+これを怠ると修正点は失われます。
 
 /////
 = The Database =
