@@ -285,22 +285,65 @@ Python version.
 * Fix problems syncing when Anki's running on a mapped network drive
 * Fix problems reporting correct error message when sync fails
 
+= 変更点: 2.0.10 =
+/////
 = Changes in 2.0.10 =
+/////
 
+2.0.8から直接アップグレードする場合は、下にある2.0.9の変更点も合わせてご覧ください。
 
+/////
 * Fix pasting of images
+/////
+* 画像の貼り付けに関する問題を修正しました。
+/////
 * Fix error when syncing media on an unmapped network drive
+/////
+* 割り当てていないネットワークドライブ上にあるメディアファイルを同期する時に発生するエラーを修正しました。
+/////
 * Fix issues with non-latin text in images in card layout and preview windows
+/////
+* カードレイアウトやプレビューウィンドウで非ラテン文字のファイル名を持つ画像に発生する問題を修正しました。
+/////
 * Fix unicode error on export
+/////
+* 書き出しの際に発生するユニコードに関するエラーを修正しました。
+/////
 * Default to allowing HTML on import
+/////
+* 読み込みの際にHTMLを含めて読み込むことを既定しました。
+/////
 * Fix error when opening card layout
+/////
+* カードレイアウトを開く際に発生するエラーを修正しました。
+/////
 * Force y axis minimum of 0 in reps graph
+/////
+* 統計情報のグラフのY軸の最小値を0に固定しました。
+/////
 * Fix duplicate searching in Add window
+/////
+* 追加ウィンドウでの重複検索の問題点を修正しました。
+/////
 * Improve type answer comparison of accented characters
+/////
+* 解答を入力機能でのアクセント記号がついた文字の比較を改善しました。
+/////
 * Make sure we show field when nothing typed in
+/////
+* 未入力のフィールドを確実に示すようにしました。
+/////
 * Allow apostrophe when renaming deck
+/////
+* 単語帳の名前を変更する際にアポストロフィーが使えるようになりました。
+/////
 * Mnemosyne importer tweaks
+/////
+* Mnemosyneデータの読み込みを微調整しました。
+/////
 * Other minor fixes
+/////
+* その他の軽微な問題点を修正しました。
 
 /////
 = Changes in 2.0.9 =
