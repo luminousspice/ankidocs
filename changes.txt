@@ -327,7 +327,7 @@ Python version.
 /////
 * Improve type answer comparison of accented characters
 /////
-* 解答を入力機能でのアクセント記号がついた文字の比較を改善しました。
+* 解答キー入力機能でのアクセント記号がついた文字の比較を改善しました。
 /////
 * Make sure we show field when nothing typed in
 /////
@@ -358,7 +358,7 @@ Python version.
   and automatic moving of the answer comparison underneath the Q/A line.
   Example attached.
 /////
- * 解答を入力(type answer)機能を改善しました。「正解は」という文字は表示せず、入力と正解の表示を分かりやすくしました。色(.typeBad/.typeGood/.typeMissed)はカスタマイズ可能です。入力と正解は等幅フォントで上下に並べて表示(code#typeans)します。カード編集画面のプレビューで比較例を表示し、質問と解答の間の罫線の真下に入力と正解の比較例を自動的に表示します。例を添付しました。
+ * 解答キー入力(type answer)機能を改善しました。「正解は」という文字は表示せず、キー入力と正解の表示を分かりやすくしました。色(.typeBad/.typeGood/.typeMissed)はカスタマイズ可能です。キー入力と正解は等幅フォントで上下に並べて表示(code#typeans)します。カード編集画面のプレビューで比較例を表示し、質問と解答の間の罫線の真下に入力と正解の比較例を自動的に表示します。例を添付しました。
 /////
  * The browser now has a preview button that makes it easier to quickly browse
   previews of cards.
@@ -644,7 +644,7 @@ Python version.
 /////
  * Fix an error when user comments out type answer field (thanks to Ospalh)
 /////
- * 解答を入力機能を設定した(type:)フィールドをコメントアウトすると発生するエラーを修正しました。(Ospalhに感謝)
+ * 解答キー入力機能を設定した(type:)フィールドをコメントアウトすると発生するエラーを修正しました。(Ospalhに感謝)
 /////
  * Fixed an issue where a field: search that didn't match would prevent the
   search from matching anything.
@@ -848,7 +848,7 @@ Python version.
 /////
  * Allow multiple spaces in type answer
 /////
- * 解答に複数の空白を入力できるようになりました。
+ * 解答キー入力機能で複数の空白が使えるようになりました。
 /////
  * Work around broken images when pasting/attaching on Linux
 /////
