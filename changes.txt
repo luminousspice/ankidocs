@@ -272,9 +272,12 @@ Python version.
 * Fix incorrect instructions to "maintenance" menu (thanks to Soren)
 * Unused media now shows "no missing media" message in a tooltip (thanks to Julien)
 
+/////
 = Changes in 2.0.11 =
+/////
+= 変更点: 2.0.11 =
 
-
+/////
 * 2.0.9 introduced a change that produced cleaner HTML output when editing
   fields, but unfortunately this revealed a bug in the GUI toolkit which could
   cause Anki to crash when editing those fields. So the 2.0.9 change has been
@@ -282,15 +285,21 @@ Python version.
   will not change the format of cards that were created in 2.0.9 or 2.0.10 and
   thus they may still cause crashes when editing, but any cards added after
   upgrading should not trigger the toolkit bug.
+/////
+* 2.0.9では、フィールドを編集中に、HTML出力について変更を行いました。残念なことにこの変更点でGUIツールキットのバグが発覚し、このようなフィールドを編集するとAnkiはクラッシュします。このため、この2.0.9での変更点は取り消して、brタグの代わりにdivタグを出力するようになりました。このアップグレードでは、2.0.9や2.0.10で作成したカードの書式は変更しません。このためこれらのカードは依然として編集中にクラッシュを引き起こす可能性があります。しかし、このアップグレード後に追加したカードは、ツールキットのバグの誘発しません。
+/////
 * Fix problems syncing when Anki's running on a mapped network drive
+/////
+* 割り当てたネットワークドライブからAnkiを起動した時に発生する同期の問題を修正しました。
+/////
 * Fix problems reporting correct error message when sync fails
+/////
+* 同期に失敗したときのエラーメッセージの問題を修正しました。
 
-= 変更点: 2.0.10 =
 /////
 = Changes in 2.0.10 =
 /////
-
-2.0.8から直接アップグレードする場合は、下にある2.0.9の変更点も合わせてご覧ください。
+= 変更点: 2.0.10 =
 
 /////
 * Fix pasting of images
