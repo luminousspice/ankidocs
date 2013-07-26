@@ -235,42 +235,123 @@ Python version.
 - When adding or importing note types, ensure they have a unique name.
 - Speed improvements to some text operations, thanks to hssm.
 
+/////
 = Changes in 2.0.12 =
+/////
+= 変更点: 2.0.12 =
 
+/////
 * Changed the way pastes and drag&drops are handled. This should hopefully fix
   various issues people were having with Google Images, and will now
   automatically add any images in a chunk of selected text to your collection
   if you have HTML stripping turned off.
+/////
+* 貼り付けとドラッグ・アンド・ドロップの処理方法を変更しました。これでGoogle画像検索(Google Images)をお使いの方が抱えている様々な問題が修正できるのではないかと思います。この変更によって、[HTML を外してテキストをペーストする]設定が無効になっている場合、選択したテキストの中に入っている任意の画像を、自動的にお使いのコレクションへ追加するようになりました。
+/////
 * Fixed errors caused by importing notes with a changed schema
+/////
+* スキーマを変更したノートを読むとエラーが発生する問題を修正しました。
+/////
 * Revert a change made in 2.0.9 where Anki would switch the active review deck
   when a different deck was selected in the add screen. This caused issues
   where the note type would change invisibly and some people objected to the
   new behaviour.
+/////
+* 2.0.9の変更点、追加スクリーンで別の単語帳を選択した時に、復習中の単語帳も変更する処理を取り消しました。この変更はノートタイプが知らないうちに変更してしまうという問題を引き起こし、この新しい動作に対してユーザーから反対が寄せられたためです。
+/////
 * Work around a crash when closing Anki on Windows caused by a toolkit bug.
+/////
+* ツールキットを原因とするWindows版Ankiを閉じる際にクラッシュする問題に対応しました。
+/////
 * Make sure we always show 3 buttons for cards in initial learning in a
   filtered deck.
+/////
+* フィルター単語帳を最初に学習する際に、カードに必ず3つのボタンが表示するようにしました。
+/////
 * Improve the checking for and stripping of filename characters that can't be
   stored on some filesystems.
+/////
+* いくつかのファイルシステムで使用できないファイル名の文字を確認し、取り除く機能を改善しました。
+/////
 * Fixed an error when pasting media with non-latin characters in the URL.
+/////
+* URLに非ラテン文字を含んでいるメディアファイルを貼り付ける際にエラーが発生する問題を修正しました。
+/////
 * Don't throw an error if user adds cloze reference to a non-cloze note type.
+/////
+* 穴埋め(cloze)ノートタイプを指定していない時に、穴埋め問題を設定してもエラーが発生しないようにしました。
+/////
 * Fix error shown when importing csv file with blank first line.
+/////
+* 一行目が空行のCSVファイルを読み込んだ時に、エラーが発生する問題を修正しました。
+/////
 * Fix year and all time review graph.
+/////
+* 統計情報の復習についての1年間、全期間のグラフの問題を修正しました。
+/////
 * If the user's recycle bin is broken, just delete the file instead.
+/////
+* ユーザーのゴミ箱が壊れている場合は、単にファイルを削除するようにしました。
+/////
 * Don't send old backups to the recycle bin.
+/////
+* 古いバックアップファイルを、ゴミ箱に移動しないようにしました。
+/////
 * Fix duplicates not being detected when pasting text.
+/////
+* テキストを貼り付けた時に重複が検出できない問題を修正しました。
+/////
 * Fix a bug where the clipboard was being clobbered after the first paste.
+/////
+* ペーストするとクリップボードの内容が壊れてしまうバグを修正しました。
+/////
 * When pasting images between fields, don't try to download them.
+/////
+* フィールド間で画像をペーストした時には、改めてその画像をダウンロードしないようにしました。
+/////
 * Allow includegraphics in LaTeX
+/////
+* LaTeXのincludegraphics命令が使えるようになりました。
+/////
 * You can now view stats on filtered decks.
+/////
+* フィルター単語帳の統計情報を見ることができるようになりました。
+/////
 * Warn when prefs.db is corrupt, and catch another corruption case
+/////
+* prefs.dbが壊れている場合には警告し、別の破損事例を取得するようにしました。
+/////
 * Allow searches for decks with + in their name.
+/////
+* ファイル名に'+'を含む単語帳が検索できるようになりました。
+/////
 * Work around linux crash on paste of invalid image.
+/////
+* 不正な画像を貼り付けた時にLinux版Ankiがクラッシュする問題に対応しました。
+/////
 * Fix an issue where duplicates were not being detected on paste
+/////
+* 貼り付けた時に重複が検出できない問題を修正しました。
+/////
 * Ensure starting ease can't be set below 130%.
+/////
+* 易しさの初期値を130%以下に設定できないようにしました。
+/////
 * Make sure we include 'px' in stats (thanks to steveaw)
+/////
+* 統計情報に'px'を確実に含めるようにしました。(steveawに感謝)
+/////
 * Fix error shown when importing from command line (thanks to Hans)
+/////
+* コマンドラインから読み込んだ際に発生するエラーを修正しました。(Hansに感謝)
+/////
 * Fix incorrect instructions to "maintenance" menu (thanks to Soren)
+/////
+* メンテナンス処理のメニューへの間違った案内を修正しました。(Sorenに感謝)。
+/////
 * Unused media now shows "no missing media" message in a tooltip (thanks to Julien)
+/////
+* [未使用のメディア]処理が完了したら、ツールチップで「未使用のファイル、行方不明のファイルはありませんでした。」と表示するようにしました。(Julienに感謝)。
 
 /////
 = Changes in 2.0.11 =
