@@ -168,72 +168,165 @@ sibling handling.
 * Fix an issue that was causing note types to be renamed when they shouldn't
   be.
 
+= 変更点: 2.0.13 =
+/////
 = Changes in 2.0.13 =
+/////
 
+/////
 - Sibling handling has been reworked, which should better ensure that cards
 from the same note don't appear together:
+/////
+- 関連カードの処理をやり直して、同じノートから作成したカードは続けて表示しない処理に改良を加えました。
+/////
 ** When you answer a card, Anki will automatically bury any siblings that are
 in the new queue or review queue. Cards in the (re)learning queue can not be
 buried, but reviewing those cards will cause any new & review cards to be buried.
+/////
+** あるカードを解答すると、このカードの関連カードが新規学習や復習のキューにあれば、Ankiは自動的に延期します。
+/////
 ** Cards are no longer unburied when returing to the deck list, but can be
 unburied with a button on the study overview screen.
+/////
+** 延期したカードが単語帳リストに戻っても延期は解除しなくなりました。学習概要のスクリーンの中にあるボタンを押すと解除することができます。
+/////
 ** To avoid problems during the upgrade period, cards are currently unburied
 when you sync or close your collection. When all clients have been updated,
 this behaviour will change so that cards are only automatically unburied when
 a day has passed. You will still be able to manually unbury them if you wish.
+/////
+** アップグレード期間に発生する問題を回避するために、まずは、コレクションを同期するか、閉じる時にカードの延期を解除するようになります。全てのクライアントがアップグレードすると、一日が終わった時だけにカードの延期を解除するように、この動作を変更します。
+/////
 ** This new behaviour ensures that siblings are spaced even in filtered decks.
+/////
+** この新しい処理によって、関連カード同士はたとえフィルター単語帳の中でも確実に間隔をあけるようになりました。
+/////
 ** Burying of new cards can be disabled in the options if you
   want to introduce related cards in the same session. If disabled,
   Anki will try to spread out the siblings like it does in
   2.0.12, though like 2.0.12 spacing is not guaranteed and may
   fail when you edit cards or perform operations that require a
   queue rebuild.
+/////
+** 新規カードの関連カード同士を同じセッションで学習したい場合は、オプションを設定して解除することができます。解除するとAnkiは、2.0.12と同じように関連カード同士の間隔を設定します。しかしながら、カードを編集したり、キューの再構築を必要とする処理を実行した時には、2.0.12のように間隔を設定できる保証はありませんし、失敗する可能性があります。
+/////
 - When importing an .apkg file, existing notes will be updated if
   they are newer in the .apkg file, and the note types are
   compatible. Cards are not touched, so existing progress will be
   retained. This means content authors can now easily distribute
   not only new content, but updates to existing content as well.
+/////
+- apkgファイルを読み込む際に、既存のノートの新しいものがこのapkgファイルにも含まれていて、さらにノートタイプに互換性があれば、そのノートを更新します。カードには変更を加えませんので、既存の学習の進行は維持します。つまり、コンテンツ制作者は簡単に新しいコンテンツを配布できるだけでなく、既存のコンテンツも同様に更新できるのです。
+/////
 - Filtered decks have a new "relative overdueness" sort option that will sort
   cards by how overdue they are compared to their interval, in the same manner
   Anki did a few years ago.
+/////
+- フィルター単語帳の出題方法の選択肢に[期日超過が相対的に大きい順]を追加しました。この項目を選択すると、復習間隔と比較して相対的に大きい順に出題します。この機能は、数年前にAnkiで使われていたものです。
+/////
 - You can now show tags as a browser column.
+/////
+- ブラウザーにタグの列を表示できるようになりました。
+/////
 - Fix an issue with importing when a filtered deck was selected in the main
   window.
+/////
+- メインウィンドウでフィルター単語帳を選択している時に、読み込みを行うと発生する問題を修正しました。
+/////
 - Don't treat modified q/a templates as an incompatible note type. 
+/////
+- q/aテンプレートを修正しても、非互換のノートタイプとして処理しないようにしました。
+/////
 - Anki now enforces a standard encoding of media files with non-latin text,
   which should fix some issues moving media between Mac and non-Mac computers,
   and will ensure you don't end up with multiple files in your media folder
   that look like they have the same filename but actually have a different
   encoding.
+/////
+- Ankiは、メディアファイルの名前に非ラテン文字が含まれている場合、標準的な符号化を適用するようになりました。これはMacとそれ以外のコンピュータ間でメディアを移動する際に発生する問題を修正し、符号化が違っても実際には同じファイル名のファイルが、メディアフォルダー内に複数発生しないようにするためです。
+/////
 - The 'unused media' menu option has been renamed back to "Check Media", and
   it is now capable of renaming fields and media filenames to ensure they're
   consistent.
+/////
+- メニューの選択肢[未使用のメディア]の表示を[メディアをチェック]に戻しました。確実にメディアファイルが一致するように、フィールド名やメディアファイル名を変更することができます。
+/////
 - Fix an issue where dragging files from the desktop on Linux was pasting a
   URL instead of embedding the file 
+/////
+- Linuxのデスクトップからファイルをドラッグすると、ファイルを埋め込む代わりにURLを貼り付けてしまう問題を解決しました。
+/////
 - Fixed a bug where Anki failed to start on Linux distributions with an older
 Python version.
+/////
+- 古いバージョンのPythonを収録しているLinuxディストリビューション上で、Ankiの起動に失敗するバグを修正しました。
+/////
 - Anki now allows you to import .apkgs which have been renamed to .zip, as
   unfortunately some browsers "helpfully" rename the files when downloading
   them. 
+/////
+- 拡張子をzipに変更した、apkgファイルを読み込むことができるようになりました。これは残念なことにダウンロードの際に、拡張子をzipに変更してしまうブラウザーがあるためです。
+/////
 - The "Find Duplicates" function in the browser now ignores HTML when
   comparing duplicates, and provides an option to tag the duplicates.
+/////
+- ブラウザーの[重複を検索]機能は、重複の比較の際にHTMLを無視するようになりました。また、重複した項目にタグを付けるオプションを追加しました。
+/////
 - Fix an error in showing an error when downloading addons 
+/////
+- アドオンをダウンロード中にエラーを表示する際に発生するエラーを修正しました。
+/////
 - Fix < and > in a field causing text to disappear when typing in the answer .
+/////
+- 解答キー入力機能の使用中に、フィールドに < や > が含まれているとテキストが消える問題を修正しました。
+/////
 - The "study deck" and deck/note type selection windows now remember their
   size and position. 
+/////
+- 「単語帳の学習」ウィンドウ、単語帳の選択、ノートタイプの選択ウィンドウが、ウィンドウのサイズや位置を記憶するようになりました。
+/////
 - Fix an issue showing clozes when the user's mistyped the cloze characters. 
+/////
+- ユーザーが穴埋め設定用の文字入力を間違えた時に発生する、穴埋めの表示の問題を修正しました。
+/////
 - Tolerate Windows trash errors .
+/////
+- Windowsのゴミ箱にエラーが発生しても問題にしなくしました。
+/////
 - Fix an error when upgrading some Anki 1 decks.
+/////
+- Anki 1の単語帳をアップグレードする際に発生するエラーを修正しました。
+/////
 - Separate users on the same machine can now run Anki concurrently.
+/////
+- 同一のマシン上で別のユーザーがAnkiを同時に実行できるようになりました。
+/////
 - Anki should no longer have issues starting upon Linux after a previous
   instance didn't terminate properly.
+/////
+- Linux上で前のインスタンスが正常に終了しなかった後に起動しても、Ankiは問題にしなくなりました。
+/////
 - Fix some issues with suspending, burying & rescheduling learning cards that
   could cause a later "download the fix assertion addon" message.
+/////
+- カードの保留、延期、スケジュールの再設定をすると、後で "download the fix assertion addon" というメッセージを表示するようになる問題を修正しました。
+/////
 - After syncing once, the sync username should become visible in the
   preferences dialog.
+/////
+- 一旦同期を行うと、環境設定ダイアログに同期用のユーザー名(AnkiWeb ID)を表示するようになりました。
+/////
 - When adding a new column in the browser, scroll it into view.
+/////
+- ブラウザー上で列を新規追加すると、その列までスクロールするようになりました。
+/////
 - When adding or importing note types, ensure they have a unique name.
+/////
+- ノートタイプを追加したり、読み込んだりする時に、名前が重複しないように確実に設定するようになりました。
+/////
 - Speed improvements to some text operations, thanks to hssm.
+/////
+- いくつかのテキスト処理の速度を改善しました。(hssmに感謝)
 
 /////
 = Changes in 2.0.12 =
