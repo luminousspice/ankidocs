@@ -121,8 +121,11 @@ require it to be typed once in the type in the answer feature.
 
 = Changes in 2.0.16 =
 
+/////
 Please see the 2.0.13 notes below for larger changes, such as the new
 sibling handling.
+/////
+新しい関連カードの処理など、より重要な変更点については、下記の2.0.13についての記録をご覧ください。
 
 * Fix a regression that was causing new cards to be shown in creation order
   instead of their assigned due order.
@@ -155,8 +158,12 @@ sibling handling.
 * When double-clicking on a backup file to restore, skip the sync on startup.
 * Log some scheduling operations to make it easier to debug issues.
 
+/////
 = Changes in 2.0.14 =
+/////
+= 変更点: 2.0.14 =
 
+/////
 * Fix a bug that was causing proxy authentication errors to be reported
   when the issue was something else.
 * A full upload now removes the deletion log, which can save a lot of space
@@ -167,11 +174,17 @@ sibling handling.
   and the user has non-latin text in tags.
 * Fix an issue that was causing note types to be renamed when they shouldn't
   be.
+/////
+* 他の問題が発生している時に、プロキシ認証のエラーを報告するバグを修正しました。
+* 完全アップロードをする場合には、削除ログの記録を取りやめました。これによって、たくさんのノートを追加して、再度そのノートを削除した場合には、たくさんのディスク容量を節約できるようになりました。
+* 別の端末からの同時アクセスが原因で、同期に失敗した時に表示するメッセージを改善しました。
+* 非ラテン文字をタグに使っているユーザーが、ブラウザーにタグを列に表示した時に、エラーが発生しないようにしました。
+* ノートタイプの名前を本来できない時に変更すると発生する問題を修正しました。
 
-= 変更点: 2.0.13 =
 /////
 = Changes in 2.0.13 =
 /////
+= 変更点: 2.0.13 =
 
 /////
 - Sibling handling has been reworked, which should better ensure that cards
