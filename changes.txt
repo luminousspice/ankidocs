@@ -138,8 +138,12 @@ sibling handling.
   add-ons.
 * Translation updates
 
+= 変更点: 2.0.15 =
+/////
 = Changes in 2.0.15 =
+/////
 
+/////
 * Add an option to disable burying of reviews.
 * Added a "bury card" option to the review screen, and changed the shortcut to
   bury a note to "=".
@@ -157,6 +161,20 @@ sibling handling.
   wrong.
 * When double-clicking on a backup file to restore, skip the sync on startup.
 * Log some scheduling operations to make it easier to debug issues.
+/////
+
+* 復習の延期を無効にするオプションを追加しました。
+* 復習画面から[カードを延期]が選択できるようになりました。また、[ノートを延期]のショートカットは "=" に変更しました。
+* 延期したカードを is:buried で検索できるようになりました。また、is:suspend で検索しても延期したカードは表示しなくなりました。
+* cid:<カードID> を指定すると、特定のカードをカードIDで検索できるようになりました。また、カードの情報画面には、カードIDを表示するようになりました。
+* 自動的に延期したカードは修正済みと記録しなくなりました。潜在的な問題を回避するためです。
+* 同期のタイムアウト時間を延長しました。
+* Ankiが時計の設定が間違っていると認識した時に、どれだけずれているか表示するようになりました。
+* Windows版で壊れたゴミ箱フォルダー対応する際の問題を修正しました。
+* 非ラテン文字をパス名に含むファイルをダブルクリックしてファイルの読み込みを行った時に発生する問題を修正しました。(wlhuangに感謝)
+* ユーザーのtempフォルダーのパーミッションが間違っている時に、表示するエラーメッセージをより分かりやすくしました。
+* ダブルクリックしてバックアップファイルを復元した時には、最初に行う同期を省略するようになりました。
+* 問題のデバッグを簡単にするためにスケジュール設定の処理を記録するようになりました。
 
 /////
 = Changes in 2.0.14 =
