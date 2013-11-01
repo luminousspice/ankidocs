@@ -119,7 +119,10 @@ require it to be typed once in the type in the answer feature.
 * Make sure suspended & buried cards are reset when exporting without
   scheduling information.
 
+= 変更点: 2.0.16 =
+/////
 = Changes in 2.0.16 =
+/////
 
 /////
 Please see the 2.0.13 notes below for larger changes, such as the new
@@ -127,6 +130,7 @@ sibling handling.
 /////
 新しい関連カードの処理など、より重要な変更点については、下記の2.0.13についての記録をご覧ください。
 
+/////
 * Fix a regression that was causing new cards to be shown in creation order
   instead of their assigned due order.
 * Fix an issue where Anki was returning to the study screen early when burying
@@ -137,11 +141,19 @@ sibling handling.
 * Tweaks to the debug logging in 2.0.15 that improve performance with some
   add-ons.
 * Translation updates
+/////
+* 新規カードを期日順に設定したにもかかわらず、作成順に表示してしまう問題を修正しました。
+* 単語帳の延期設定を無効にすると、Ankiが予定より早く学習画面に戻ってしまう問題を修正しました。
+* フィルター単語帳からカードを書き出した時に、カードを完全にリセットできない問題を修正しました。
+* Mac OS X版におけるフォントの配置とクラッシュの問題について修正しました。
+* [メディアをチェック]でエンコーディングの問題修正ができない点を解決しました。
+* 2.0.15で導入したデバッグログを調整して、アドオンのパフォーマンス向上を図りました。
+* 翻訳に関する更新を行いました。
 
-= 変更点: 2.0.15 =
 /////
 = Changes in 2.0.15 =
 /////
+= 変更点: 2.0.15 =
 
 /////
 * Add an option to disable burying of reviews.
