@@ -219,31 +219,16 @@ sibling handling.
 /////
 - Sibling handling has been reworked, which should better ensure that cards
 from the same note don't appear together:
-/////
-- 関連カードの処理をやり直して、同じノートから作成したカードは続けて表示しない処理に改良を加えました。
-/////
 ** When you answer a card, Anki will automatically bury any siblings that are
 in the new queue or review queue. Cards in the (re)learning queue can not be
 buried, but reviewing those cards will cause any new & review cards to be buried.
-/////
-** あるカードを解答すると、このカードの関連カードが新規学習や復習のキューにあれば、Ankiは自動的に延期します。
-/////
 ** Cards are no longer unburied when returing to the deck list, but can be
 unburied with a button on the study overview screen.
-/////
-** 延期したカードが単語帳リストに戻っても延期は解除しなくなりました。学習概要のスクリーンの中にあるボタンを押すと解除することができます。
-/////
 ** To avoid problems during the upgrade period, cards are currently unburied
 when you sync or close your collection. When all clients have been updated,
 this behaviour will change so that cards are only automatically unburied when
 a day has passed. You will still be able to manually unbury them if you wish.
-/////
-** アップグレード期間に発生する問題を回避するために、まずは、コレクションを同期するか、閉じる時にカードの延期を解除するようになります。全てのクライアントがアップグレードすると、一日が終わった時だけにカードの延期を解除するように、この動作を変更します。
-/////
 ** This new behaviour ensures that siblings are spaced even in filtered decks.
-/////
-** この新しい処理によって、関連カード同士はたとえフィルター単語帳の中でも確実に間隔をあけるようになりました。
-/////
 ** Burying of new cards can be disabled in the options if you
   want to introduce related cards in the same session. If disabled,
   Anki will try to spread out the siblings like it does in
@@ -251,6 +236,11 @@ a day has passed. You will still be able to manually unbury them if you wish.
   fail when you edit cards or perform operations that require a
   queue rebuild.
 /////
+- 関連カードの処理をやり直して、同じノートから作成したカードは続けて表示しない処理に改良を加えました。
+** あるカードを解答すると、このカードの関連カードが新規学習や復習のキューにあれば、Ankiは自動的に延期します。
+** 延期したカードが単語帳リストに戻っても延期は解除しなくなりました。学習概要のスクリーンの中にあるボタンを押すと解除することができます。
+** アップグレード期間に発生する問題を回避するために、まずは、コレクションを同期するか、閉じる時にカードの延期を解除するようになります。全てのクライアントがアップグレードすると、一日が終わった時だけにカードの延期を解除するように、この動作を変更します。
+** この新しい処理によって、関連カード同士はたとえフィルター単語帳の中でも確実に間隔をあけるようになりました。
 ** 新規カードの関連カード同士を同じセッションで学習したい場合は、オプションを設定して解除することができます。解除するとAnkiは、2.0.12と同じように関連カード同士の間隔を設定します。しかしながら、カードを編集したり、キューの再構築を必要とする処理を実行した時には、2.0.12のように間隔を設定できる保証はありませんし、失敗する可能性があります。
 /////
 - When importing an .apkg file, existing notes will be updated if
@@ -1645,139 +1635,89 @@ that assumed those imports would exist. One example is add-ons that import
 
 /////
  * Filtered deck changes:
-/////
- * フィルター単語帳の変更点:
-/////
  ** The filtered deck presets have been moved into a new button called "Custom
     Study" which appears at the bottom of the overview. Daily new & review
     limits can also be adjusted from that screen.
-/////
- ** フィルター単語帳の設定は、概要の画面の下部に配置した [カスタム学習] という名称の新しいボタンを押すと表示します。一日の新規カード、復習カードの上限をそのスクリーンから調整できます。
-/////
  ** The "filter by tags" preset now presents a dialog like Anki 1.2's active
     tags dialog, to make it easier to select tags. If the custom study window
     is opened again later, Anki will remember the previously selected tags for
     that deck.
-/////
- ** タグによるフィルターの設定は、Anki 1.2の有効なタグのダイアログと同じようなダイアログを表示して、タグの選択を簡単にした。その後カスタム学習のウィンドウのを再度開いた場合、Ankiは以前その単語帳で選択したタグ情報を保持します。
-/////
  ** Correctly show 3 buttons when showing new cards in a filtered deck.
-/////
- ** フィルター単語帳の中に新しいカードを表示している時には、正しくボタンを3つ表示するようになりました。
-/////
  ** Moved the Filter/Cram button on the decks/overview screen to the tools
     menu.
-/////
- ** [フィルター単語帳/詰め込み勉強] ボタンを単語帳/概要スクリーンからツールメニューに移動しました。
-/////
  ** Filtered decks no longer show their search terms, as they're confusing to
     new users and easily findable in the options.
-/////
- ** フィルター単語帳がその検索条件を表示することを止めました。新規ユーザーに混乱をもたらしていることと、オプションを表示すると簡単に見つけられるためです。
-/////
  ** Filtered decks now show a brief description of how they work.
-/////
- ** フィルター単語帳はどのように機能しているか簡単な説明を表示するようになりました。
-/////
  ** The custom study option automatically names the filtered deck "Custom
     Study Session", and will reuse an existing deck if one exists. If you wish
     to keep a custom study session, you can rename it.
-/////
- ** カスタム学習オプションは自動的に「カスタム学習セッション」という名前のフィルター単語帳が割り当て、既に存在しているときは既存の単語帳を再利用します。カスタム学習セッションを保存したい場合は、名前を変更することができます。
-/////
  ** Filtered decks now appear in the deck list as blue.
-/////
- ** フィルター単語帳は、単語帳一覧に青字で表示します。
-/////
  ** When creating a filtered deck, it uses a default name instead of asking
     you for a name, as you can rename it afterwards if you wish.
-/////
- ** フィルター単語帳を作成すると、名前の入力を求める代わりに既定の名前を割り当てます。必要であれば後ほど名前を変更することができます。
-/////
  ** Change Deck will now move cards out of a filtered deck instead of ignoring
    them.
 /////
+ * フィルター単語帳の変更点:
+ ** フィルター単語帳の設定は、概要の画面の下部に配置した [カスタム学習] という名称の新しいボタンを押すと表示します。一日の新規カード、復習カードの上限をそのスクリーンから調整できます。
+ ** タグによるフィルターの設定は、Anki 1.2の有効なタグのダイアログと同じようなダイアログを表示して、タグの選択を簡単にした。その後カスタム学習のウィンドウのを再度開いた場合、Ankiは以前その単語帳で選択したタグ情報を保持します。
+ ** フィルター単語帳の中に新しいカードを表示している時には、正しくボタンを3つ表示するようになりました。
+ ** [フィルター単語帳/詰め込み勉強] ボタンを単語帳/概要スクリーンからツールメニューに移動しました。
+ ** フィルター単語帳がその検索条件を表示することを止めました。新規ユーザーに混乱をもたらしていることと、オプションを表示すると簡単に見つけられるためです。
+ ** フィルター単語帳はどのように機能しているか簡単な説明を表示するようになりました。
+ ** カスタム学習オプションは自動的に「カスタム学習セッション」という名前のフィルター単語帳が割り当て、既に存在しているときは既存の単語帳を再利用します。カスタム学習セッションを保存したい場合は、名前を変更することができます。
+ ** フィルター単語帳は、単語帳一覧に青字で表示します。
+ ** フィルター単語帳を作成すると、名前の入力を求める代わりに既定の名前を割り当てます。必要であれば後ほど名前を変更することができます。
  ** [単語帳を変更] 処理は、カードをフィルター単語帳から移動します。この場合も無視しません。
 
 /////
  * Stats changes:
-/////
- * 統計情報の変更点:
-/////
  ** Information about the current day is now included at the top.
-/////
- ** 当日の情報を先頭に追加しました。
-/////
  ** The # of cards due tomorrow is listed in the Forecast section. 
-/////
- ** 明日期日に達するカードの枚数を予測セクションに掲載しました。
-/////
  ** Information about the generated date and limit is included at the bottom.
-/////
- ** 統計情報の作成日と対象範囲を最後に追加しました。
-/////
  ** "Save Image" now saves the image to the desktop, making it easier for
     students to locate it. The stats screen also uses a subtle background now,
     to make it harder for students to fake the graphs.
-/////
- ** [画像として保存] 処理は、画像の保存先をデスクトップにして、見つけやすくしました。
-/////
  ** Make sure we display the review card/time graphs even if there's only a
    single data point.
-/////
- ** データポイントがただ一つの場合でも、復習枚数、時間の表示を確実に行うようにした。
-/////
  ** Fix x-axis on interval graph when using deck life period.
-/////
- ** 単語帳の全期間にわたっての復習間隔グラフのX軸を修正しました。
-/////
  ** Fix rounding error in history graphs.
 /////
+ * 統計情報の変更点:
+ ** 当日の情報を先頭に追加しました。
+ ** 明日期日に達するカードの枚数を予測セクションに掲載しました。
+ ** 統計情報の作成日と対象範囲を最後に追加しました。
+ ** [画像として保存] 処理は、画像の保存先をデスクトップにして、見つけやすくしました。
+ ** データポイントがただ一つの場合でも、復習枚数、時間の表示を確実に行うようにした。
+ ** 単語帳の全期間にわたっての復習間隔グラフのX軸を修正しました。
  ** 履歴グラフの色々な箇所に生じているエラーを修正しました。
 
 /////
  * Importing changes:
-/////
- * 読み込み処理の変更点:
-/////
  ** Fix some issues where your collection could become corrupt if you
     previously saved or exported a model to different decks and then modified
     it in different ways.
-/////
- ** 以前に、モデルを別の単語帳に保存したり書き出して、その単語帳を別の方法で修正した場合、コレクションが破損する問題点をいくつか修正しました。
-/////
  ** When you export your entire collection, it will automatically be named
     "collection.apkg" and placed on your desktop.
-/////
- ** コレクション全体を書き出す時は、自動的に「collection.apkg」という名前でデスクトップに保存するようにしました。
-/////
  ** There is no add/replace question when importing - Anki will ask to replace
     if the imported file is called collection.apkg or is a backup file, and
     will otherwise add.
-/////
- ** 読み込みの際に、追加するか、上書きするか質問することは止めました。読み込むファイルがcollection.apkgという名前のファイルやバックアップファイルの時には上書きし、その他の場合は追加することにしました。
-/////
  ** Use a tooltip instead of a big box when showing "xxx notes imported".
-/////
- ** 「xxx個のノートを読み込みました」というメッセージの表示に大きなボックスの代わりにツールチップを使うことにしました。
-/////
  ** Imports from a CSV file now give you the option of escaping HTML
     characters.
-/////
- ** CSVファイルを読み込む際に、HTMLキャラクタをエスケープするオプションが使えるようになりました。
-/////
  ** Imports from a CSV file now let you choose whether you want to allow
     duplicates.
-/////
- ** CSVファイルを読み込む際に、重複を許すか選択できるようになりました。
-/////
  ** When importing a CSV file, make sure to update field list when separator
     is changed.
-/////
- ** CSVファイルを読み込む際に、区切り文字の指定を変更すると、フィールド一覧を確実に更新するようにしました。
-/////
  ** When importing cards from a filtered deck, convert them to normal cards.
 /////
+ * 読み込み処理の変更点:
+ ** 以前に、モデルを別の単語帳に保存したり書き出して、その単語帳を別の方法で修正した場合、コレクションが破損する問題点をいくつか修正しました。
+ ** コレクション全体を書き出す時は、自動的に「collection.apkg」という名前でデスクトップに保存するようにしました。
+ ** 読み込みの際に、追加するか、上書きするか質問することは止めました。読み込むファイルがcollection.apkgという名前のファイルやバックアップファイルの時には上書きし、その他の場合は追加することにしました。
+ ** 「xxx個のノートを読み込みました」というメッセージの表示に大きなボックスの代わりにツールチップを使うことにしました。
+ ** CSVファイルを読み込む際に、HTMLキャラクタをエスケープするオプションが使えるようになりました。
+ ** CSVファイルを読み込む際に、重複を許すか選択できるようになりました。
+ ** CSVファイルを読み込む際に、区切り文字の指定を変更すると、フィールド一覧を確実に更新するようにしました。
  ** フィルター単語帳からカードを読み込む際に、通常のカードに変換するようにしました。
 
 /////
