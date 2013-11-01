@@ -1950,7 +1950,7 @@ are most likely to cause surprises in the new version.
    link:manual.html#learning[learning] reviews of the card, so the learning
    (orange) count will increase by two.
 /////
- * [もう一回] を押すと、そのカードのlink:manual.html#learning[学習中]の復習は2になります。従って学習中(オレンジ色の数字)のカード枚数は2増加します。
+ * [もう一回] を押すと、そのカードのlink:http://ankisrs.net/docs/manual.html#learning[学習中]の復習は2になります。従って学習中(オレンジ色の数字)のカード枚数は2増加します。
 /////
  * Cloze deletion has been much improved, but now requires you to select a
    special <<cloze,cloze type>> (the top left button in the Add window).
@@ -1990,7 +1990,7 @@ The rest of this page describes all the changes in more detail. For more
 information, please also see the link:manual.html[user manual], which has been
 completely rewritten for version 2.
 /////
-このページの残りの部分には、更に詳しい変更点を説明しています。更に詳しい情報をご覧になりたい場合は、link:manual.html[ユーザーマニュアル]をご覧ください。前のバージョンから完全に書き直しています。
+このページの残りの部分には、更に詳しい変更点を説明しています。更に詳しい情報をご覧になりたい場合は、link:http://ankisrs.net/docs/manual.html[ユーザーマニュアル]をご覧ください。前のバージョンから完全に書き直しています。
 
 [[beforeupgrade]]
 == Dropbox ==
@@ -2015,7 +2015,7 @@ Dropboxを使っていた場合、アップグレードの前に [Settings]>[Pre
 == 単語帳とプロファイル ==
 
 ++++++++++
-<img src="img/1-decks.png" width=341 height=318 style="float:right;margin:1em;">
+<img src="http://ankisrs.net/docs/img/1-decks.png" width=341 height=318 style="float:right;margin:1em;">
 ++++++++++
 
 /////
@@ -2041,7 +2041,7 @@ Dropboxを使っていた場合、アップグレードの前に [Settings]>[Pre
    collection of decks, and Anki will remember settings separately for each
    user. link:manual.html#profiles[More info].
 /////
- * 一つのコンピュータ上でAnkiを一人以上で使う場合、ユーザー毎に別々のユーザープロファイルを作ることが出来るようになりました。それぞれのユーザープロファイルは、独自の単語帳のコレクションを持ち、Ankiはユーザー毎に別々の設定を記憶します。link:manual.html#profiles[より詳しい情報]
+ * 一つのコンピュータ上でAnkiを一人以上で使う場合、ユーザー毎に別々のユーザープロファイルを作ることが出来るようになりました。それぞれのユーザープロファイルは、独自の単語帳のコレクションを持ち、Ankiはユーザー毎に別々の設定を記憶します。link:http://ankisrs.net/docs/manual.html#profiles[より詳しい情報]
 
 /////
 == Terminology ==
@@ -2108,7 +2108,7 @@ Dropboxを使っていた場合、アップグレードの前に [Settings]>[Pre
 == 共有単語帳 ==
 
 ++++++++++
-<img src="img/2-overview.png" style="float:right; margin: 1em;">
+<img src="http://ankisrs.net/docs/img/2-overview.png" style="float:right; margin: 1em;">
 ++++++++++
 
 /////
@@ -2246,7 +2246,7 @@ per-lesson basis when you're ready to study them. You could do it like this:
 == スケジュール設定 ==
 
 ++++++++++
-<img src="img/3-review.png" style="float:right; margin: 1em;">
+<img src="http://ankisrs.net/docs/img/3-review.png" style="float:right; margin: 1em;">
 ++++++++++
 
 /////
@@ -2255,7 +2255,7 @@ per-lesson basis when you're ready to study them. You could do it like this:
    intervals before they graduate into normal reviews cards. More information
    in the manual: link:manual.html#learning[learning]
 /////
- * Ankiの学習モードを大きく改善しました。新規カードを初めて表示したとき、古いカードを忘れたときには、通常の復習カードに戻る前に、広がっていく間隔で表示します。詳しい情報はユーザーマニュアルのlink:manual.html#learning[learning]をご覧ください。
+ * Ankiの学習モードを大きく改善しました。新規カードを初めて表示したとき、古いカードを忘れたときには、通常の復習カードに戻る前に、広がっていく間隔で表示します。詳しい情報はユーザーマニュアルのlink:http://ankisrs.net/docs/manual.html#learning[learning]をご覧ください。
 /////
  * Reviews are only scheduled on a per-day basis now. If you wish to divide a
    day's cards into multiple sessions, you can either use the timeboxing
@@ -2439,7 +2439,7 @@ per-lesson basis when you're ready to study them. You could do it like this:
 == ブラウザー ==
 
 ++++++++++
-<img src="img/4-browsing.png" style="float:right; margin: 1em;">
+<img src="http://ankisrs.net/docs/img/4-browsing.png" style="float:right; margin: 1em;">
 ++++++++++
 
 /////
@@ -2516,7 +2516,7 @@ per-lesson basis when you're ready to study them. You could do it like this:
 == カードレイアウト ==
 
 ++++++++++
-<img src="img/5-templates.png">
+<img src="http://ankisrs.net/docs/img/5-templates.png">
 ++++++++++
 
 /////
@@ -2607,7 +2607,7 @@ per-lesson basis when you're ready to study them. You could do it like this:
  * For more information about selectively adding cards, please see
    link:manual.html#_card_generation[this section] of the manual.
 /////
- * カードを選択的に追加する更に詳しい情報はマニュアルのlink:manual.html#_card_generation[この項目]をご覧ください。
+ * カードを選択的に追加する更に詳しい情報はマニュアルのlink:http://ankisrs.net/docs/manual.html#_card_generation[この項目]をご覧ください。
 
 [[dupes]]
 /////
@@ -2720,7 +2720,7 @@ per-lesson basis when you're ready to study them. You could do it like this:
 == グラフと統計情報 ==
 
 ++++++++++
-<img src="img/6-graphs.png"  style="float:right; margin: 1em;">
+<img src="http://ankisrs.net/docs/img/6-graphs.png"  style="float:right; margin: 1em;">
 ++++++++++
 
 /////
@@ -2846,7 +2846,7 @@ per-lesson basis when you're ready to study them. You could do it like this:
  * There's now an add-on writing guide link:addons.html[here] that also covers
    the main things to be aware of when porting an old add-on.
 /////
- * アドオン作成ガイドをlink:addons.html[こちら]に公開しました。古いアドオンを移行する時に注意すべき主要な点をカバーしています。
+ * アドオン作成ガイドをlink:http://ankisrs.net/docs/addons.html[こちら]に公開しました。古いアドオンを移行する時に注意すべき主要な点をカバーしています。
 
 [[missing]]
 /////
@@ -2938,7 +2938,7 @@ them as unique in previous versions. The problem is that in order to show
 duplicates, Anki needs to either search all similar fields (which is slow), or
 maintain a cache that rapidly grows in size as more fields are added to it.
 /////
-link:manual.html#basics[the basics]のノートに関する項目をご覧ください。これら3つのフィールドは全てユニークで、前のバージョンではユーザーはユニークに設定できましたし、実際にそのように設定することが頻繁にありました。問題は、重複を表示するために　Ankiが全ての関連フィールドを(時間がかかりますが)検索するか、フィールドを追加するに従って急速に増大するキャッシュを維持する必要があることです。
+link:http://ankisrs.net/docs/manual.html#basics[the basics]のノートに関する項目をご覧ください。これら3つのフィールドは全てユニークで、前のバージョンではユーザーはユニークに設定できましたし、実際にそのように設定することが頻繁にありました。問題は、重複を表示するために　Ankiが全ての関連フィールドを(時間がかかりますが)検索するか、フィールドを追加するに従って急速に増大するキャッシュを維持する必要があることです。
 
 /////
 In the above example, only one field is actually required for determining if
