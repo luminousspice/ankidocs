@@ -146,7 +146,7 @@ mw.form.menuTools.addAction(action)
 /////
 
 -----
-# ankiqt から主要なウィンドウオブジェクト (mw) を読み込みます
+# ankiqt からメインウィンドウオブジェクト (mw) を読み込みます
 from aqt import mw
 # utils.py から "show info" ツールを読み込みます
 from aqt.utils import showInfo
@@ -158,7 +158,7 @@ from aqt.qt import *
 
 def testFunction():
     # 現在使用中のコレクションの中のカードの枚数を取得します
-    # このコレクションは主要なウィンドウの中に保存しています
+    # このコレクションはメインウィンドウの中に保存しています
     cardCount = mw.col.cardCount()
     # メッセージボックスを表示します
     showInfo("Card count: %d" % cardCount)
