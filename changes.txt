@@ -96,8 +96,12 @@ require it to be typed once in the type in the answer feature.
 * Add an option to the preferences to disable compression of backups for slow computers.
 * Fix an install error on FreeBSD.
 
+= 変更点: 2.0.18 =
+/////
 = Changes in 2.0.18 =
+/////
 
+/////
 * Fix a bug that could cause invalid scheduling when a card was manually
   buried while in a filtered deck. For now, burying in a filtered deck
   will mean that the card returns to the home deck.
@@ -112,11 +116,23 @@ require it to be typed once in the type in the answer feature.
 * Fix some issues that were masking actual connection errors.
 * Catch more temp folder issues.
 * Possible fix for OSX crash when editing.
+/////
+* フィルター単語帳を使用中に、カードを手動で延期した時に無効なスケジュールを設定してしまうバグを修正しました。当面は、フィルター単語帳でカードを延期すると、そのカードは元の単語帳に戻ることになります。
+* prefs.dbが壊れている場合に、Ankiの起動が失敗する問題を修正しました。
+* ファイルを書き出す際のログファイル(.log)の作成は取りやめました。
+* ログファイルが10MBに達したら交換することにしました。
+* 無効なエンコードでファイル名を使っているユーザーに警告を表示するようにしました。
+* ネットワーク接続していないLinuxコンピュータで同期した時に、エラーを必要以上に長く表示する問題を修正しました。
+* ノートタイプの問題を発見できるように[データベースをチェック]を更新しました。
+* simplejsonをインストールしているLinuxシステムで発生する問題を修正しました。 
+* 実際に発生している接続エラーを隠蔽していた問題を修正しました。
+* tempフォルダーの問題をより多く補足できるようになりました。
+* 編集中にMac OS X版がクラッシュする問題を可能な限り修正しました。
 
-= 変更点: 2.0.17 =
 /////
 = Changes in 2.0.17 =
 /////
+= 変更点: 2.0.17 =
 
 /////
 * Fix a delay when showing the next card on some computers.
