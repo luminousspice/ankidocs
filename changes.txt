@@ -76,8 +76,12 @@ require it to be typed once in the type in the answer feature.
 * Fixed a bug where "check media" could incorrectly report media as unused
   when the media filenames were encoding incorrectly.
 
+= 変更点: 2.0.19 =
+/////
 = Changes in 2.0.19 =
+/////
 
+/////
 * When resizing columns in the browser, move the others.
 * Fix a bug in the "reschedule as new" feature that could lead to cards ending
   up in an inconsistent state in some circumstances.
@@ -95,11 +99,27 @@ require it to be typed once in the type in the answer feature.
 * Fix the message that displays when the clock is incorrect.
 * Add an option to the preferences to disable compression of backups for slow computers.
 * Fix an install error on FreeBSD.
+/////
+* ブラウザーの列の幅を変更する際に、他の列もそれに合わせて移動するようになりました。
+* 「新規カードにスケジュール変更」機能で、ある環境では最終的にカードが矛盾する状態になってしまうバグを修正しました。
+* カードレイアウト画面で反転した時に、元のタブに戻ってしまう問題を修正しました。
+* 接続の間隔が開いたときに同期すると発生するエラーを修正しました。
+* [メディアをチェック] についてのバグを修正しました。
+* ブラウザー内でスケジュールを変更すると、フィルターしているカードを無視するのではなく、自動的にフィルター単語帳から削除するようにしました。これは、延期や保留と同じ処理です。
+* メディアファイルではない URL を貼り付けた場合、無視するのではなくそのまま貼り付けるようになりました。
+* 新規ユーザーの既定の読み込みオプションは、重複を更新するから無視するに変更しました。
+* ある種のイメージのリンクの貼り付けに関するバグを修正しました。
+* Windows 版でプロファイルの変更、あるいは同期した時発生するエラーを修正しました。
+* 特定のネットワークの問題に対するエラーメッセージに説明を追加しました。
+* Mac 版におけるメディアファイルの再同期の問題を修正しました。
+* 時計の設定が間違っている時に表示するメッセージを修正しました。
+* 環境設定に遅いコンピュータのためにバックアップの圧縮処理を無効にするオプションを追加しました。
+* FreeBSD 版のインストールエラーを修正しました。
 
-= 変更点: 2.0.18 =
 /////
 = Changes in 2.0.18 =
 /////
+= 変更点: 2.0.18 =
 
 /////
 * Fix a bug that could cause invalid scheduling when a card was manually
@@ -197,7 +217,6 @@ sibling handling.
 * When double-clicking on a backup file to restore, skip the sync on startup.
 * Log some scheduling operations to make it easier to debug issues.
 /////
-
 * 復習の延期を無効にするオプションを追加しました。
 * 復習画面から[カードを延期]が選択できるようになりました。また、[ノートを延期]のショートカットは "=" に変更しました。
 * 延期したカードを is:buried で検索できるようになりました。また、is:suspend で検索しても延期したカードは表示しなくなりました。
