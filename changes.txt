@@ -1773,7 +1773,7 @@ per-lesson basis when you're ready to study them. You could do it like this:
    [sound:{{field1}} - {{field2}}.mp3], these will not be imported
    automatically and you will manually have to sort this out.
 /////
- * メディアとLaTeXの参照はテンプレート内ではもはやサポートしていません。これは共有単語帳で正しく機能しないためです。アップグレード処理では、テンプレートの中にある[sound:{{field}}.mp3]の様な参照を注意していて、このようなファイルを埋め込んだメディアタグ(例えば、[sound:apple.mp3])を持つ新しいフィールドを自動的に作成します。手動で参照を追加し直した場合、メディアデータベースのチェックを行っている時に、Ankiはそのメディアファイルが利用中と認識しません。メディアの参照が一つ以上のフィールドで構成していた場合 (例、[sound:{{field1}} - {{field2}}.mp3])、これらのファイルは自動的に読み込まれず、手動で設定し直す必要があることに注意してください。
+ * メディアとLaTeXの参照はテンプレート内ではもはやサポートしていません。これは共有単語帳で正しく機能しないためです。アップグレード処理では、テンプレートの中にある[sound:\{{field\}}.mp3]の様な参照を注意していて、このようなファイルを埋め込んだメディアタグ(例えば、[sound:apple.mp3])を持つ新しいフィールドを自動的に作成します。手動で参照を追加し直した場合、メディアデータベースのチェックを行っている時に、Ankiはそのメディアファイルが利用中と認識しません。メディアの参照が一つ以上のフィールドで構成していた場合 (例、[sound:\{{field1\}} - \{{field2\}}.mp3])、これらのファイルは自動的に読み込まれず、手動で設定し直す必要があることに注意してください。
 
 /////
  * If you had static media references like `<img src=logo.jpg>` in your
