@@ -71,15 +71,21 @@ added in languages other than English.
 * If the same word has been cloze-deleted multiple times in a cloze, only
 require it to be typed once in the type in the answer feature.
 
+= 変更点: 2.0.20 =
+/////
 = Changes in 2.0.20 =
+/////
 
+/////
 * Fixed a bug where "check media" could incorrectly report media as unused
   when the media filenames were encoding incorrectly.
+/////
+* メディアのファイル名を間違ってエンコーディングした時に、[メディアをチェック] の処理が誤って未使用と報告するバグを修正しました。 
 
-= 変更点: 2.0.19 =
 /////
 = Changes in 2.0.19 =
 /////
+= 変更点: 2.0.19 =
 
 /////
 * When resizing columns in the browser, move the others.
