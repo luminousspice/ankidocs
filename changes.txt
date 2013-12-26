@@ -1737,9 +1737,9 @@ per-lesson basis when you're ready to study them. You could do it like this:
    confusing to move to another machine with a different clock and find
    greater or fewer cards due, so Anki will still require the clock to be
    within 5 minutes of the real time.
- /////
+/////
   * 時刻設定の差で同期が不完全になることはなくなりました。それでも、異なる時刻設定のマシンに移動してカードの期日の増減を認識すると混乱が生じます。このためAnkiは依然として実際の時間と5分以内の差の時刻設定を必要とします。
- /////
+/////
  * All data is encrypted before being sent over the internet.
 /////
  * 全てのデータはインターネットへ送信する前に暗号化されます。
