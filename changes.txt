@@ -49,8 +49,12 @@ Due to a build error, this version was skipped.
   were not presented in order.
 * Some tweaks to the SuperMemo importer, thanks to jmaatta.
 
+= 変更点: 2.0.21 =
+/////
 = Changes in 2.0.21 =
+/////
 
+/////
 * Now that AnkiDroid has been updated, buried cards will now only be
 automatically unburied when a new day rolls over, and not when you sync or
 restart Anki. If you sync from this version to AnkiWeb and then to the mobile
@@ -70,11 +74,23 @@ manager
 added in languages other than English.
 * If the same word has been cloze-deleted multiple times in a cloze, only
 require it to be typed once in the type in the answer feature.
+/////
+* AnkiDroid の更新が完了したので、延期済みのカードを自動的に解除するのは一日の始まりの時刻を過ぎた時だけになりました。同期した時や、Anki を再起動したときには解除は行いません。このバージョンの Anki と AnkiWeb を同期し、更にモバイル機器と同期すると、そのモバイル機器でもこの新しい動作が機能するようになります。
+* 新規ユーザーがインターフェイスの使用言語を選択した時には、処理を始める前に確認が必要になりました。
+* フィルター単語帳のカードの上限を 99,999 まで引き上げました。
+* Safari から Google 画像検索の結果をドラッグ&amp;ドロップした時に発生する問題を修正しました。
+* [新規カードを並び替える] ダイアログで先頭/最後を決定する際、フィルター済みのカードは無視するようにしました。
+* 破損したコレクションが見つかったら、ファイル名を変更し、同じプロファイルで再度読み込んだり、バックアップから復元できるようにしました。
+* 起動エラーの表示した時やプロファイルマネージャを閉じた時に発生する問題を修正しました。
+* 同期がタイムアウトした時に表示するエラーメッセージを改善しました。
+* ブラウザーの列を変更するアドオンが引き起こすエラーを修正しました。
+* 英語以外の言語で [表面と任意選択の裏面] のノートタイプを追加すると無効になるバグを修正しました。
+* 穴埋め問題のカードに同じ単語を複数回穴埋めに設定した時には、解答キー入力機能に必要なキー入力は一度だけで済むようになりました。
 
-= 変更点: 2.0.20 =
 /////
 = Changes in 2.0.20 =
 /////
+= 変更点: 2.0.20 =
 
 /////
 * Fixed a bug where "check media" could incorrectly report media as unused
