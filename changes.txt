@@ -43,16 +43,23 @@ Julian that allows multiple filters to be chained together.
 
 Due to a build error, this version was skipped.
 
+= 変更点: 2.0.22 =
+/////
 = Changes in 2.0.22 =
+/////
 
+/////
 * Fix a regression in the type-answer feature where multiple clozes
   were not presented in order.
 * Some tweaks to the SuperMemo importer, thanks to jmaatta.
+/////
+* 複数の穴埋めを順番に表示しない解答キー入力機能の問題を修正しました。
+* SuperMemo からの読み込みを調整しました。(jmaattaに感謝)
 
-= 変更点: 2.0.21 =
 /////
 = Changes in 2.0.21 =
 /////
+= 変更点: 2.0.21 =
 
 /////
 * Now that AnkiDroid has been updated, buried cards will now only be
