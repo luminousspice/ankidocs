@@ -314,12 +314,14 @@ ti.run()
 -----
 from anki.importing import TextImporter
 file = u"/path/to/text.txt"
-# 基本ノートタイプに変更する
+# 単語帳を選択
+did = mw.col.decks.id("ImportDeck")
+mw.col.decks.select(did)
+# 単語帳にノートタイプを設定
 m = mw.col.models.byName("Basic")
-mw.col.models.setCurrent(m)
-# 対象単語帳を 'Import' に設定する
-m['did'] = mw.col.decks.id("Import")
-mw.col.models.save(m)
+deck = mw.col.decks.get(did)
+deck['mid'] = m['id']
+mw.col.decks.save(deck)
 # コレクションに読み込む
 ti = TextImporter(mw.col, file)
 ti.initMapping()
