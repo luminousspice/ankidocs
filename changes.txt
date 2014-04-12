@@ -6,25 +6,41 @@
 ++++++++++++++++++++++
 
 [[latest]]
-
+= 変更点: 2.0.22 =
+/////
 = Changes in 2.0.24 =
+/////
 
+/////
 * A required upgrade to continue syncing, as the encryption certificate
 has been updated. More info is available at https://anki.tenderapp.com/discussions/announcements/60-anki-and-heartbleed
+/////
 
+/////
 * An alternative build is now provided which uses an older version of the
   toolkit. This addresses the Thai slowdown issue on Windows, and continues
   support for OSX 10.5 & 10.6 on Mac, as the primary build now requires 10.7
   or later.
+/////
+* 以前のバージョンのツールキットを使った代替ビルドを提供します。
+Windows 版でタイ語を利用すると速度低下が発生する問題への対応と、Mac OS X 10.5 および 10.6 へのサポートを継続するためです。なお主要ビルドをご利用いただくには、10.7 以降が必要です。
 
+/////
 * For people using add-ons that used multiple colons such as
 '{\{ring:my_tag:file.mp3}}', you should update your template to '\{{ring
 (my_tag):file.mp3}}'. For add-on authors, this change is an improvement by
 Julian that allows multiple filters to be chained together.
+/////
+* '{\{ring:my_tag:file.mp3}}' のように複数のコロンをアドオンで使っている方へ、お使いになっているテンプレートを '\{{ring
+(my_tag):file.mp3}}' へアップデートしてください。アドオンの作者へ、Julian が提供してくれた改良でこの変更によって連鎖する項目で複数のフィルターが出来るようになりました。＠＠確認しろ
 
+/////
 * If you get an error message about pyqtconfig, please contact the author of the failing add-on and ask them
   to update the add-on to use qtmajor/qtminor instead, as pyqtconfig was obsoleted a while ago.
+/////
+* pyqtconfig 
 
+/////
 * The deck list in the browser sidebar is now collapsible. This and a few
   other changes thanks to Houssam.
 * Include buried cards in the suspended count of the graphs.
@@ -38,15 +54,22 @@ Julian that allows multiple filters to be chained together.
 * Fix 1000 cap in overview screen.
 * Catch another invalid temp folder message.
 * Disallow \r and \n in filenames, and ./.. in profile names.
+/////
 
+/////
 = Changes in 2.0.23 =
-
-Due to a build error, this version was skipped.
-
+/////
 = 変更点: 2.0.22 =
+
+/////
+Due to a build error, this version was skipped.
+/////
+ビルドエラーのため、このバージョンは公開しません。
+
 /////
 = Changes in 2.0.22 =
 /////
+= 変更点: 2.0.22 =
 
 /////
 * Fix a regression in the type-answer feature where multiple clozes
