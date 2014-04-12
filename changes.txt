@@ -6,7 +6,7 @@
 ++++++++++++++++++++++
 
 [[latest]]
-= 変更点: 2.0.22 =
+= 変更点: 2.0.24 =
 /////
 = Changes in 2.0.24 =
 /////
@@ -15,6 +15,7 @@
 * A required upgrade to continue syncing, as the encryption certificate
 has been updated. More info is available at https://anki.tenderapp.com/discussions/announcements/60-anki-and-heartbleed
 /////
+* 同期機能を使い続けるにはこのバージョンにアップグレードが必要です。暗号化証明書を更新したためです。更に詳しい情報は、https://anki.tenderapp.com/discussions/announcements/60-anki-and-heartbleed をご覧下さい。
 
 /////
 * An alternative build is now provided which uses an older version of the
@@ -32,13 +33,13 @@ Windows 版でタイ語を利用すると速度低下が発生する問題への
 Julian that allows multiple filters to be chained together.
 /////
 * '{\{ring:my_tag:file.mp3}}' のように複数のコロンをアドオンで使っている方へ、お使いになっているテンプレートを '\{{ring
-(my_tag):file.mp3}}' へアップデートしてください。アドオンの作者へ、Julian が提供してくれた改良でこの変更によって連鎖する項目で複数のフィルターが出来るようになりました。＠＠確認しろ
+(my_tag):file.mp3}}' へアップデートしてください。アドオンの作者へ、この変更は Julian が提供してくれた改良で連鎖する項目で複数のフィルターを掛けられるようになりました。
 
 /////
 * If you get an error message about pyqtconfig, please contact the author of the failing add-on and ask them
   to update the add-on to use qtmajor/qtminor instead, as pyqtconfig was obsoleted a while ago.
 /////
-* pyqtconfig 
+* pyqtconfig に関するエラーメッセージを受け取った方は、エラーメッセージを出したアドオンの作者に連絡を取って、問題のアドオンに pyqtconfig の代わりに qtmajor/qtminor を使うように更新するよう頼んでください。pyqtconfig はしばらく前から利用しなくなりました。
 
 /////
 * The deck list in the browser sidebar is now collapsible. This and a few
@@ -55,11 +56,23 @@ Julian that allows multiple filters to be chained together.
 * Catch another invalid temp folder message.
 * Disallow \r and \n in filenames, and ./.. in profile names.
 /////
+* ブラウザーのサイドバー内の単語帳一覧を折りたためるようになりました。この他にもいくつかの変更点で Houssam に感謝。
+* 統計のグラフの保留数に延期したカードを含めるようにしました。
+* qt5.2 においてブラウザーのヘッダーが壊れたりクラッシュしたりする問題を修正しました。(現時点では Linux 版にのみ関係します)
+* Linux の開発最先端なディストリビューションでのコンソール内の警告に関する問題を修正しました。ospalhに感謝。
+* 復習中に追加した leech (無駄) タグは、元に戻すで取り除けるようになりました。
+* カードプレビューなどのコンテキストメニューからコピーできるようになりました。
+* supermemo importer の微調整を行いました。Bryan に感謝。
+* スケジュール情報を含めずに書き出した時には、マークや leech (無駄)タグを取り除くようにしました。
+* SSL 接続に失敗した時のエラーメッセージを分かりやすくしました。
+* 概要画面で 1000 以上の数を表示する際の問題を修正しました。
+* 別の不正な temp フォルダーに関するメッセージを捕捉できるようにしました。
+* ファイル名に  \r と \n は使えなくなりました。プロファイル名に . と .. は使えなくなりました。
 
 /////
 = Changes in 2.0.23 =
 /////
-= 変更点: 2.0.22 =
+= 変更点: 2.0.23 =
 
 /////
 Due to a build error, this version was skipped.
@@ -198,7 +211,7 @@ require it to be typed once in the type in the answer feature.
 * ノートタイプの問題を発見できるように[データベースをチェック]を更新しました。
 * simplejsonをインストールしているLinuxシステムで発生する問題を修正しました。 
 * 実際に発生している接続エラーを隠蔽していた問題を修正しました。
-* tempフォルダーの問題をより多く補足できるようになりました。
+* tempフォルダーの問題をより多く捕捉できるようになりました。
 * 編集中にMac OS X版がクラッシュする問題を可能な限り修正しました。
 
 /////
