@@ -6,10 +6,12 @@
 ++++++++++++++++++++++
 
 [[latest]]
-= 変更点: 2.0.24 =
-
+= 変更点: 2.0.25 =
+/////
 = Changes in 2.0.25 =
+/////
 
+/////
 * Fix copy right click menu not appearing when reviewing.
 * Possible fix for shortcut issues with some add-ons when reviewing.
 * Fix from Julien to fail more gracefully when templates need updating.
@@ -19,10 +21,19 @@
   too fast.
 * Fix Anki failing to recognize clozes when user had defined multiple cloze
   fields on a single line in their template.
+/////
+* 復習中に右クリック (コンテキスト) メニューにコピーが現れない問題を修正しました。
+* 復習中にいくつかのアドオンで発生するショートカットの問題を修正しました。
+* テンプレートの更新が必要な時に失敗する処理を洗練した方法に Julien が修正しました。
+* Qt4.7 Windows 版ビルドで起動できない問題を修正しました。
+* Mac OS X 版でプログレスバーを表示している時に発生するクラッシュに対応しました。
+* 音声の再生速度が早くなってしまうため、Mac OS X 版の mplayer を以前のバージョンに戻しました。
+* ユーザー定義の複数の穴埋めフィールドをテンプレートの単一行に使った時に、穴埋めが認識できない問題を修正しました。
 
 /////
 = Changes in 2.0.24 =
 /////
+= 変更点: 2.0.24 =
 
 /////
 * A required upgrade to continue syncing, as the encryption certificate
