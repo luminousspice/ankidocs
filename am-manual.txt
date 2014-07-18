@@ -111,9 +111,12 @@ On your computer:
 
  . Open the desktop program.
  . Choose File>Export from the menu.
+
  . Click the 'Export...' button. Make sure to leave "all decks" selected, as
-   it's not possible to import individual decks into AnkiMobile.
- . Anki will automatically create a collection.apkg on your desktop.
+ it's not possible to import individual decks into AnkiMobile. "Include
+ scheduling information" must also remain checked.
+ . Anki will automatically create a collection.apkg on your desktop. If the
+   file is named something else, please see the previous step again.
  . Connect your Apple device to your computer via the USB cable.
  . Open iTunes if it doesn't open automatically.
  . Locate Anki's file sharing section with
@@ -163,7 +166,7 @@ customize this number if you'd like.
 To study cards in a deck, simply tap on the deck, and AnkiMobile will switch
 to study mode.
 
-If you wish to delete a deck, swipe your finger from left to right over it,
+If you wish to delete a deck, swipe your finger from right to left over it,
 and a delete button will appear.
 
 At the top of the screen, you'll see three buttons. The question mark opens

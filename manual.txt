@@ -1,4 +1,8 @@
 ++++++++++++++++++++++++++++++
+<%def name="title()">
+Anki Manual
+</%def>
+
 <h1>Anki 2.0 User Manual</h1>
 
 <script>
@@ -9,7 +13,7 @@
 Intro Videos
 ============
 
- * http://www.youtube.com/watch?v=QS2G-k2hQyg&feature=plcp[Shared decks and review basics]
+ * http://www.youtube.com/watch?v=QS2G-k2hQyg&feature=plcp[Shared Decks and Review Basics]
  * http://www.youtube.com/watch?v=DnbKwHEQ1mA[Switching Card Order]
  * http://www.youtube.com/watch?v=F1j1Zx0mXME[Styling Cards]
  * http://www.youtube.com/watch?v=5tYObQ3ocrw[Typing in the Answer]
@@ -19,8 +23,13 @@ Translations
 
 This page translated into other languages:
 
+ * http://ankisrs.net/docs/manual.fr.html[Français]
  * http://192.167.9.6/Anki_ITA/Manual_ITA.htm[Italiano]
  * http://wikiwiki.jp/rage2050/?FrontPage[日本語]
+
+These translations are contributed by volunteers. If you would like to help
+translate the manual into a different language, please see the
+<<translatingmanual,translating the manual>> section.
 
 Introduction
 ============
@@ -207,8 +216,10 @@ to a "Hanzi" deck, which is part of a "Chinese" deck. If you select "Hanzi"
 then only the Hanzi cards will be shown; if you select "Chinese" then all
 Chinese cards, including Hanzi cards, will be shown.
 
-To place decks into a tree, you can either name them with "::" between each level,
-or drag and drop them from the deck list.
+To place decks into a tree, you can either name them with "::" between each
+level, or drag and drop them from the deck list. Decks that have been nested
+under another deck (that is, that have at least one "::" in their names) are
+often called 'subdecks', and top-level decks are sometimes called 'superdecks'.
 
 Anki starts with a deck called "default"; any cards which have somehow become
 separated from other decks will go here. Anki will hide the default deck if it
@@ -942,15 +953,19 @@ On the top left are two buttons, which open the <<fields,fields>> and
 On the right are buttons that control formatting. Bold, italic and underline
 work like they do in a wordprocessing program. The next two buttons allow you to
 subscript or superscript text, which is useful for chemical compounds like
-H~2~O and or simple math equations like x^2^.
+H~2~O or simple math equations like x^2^.
 
 The icon with the red cross clears any formatting in the currently selected text.
 This includes colours, bold, etc.
 
 The next button allows you to change text colour.
 
-The paperclip allows you to attach audio, images and videos to your notes. For
-more information, please see the <<media,media>> section.
+You can use the paperclip button to select audio, images and videos from your
+computer's hard drive to attach to your notes. Alternatively, you can copy the
+media onto your computer's clipboard (for instance, by right-clicking an image
+on the web and choosing 'Copy Image') and paste it into the field that you want
+to place it in. For more information about media, please see the
+<<media,media>> section.
 
 The red circle button allows you to record your voice and attach it to the note.
 
@@ -1026,12 +1041,17 @@ You can also give yourself hints that don't match the text. If you replace the
 original sentence with:
 
 -----
-{{Canberra::city}} was founded in 1913
+Canberra::city was founded in 1913
 -----
 
 ...and then press [...] after selecting "Canberra::city", Anki will treat the
-text after the two colons as a hint. When the card comes up for review, it
-will appear as:
+text after the two colons as a hint, changing the text into:
+
+-----
+{{c1::Canberra::city}} was founded in 1913
+-----
+
+When the card comes up for review, it will appear as:
 
 -----
 [city] was founded in 1913.
@@ -1358,6 +1378,14 @@ styling section:
 
 -----
 img { max-width: none; max-height: none; }
+-----
+
+NOTE: If you try to change the style for images and find that the star that appears
+on a card is affected (for instance, it becomes way too large), you can target
+it with the following:
+
+-----
+img#star { ... }
 -----
 
 [[fieldstyling]]
@@ -1858,6 +1886,27 @@ NOTE: Due to a bug in the toolkit Anki uses, embedded fonts can cause crashes
 on OS X. A workaround is posted on
 https://anki.tenderapp.com/discussions/ankidesktop/4161-crash-when-showing-answer-with-custom-font-mac-109anki-2018#comment_30164833
 
+== Javascript ==
+
+As Anki cards are treated like webpages, it is possible to embed some
+Javascript on your cards via inline script tags in the template. As this is an
+advanced feature, we can not guarantee any particular Javascript will work,
+and can not provide any assisstance when things are not working. If in doubt,
+it's best to avoid it.
+
+Each Anki client may implement card display differently, so you will need to
+test the behaviour across platforms. A number of clients are implemented
+by keeping a long running webpage and dynamically updating parts of it as cards
+are reviewed, so your Javascript will need to update sections of the document
+rather than doing things like document.write.
+
+Functions like window.alert are also not available. Anki will write
+javascript errors to the terminal, so if you're running on a Mac or Windows
+computer, you'll need to manually catch the errors and write them to the
+document to see them. There is no debugger available, so to figure out
+problems you'll need to break down your code until you discover which parts
+are causing problems.
+
 [[profileprefs]]
 = Profiles & Preferences =
 
@@ -2323,7 +2372,9 @@ search for cards.
 === Simple searches ===
 
 When you type some text into the search box, Anki finds matching notes and
-displays their cards. Some examples:
+displays their cards. Anki searches in all fields of the notes, but does not
+search for tags (see later in this section for how to search for tags). Some
+examples:
 
  dog :: search for "dog" - will match words like "doggy" and "underdog" too
  dog cat :: finds notes with both "dog" and "cat", such as "a dog and cat"
@@ -2339,17 +2390,22 @@ displays their cards. Some examples:
 
 Things to note from the above:
 
- * Search terms are separated by spaces
+ * Search terms are separated by spaces.
  * When multiple search terms are provided, Anki looks for notes that match
-   all of the terms
- * You can use "or" if you only need one of the terms to match
- * You can prepend a minus sign to a term to find notes that don't match
+   all of the terms.
+ * You can use "or" if you only need one of the terms to match.
+ * You can prepend a minus sign to a term to find notes that don't match.
  * If you want to search for something including a space or parenthesis, enclose
    it in quotes.
+ * You can group search terms by placing them in parentheses, as in the *dog
+   (cat or mouse)* example. This becomes important when combining OR and AND
+   searches -- in the example, with the parentheses, it matches either 'dog
+   cat' or 'dog mouse', whereas without them it would match either 'dog and
+   cat' or 'mouse'.
  * Anki is only able to search within formatting in the <<fields,sort
-field>> you've configured. For example, if you add "**exa**mple" to one of your
-fields, this will not be matched when searching for "example" unless that
-field is the sort field.
+   field>> you've configured. For example, if you add "**exa**mple" to one of your
+   fields, this will not be matched when searching for "example" unless that field
+   is the sort field.
 
 === Limiting to a field ===
 
@@ -3082,6 +3138,16 @@ will be updated based on content of the imported file. A drop-down box in the
 import screen allows you to change this behaviour, to either ignore duplicates
 completely, or import them as new notes instead of updating existing ones.
 
+NOTE: The duplicate check is done for your 'entire collection', not just in the
+current deck. If Anki is indicating that notes have not changed when you
+expected them to be imported, please check that the notes are not already in
+your collection somewhere.
+
+If you have updating turned on and older versions of the notes you're importing
+are already in your collection, they will be updated in place (in their
+current decks) rather than being moved to the deck you have set in the import
+dialog.
+
 For info on how duplicates are handled in .apkg files, please see the
 <<apkg-export,Deck Packages>> section below.
 
@@ -3239,17 +3305,36 @@ different languages.
 
 NOTE: On Windows, you should use a backslash (\) not a forward slash (/).
 
-WARNING: If you place the Anki folder on a network drive or synced folder like
-Dropbox or Google Drive, if the synced service makes a mistake, your collection
-is likely to become corrupted. Regular DB checks are recommended, or better
-yet, make a script which copies the collection from the shared folder to the
-local disk before running Anki, and moves it back when you're done.
-
 NOTE: If you want to permanently change the interface language, delete
 Documents/Anki/prefs.db and the initial startup screen will be shown
 again. After doing so, you'll need to add any profiles you were using again.
 As long as you use the same profile name as before, Anki will pick up the
 files from before.
+
+[[thirdpartysync]]
+DropBox and File Syncing
+-------------------------
+
+We do not recommend you sync your Anki folder directly with a third-party
+synchronization service, as it can lead to database corruption when files are
+synced while in use.
+
+If you just want to synchronize your media, you can link external folders
+into services like DropBox. Please see
+http://www.dropboxwiki.com/tips-and-tricks/sync-other-folders for more info.
+
+If you wish to keep your collection in sync as well, it is strongly recommended
+that you create a script that copies your files from your synced folder to a local
+folder, launches Anki, and then copies the files back when Anki is closed. This
+will ensure that the files are never synchronized while they are open.
+
+Network Filesystems
+--------------------
+
+We strongly recommend you have Anki store your files on a local hard disk, as
+network filesystems can lead to database corruption. If a network filesystem
+is your only option, regular use of Tools>Check Database to detect corruption
+is recommended.
 
 Running from a Flash Drive
 ---------------------------
@@ -3536,16 +3621,17 @@ The Graphs
 
 Anki stores the sounds and images used in your notes in a folder next to the
 collection. For more on the folder location, please see the <<files,file
-locations>> section. When you add media within Anki, Anki will copy it from its
-original location into the media folder. This makes it easy to back up your
-collection's media or move it to another computer.
+locations>> section. When you add media within Anki, either by using the
+paperclip icon in the <<editor,editor>> or by pasting it into a field, Anki
+will copy it from its original location into the media folder. This makes it
+easy to back up your collection's media or move it to another computer.
 
 You can use the Tools>Check Media menu option to scan your notes and media
 folder. It will generate a report of files in the media folder that are not
 used by any notes, and media referenced in notes but missing from your media
 folder. It does not scan question or answer templates, which is why you can't
 place media references to fields in the template. If you need a static image or
-sound on every card, name it with a leading _ (eg _dog.jpg) to tell Anki to
+sound on every card, name it with a leading _ (e.g., ''_dog.jpg'') to tell Anki to
 ignore it when checking for media. If you delete media using the unused media
 check, Anki will move it into your operating system's trash folder, so you can
 recover if you accidentally delete media that shouldn't have been deleted.
@@ -3581,7 +3667,8 @@ an administrator until all the packages were fetched helped.
 
 NOTE: On OSX, LaTeX has only been tested with MacTex and BasicTex. If you use
 BasicTex, you need to install dvipng separately, with the following command:
-tlmgr update --self && tlmgr install dvipng
+
+  sudo tlmgr update --self; sudo tlmgr install dvipng
 
 NOTE: If you are not using the above LaTeX packages, you will need to
 use the "edit LaTeX" add-on to specify the full path to latex and dvipng.
@@ -3780,9 +3867,12 @@ will (and LaTeX ignores spaces in math mode, so your equation will render the sa
 Unsafe commands
 -----------------
 
-Anki prohibits certain commands like \input from being used on cards or in
-templates, because to allow them could allow malicious shared decks to damage
-your system. If you need these commands, please add them to a system package,
+Anki prohibits certain commands like \input or \def from being used on cards or
+in templates, because allowing them could allow malicious shared decks to
+damage your system. (To be on the safe side, these commands are prohibited even
+in comments, so if you're getting this error but don't think you've used one,
+please double-check any comments you have in your headers, templates, and
+cards.) If you need to use these commands, please add them to a system package
 and import that package as described in the previous section.
 
 = Miscellanea =
@@ -3971,6 +4061,7 @@ you can export a .mo file from the translation website. If you then move that
 with the same language code (in the locale folder), Anki will display the new
 translations when it is next started.
 
+[[translatingmanual]]
 Translating the Manual
 -----------------------
 
@@ -3986,7 +4077,24 @@ Word or similar software, and translate it that way.
 When you're happy with the translation, you can either put it up on your
 website and I can link to it, or I can host the translated file on Anki's
 website (but if you're planning to make frequent updates, the former is a
-better choice).
+better choice). If you'd like, you can post it before you're done and we can
+link to it in the list of in-progress translations below.
+
+Another option is to put your translation on a wiki, so that other users can
+contribute to it. There are many sites such as http://www.wikia.com[Wikia] that
+will allow you to easily create your own wiki for free. (The English version
+once used a wiki; we found that we got too many unhelpful contributions and had
+to spend too much time correcting them, but your mileage may vary.)
+
+The following translations are currently in progress:
+
+* https://docs.google.com/file/d/0BztmnLeHvsKeWmkwNjlxNTJiaFE/edit[German]
+* Chinese
+* http://ankisrs.net/docs/manual.pl.html[Polish]
+
+If you would like to help with one of these translations, please contact us on
+TenderApp and we will put you in touch with the user(s) currently working on
+it.
 
 Contributing Code
 -------------------
