@@ -7,8 +7,12 @@
 
 [[latest]]
 
+= 変更点: 2.0.27 =
+/////
 = Changes in 2.0.27 =
+/////
 
+/////
 * Media syncing has been rewritten to be more reliable:
 ** It no longer locks the account, so multiple clients can sync media at the same
    time (but please do not attempt this with the mobile clients yet,
@@ -20,100 +24,203 @@
    this is no longer the case.
 ** When resuming from a connection error, less data needs to be sent than before.
 ** When deauthorizing sync, the media syncing state is reset.
+/////
+* メディアの同期を書き直して、さらに安定させました:
+** アカウント毎にロックするのはやめ、複数のクライアントから同時にメディアを同期できるようになりました (しかし、まだモバイルクライアントから同時に同期するのは止めてください。モバイルクライアント側での更新が済んでいないためです)。このことによって、将来的にメディアの同期をバックグラウンド実行する道が開けました。
+** 新しいデバイスで初回同期する場合、既に双方に存在するファイルは、受送信が回避できるようになりました。
+** 過去のバージョンでは大量のファイルを削除するとタイムアウトを引き起こしていましたが、この問題を解決しました。
+** 接続エラーから復帰する時に、必要な送信データが以前より少なくなりました。
+** 同期の認証を解除すると、メディア同期の状態をリセットするようにしました。
 
+/////
 * On Linux, the Anki folder is now Documents/Anki, which matches the other
   platforms. Anki will use a previous Anki folder if it exists, so please
   rename it manually if you wish to use the new location.
+/////
+* Linux 版の Anki フォルダは Documents/Anki に変更しました。他のプラットフォーム版と揃えました。以前の Anki フォルダが存在する場合は、そちらを利用しますが、新しい場所を使いたい場合は、既存フォルダの名前を変更してください。
 
+/////
 * Searches in the Browse screen can now be saved into the sidebar, and the
 tab key order has been improved (thanks to Houssam). These changes conflict
 with previous versions of the Advanced Browser add-on, so please ensure you
 download the latest version if you use this add-on.
+/////
+* ブラウザーの検索条件をサイドバーに保存できるようになりました。また、タブキーの移動順序を改善しました(Houssam に感謝)。この変更によって、以前のバージョンの　Advanced Browser アドオンと競合が発生します。このアドオンを利用している場合は、最新バージョンをダウンロードしてお使いください。
 
+/////
 * Fixed a bug where a filtered deck with 'or' in it could mistakenly
   include suspended or buried cards.
+/////
+* フィルター単語帳で 'or' 条件を使うと、誤って保留中のカードや延期中のカードが混入するバグを修正しました。
 
+/////
 * Fixed crashes in the alternate Mac build.
+/////
+* Mac 版の代替ビルドで発生するクラッシュを修正しました。
 
+/////
 * The Preview window now has a "replay audio" button, with the shortcut 'R' like
 in the review screen.
+/////
+* プレビューウィンドウに [オーディオを再生] ボタンを追加しました。復習画面のショートカット 'R' と同じ機能です。
 
+/////
 * The post-import log now lists the number of notes that were unchanged by a text
 import. "Unchanged" includes notes that were present in your collection as
 well as the imported file but were not updated in your collection, whether
 because the update option was off or they were not changed.
+/////
+* 読み込み処理後のログにテキストファイルを読み込んで変更しなかったノートの数を一覧するようにしました。
+「変更しなかったノート」とは、使用中のコレクションに存在し、さらに読み込んだファイルにも存在してコレクションを更新しなかったノートのことです。更新オプションを無効にするか読み込んだファイルのノートに変更がない場合に発生します。
 
+/////
 * The options menu next to each deck in the deck list now has an "export"
 button, which opens the export dialog with that deck already selected.
+/////
+* 単語帳一覧中の各単語帳の脇にあるオプションメニューに [書き出す] 項目を追加しました。この項目は選択済みの単語帳を書き出すダイアログを開きます。
 
+/////
 * Don't display the "added duplicate" message multiple times when a note is
 already duplicated in the collection but only one new duplicate was added.
+/////
+* 使用中のコレクションに既に重複したノートがある場合は、「重複したノートを追加しました」というメッセージを何度も表示するのはやめました。新たな重複を追加した時にだけ表示します。
 
+/////
 * Fix a bug where Anki was inserting <br>s into the text of imported cards if
  using quoted multi-line notes, with HTML disabled.
+/////
+* HTML を無効にして引用符で囲った複数行のノートを読み込んだ時に、&lt;br&gt; タグを挿入するバグを修正しました。
 
+/////
 * Provide more helpful errors when importing corrupt collection packages or
 .anki2 files.
+/////
+破損した単語帳パッケージや .anki2 ファイルを読み込んだ時に表示するエラーメッセージを分かりやすくしました。
 
+/////
 * Anki now remembers the previous position and size of various dialogs it
 didn't previously.
+/////
+* さまざまなダイアログの位置や大きさを記憶するようになりました。
 
+/////
 * The "suspended" label in the card types graph has been changed to
 "Suspended+Buried" since that category also counts buried cards.
+/////
+* 統計情報のカードの種類のグラフにある「保留」という見出しを「保留+延期」に変更しました。このカテゴリは、延期したカードも含めて計算しているためです。
 
+/////
 * Anki now makes sure the Get Addons dialog opens at an appropriate size when
  the system font size is unusual.
+/////
+* システムフォントのサイズを例外的なサイズに指定している時でも、アドオン取得ダイアログを適切な大きさで表示するようにしました。
 
+/////
 * Check that saving a statistics image was successful before displaying a
 success message, and give a warning if Anki doesn't have permission to write
 to the desktop.
+/////
+* 統計情報の画像を保存の際に、保存完了のメッセージを表示する前に確認して、デスクトップに書き込み権限がない場合は警告を表示するようにしました。
 
+/////
 * Give a less confusing error when Anki can't create a profile folder.
+/////
+* Anki がプロファイルフォルダーを作成できない時に表示するエラーメッセージを分かりやすくしました。
 
+/////
 * Don't throw an error when attempting to delete unused media that has
 already been removed.
+/////
+* 削除済みのメディアを未使用のメディアとして削除しようしてもエラーが発生しないようにしました。
 
+/////
 * Fix for exporting to csv with quotes in a field (thanks to Rubyu)
+/////
+フィールドの中に引用符を含む CSV ファイルを書き出した時に発生する問題を修正しました。(Rubyu に感謝)
 
+/////
 * Tweaks to latex handling which will allow add-ons to switch to pdftex (thanks to Joel)
+/////
+* アドオンで pdftex に変更できるように latex 処理を調整しました。(Joel に感謝)
 
+/////
 * Round cards/minute stat instead of truncating it (thanks to Markus)
 * Fix errors when importing Mnemosyne's latest db format.
 * Support pasting of m4a urls.
 * Add a fix for an AnkiDroid bug to the Check DB function (thanks to Houssam)
 * Fix tooltip colour for inverted colour schemes. (Thanks to Pat)
 * Don't trigger help when enter pressed in preferences screen.
+/////
+* カード枚/分の統計表示の際、切り捨てから四捨五入に変更しました。(Markus に感謝)
+* Mnemosyne の最新のデータベース形式で読み込んだ際に発生するエラーを修正しました。
+* m4a を指定する URL の貼り付けに対応しました。
+* AnkiDroid のバグに対応する機能をデータベースをチェック機能に追加しました。(Houssam に感謝)
+* ツールチップの色を反転カラースキーマに対応しました。(Pat に感謝)
+* 環境設定画面でエンターキーを押してもヘルプを表示しないようにしました。
 
+/////
 * Fix a bug on Windows where the main window was left open when a corrupt
 collection was detected.
+/////
+* Windows 版でコレクションの破損が見つかった時に、メインウィンドウが開いたまま残るバグを修正しました。
 
+/////
 * Fix error when Anki is running for multiple users on a multi-user machine.
+/////
+* Anki を共有マシンで複数のユーザーが実行した時に発生するエラーを修正しました。
 
+/////
 * Don't try to authenticate username and password if user cancels login dialog.
+/////
+* ログインダイアログで取り消しを選択した場合には、ユーザー名とパスワードの認証は行わないことにしました。
 
+/////
 * Allow changing case of profile name on Windows.
+/////
+* Windows 版でプロファイル名の大文字小文字の変更ができるようになりました。
 
+/////
 * Update all duplicates when importing in update mode.
+/////
+* 更新モードで読み込んだ時には、重複ノートは全て更新するようにしました。
 
+/////
 * Remove initial search text when ctrl-clicking a left panel item.
+/////
+* 左側パネルの項目を Control を押しながらクリックした時に、最初から検索欄に入っているテキストに削除するようにしました。
 
+/////
 * Fix rounding of cards/minute in stats; use 1 decimal place.
 * Fix error when exporting w/ non-latin text in profile name.
 * Prevent profiles from getting out of sync when rename fails.
 * Update note type on apkg import when only templates have changed
+/////
+* 統計情報内のカード枚/分の四捨五入に関する問題を修正しました。小数点以下 1 桁まで表示するようにしました。
+* プロファイル名に非ラテン文字を含んでいる場合に書き出すと発生するエラーを修正しました。
+* 名前の変更に失敗したプロファイルは、同期の対象から外すことにしました。
+* テンプレードだけを変更した場合、apkg を読み込むとノートタイプを更新するようにしました。
 
+/////
 * Search terms in the browser and filtered decks can now be separated by a
 full width space (thanks to Paul)
+/////
+* ブラウザーやフィルター単語帳に使用する検索語句を全角スペースで区切れるようになりました。(Paul に感謝)
 
+/////
 * Catch some rare startup errors on Windows and show them in a dialog box
   instead of exiting silently.
+/////
+* Windows 版でまれに発生する起動エラーを補足し、黙って終了するのではなく、ダイアログボックスにエラーメッセージを表示するようにしました。
 
+/////
 A special thanks to Soren, who contributed many of the bugfixes in this release.
+/////
+Soren には特に感謝します。今回のリリースでたくさんのバグ修正に貢献してくれました。
 
-= 変更点: 2.0.26 =
 /////
 = Changes in 2.0.26 =
 /////
+= 変更点: 2.0.26 =
 
 /////
 * Fix more crashes on Macs.
