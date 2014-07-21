@@ -7,6 +7,10 @@
 
 [[latest]]
 
+= Changes in 2.0.28 =
+
+* Fix media syncing state not being properly reset when deauthorizing.
+
 = 変更点: 2.0.27 =
 /////
 = Changes in 2.0.27 =
