@@ -7,14 +7,20 @@
 
 [[latest]]
 
+= 変更点: 2.0.28 =
+/////
 = Changes in 2.0.28 =
+/////
 
+/////
 * Fix media syncing state not being properly reset when deauthorizing.
+/////
+* 認証を解除する際に、メディア同期の状態を正しくリセットするようにしました。
 
-= 変更点: 2.0.27 =
 /////
 = Changes in 2.0.27 =
 /////
+= 変更点: 2.0.27 =
 
 /////
 * Media syncing has been rewritten to be more reliable:
