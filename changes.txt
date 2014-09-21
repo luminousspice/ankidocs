@@ -7,55 +7,130 @@
 
 [[latest]]
 
+= 変更点: 2.0.29 =
+/////
 = Changes in 2.0.29 =
+/////
 
+/////
 * Fix "app is damaged" message on OSX Yosemite
+/////
+* OS X Yosemite で「アプリケーションが壊れています」というメッセージが表示される問題を修正しました。
+/////
 * A new "added" graph that shows how many new cards have been added to the
 collection.
+/////
+* 「追加」グラフを新規追加しました。このグラフは、コレクションに何枚新規追加したか表示します。
+/////
 * When exporting notes as text, say the number of notes that were exported,
 not the number of cards.
+/////
+* ノートをテキストファイル形式で書き出した場合、出力したカードの枚数ではなく、ノートの件数を報告するようになりました。
+/////
 * Add keyboard shortcut Ctrl-Shift-N for the Manage Note Types dialog.
+/////
+* ノートタイプ管理ダイアログにショートカット Ctrl-Shift-N を追加しました。
+/////
 * Allow tags to be separated with an ideographic space character (eg. Japanese
   full width space)
+/////
+* 全角スペース (Ideographic Space) でタグを区切ることが出来るようになりました。
+/////
 * Allow closing the edit current dialog with Ctrl-Enter.
+/////
+* Ctrl-Enter で使用中のの編集ダイアログを閉じることが出来るようになりました。
+/////
 * Show more info when syncing media, so you can see it's progressing and get
 an idea of how long is left.
+/////
+* メディアファイルの同期中により詳しい情報を表示し、同期が進行中で、あとどれだけの時間が掛かるか分かるようにしました。
+/////
 * All the web components in Anki default to accepting focus and allowing
 copying now, which should fix issues with some screens not allowing copy to
 the clipboard, such as the card info screen.
+/////
+* Anki の全てのウェブコンポーネントは、フォーカスを移したり、コピーが出来るようになりました。これによって、カード情報画面などの画面からクリップボードにコピーできない問題に対応しました。
+/////
 * Fix a bug where <br> tags were being inserted in place of newlines when
 importing with html enabled.
+/////
+* HTML の使用を有効にして読み込んだ場合に、改行の場所に &lt;br&gt; タグが挿入するバグを解決しました。
+/////
 * Fix a bug when trying to recover from a corrupt profile.
+/////
+* 破損したプロファイルから復帰する際に発生するバグに対応しました。
+/////
 * Fix addons being downloaded with double newlines on Windows.
+/////
+* Windows 版でアドオンをダウンロードすると改行が二重になる問題を解決しました。
+/////
 * If an existing anki instance is hung, start a new instance when user clicks
  on anki icon.
+/////
+* 既存の Anki インスタンスが応答しなくたった場合、ユーザーが　Anki のアイコンをクリックすると新しいインスタンスを起動するようにしました。
+/////
 * A few translation fixes thanks to Derbeth.
+/////
+* 翻訳に関する問題を修正しました。Derbeth に感謝。
+/////
 * Disable a better error message when some ssl errors occur.
+/////
+* SSL エラーが発生した場合、条件によっては詳しいメッセージを表示しないようにしました。
+/////
 * Make the tab width in the template editor reasonable.
+/////
+* テンプレートエディタ内のタブ幅を調整しました。
+/////
 * Strip any formatting when pasting into the template editor, as rich text
 has no meaning there.
+/////
+* テンプレートエディタへ貼り付けた場合、書式を外すようにしました。リッチテキストの書式情報は無視するようになりました。
+/////
 * If the computer has no desktop folder, place collection packages in the
 user's home directory.
+/////
+* 利用中のコンピュータにデスクトップフォルダがない場合、ホームディレクトリにコレクションパッケージを保存するようにしました。
+/////
 * Fix a bug that was allowing nesting other decks under filtered decks.
+/////
+* フィルター単語帳に他の単語帳がサブ単語帳になるバグを修正しました。
+/////
 * Fix a bug that was causing templates to get out of sync with field names on
  renaming if more than one filter was used (e.g., {{type:cloze:Text}}).
+/////
+* 一つ以上のフィルターを使ってフィールド名を変更した (例 {{type:cloze:Text}}) テンプレートが同期の対象外になるバグを修正しました。
+/////
 * Don't jump around in the browser's card list when deleting cards.
+/////
+* カードを削除した後、ブラウザーのカード一覧内で正しい位置に選択するようにしました。
+/////
 * On Linux systems that don't have a documents folder defined, default to
 ~/Documents/Anki (in English) for the profile folder.
+/////
+* ドキュメントフォルダを設定していない Linux システムでは、プロファイルフォルダとして ~/Documents/Anki (英語の場合) を使用するようにしました。
+/////
 * We no longer encode and decode %20 and so on when fields are edited.
   This should fix the bug where users were having text with percent
   signs in it being turned into other characters.
+/////
+* フィールドを編集した時に %20 で符号化することをやめました。
+/////
 * Tags that differ only in case are no longer allowed, as tags were sometimes
  case-sensitive and sometimes not. The case that you use the first time you
  enter will be used for all future cards added with that tag. If you want to
  change the capitalization of that tag, you can temporarily remove the tag
  from all cards and then add it again with the new case.
+/////
+* タグを大文字小文字で分けて使っても、分けて使わなくても、タグを大文字小文字で区別しなくなりました。最初にタグに使った指定が、以後追加したカードにも使います。大文字小文字の指定を変更したい場合は、全てのカードからそのタグを一旦削除して、指定し直すしてください。
+/////
 * Ignore >100MB files when syncing instead of having the server throw an error.
+/////
+* 100MB 以上のファイルを同期してサーバーエラーを発生させる代わりに、同期の対象から外すようにしました。
 
-= 変更点: 2.0.28 =
 /////
 = Changes in 2.0.28 =
 /////
+= 変更点: 2.0.28 =
 
 /////
 * Fix media syncing state not being properly reset when deauthorizing.
