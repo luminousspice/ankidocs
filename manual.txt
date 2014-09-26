@@ -1205,8 +1205,8 @@ When you place text within curly brackets, Anki looks for a field by that
 name, and replaces the text with the actual content of the field. You can
 include as many fields as you wish.
 
-NOTE: Field names are case sensitive. If you have a field named "Front",
-writing {{front}} will not work properly.
+NOTE: Field names are case sensitive. If you have a field named 'Front',
+writing '\{\{front\}\}' will not work properly.
 
 Your templates are not limited to a list of fields. You can also include
 arbitrary text on your templates. For example, if you're studying capital
@@ -2475,6 +2475,7 @@ default.
  is:suspended :: cards that have been manually suspended
 
 Cards that have lapsed fall into several of these categories, so it may be useful to combine them to get more precise results:
+
  is:learn is:review :: cards that have lapsed and are awaiting relearning
  -is:learn is:review :: review cards, not including lapsed cards
  is:learn -is:review :: cards that are in learning for the first time

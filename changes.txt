@@ -27,7 +27,6 @@ not the number of cards.
 /////
 * ノートをテキストファイル形式で書き出した場合、出力したカードの枚数ではなく、ノートの件数を報告するようになりました。
 /////
-* Add keyboard shortcut Ctrl-Shift-N for the Manage Note Types dialog.
 /////
 * ノートタイプ管理ダイアログにショートカット Ctrl-Shift-N を追加しました。
 /////
