@@ -27,9 +27,6 @@ not the number of cards.
 /////
 * ノートをテキストファイル形式で書き出した場合、出力したカードの枚数ではなく、ノートの件数を報告するようになりました。
 /////
-/////
-* ノートタイプ管理ダイアログにショートカット Ctrl-Shift-N を追加しました。
-/////
 * Allow tags to be separated with an ideographic space character (eg. Japanese
   full width space)
 /////
