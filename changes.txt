@@ -7,22 +7,43 @@
 
 [[latest]]
 
+= 変更点: 2.0.30 =
+/////
 = Changes in 2.0.30 =
+/////
 
+/////
 If you're using the alternate build on an older Mac, this upgrade
 is necessary to keep syncing.
+/////
+以前の Mac 用の代替ビルドを使用している場合は、同期機能を継続使用するにはこのバージョンへのアップグレードが必要です。
 
+/////
 * Disable embedded fonts on OSX to prevent crashes.
+/////
+* OS X 版では、クラッシュを回避するため埋め込みフォントが使用できなくなりました。
+/////
 * The Browse screen on OSX now deletes cards when you press Fn+Del, not
   Del.
+/////
+* OS X 版では、ブラウズ画面でカードを削除するには Fn+Del を押します。Del から変更しました。 
+/////
 * Fix a syncing bug triggered by importing apkgs with custom deck options.
+/////
+* カスタマイズした単語帳オプションを設定している apkg ファイルを読み込むと引き起こす同期のバグを修正しました。
+/////
 * Fix saved searches not being synced (thanks to Houssam).
+/////
+* 保存した検索条件が同期できない問題を修正しました (Houssam に感謝)。
+/////
 * Fix "check database" not saving changes after fixing an AnkiDroid problem.
+/////
+* AnkiDroid の問題に対応後、[データベースをチェック] で変更が保存できない問題を修正しました。
 
-= 変更点: 2.0.29 =
 /////
 = Changes in 2.0.29 =
 /////
+= 変更点: 2.0.29 =
 
 /////
 * Fix "app is damaged" message on OSX Yosemite
@@ -106,7 +127,7 @@ user's home directory.
 * Fix a bug that was causing templates to get out of sync with field names on
  renaming if more than one filter was used (e.g., \{\{type:cloze:Text}}).
 /////
-* 一つ以上のフィルターを使ってフィールド名を変更した (例 {{type:cloze:Text}}) テンプレートが同期の対象外になるバグを修正しました。
+* 一つ以上のフィルターを使ってフィールド名を変更した (例 \{\{type:cloze:Text}}) テンプレートが同期の対象外になるバグを修正しました。
 /////
 * Don't jump around in the browser's card list when deleting cards.
 /////
