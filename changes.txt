@@ -7,6 +7,18 @@
 
 [[latest]]
 
+= Changes in 2.0.30 =
+
+If you're using the alternate build on an older Mac, this upgrade
+is necessary to keep syncing.
+
+* Disable embedded fonts on OSX to prevent crashes.
+* The Browse screen on OSX now deletes cards when you press Fn+Del, not
+  Del.
+* Fix a syncing bug triggered by importing apkgs with custom deck options.
+* Fix saved searches not being synced (thanks to Houssam).
+* Fix "check database" not saving changes after fixing an AnkiDroid problem.
+
 = 変更点: 2.0.29 =
 /////
 = Changes in 2.0.29 =
@@ -92,7 +104,7 @@ user's home directory.
 * フィルター単語帳に他の単語帳がサブ単語帳になるバグを修正しました。
 /////
 * Fix a bug that was causing templates to get out of sync with field names on
- renaming if more than one filter was used (e.g., {{type:cloze:Text}}).
+ renaming if more than one filter was used (e.g., \{\{type:cloze:Text}}).
 /////
 * 一つ以上のフィルターを使ってフィールド名を変更した (例 {{type:cloze:Text}}) テンプレートが同期の対象外になるバグを修正しました。
 /////
