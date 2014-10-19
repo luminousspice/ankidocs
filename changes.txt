@@ -6,14 +6,20 @@
 ++++++++++++++++++++++
 
 [[latest]]
+= 変更点: 2.0.31 =
+/////
 = Changes in 2.0.31 =
+/////
 
+/////
 * Fix a problem where large regular syncs sometimes timed out.
+/////
+* 大量のデータを定期的に同期するとタイムアウトが発生する問題を修正しました。
 
-= 変更点: 2.0.30 =
 /////
 = Changes in 2.0.30 =
 /////
+= 変更点: 2.0.30 =
 
 /////
 If you're using the alternate build on an older Mac, this upgrade
