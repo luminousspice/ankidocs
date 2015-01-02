@@ -159,7 +159,7 @@ user's home directory.
  change the capitalization of that tag, you can temporarily remove the tag
  from all cards and then add it again with the new case.
 /////
-* タグを大文字小文字で分けて使っても、分けて使わなくても、タグを大文字小文字で区別しなくなりました。最初にタグに使った指定が、以後追加したカードにも使います。大文字小文字の指定を変更したい場合は、全てのカードからそのタグを一旦削除して、指定し直すしてください。
+* タグを大文字小文字で分けて使っても、分けて使わなくても、タグを大文字小文字で区別しなくなりました。最初にタグに使った指定が、以後追加したカードにも使います。大文字小文字の指定を変更したい場合は、全てのカードからそのタグを一旦削除して、指定し直してください。
 /////
 * Ignore >100MB files when syncing instead of having the server throw an error.
 /////
