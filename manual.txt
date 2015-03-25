@@ -1690,8 +1690,8 @@ see the <<importing,importing>> section for more information.
 [[conditionalreplacement]]
 == Conditional Replacement ==
 
-It is possible to include certain text on your cards only if a field is empty
-or not empty. An example:
+It is possible to include certain text, fields, or HTML on your cards only if a
+field is empty or not empty. An example:
 
 -----
 This text is always shown.
@@ -1710,6 +1710,18 @@ A real life example is only showing a label if the field is not empty:
 -----
 {{#Tags}}Tags: {{Tags}}{{/Tags}}
 -----
+
+Or say you want to display a specific field in blue on the front of your card
+if there are extra notes on the back (perhaps the fact that there are notes
+serves as a reminder that you should spend more time thinking about the
+answer). You can style the field as follows:
+
+-----
+{{#Notes}}<span style="color:blue;">{{/Notes}}
+{{FieldToFormat}}
+{{#Notes}}</span>{{/Notes}}
+-----
+
 
 You can also use conditional replacement to control which cards are generated.
 This works since Anki will not <<cardgeneration,generate cards>> which would
@@ -1921,6 +1933,8 @@ And in the template:
 <div class=jp>{{Field}}</div>
 -----
 
+For different iOS devices, you can use '.iphone' and '.ipad'.
+
 You can also use properties like .gecko, .opera, and .ie to select particular
 browsers when using AnkiWeb. Please see
 http://rafael.adm.br/css_browser_selector/ for a full list of options.
@@ -1950,7 +1964,8 @@ After that, we need to update the template:
  . Click *Add* at the top of the main screen, and then select the note type
    you want to change with the top left button.
  . Click *Cards*.
- . In the styling section, add the following text to the bottom, replacing
+ . In the styling section, add the following text to the bottom (after the
+   last "}" character), replacing
    "_arial.ttf" with the name of the file you copied into your media folder:
 -----
 @font-face { font-family: myfont; src: url('_arial.ttf'); }
@@ -1981,7 +1996,7 @@ On your front or back template, wrap the field you want to style in the followin
 code, replacing "FieldName" with the name of your field.
 
 -----
-<span class="mystyle">{{FieldName}}</span>
+vl <span class="mystyle">{{FieldName}}</span>
 -----
 
 In the styling section, in addition to the font-face line described above,
@@ -2479,6 +2494,9 @@ You can hold down alt (option on a Mac) in order to reverse the search (prepend
 a '-') (for instance, to show all cards in a current deck that do _not_ have a
 certain tag).
 
+To remove tags that are not used by any notes, use Tools>Check Database from
+the main window.
+
 [[searching]]
 Searching
 ---------
@@ -2563,6 +2581,7 @@ default.
  is:learn :: cards in learning
  is:review :: reviews (both due and not due) and lapsed cards
  is:suspended :: cards that have been manually suspended
+ is:buried :: cards that have been buried, either <<automatically,siblings>> or manually
 
 Cards that have lapsed fall into several of these categories, so it may be useful to combine them to get more precise results:
 
@@ -2679,7 +2698,9 @@ its review history. For more information, see the <<stats,statistics>> section.
 in different decks, so if you want to move all cards in a note, you should
 first use Edit > Select Notes.
 
-'Add Tags' and 'Remove Tags' allow you to add or remove tags in bulk.
+'Add Tags' and 'Remove Tags' allow you to add or remove tags from notes in
+bulk. To remove unused tags from the list on the left, use Tools>Check
+Database from the main window.
 
 'Delete' removes the selected card(s) and their notes. It is not possible to
 remove individual cards, as individual cards are controlled by the
@@ -2732,12 +2753,18 @@ Unlike the check that happens when you add cards manually, the duplicate
 finding feature is not limited to a single note type. This means that by
 default, it will search in all note types that have the field you provided.
 
-The search area allows you to narrow down where Anki will look for duplicates.
-If you only want to search for duplicates in the "French Vocab" and "French
-Verbs" note types, you would enter:
+The 'optional limit' text box allows you to narrow down where Anki will look
+for duplicates. If you only want to search for duplicates in the "French Vocab"
+and "French Verbs" note types, you would enter:
 
 -----
 note:'french vocab' or note:'french verbs'
+-----
+
+Or you might want to look only for duplicates in a particular deck, so you could use:
+
+-----
+deck:'myDeck'
 -----
 
 The search syntax is the same as used when searching in the browser. Please
@@ -3111,12 +3138,12 @@ tabs can be imported into Anki, provided some conditions are met.
 
  * The files must be plain text (myfile.txt). Other formats like myfile.xls,
    myfile.rtf, myfile.doc must be saved as a plain text file first.
- * The files must be in UTF-8 format (see below)
+ * The files must be in UTF-8 format (see below).
  * Anki determines the number of fields in the file by looking at the first
-   (non-commented) line. Any other lines in the file which don't match this
-   number will be ignored.
- * The first line also defines the separating character - if Anki finds a ';'
-   on the first line it will use that - if it finds a comma it'll use that,
+   (non-commented) line. Any lines in the file which have a different number of
+   fields will be ignored.
+ * The first line also defines the separating character – if Anki finds a ';'
+   on the first line it will use that, if it finds a comma it'll use that,
    etc.
 
 Fields in your text file can be mapped to any field in your notes, including
@@ -3131,24 +3158,24 @@ This is an example of a valid file:
 
 -----
 foo bar; bar baz; baz quux
-field1; field2; field3
+apple; banana; grape
 -----
 
 There are two ways to include newlines in fields.
 
-*Escape the multi-lines*:
+*Escape the multi-lines by placing the contents of the field in quotation marks*:
 
 -----
-hello [tab] "this is
+hello; "this is
 a two line answer"
-two [tab] this is a one line one
+two; this is a one line one
 -----
 
 *Use HTML new lines*:
 
 -----
-hello [tab] this is<br>a two line answer
-two [tab] this is a one line one
+hello; this is<br>a two line answer
+two; this is a one line one
 -----
 
 You need to turn on the "allow HTML in fields" checkbox in the import dialog
@@ -3375,7 +3402,7 @@ File Locations
 
 On Windows and OSX, Anki stores all of its files in an Anki folder, located in
 your Documents folder. On other operating systems, your files are stored in
-~/Anki by default.
+~/Documents/Anki by default.
 
 Within the Anki folder, the program-level and profile-level preferences are
 stored in a file called prefs.db.
@@ -4184,9 +4211,9 @@ To learn how to write your own add-ons, please see the link:addons.html[add-on w
 Sharing Decks Publicly
 -----------------------
 
-To share decks with other people, <<syncing,synchronize>> them with AnkiWeb,
-then log into AnkiWeb and click on "Share" from the menu next to the deck you
-wish to share.
+To share decks with the general public, <<syncing,synchronize>> them with
+AnkiWeb, then log into AnkiWeb and click on "Share" from the menu next to the
+deck you wish to share.
 
 If you shared a deck previously (including with previous versions of Anki),
 you can update it by clicking "Share" as above. Please ensure the name of the
@@ -4204,17 +4231,24 @@ able to update the existing copy.
 Sharing Decks Privately
 ------------------------
 
-To share a deck privately, use File>Export and export in the packaged Anki
-deck format (including media if necessary). You can then place the resulting
-deck.apkg file on a private website for people to download, or mail it to the
-relevant people.
+If you'd like to share decks with a limited group of people (such as a study
+group or class) rather than the general public, you can do so by sharing them
+outside of AnkiWeb.
 
-Both desktop and mobile clients make it easy to import from an apkg file
-simply by clicking on it. AnkiWeb does not have the ability to import apkg
-files however, so the recipients of your deck will need to have the desktop
-client or Anki on their smartphone.
+To share a deck privately, go to the File menu and choose Export. Select a
+single deck (not "All Decks"), and turn off "include scheduling information".
+This will produce an .apkg file which you can share with others.
 
-When a user imports a .apkg file, cards that already exist in their collection
+You can share the .apkg file by emailing it to people, placing it on a website
+or shared folder, or using a free file sharing service like Dropbox or Google
+Drive and sending people a link.
+
+Both the computer version and mobile clients make it easy to import from an
+apkg file simply by clicking or tapping on it. AnkiWeb does not have the
+ability to import apkg files however, so the recipients of your deck will need
+to have the computer version or Anki on their mobile device.
+
+When a user imports an .apkg file, cards that already exist in their collection
 will be ignored and any new cards will be added. As long as they use the same
 note type, modified cards will also be updated. To prevent data loss, cards
 that have been deleted in the new apkg file will not be deleted in the user's
