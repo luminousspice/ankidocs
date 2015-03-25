@@ -6,23 +6,53 @@
 ++++++++++++++++++++++
 
 [[latest]]
+= 変更点: 2.0.32 =
+/////
 = Changes in 2.0.32 =
+/////
 
+/////
 * Fixed a syncing bug that could lead to lost reviews and sanity check errors
   when deleting a filtered deck before syncing.
+/////
+* 同期の前にフィルター単語帳を削除すると、復習履歴や妥当性確認の結果が失われる同期のバグを修正しました。
+/////
 * Make default note type titles consistent (thanks to Soren).
+/////
+* 既定のノートタイプの名称表示を統一しました。(Soren に感謝)
+/////
 * Load saved searches in alphabetical order (thanks to Houssam).
+/////
+* 保存した検索条件をアルファベット順に表示するようにしました。(Houssam に感謝)
+/////
 * Fix some fields not being renamed in template when renaming field (thanks to Dave).
+/////
+* フィールド名を変更した時に、テンプレートに反映されない問題を修正しました。(Dave に感謝)
+/////
 * Fixed an error message that could occur in add-ons (thanks to Thomas) .
+/////
+* アドオンで発生するエラーメッセージの問題を修正しました。(Thomas に感謝)
+/////
 * Add a few more media types in the file selector (thanks to Jonathan).
+/////
+* ファイル選択画面にメディアの種類の選択肢を追加しました。(Jonathan に感謝)
+/////
 * Report an error if an add-on download is corrupt.
+/////
+* アドオンのダウンロードファイルが破損している場合にエラー報告するようにしました。
+/////
 * Fix sync error being shown twice.
+/////
+* 同期エラーのメッセージを二重に表示する問題を修正しました。
+/////
 * Updated translations, thanks to the translators.
+/////
+* 翻訳リソースを更新しました。翻訳者の方々に感謝。
 
-= 変更点: 2.0.31 =
 /////
 = Changes in 2.0.31 =
 /////
+= 変更点: 2.0.31 =
 
 /////
 * Fix a problem where large regular syncs sometimes timed out.
