@@ -960,7 +960,7 @@ creating a <<filtered,filtered deck>>.
 
 When you answer cards that have been waiting for a while, Anki factors in that
 delay when determining the next time a card should be shown. Please see the
-section on Anki’s spaced-repetition <<whatalgorithm,algorithm>> for more
+section on Anki’s spaced-repetition <<what-algorithm,algorithm>> for more
 information.
 
 [[editor]]
@@ -1395,9 +1395,14 @@ line, you would use
 You can watch http://www.youtube.com/watch?v=F1j1Zx0mXME[a video about
 styling cards] on YouTube.
 
-In between the front and back template is the card styling. Here you can
-change the background colour of the card, the default font, the text
-alignment, and so on.
+In between the front and back template is the card styling. Here you can change
+the background colour of the card, the default font, the text alignment, and so
+on.
+
+NOTE: This is 'not' where you change the font for type answer
+comparisons, type answer textboxes, or editing textboxes; to learn how to
+change these fonts, please see the <<typinganswers,checking your answer>> and
+<<fields,customizing fields>> sections.
 
 The standard options available to you are:
 
@@ -1758,7 +1763,7 @@ replacements:
 
 Keep in mind that, as mentioned in the <<cardgeneration,card generation>>
 section, this only works when you place the conditional replacement code on the
-''front'' of the card; if you do this on the back, you will simply end up with
+'front' of the card; if you do this on the back, you will simply end up with
 cards with a blank back side. Similarly, since this works by checking if the front field would be empty, it is important to make sure you wrap the 'entire' front side in the conditional replacement; for instance, the following would not work as expected:
 
 -----
@@ -1996,7 +2001,7 @@ On your front or back template, wrap the field you want to style in the followin
 code, replacing "FieldName" with the name of your field.
 
 -----
-vl <span class="mystyle">{{FieldName}}</span>
+<span class="mystyle">{{FieldName}}</span>
 -----
 
 In the styling section, in addition to the font-face line described above,
@@ -2013,10 +2018,10 @@ Keep "myfont" as is, as it references the font you embedded.
 == Javascript ==
 
 As Anki cards are treated like webpages, it is possible to embed some
-Javascript on your cards via inline script tags in the template. As this is an
-advanced feature, we can not guarantee any particular Javascript will work,
-and can not provide any assistance when things are not working. If in doubt,
-it's best to avoid it.
+Javascript on your cards via inline script tags in the template (loading
+external files using src= is not supported). As this is an advanced feature, we
+can not guarantee any particular Javascript will work, and can not provide any
+assistance when things are not working. If in doubt, it's best to avoid it.
 
 Each Anki client may implement card display differently, so you will need to
 test the behaviour across platforms. A number of clients are implemented
@@ -2474,6 +2479,7 @@ keyboard. It is comprised of three sections: the 'sidebar' on the left, the
 positioning the mouse between two sections, it is possible to click and drag to
 expand one section and shrink another.
 
+[[sidebar]]
 Sidebar
 --------
 
@@ -2481,18 +2487,19 @@ The sidebar on the left allows quick access to common search terms. Various
 search terms as described below are listed, along with all deck names and tag
 names. Clicking on an item will search for it.
 
-You can hold down ctrl (command on a Mac) and click in order to append the
+You can hold down Ctrl (command on a Mac) and click in order to append the
 clicked item to the current search with an AND condition, instead of starting a
 new search. If you wanted to show learning cards that were also in the German
 deck for instance, you could click on "Learning", then ctrl+click on "German".
 
-You can hold down shift to create an OR search instead of an AND (for example,
+You can hold down Shift to create an OR search instead of an AND. For example,
 you could click one deck, then shift-click another to show cards from either of
-the decks in the same view).
+the decks in the same view.
 
-You can hold down alt (option on a Mac) in order to reverse the search (prepend
-a '-') (for instance, to show all cards in a current deck that do _not_ have a
-certain tag).
+You can hold down Alt (option on a Mac) in order to reverse the search (prepend
+a '-') – for instance, to show all cards in a current deck that do _not_ have a
+certain tag. Alt/option can be combined with either Ctrl or Shift (e.g., Ctrl-Alt-clicking will result in adding a new search term that is negated).
+
 
 To remove tags that are not used by any notes, use Tools>Check Database from
 the main window.
@@ -2502,7 +2509,8 @@ Searching
 ---------
 
 Above the card list is a search box. You can type in various things there to
-search for cards.
+search for cards. (If you’d rather select what you’re looking for in a list,
+please take a look at the <<sidebar,sidebar>> section above.)
 
 === Simple searches ===
 
@@ -2540,7 +2548,8 @@ Things to note from the above:
  * Anki is only able to search within formatting in the <<fields,sort
    field>> you've configured. For example, if you add "**exa**mple" to one of your
    fields, this will not be matched when searching for "example" unless that field
-   is the sort field.
+   is the sort field. If a word is not formatted, or the formatting does not change
+   in the middle of the word, then Anki will be able to find it in any field.
 
 === Limiting to a field ===
 
@@ -2552,7 +2561,7 @@ default.
    says "a dog" will not match.
  front:*dog* :: find notes with Front field containing dog somewhere
  front: :: find notes that have an empty Front field
- -front: :: find notes that have a non-empty Front field
+ front:_* :: find notes that have a non-empty Front field
  front:* :: find notes that have a Front field, empty or not
 
 === Tags, decks, cards and notes ===
@@ -2622,14 +2631,16 @@ their notes were added a long time ago.
 
 For speed, rating searches are limited to 31 days.
 
-=== Note and card IDs ===
+=== Object IDs ===
 
- nid:1000000000000 :: all cards of the note with given note ID
- cid:1000000000000 :: the card with given card ID
+ nid:123 :: all cards of the note with note id 123
+ cid:123 :: the card with card id 123
+ mid:123 :: find note types with note type id 123
 
-Note and card IDs can be found in the <<stats,card info>> dialog in the
-browser. These searches may also be helpful when doing add-on development or
-otherwise working closely with the database.
+Note and card IDs can be found in the <<stats,card info>> dialog in the browser.
+Note type IDs can be found by clicking on a note type in the Browse screen.
+These searches may also be helpful when doing add-on development or otherwise
+working closely with the database.
 
 [[cardlist]]
 Card List
@@ -2957,8 +2968,9 @@ sorted list first.
   Display cards that you added first (have the earliest creation date) first.
  Order due ::
   Display cards with the earliest due date first.
- Latest seen first ::
-  Display cards that you've seen most recently in reviews first.
+ Latest added first ::
+  Display cards that you've most recently added to the deck first. (This is the
+  opposite of 'Order added'.)
  Relative overdueness ::
   Display cards that are most overdue in relation to their current interval
   first (for instance, a card with a current interval of 5 days overdue by 2
@@ -3830,7 +3842,7 @@ http://sqlitebrowser.org/[SQLite Browser], which will allow you to look around
 the database as well as export a CSV version of tables for import into another
 program.
 
-The most important table for statistics is the ''revlog'' table, which stores an
+The most important table for statistics is the 'revlog' table, which stores an
 entry for each review that you conduct. The columns are as follows:
 
 id ::
@@ -3840,7 +3852,7 @@ id ::
   milliseconds.)
 cid ::
   The ID of the card that was reviewed. You can look up this value in the id
-  field of the ''cards'' table to get more information about the card, although
+  field of the 'cards' table to get more information about the card, although
   note that the card could have changed between when the revlog entry was
   recorded and when you are looking it up. It is also the millisecond timestamp
   of the card's creation time.
@@ -3882,7 +3894,7 @@ folder. It will generate a report of files in the media folder that are not
 used by any notes, and media referenced in notes but missing from your media
 folder. It does not scan question or answer templates, which is why you can't
 place media references to fields in the template. If you need a static image or
-sound on every card, name it with a leading _ (e.g., ''_dog.jpg'') to tell Anki to
+sound on every card, name it with a leading _ (e.g., '_dog.jpg') to tell Anki to
 ignore it when checking for media. If you delete media using the unused media
 check, Anki will move it into your operating system's trash folder, so you can
 recover if you accidentally delete media that shouldn't have been deleted.
@@ -4356,9 +4368,8 @@ to spend too much time correcting them, but your mileage may vary.)
 
 The following translations are currently in progress:
 
-* Spanish
-* Chinese
 * http://ankisrs.net/docs/manual.pl.html[Polish]
+* Hungarian
 
 If you would like to help with one of these translations, please contact us on
 TenderApp and we will put you in touch with the user(s) currently working on
