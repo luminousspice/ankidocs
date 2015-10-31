@@ -85,7 +85,7 @@ in command line programs to access Anki decks without the GUI.
 /////
 'ankiqt' contains the UI part of Anki. Anki's UI is built upon PyQt, Python
 bindings for the cross-platform GUI toolkit Qt. PyQt follows Qt's API very
-closely, so the http://doc.qt.nokia.com/4.7/index.html[Qt documentation] can
+closely, so the http://doc.qt.io/qt-4.8/index.html[Qt documentation] can
 be very useful when you want to know how to use a particular GUI component.
 /////
 
@@ -872,7 +872,7 @@ documentation] is invaluable for learning how to display different GUI
 widgets.
 /////
 
-上記にあるとおり、http://doc.qt.nokia.com/4.7/index.html[Qt documentation] が
+上記にあるとおり、http://doc.qt.io/qt-4.8/index.html[Qt documentation] が
 色々な GUI を表示する方法を学ぶのに非常に貴重な文書です。
 
 /////
