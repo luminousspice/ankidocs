@@ -1,0 +1,5 @@
+*.txt
+*.adoc
+*.asciidoc
+*.mako
+.idea
