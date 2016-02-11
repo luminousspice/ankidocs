@@ -3,3 +3,7 @@
 *.asciidoc
 *.mako
 .idea
+!*
+*.conf
+*.post
+*.pre
