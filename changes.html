@@ -1,0 +1,5418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.9">
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<br><br><b>Anki 1からアップグレードするユーザーの方は、 <a href="#v2">こちら</a>をご覧ください。</b>
+<div class="sect1">
+<h2 id="latest">Changes in 2.0.33</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Fixed a bug in importing that could lead to corrupted notes if the note
+type of the source and destination decks didn&#8217;t match
+</p>
+</li>
+<li>
+<p>
+Fix Anki completely breaking on recent Linux installs with pysqlite &gt; 2.6
+</p>
+</li>
+<li>
+<p>
+Fix down arrow being displayed as a box in the deck list on English Windows
+ 10 installs
+</p>
+</li>
+<li>
+<p>
+Fix Anki not finding LaTeX on OS X 10.11
+</p>
+</li>
+<li>
+<p>
+Fix field searches in multi line fields (thanks to Avi)
+</p>
+</li>
+<li>
+<p>
+Show mark star even when card is scrolled down during review
+</p>
+</li>
+<li>
+<p>
+Allow LaTeX commands like \includegraphics (thanks to Arne)
+</p>
+</li>
+<li>
+<p>
+Fixed a bug triggered by adding or removing a saved search (thanks to
+Houssam)
+</p>
+</li>
+<li>
+<p>
+Fixed a crash dialog showing up in some Linux installs when Anki is closed
+with the preferences window open (thanks to Christian)
+</p>
+</li>
+<li>
+<p>
+Updated translations, thanks to the contributors.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_32">変更点: 2.0.32</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+同期の前にフィルター単語帳を削除すると、復習履歴や妥当性確認の結果が失われる同期のバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+既定のノートタイプの名称表示を統一しました。(Soren に感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+保存した検索条件をアルファベット順に表示するようにしました。(Houssam に感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールド名を変更した時に、テンプレートに反映されない問題を修正しました。(Dave に感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+アドオンで発生するエラーメッセージの問題を修正しました。(Thomas に感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ファイル選択画面にメディアの種類の選択肢を追加しました。(Jonathan に感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+アドオンのダウンロードファイルが破損している場合にエラー報告するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+同期エラーのメッセージを二重に表示する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+翻訳リソースを更新しました。翻訳者の方々に感謝。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_31">変更点: 2.0.31</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+大量のデータを定期的に同期するとタイムアウトが発生する問題を修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_30">変更点: 2.0.30</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>以前の Mac 用の代替ビルドを使用している場合は、同期機能を継続使用するにはこのバージョンへのアップグレードが必要です。</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+OS X 版では、クラッシュを回避するため埋め込みフォントが使用できなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+OS X 版では、ブラウズ画面でカードを削除するには Fn+Del を押します。Del から変更しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カスタマイズした単語帳オプションを設定している apkg ファイルを読み込むと引き起こす同期のバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+保存した検索条件が同期できない問題を修正しました (Houssam に感謝)。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+AnkiDroid の問題に対応後、[データベースをチェック] で変更が保存できない問題を修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_29">変更点: 2.0.29</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+OS X Yosemite で「アプリケーションが壊れています」というメッセージが表示される問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+「追加」グラフを新規追加しました。このグラフは、コレクションに何枚新規追加したか表示します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ノートをテキストファイル形式で書き出した場合、出力したカードの枚数ではなく、ノートの件数を報告するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+全角スペース (Ideographic Space) でタグを区切ることが出来るようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Ctrl-Enter で使用中のの編集ダイアログを閉じることが出来るようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+メディアファイルの同期中により詳しい情報を表示し、同期が進行中で、あとどれだけの時間が掛かるか分かるようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki の全てのウェブコンポーネントは、フォーカスを移したり、コピーが出来るようになりました。これによって、カード情報画面などの画面からクリップボードにコピーできない問題に対応しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+HTML の使用を有効にして読み込んだ場合に、改行の場所に &lt;br&gt; タグが挿入するバグを解決しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+破損したプロファイルから復帰する際に発生するバグに対応しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Windows 版でアドオンをダウンロードすると改行が二重になる問題を解決しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+既存の Anki インスタンスが応答しなくたった場合、ユーザーが　Anki のアイコンをクリックすると新しいインスタンスを起動するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+翻訳に関する問題を修正しました。Derbeth に感謝。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+SSL エラーが発生した場合、条件によっては詳しいメッセージを表示しないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+テンプレートエディタ内のタブ幅を調整しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+テンプレートエディタへ貼り付けた場合、書式を外すようにしました。リッチテキストの書式情報は無視するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+利用中のコンピュータにデスクトップフォルダがない場合、ホームディレクトリにコレクションパッケージを保存するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳に他の単語帳がサブ単語帳になるバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+一つ以上のフィルターを使ってフィールド名を変更した (例 {{type:cloze:Text}}) テンプレートが同期の対象外になるバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードを削除した後、ブラウザーのカード一覧内で正しい位置に選択するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ドキュメントフォルダを設定していない Linux システムでは、プロファイルフォルダとして ~/Documents/Anki (英語の場合) を使用するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドを編集した時に %20 で符号化することをやめました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+タグを大文字小文字で分けて使っても、分けて使わなくても、タグを大文字小文字で区別しなくなりました。最初にタグに使った指定が、以後追加したカードにも使います。大文字小文字の指定を変更したい場合は、全てのカードからそのタグを一旦削除して、指定し直してください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+100MB 以上のファイルを同期してサーバーエラーを発生させる代わりに、同期の対象から外すようにしました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_28">変更点: 2.0.28</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+認証を解除する際に、メディア同期の状態を正しくリセットするようにしました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_27">変更点: 2.0.27</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+メディアの同期を書き直して、さらに安定させました:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+アカウント毎にロックするのはやめ、複数のクライアントから同時にメディアを同期できるようになりました (しかし、まだモバイルクライアントから同時に同期するのは止めてください。モバイルクライアント側での更新が済んでいないためです)。このことによって、将来的にメディアの同期をバックグラウンド実行する道が開けました。
+</p>
+</li>
+<li>
+<p>
+新しいデバイスで初回同期する場合、既に双方に存在するファイルは、受送信が回避できるようになりました。
+</p>
+</li>
+<li>
+<p>
+過去のバージョンでは大量のファイルを削除するとタイムアウトを引き起こしていましたが、この問題を解決しました。
+</p>
+</li>
+<li>
+<p>
+接続エラーから復帰する時に、必要な送信データが以前より少なくなりました。
+</p>
+</li>
+<li>
+<p>
+同期の認証を解除すると、メディア同期の状態をリセットするようにしました。
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Linux 版の Anki フォルダは Documents/Anki に変更しました。他のプラットフォーム版と揃えました。以前の Anki フォルダが存在する場合は、そちらを利用しますが、新しい場所を使いたい場合は、既存フォルダの名前を変更してください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーの検索条件をサイドバーに保存できるようになりました。また、タブキーの移動順序を改善しました(Houssam に感謝)。この変更によって、以前のバージョンの　Advanced Browser アドオンと競合が発生します。このアドオンを利用している場合は、最新バージョンをダウンロードしてお使いください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳で <em>or</em> 条件を使うと、誤って保留中のカードや延期中のカードが混入するバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Mac 版の代替ビルドで発生するクラッシュを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+プレビューウィンドウに [オーディオを再生] ボタンを追加しました。復習画面のショートカット <em>R</em> と同じ機能です。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+読み込み処理後のログにテキストファイルを読み込んで変更しなかったノートの数を一覧するようにしました。
+「変更しなかったノート」とは、使用中のコレクションに存在し、さらに読み込んだファイルにも存在してコレクションを更新しなかったノートのことです。更新オプションを無効にするか読み込んだファイルのノートに変更がない場合に発生します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳一覧中の各単語帳の脇にあるオプションメニューに [書き出す] 項目を追加しました。この項目は選択済みの単語帳を書き出すダイアログを開きます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+使用中のコレクションに既に重複したノートがある場合は、「重複したノートを追加しました」というメッセージを何度も表示するのはやめました。新たな重複を追加した時にだけ表示します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+HTML を無効にして引用符で囲った複数行のノートを読み込んだ時に、&lt;br&gt; タグを挿入するバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>破損した単語帳パッケージや .anki2 ファイルを読み込んだ時に表示するエラーメッセージを分かりやすくしました。</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+さまざまなダイアログの位置や大きさを記憶するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+統計情報のカードの種類のグラフにある「保留」という見出しを「保留+延期」に変更しました。このカテゴリは、延期したカードも含めて計算しているためです。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+システムフォントのサイズを例外的なサイズに指定している時でも、アドオン取得ダイアログを適切な大きさで表示するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+統計情報の画像を保存の際に、保存完了のメッセージを表示する前に確認して、デスクトップに書き込み権限がない場合は警告を表示するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki がプロファイルフォルダーを作成できない時に表示するエラーメッセージを分かりやすくしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+削除済みのメディアを未使用のメディアとして削除しようしてもエラーが発生しないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>フィールドの中に引用符を含む CSV ファイルを書き出した時に発生する問題を修正しました。(Rubyu に感謝)</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+アドオンで pdftex に変更できるように latex 処理を調整しました。(Joel に感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カード枚/分の統計表示の際、切り捨てから四捨五入に変更しました。(Markus に感謝)
+</p>
+</li>
+<li>
+<p>
+Mnemosyne の最新のデータベース形式で読み込んだ際に発生するエラーを修正しました。
+</p>
+</li>
+<li>
+<p>
+m4a を指定する URL の貼り付けに対応しました。
+</p>
+</li>
+<li>
+<p>
+AnkiDroid のバグに対応する機能をデータベースをチェック機能に追加しました。(Houssam に感謝)
+</p>
+</li>
+<li>
+<p>
+ツールチップの色を反転カラースキーマに対応しました。(Pat に感謝)
+</p>
+</li>
+<li>
+<p>
+環境設定画面でエンターキーを押してもヘルプを表示しないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Windows 版でコレクションの破損が見つかった時に、メインウィンドウが開いたまま残るバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki を共有マシンで複数のユーザーが実行した時に発生するエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ログインダイアログで取り消しを選択した場合には、ユーザー名とパスワードの認証は行わないことにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Windows 版でプロファイル名の大文字小文字の変更ができるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+更新モードで読み込んだ時には、重複ノートは全て更新するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+左側パネルの項目を Control を押しながらクリックした時に、最初から検索欄に入っているテキストに削除するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+統計情報内のカード枚/分の四捨五入に関する問題を修正しました。小数点以下 1 桁まで表示するようにしました。
+</p>
+</li>
+<li>
+<p>
+プロファイル名に非ラテン文字を含んでいる場合に書き出すと発生するエラーを修正しました。
+</p>
+</li>
+<li>
+<p>
+名前の変更に失敗したプロファイルは、同期の対象から外すことにしました。
+</p>
+</li>
+<li>
+<p>
+テンプレードだけを変更した場合、apkg を読み込むとノートタイプを更新するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーやフィルター単語帳に使用する検索語句を全角スペースで区切れるようになりました。(Paul に感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Windows 版でまれに発生する起動エラーを補足し、黙って終了するのではなく、ダイアログボックスにエラーメッセージを表示するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Soren には特に感謝します。今回のリリースでたくさんのバグ修正に貢献してくれました。</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_26">変更点: 2.0.26</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Mac 版のクラッシュ問題を更に追加しました。
+</p>
+</li>
+<li>
+<p>
+Mac 版の Office アプリケーションからのペーストに関する問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+CD 品質で録音できない Mac 上で、録音した音声が正しい速度で再生できない問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+一行のテンプレートに複数の穴埋めフィールドを記載した時に、穴埋めマーカーを表示してしまう問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+ソースコードのテストに関する問題を修正しました。ispedals と julienbaley に感謝。
+</p>
+</li>
+<li>
+<p>
+アドオン作者のためにフックを追加しました。sagittarian に感謝。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_25">変更点: 2.0.25</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+復習中に右クリック (コンテキスト) メニューにコピーが現れない問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+復習中にいくつかのアドオンで発生するショートカットの問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+テンプレートの更新が必要な時に失敗する処理を洗練した方法に Julien が修正しました。
+</p>
+</li>
+<li>
+<p>
+Qt4.7 Windows 版ビルドで起動できない問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+Mac OS X 版でプログレスバーを表示している時に発生するクラッシュに対応しました。
+</p>
+</li>
+<li>
+<p>
+音声の再生速度が早くなってしまうため、Mac OS X 版の mplayer を以前のバージョンに戻しました。
+</p>
+</li>
+<li>
+<p>
+ユーザー定義の複数の穴埋めフィールドをテンプレートの単一行に使った時に、穴埋めが認識できない問題を修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_24">変更点: 2.0.24</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+同期機能を使い続けるにはこのバージョンにアップグレードが必要です。暗号化証明書を更新したためです。更に詳しい情報は、https://anki.tenderapp.com/discussions/announcements/60-anki-and-heartbleed をご覧下さい。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+以前のバージョンのツールキットを使った代替ビルドを提供します。
+Windows 版でタイ語を利用すると速度低下が発生する問題への対応と、Mac OS X 10.5 および 10.6 へのサポートを継続するためです。なお主要ビルドをご利用いただくには、10.7 以降が必要です。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<em>{{ring:my_tag:file.mp3}}</em> のように複数のコロンをアドオンで使っている方へ、お使いになっているテンプレートを <em>{{ring
+(my_tag):file.mp3}}</em> へアップデートしてください。アドオンの作者へ、この変更は Julian が提供してくれた改良で連鎖する項目で複数のフィルターを掛けられるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+pyqtconfig に関するエラーメッセージを受け取った方は、エラーメッセージを出したアドオンの作者に連絡を取って、問題のアドオンに pyqtconfig の代わりに qtmajor/qtminor を使うように更新するよう頼んでください。pyqtconfig はしばらく前から利用しなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーのサイドバー内の単語帳一覧を折りたためるようになりました。この他にもいくつかの変更点で Houssam に感謝。
+</p>
+</li>
+<li>
+<p>
+統計のグラフの保留数に延期したカードを含めるようにしました。
+</p>
+</li>
+<li>
+<p>
+qt5.2 においてブラウザーのヘッダーが壊れたりクラッシュしたりする問題を修正しました。(現時点では Linux 版にのみ関係します)
+</p>
+</li>
+<li>
+<p>
+Linux の開発最先端なディストリビューションでのコンソール内の警告に関する問題を修正しました。ospalhに感謝。
+</p>
+</li>
+<li>
+<p>
+復習中に追加した leech (無駄) タグは、元に戻すで取り除けるようになりました。
+</p>
+</li>
+<li>
+<p>
+カードプレビューなどのコンテキストメニューからコピーできるようになりました。
+</p>
+</li>
+<li>
+<p>
+supermemo importer の微調整を行いました。Bryan に感謝。
+</p>
+</li>
+<li>
+<p>
+スケジュール情報を含めずに書き出した時には、マークや leech (無駄)タグを取り除くようにしました。
+</p>
+</li>
+<li>
+<p>
+SSL 接続に失敗した時のエラーメッセージを分かりやすくしました。
+</p>
+</li>
+<li>
+<p>
+概要画面で 1000 以上の数を表示する際の問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+別の不正な temp フォルダーに関するメッセージを捕捉できるようにしました。
+</p>
+</li>
+<li>
+<p>
+ファイル名に  \r と \n は使えなくなりました。プロファイル名に . と .. は使えなくなりました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_23">変更点: 2.0.23</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>ビルドエラーのため、このバージョンは公開しません。</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_22">変更点: 2.0.22</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+複数の穴埋めを順番に表示しない解答キー入力機能の問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+SuperMemo からの読み込みを調整しました。(jmaattaに感謝)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_21">変更点: 2.0.21</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+AnkiDroid の更新が完了したので、延期済みのカードを自動的に解除するのは一日の始まりの時刻を過ぎた時だけになりました。同期した時や、Anki を再起動したときには解除は行いません。このバージョンの Anki と AnkiWeb を同期し、更にモバイル機器と同期すると、そのモバイル機器でもこの新しい動作が機能するようになります。
+</p>
+</li>
+<li>
+<p>
+新規ユーザーがインターフェイスの使用言語を選択した時には、処理を始める前に確認が必要になりました。
+</p>
+</li>
+<li>
+<p>
+フィルター単語帳のカードの上限を 99,999 まで引き上げました。
+</p>
+</li>
+<li>
+<p>
+Safari から Google 画像検索の結果をドラッグ&amp;ドロップした時に発生する問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+[新規カードを並び替える] ダイアログで先頭/最後を決定する際、フィルター済みのカードは無視するようにしました。
+</p>
+</li>
+<li>
+<p>
+破損したコレクションが見つかったら、ファイル名を変更し、同じプロファイルで再度読み込んだり、バックアップから復元できるようにしました。
+</p>
+</li>
+<li>
+<p>
+起動エラーの表示した時やプロファイルマネージャを閉じた時に発生する問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+同期がタイムアウトした時に表示するエラーメッセージを改善しました。
+</p>
+</li>
+<li>
+<p>
+ブラウザーの列を変更するアドオンが引き起こすエラーを修正しました。
+</p>
+</li>
+<li>
+<p>
+英語以外の言語で [表面と任意選択の裏面] のノートタイプを追加すると無効になるバグを修正しました。
+</p>
+</li>
+<li>
+<p>
+穴埋め問題のカードに同じ単語を複数回穴埋めに設定した時には、解答キー入力機能に必要なキー入力は一度だけで済むようになりました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_20">変更点: 2.0.20</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+メディアのファイル名を間違ってエンコーディングした時に、[メディアをチェック] の処理が誤って未使用と報告するバグを修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_19">変更点: 2.0.19</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーの列の幅を変更する際に、他の列もそれに合わせて移動するようになりました。
+</p>
+</li>
+<li>
+<p>
+「新規カードにスケジュール変更」機能で、ある環境では最終的にカードが矛盾する状態になってしまうバグを修正しました。
+</p>
+</li>
+<li>
+<p>
+カードレイアウト画面で反転した時に、元のタブに戻ってしまう問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+接続の間隔が開いたときに同期すると発生するエラーを修正しました。
+</p>
+</li>
+<li>
+<p>
+[メディアをチェック] についてのバグを修正しました。
+</p>
+</li>
+<li>
+<p>
+ブラウザー内でスケジュールを変更すると、フィルターしているカードを無視するのではなく、自動的にフィルター単語帳から削除するようにしました。これは、延期や保留と同じ処理です。
+</p>
+</li>
+<li>
+<p>
+メディアファイルではない URL を貼り付けた場合、無視するのではなくそのまま貼り付けるようになりました。
+</p>
+</li>
+<li>
+<p>
+新規ユーザーの既定の読み込みオプションは、重複を更新するから無視するに変更しました。
+</p>
+</li>
+<li>
+<p>
+ある種のイメージのリンクの貼り付けに関するバグを修正しました。
+</p>
+</li>
+<li>
+<p>
+Windows 版でプロファイルの変更、あるいは同期した時発生するエラーを修正しました。
+</p>
+</li>
+<li>
+<p>
+特定のネットワークの問題に対するエラーメッセージに説明を追加しました。
+</p>
+</li>
+<li>
+<p>
+Mac 版におけるメディアファイルの再同期の問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+時計の設定が間違っている時に表示するメッセージを修正しました。
+</p>
+</li>
+<li>
+<p>
+環境設定に遅いコンピュータのためにバックアップの圧縮処理を無効にするオプションを追加しました。
+</p>
+</li>
+<li>
+<p>
+FreeBSD 版のインストールエラーを修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_18">変更点: 2.0.18</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳を使用中に、カードを手動で延期した時に無効なスケジュールを設定してしまうバグを修正しました。当面は、フィルター単語帳でカードを延期すると、そのカードは元の単語帳に戻ることになります。
+</p>
+</li>
+<li>
+<p>
+prefs.dbが壊れている場合に、Ankiの起動が失敗する問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+ファイルを書き出す際のログファイル(.log)の作成は取りやめました。
+</p>
+</li>
+<li>
+<p>
+ログファイルが10MBに達したら交換することにしました。
+</p>
+</li>
+<li>
+<p>
+無効なエンコードでファイル名を使っているユーザーに警告を表示するようにしました。
+</p>
+</li>
+<li>
+<p>
+ネットワーク接続していないLinuxコンピュータで同期した時に、エラーを必要以上に長く表示する問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+ノートタイプの問題を発見できるように[データベースをチェック]を更新しました。
+</p>
+</li>
+<li>
+<p>
+simplejsonをインストールしているLinuxシステムで発生する問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+実際に発生している接続エラーを隠蔽していた問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+tempフォルダーの問題をより多く捕捉できるようになりました。
+</p>
+</li>
+<li>
+<p>
+編集中にMac OS X版がクラッシュする問題を可能な限り修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_17">変更点: 2.0.17</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+一部のコンピュータで次のカードを表示するまでに遅延が発生する問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+保留したカードや延期したカードを、スケジュール情報を含めないで書き出した時には確実にリセットするようにしました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_16">変更点: 2.0.16</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>新しい関連カードの処理など、より重要な変更点については、下記の2.0.13についての記録をご覧ください。</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+新規カードを期日順に設定したにもかかわらず、作成順に表示してしまう問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+単語帳の延期設定を無効にすると、Ankiが予定より早く学習画面に戻ってしまう問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+フィルター単語帳からカードを書き出した時に、カードを完全にリセットできない問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+Mac OS X版におけるフォントの配置とクラッシュの問題について修正しました。
+</p>
+</li>
+<li>
+<p>
+[メディアをチェック]でエンコーディングの問題修正ができない点を解決しました。
+</p>
+</li>
+<li>
+<p>
+2.0.15で導入したデバッグログを調整して、アドオンのパフォーマンス向上を図りました。
+</p>
+</li>
+<li>
+<p>
+翻訳に関する更新を行いました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_15">変更点: 2.0.15</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+復習の延期を無効にするオプションを追加しました。
+</p>
+</li>
+<li>
+<p>
+復習画面から[カードを延期]が選択できるようになりました。また、[ノートを延期]のショートカットは "=" に変更しました。
+</p>
+</li>
+<li>
+<p>
+延期したカードを is:buried で検索できるようになりました。また、is:suspend で検索しても延期したカードは表示しなくなりました。
+</p>
+</li>
+<li>
+<p>
+cid:&lt;カードID&gt; を指定すると、特定のカードをカードIDで検索できるようになりました。また、カードの情報画面には、カードIDを表示するようになりました。
+</p>
+</li>
+<li>
+<p>
+自動的に延期したカードは修正済みと記録しなくなりました。潜在的な問題を回避するためです。
+</p>
+</li>
+<li>
+<p>
+同期のタイムアウト時間を延長しました。
+</p>
+</li>
+<li>
+<p>
+Ankiが時計の設定が間違っていると認識した時に、どれだけずれているか表示するようになりました。
+</p>
+</li>
+<li>
+<p>
+Windows版で壊れたゴミ箱フォルダー対応する際の問題を修正しました。
+</p>
+</li>
+<li>
+<p>
+非ラテン文字をパス名に含むファイルをダブルクリックしてファイルの読み込みを行った時に発生する問題を修正しました。(wlhuangに感謝)
+</p>
+</li>
+<li>
+<p>
+ユーザーのtempフォルダーのパーミッションが間違っている時に、表示するエラーメッセージをより分かりやすくしました。
+</p>
+</li>
+<li>
+<p>
+ダブルクリックしてバックアップファイルを復元した時には、最初に行う同期を省略するようになりました。
+</p>
+</li>
+<li>
+<p>
+問題のデバッグを簡単にするためにスケジュール設定の処理を記録するようになりました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_14">変更点: 2.0.14</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+他の問題が発生している時に、プロキシ認証のエラーを報告するバグを修正しました。
+</p>
+</li>
+<li>
+<p>
+完全アップロードをする場合には、削除ログの記録を取りやめました。これによって、たくさんのノートを追加して、再度そのノートを削除した場合には、たくさんのディスク容量を節約できるようになりました。
+</p>
+</li>
+<li>
+<p>
+別の端末からの同時アクセスが原因で、同期に失敗した時に表示するメッセージを改善しました。
+</p>
+</li>
+<li>
+<p>
+非ラテン文字をタグに使っているユーザーが、ブラウザーにタグを列に表示した時に、エラーが発生しないようにしました。
+</p>
+</li>
+<li>
+<p>
+ノートタイプの名前を本来できない時に変更すると発生する問題を修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_13">変更点: 2.0.13</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+関連カードの処理をやり直して、同じノートから作成したカードは続けて表示しない処理に改良を加えました。
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+あるカードを解答すると、このカードの関連カードが新規学習や復習のキューにあれば、Ankiは自動的に延期します。
+</p>
+</li>
+<li>
+<p>
+延期したカードが単語帳リストに戻っても延期は解除しなくなりました。学習概要のスクリーンの中にあるボタンを押すと解除することができます。
+</p>
+</li>
+<li>
+<p>
+アップグレード期間に発生する問題を回避するために、まずは、コレクションを同期するか、閉じる時にカードの延期を解除するようになります。全てのクライアントがアップグレードすると、一日が終わった時だけにカードの延期を解除するように、この動作を変更します。
+</p>
+</li>
+<li>
+<p>
+この新しい処理によって、関連カード同士はたとえフィルター単語帳の中でも確実に間隔をあけるようになりました。
+</p>
+</li>
+<li>
+<p>
+新規カードの関連カード同士を同じセッションで学習したい場合は、オプションを設定して解除することができます。解除するとAnkiは、2.0.12と同じように関連カード同士の間隔を設定します。しかしながら、カードを編集したり、キューの再構築を必要とする処理を実行した時には、2.0.12のように間隔を設定できる保証はありませんし、失敗する可能性があります。
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+apkgファイルを読み込む際に、既存のノートの新しいものがこのapkgファイルにも含まれていて、さらにノートタイプに互換性があれば、そのノートを更新します。カードには変更を加えませんので、既存の学習の進行は維持します。つまり、コンテンツ制作者は簡単に新しいコンテンツを配布できるだけでなく、既存のコンテンツも同様に更新できるのです。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳の出題方法の選択肢に[期日超過が相対的に大きい順]を追加しました。この項目を選択すると、復習間隔と比較して相対的に大きい順に出題します。この機能は、数年前にAnkiで使われていたものです。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーにタグの列を表示できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+メインウィンドウでフィルター単語帳を選択している時に、読み込みを行うと発生する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+q/aテンプレートを修正しても、非互換のノートタイプとして処理しないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Ankiは、メディアファイルの名前に非ラテン文字が含まれている場合、標準的な符号化を適用するようになりました。これはMacとそれ以外のコンピュータ間でメディアを移動する際に発生する問題を修正し、符号化が違っても実際には同じファイル名のファイルが、メディアフォルダー内に複数発生しないようにするためです。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+メニューの選択肢[未使用のメディア]の表示を[メディアをチェック]に戻しました。確実にメディアファイルが一致するように、フィールド名やメディアファイル名を変更することができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Linuxのデスクトップからファイルをドラッグすると、ファイルを埋め込む代わりにURLを貼り付けてしまう問題を解決しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+古いバージョンのPythonを収録しているLinuxディストリビューション上で、Ankiの起動に失敗するバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+拡張子をzipに変更した、apkgファイルを読み込むことができるようになりました。これは残念なことにダウンロードの際に、拡張子をzipに変更してしまうブラウザーがあるためです。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーの[重複を検索]機能は、重複の比較の際にHTMLを無視するようになりました。また、重複した項目にタグを付けるオプションを追加しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+アドオンをダウンロード中にエラーを表示する際に発生するエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+解答キー入力機能の使用中に、フィールドに &lt; や &gt; が含まれているとテキストが消える問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+「単語帳の学習」ウィンドウ、単語帳の選択、ノートタイプの選択ウィンドウが、ウィンドウのサイズや位置を記憶するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ユーザーが穴埋め設定用の文字入力を間違えた時に発生する、穴埋めの表示の問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Windowsのゴミ箱にエラーが発生しても問題にしなくしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 1の単語帳をアップグレードする際に発生するエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+同一のマシン上で別のユーザーがAnkiを同時に実行できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Linux上で前のインスタンスが正常に終了しなかった後に起動しても、Ankiは問題にしなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードの保留、延期、スケジュールの再設定をすると、後で "download the fix assertion addon" というメッセージを表示するようになる問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+一旦同期を行うと、環境設定ダイアログに同期用のユーザー名(AnkiWeb ID)を表示するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザー上で列を新規追加すると、その列までスクロールするようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ノートタイプを追加したり、読み込んだりする時に、名前が重複しないように確実に設定するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+いくつかのテキスト処理の速度を改善しました。(hssmに感謝)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_12">変更点: 2.0.12</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+貼り付けとドラッグ・アンド・ドロップの処理方法を変更しました。これでGoogle画像検索(Google Images)をお使いの方が抱えている様々な問題が修正できるのではないかと思います。この変更によって、[HTML を外してテキストをペーストする]設定が無効になっている場合、選択したテキストの中に入っている任意の画像を、自動的にお使いのコレクションへ追加するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+スキーマを変更したノートを読むとエラーが発生する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+2.0.9の変更点、追加スクリーンで別の単語帳を選択した時に、復習中の単語帳も変更する処理を取り消しました。この変更はノートタイプが知らないうちに変更してしまうという問題を引き起こし、この新しい動作に対してユーザーから反対が寄せられたためです。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ツールキットを原因とするWindows版Ankiを閉じる際にクラッシュする問題に対応しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳を最初に学習する際に、カードに必ず3つのボタンが表示するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+いくつかのファイルシステムで使用できないファイル名の文字を確認し、取り除く機能を改善しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+URLに非ラテン文字を含んでいるメディアファイルを貼り付ける際にエラーが発生する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+穴埋め(cloze)ノートタイプを指定していない時に、穴埋め問題を設定してもエラーが発生しないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+一行目が空行のCSVファイルを読み込んだ時に、エラーが発生する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+統計情報の復習についての1年間、全期間のグラフの問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ユーザーのゴミ箱が壊れている場合は、単にファイルを削除するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+古いバックアップファイルを、ゴミ箱に移動しないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+テキストを貼り付けた時に重複が検出できない問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ペーストするとクリップボードの内容が壊れてしまうバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールド間で画像をペーストした時には、改めてその画像をダウンロードしないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+LaTeXのincludegraphics命令が使えるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳の統計情報を見ることができるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+prefs.dbが壊れている場合には警告し、別の破損事例を取得するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ファイル名に'+'を含む単語帳が検索できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+不正な画像を貼り付けた時にLinux版Ankiがクラッシュする問題に対応しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+貼り付けた時に重複が検出できない問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+易しさの初期値を130%以下に設定できないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+統計情報に'px'を確実に含めるようにしました。(steveawに感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+コマンドラインから読み込んだ際に発生するエラーを修正しました。(Hansに感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+メンテナンス処理のメニューへの間違った案内を修正しました。(Sorenに感謝)。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[未使用のメディア]処理が完了したら、ツールチップで「未使用のファイル、行方不明のファイルはありませんでした。」と表示するようにしました。(Julienに感謝)。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_11">変更点: 2.0.11</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+2.0.9では、フィールドを編集中に、HTML出力について変更を行いました。残念なことにこの変更点でGUIツールキットのバグが発覚し、このようなフィールドを編集するとAnkiはクラッシュします。このため、この2.0.9での変更点は取り消して、brタグの代わりにdivタグを出力するようになりました。このアップグレードでは、2.0.9や2.0.10で作成したカードの書式は変更しません。このためこれらのカードは依然として編集中にクラッシュを引き起こす可能性があります。しかし、このアップグレード後に追加したカードは、ツールキットのバグの誘発しません。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+割り当てたネットワークドライブからAnkiを起動した時に発生する同期の問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+同期に失敗したときのエラーメッセージの問題を修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_10">変更点: 2.0.10</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+画像の貼り付けに関する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+割り当てていないネットワークドライブ上にあるメディアファイルを同期する時に発生するエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードレイアウトやプレビューウィンドウで非ラテン文字のファイル名を持つ画像に発生する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+書き出しの際に発生するユニコードに関するエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+読み込みの際にHTMLを含めて読み込むことを既定しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードレイアウトを開く際に発生するエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+統計情報のグラフのY軸の最小値を0に固定しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+追加ウィンドウでの重複検索の問題点を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+解答キー入力機能でのアクセント記号がついた文字の比較を改善しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+未入力のフィールドを確実に示すようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳の名前を変更する際にアポストロフィーが使えるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Mnemosyneデータの読み込みを微調整しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+その他の軽微な問題点を修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_9">変更点: 2.0.9</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+解答キー入力(type answer)機能を改善しました。「正解は」という文字は表示せず、キー入力と正解の表示を分かりやすくしました。色(.typeBad/.typeGood/.typeMissed)はカスタマイズ可能です。キー入力と正解は等幅フォントで上下に並べて表示(code#typeans)します。カード編集画面のプレビューで比較例を表示し、質問と解答の間の罫線の真下に入力と正解の比較例を自動的に表示します。例を添付しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーに[プレビュー]ボタンを追加しました。もっと簡単に素早くカードをプレビューできるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カスタム学習ダイアログのオプション「特定のタグに限定する」と「カードを無作為に選んで学習する」は一つのオプションに統合しました。このオプションを使うと、タグで任意の制限を加えながら、新規カード、期日に達したカード、全てのカード(詰め込み)を学習できます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki は同期から外れたメディアファイルを見つけると、自動的に次回の同期で回復を行います。更に、既にどちら側にも存在するファイルを送信する必要はなくなりました。この変更点がモバイルクライアントに反映されると、時間のかかる初回のメディアの同期をしなくても、メディアファイルをモバイルクライアントにコピーできるようになります。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+同期や未使用のメディア処理で削除したメディアファイルは、完全に削除するのではなくOSのゴミ箱フォルダーに移動するようになりました。定期バックアップやプロファイルの削除と合わせました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ノートを削除すると、そのコンテンツはプロファイルフォルダー内のファイル deleted.txt に記録するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳やノートタイプを選択する際にフィルターエリアで一文字づつ一致を掛けるようになりました。検索用語を区切るには空白を使います。"German::Verbs"という単語帳がある時は、"man verb"で検索できますが、"grman"ではできません。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カード一覧で20px以上のフォントサイズを指定できるようになりました。ここのカードで行送り(line height)を変更できないため、あるノートタイプで大きいフォントサイズを指定すると、すべでのカードで行送りが大きくなってしまいます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Ankiは、エディター内でエンターキー(Return)を押すと、DIVではなくBRタグを出力するようになりました。これによってモバイルクライアント上で出力結果のテキストを編集するのが簡単になりました。これはアップグレード後に追加したコンテンツだけに適用することに注意してください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+タブの中の[X]をクリックするとカードタイプの削除ができます。[もっと]リストからの選択から変更になりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+データベースをチェック、未使用のメディア、白紙はサブメニューから[ツール]メニューに移動しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+完全同期は、メニューではなく環境設定で指定することになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+同期処理は、同期の前にデータベースの一貫性について調べるようになりました。エラーが見つかった場合は、完全同期よりもデータベースのチェックを行うことをお勧めします。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+データベースのチェックで何らかのエラーが見つかった場合は、自動的に完全同期することになります。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+コレクションを閉じる時に、エラーが内かチェックしています。このため、Ankiを終了やプロファイルを変更がすこし時間が掛かるになりました。しかしこれによってエラーを早く検出でき、バックアップが役立つようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+追加ウィンドウを開いたまま同期をした場合、コンテンツをそのまま残して同期作業を取り消すか尋ねるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+コレクションをアップロードした後、他のデバイスにダウンロードする必要があるか確認するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+同期の不一致に関するメッセージをもっと詳しくしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーでシフトキーを押しながらサイドバー項目をクリックすると、現在の検索項目にOR条件で追加するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+HTMLを画像より優先することにしました。このためマイクロソフトのアプリケーションからのペーストはテキストが2重になります。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+タイムボックス機能はツールチップからダイアログのポップアップに変わりました。選択肢は、[継続]か[終了]です。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ノートタイプを修正した時に。ノートの読み込みを何回も行わないようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+本日の熟知のカードの正解数についての統計情報をグラフに追加しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+シフトキーを押したままAnkiを起動すると、アドオンの読み込みと自動的な同期を行わなくなりました。(古いLinuxのディストリビューションをお使いの場合を除きます)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+オプショングループの変更、追加や削除を行った時に、カードの順序を確実に更新するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳のオプションで新規カードを無作為に学習すると設定している場合は、テキストファイルやAnki単語帳パッケージ(apkg)を読み込んだ後、確実にランダムに並び替えるようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+スケジュール情報を含めずにAnki単語帳パッケージ(.apkg)を書き出した時(あるいは、AnkiWeb上に単語帳を共有する時)、新規カードの順番は現在のまま維持するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+穴埋め問題を作らずに穴埋め(cloze deletion)ノートを追加しようとすると警告を出すようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+通常のノートタイプを選択した時に穴埋め問題を追加できるようになりました。エラーが発生する代わりに、注意のポップアップが表示されます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Windows上で、割り当てていないネットワークドライブからAnkiを実行し、画像を正しく表示するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Ctrl+Shift+T(MacではCommand+Shift+T)を押すとタグの入力欄に移動します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールド間で貼り付けた時も、WebKitが挿入する&lt;span&gt;タグを外すようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+テキストファイルを読み込んだとき、全ての更新ノートと重複ノートの一覧を読み込みログに記録するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+アンダースコアから始まる名前のメディアファイルを間違って未使用と報告する[未使用のメディア]処理を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+複数の解答画像がある時に発生する穴埋めとLATEXの問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[未使用のメディア]処理が使用中の画像を削除して、別のファイルを作成する、穴埋めとLATEXの問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[スケジュールを変更]処理で最小値が最大値より大きい値を入力した時に発生するエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[Ankiについて]のダイアログにスクロールバーを追加したました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+復習ウィンドウから画像をドラッグしたり、削除したりすることはできなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+破損した .apkgファイルを読み込んだ時の警告を改善しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ノートを保存する時に、タグから引用符を取り除いて、アルファベット順に並び替えるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ファイル名にアポストロフィを含む画像ファイルの表示ができない問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+非ラテン文字や句読点をファイル名に使っている音声ファイルや画像ファイルへのリンクを貼り付けた場合の問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+不正なリンクを貼り付けた場合の問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳の説明を一部抜粋せずに、全て表示することになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+VFATフォーマットのドライブのメディアファイルを同期する場合に発生する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+メディアフォルダーに既に存在するメディアファイルを挿入した時に、代替ファイル名すべてについてチェックサムを確認します。(Julien Baleyに感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳内で新規カードを2度目に解答する時に、ボタンの数が3から2に減ってしまうバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳オプションを変更すると、複数の単語帳に影響が及ぶことをもっと明確に説明するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+非ラテン文字を使っているリモートのファイル名へリンクをペーストした時に、不正なファイル名が生成される問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+再学習カードのスケジュールを変更して新規カードに追加した後で、「fix assertion」アドオンをダウンロードするよう求めるメッセージが表示される問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+いくつかの音声フォーマットが貼り付けられるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Windowsで貼り付けを行うと、メインウィンドウが一番手前に表示される問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+追加の際の[重複を表示する]機能は、設定している書式に関係なくブラウザーに全ての重複を正しく表示するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ノートタイプを選択の際に、キャンセルできるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[追加]をクリックした時に、追加ウィンドウを最小化している場合でも確実に再表示するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+統計情報を画像として保存する際に、デスクトップフォルダーがない場合は、作成するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+データベースをチェックの処理に、更に多くのチェックを盛り込みました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+何人かのWindowsユーザーがAnkiを起動できなかったバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+書き出しの際に既存のファイルを上書きできるようになりました。(Chris Burelに感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+解答キー入力機能を設定した(type:)フィールドをコメントアウトすると発生するエラーを修正しました。(Ospalhに感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+あるフィールドで条件に一致しない検索をすると、その後どんな条件でも検索できなくなる問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Mnemosyneデータの読み込みで穴埋めノートタイプを処理できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+修正を全く行っていない場合は、ノートを保存できなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+未使用のメディアを全く別のファイル名で表示する問題を修正しました。(Ospalhに感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+追加ウィンドウで単語帳を変更すると、復習している単語帳も切り替わるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+テンプレートと変更する時に、音声ファイルは二度再生しなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+期日に達したカードがない単語帳上で「s」を押すと、ツールチップを表示するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ルビマークアップ内のノーブレーキングスペース(NBSP)に対応するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+エラーメッセージの中で見えなくなっているテキストが存在するバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+テキストファイルの読み込みで、先頭の空白が読み込めないバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+上付き文字/下付き文字のショートカットが逆転している問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドを削除した場合、ソートフィールドを確実に更新するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Mnemosyneからの読み込みでHTMLが使えるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+USBディスクから実行している時に発生する、アドオンのダウンロードについての問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドの輪郭の問題を修正しました。(Frostschutzに感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーでサイドバーをクリックできないQTのバグに対応しました。(Frostschutzに感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Paukerからの読み込みに対応しました。(Frostschutzに感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+--version オプションを追加しました。(Hutに感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+非常に古いAnki1単語帳のアップグレードで発生するエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーの見出しに「front」と「back」の代わりに「質問(question)」と「解答(answer)」を使うようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[単語帳を変更]を使う時に、現在使っている単語帳を既定で選択するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーでの検索に、シングルクォートではなくダブルクォートを使用するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+書き出しの際にファイル名に不正な文字は利用できなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[ノートタイプを変更]ダイアログでエンターキーを押すとダイアログが閉じるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+復習途中のカードのスケジュールを変更するとカードの状態が不正になるバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Ankiの設定が読み込めない場合は、新しいprefs.dbを作って起動するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+他のウィンドウにフォーカスしている時にAnkiを閉じると保存を行わずに閉じてしまうバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ファイアウォールエラーを新たに一つ捕捉できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+いろいろな軽微な問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[履歴]ボタンにショートカットを追加しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+書式設定したテキスト全体をバックスペースした時に発生する問題に対処しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールド間でコピーを行った時に、書式が失われるバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードレイアウトで下線が消える問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳オプションダイアログを開いた時に、ダイアログの大きさを調整するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+読み込みの際に、関連カードの同士の間隔が機能するよう正しく期日の数値を設定するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+タイトルバーにプロファイル名を表示するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+JP supportアドオンをインストールしている場合、ノートを追加して次のノートに移った時に、フォーカスが最初のフィールドに確実に来るようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+タグの入力補完リストでエンターキーを押すと間違ったタグを選択してしまう問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳でカードを学習している時に、[追加]リンクをクリックすると、既定の単語帳はそのカードの単語帳に設定するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳一覧で単語帳が25以上になると注意を表示するようになりました。この注意は隠すことができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+追加のプロパティを設定している画像が未使用のメディア処理で見つからない問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールド間で貼り付けを行った時に、画像の横幅の最大値の暗黙的なプロパティをコピーしなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+統計情報で、数値の丸め込みが行われない問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ノートやカードをテキストファイルとして出力する時に正しい拡張子を設定するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ツールバーの上部と下部の配置の問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Windowsシステムを間違って設定している場合の起動に関する問題に対応しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+追加ウィンドウを閉じる時に、フィールドが空かチェックしますが、前の入力の履歴が残って表示している場合は無視します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+解答キー入力機能で複数の空白が使えるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Linux上で、貼り付けたり読み込んだりするする時に画像が破損する問題に対応しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Linux上で、非ラテン文字のテキストをゴミ箱に移動する時に発生するエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+タイマーのバグを修正しました。(Frostschutzに感謝)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+書き出しの際に発生するユニコードのエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+タグを追加、削除のダイアログでのエンターキーの問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Mac版のみ、ブラウザーを[閉じる]メニュー項目を表示するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Windows上で、非ラテン文字をファル名に使う時の方法を変更しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+同期エラーに関する完全な情報を含めることになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ノートをまとめる時の修正のチェックについての問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+「完全同期」オプションは、他に変更点がない場合でも同期を実行します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Mnemosyneの読み込みについての色々な修正を行いました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+重複を検索機能でファイル名に大文字小文字の違いがある場合の問題を修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_8">変更点: 2.0.8</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Windows上での録音を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Ankiがファイアウォールを通過できない時のエラーを改善しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+いくつかのAnki 1の単語帳をアップグレードする際に発生する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳の名前にアポストロフィーが使えるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+いくつかの変更を行って、古いAnki 1の単語帳のアップグレード処理を高速化しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳で [この単語帳の解答に基づいてカードをスケジュールし直す] オプションを外したとき、カードの学習を終了する「(end)」ボタンを表示することにしました。(訳注: 以後のバージョンでこのボタンは「(終了)」ボタンに翻訳する予定です。)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードにタグを表示した時に余分な空白できる問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳の作成を取り消した時に、確実に元の単語帳に戻るようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Japanese Supportアドオンで、自動生成するReadingフィールドを直接クリックすると中身が消えてしまうバグを修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_7">変更点: 2.0.7</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+レビュースクリーンに [カードを保留する] オプションを追加しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードを作成した時に、ブラウザーのフォントとそのサイズは設定しなくなりました。このため、カスタマイズするまではシステムフォントを使用します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+アンチウイルスソフトが原因で発生するWindows上での音声再生の起動時の遅延に対応しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Qt4.6の利用を再開しました。起動時に既知の問題を警告するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Qt4.6上の日本語ふりがなの問題に対応しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+メディア同期が失敗した時のエラーメッセージの間違いを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーで長い検索処理を行った時にWindowsとLinux上でクラッシュする問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードレイアウトウィンドウでクリックした時に、リンクが2度現れる問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+条件タグは書式を無視し、実際のテキストは空でないと見なされることが必要となりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Windows上でctrl+shiftなどを押した時にリンクを開かないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Linuxディストリビューションのパッケージングエラーが原因で同期が失敗した場合の警告を改善しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーのメニュー項目の「ノートにフォーカス」を修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_6">変更点: 2.0.6</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 1から読み込んだ保留済みカードに間違った期日を設定するバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+再学習カードを忘却した場合に間隔の下限が割り当てられないバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Ankiは同期エラーから自動復旧するようになりました。ユーザーがフォーラムにたくさん投稿を投げなくても済むようになります。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 1.2.8で開けなかったanki1.2単語帳を読み込むと失敗する時のバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ospalhから解答ボックス内の書式を簡単にする変更を取り込みました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+2.0.5で追加したフィールド参照の後の自動改行 (newline) を削除しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+現在の検索結果にノートタイプを追加する時のバグを修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_5">変更点: 2.0.5</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+プロキシ経由の同期をした場合に、「ホストが見つからない」エラーに対して可能な限り対応しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+スペースを含む単語帳からフィルター単語帳を作った時に発生する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+メディアがサブディレクトリへの参照している単語帳の読み込みができるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+学習概要で「more&#8230;」をクリックしてもウェブブラウザは起動しなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーの [編集] メニューに [閉じる] を追加しました。閉じるのにショートカット [Command+W] も使えます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+UTF8形式でないコンテンツを読み込もうとした時の警告を改善しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+supermemoの読み込みを可能な限り修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドが改行 (newline) や書式を含んでいる時に「重複を表示する」処理の問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ユーザーが同じ名前の複数のノートを持っている時、ブラウザーでそのうち一つのノートをクリックすると、クリックした方のノートをカードだけを表示するようにしました。全て表示はしません。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+サブ単語帳がフィルター単語帳の時にサブ単語帳に設定を適用すると起るバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+(再)学習中のカードを延期すると発生するエラーを修正しました。保留のように、延期は学習キューの最初からカードを移動することにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+その他の軽微な更新。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_4">変更点: 2.0.4</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+アップグレードの際に、Anki 1の単語帳を修正する必要がなくなりました。Anki 2はエラーを見つけると自動的に修正します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードの追加で重複をチェックする場合、HTMLを無視して比較します。カードに太字/斜字/文字色などの書式を設定している場合、アップグレードした後は重複キャッシュを更新するために、[ツール]&gt;[メンテナンス]&gt;[完全同期] を実行してください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+復習間隔がもっと広がるようにゆらぎを設定するようになりました。ゆらぎは解答ボタンには表示しません。カードを実際に解答する時にだけ計算します。これは復習履歴で確認できます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+復習を失敗した時に間隔をゼロではなく、縮小した値を設定できるように失敗時の乗数を設定した場合、再学習中のキューにカードを失敗する場合にその乗数を設定できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ツールメニューよりノートタイプを設定できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+プロキシ接続の修正をしました。新しいバージョンのhttplib2について注意してくれたArfreverのおかげです。
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>読み込みと書き出し:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+読み込みダイアログで、HTMLの使用を許可する[フィールドに HTML を使う]を記憶するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+読み込み処理全体にわたって、設定内容を記憶するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+書き出しのオプションに質問解答のノートではなくカードの書き出しを追加しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+LaTeXキャッシュファイルの読み込みを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+.apkg形式のファイルを読み込む際に、元の単語帳の説明を確実に読み込むようにしました。
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>ブラウザーと追加についての変更点:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+テンプレートでの指定を基準としたブラウザーフォントのカスタマイズがカードダイアログからできるようになりました。既定設定はシステムフォントです。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[単語帳を変更]を使った場合、カードの選択状態が失われなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールド内の改行 (Newlines) は、カード一覧では一つの空白に変換することになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーのサイドバー内の単語帳を制限なく入れ子できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーのサードバーに「marked」や「leeched」タグを表示を止めました。既に先頭近くに表示しているためです。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+既存の検索条件を再利用すると、履歴の先頭に移動するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+追加ウィンドウを開くと、使用ノートタイプに最後に使ったタグではなく、タグは空欄で起動することになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドにフォーカスしてからエディタのボタン群が利用できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>その他:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+バックアップから復元する時には、完全同期が必須になりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+復習中に削除キーのオートリーピートが使えなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+データベースのチェックで問題が見つかった場合には、完全同期が必須になりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳で新規カードを復習すると、詰め込み学習として記録しなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+「foo::bar」の名前変更してfooから新しい親単語帳に割り当てる際のバグを修正しました
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+データベースのチェックでノートがないカードを検出するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+.apkg形式のファイルからノートタイプを読み込む場合に起る同期エラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+読み込みでノートタイプが一致するか調べる際に、質問、解答テンプレートを同様に検討するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+復習が忘却 (lapse) になった場合、再学習ステップではなく学習ステップを割り当てる問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+%sを含む画像URLを貼り付けた場合の問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カスタム学習のプレビューではスケジュールの再設定は行わなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+過去2日以上前に忘却したカードをカスタム学習の検索する場合の問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Makefileで起こりうるエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Qt4.6が壊れているため、Qt4.6上での実行はできなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+クラッシュを引き起こすためMacOS X上で、ネイティブのファイルピッカーの使用を止めました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Windows 8上での表示が向上するため、Windows上ではXP themeが必須になりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+MacOS Xのカード追加ウィンドウと統計情報ウィンドウにCmd+Wショートカットを追加しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+さまざまなエラーメッセージを改善しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Ospalhからいくつかの微調整を取り込みました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Thomasからアドオンエディタの微調整を取り込みました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+古いbeta.ankiwebのreferencesを更新しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+編集領域の最小サイズを広げ、誤って隠れてしまうことがないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+プログレスウィンドウの表示が真っ白になるバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+削除したノートの数を表示するようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドの太字でない部分の表示の問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+プロファイルを変更処理は取消できなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+穴埋めと&lt;% %&gt;に関する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+認証ダイアログを表示している間は、メインウィンドウにアクセスできなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ノートタイプの名前変更を取り消した場合、名前変更はしなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ノートタイプの一覧表示でクローンの位置を並び替えました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳の説明はオプショングループの中にはないこと明確にしました。
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>アドオン作者へ:</p></div>
+<div class="paragraph"><p>2.0.4でいくつかの不要なimportsを取り除きました。これによって不幸にして、これらのimportsの存在を前提としたアドオンが破損することになります。一つの例は、「anki.stats」を具体的に指定して読み込まないで、「anki」を読み込んで「anki.stats」にアクセスしようとするアドオンです。</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_3">変更点: 2.0.3</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+修正したバージョンのモデルがコレクションに既に存在する場合、そのモデルが使ったコンテンツの読み込みの問題を修正しました。単語帳 (Anki 1.2単語帳を含めて) を繰り返し読み込んでも、ノートタイプ、ノート、カードは重複しなくなりました。重複のチェックは2.0.3より以前のバージョンで行った読み込みに対してだけ機能しますが、Anki 2 の以前のバージョンでモデルが不一致の単語帳から読み込んだ場合には、最初にコンテンツを再度読み込み、その後重複を作成します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳の名前変更の際に発生する問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+タイムボックスで、最初のセッションで一枚余計に数えて、未復習を報告できない問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザー内で保留済みのカードの期日を括弧でくくって表示するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+学習中のカードが保留になった時、初回の学習中であれば、新規カードに戻し、再学習中であれば復習カードに戻すようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+再学習カードの1日後のステップが機能しない問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+誤って修正済みと記録したコレクションを読み込んで、それが原因で同期しない設定になった問題を修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+一日あたりの復習の統計情報に小数点を追加しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳を作成した時に、既定で選択中の単語帳全体を検索する設定にしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+コレクションを閉じる時、多少時間がかかるので、プログレスウィンドウを表示することにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[フィールドを追加]ボタンのフォントサイズの設定を修正しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更点_2_0_2">変更点: 2.0.2</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳の変更点:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳の設定は、概要の画面の下部に配置した [カスタム学習] という名称の新しいボタンを押すと表示します。一日の新規カード、復習カードの上限をそのスクリーンから調整できます。
+</p>
+</li>
+<li>
+<p>
+タグによるフィルターの設定は、Anki 1.2の有効なタグのダイアログと同じようなダイアログを表示して、タグの選択を簡単にした。その後カスタム学習のウィンドウのを再度開いた場合、Ankiは以前その単語帳で選択したタグ情報を保持します。
+</p>
+</li>
+<li>
+<p>
+フィルター単語帳の中に新しいカードを表示している時には、正しくボタンを3つ表示するようになりました。
+</p>
+</li>
+<li>
+<p>
+[フィルター単語帳/詰め込み勉強] ボタンを単語帳/概要スクリーンからツールメニューに移動しました。
+</p>
+</li>
+<li>
+<p>
+フィルター単語帳がその検索条件を表示することを止めました。新規ユーザーに混乱をもたらしていることと、オプションを表示すると簡単に見つけられるためです。
+</p>
+</li>
+<li>
+<p>
+フィルター単語帳はどのように機能しているか簡単な説明を表示するようになりました。
+</p>
+</li>
+<li>
+<p>
+カスタム学習オプションは自動的に「カスタム学習セッション」という名前のフィルター単語帳が割り当て、既に存在しているときは既存の単語帳を再利用します。カスタム学習セッションを保存したい場合は、名前を変更することができます。
+</p>
+</li>
+<li>
+<p>
+フィルター単語帳は、単語帳一覧に青字で表示します。
+</p>
+</li>
+<li>
+<p>
+フィルター単語帳を作成すると、名前の入力を求める代わりに既定の名前を割り当てます。必要であれば後ほど名前を変更することができます。
+</p>
+</li>
+<li>
+<p>
+[単語帳を変更] 処理は、カードをフィルター単語帳から移動します。この場合も無視しません。
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+統計情報の変更点:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+当日の情報を先頭に追加しました。
+</p>
+</li>
+<li>
+<p>
+明日期日に達するカードの枚数を予測セクションに掲載しました。
+</p>
+</li>
+<li>
+<p>
+統計情報の作成日と対象範囲を最後に追加しました。
+</p>
+</li>
+<li>
+<p>
+[画像として保存] 処理は、画像の保存先をデスクトップにして、見つけやすくしました。
+</p>
+</li>
+<li>
+<p>
+データポイントがただ一つの場合でも、復習枚数、時間の表示を確実に行うようにした。
+</p>
+</li>
+<li>
+<p>
+単語帳の全期間にわたっての復習間隔グラフのX軸を修正しました。
+</p>
+</li>
+<li>
+<p>
+履歴グラフの色々な箇所に生じているエラーを修正しました。
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+読み込み処理の変更点:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+以前に、モデルを別の単語帳に保存したり書き出して、その単語帳を別の方法で修正した場合、コレクションが破損する問題点をいくつか修正しました。
+</p>
+</li>
+<li>
+<p>
+コレクション全体を書き出す時は、自動的に「collection.apkg」という名前でデスクトップに保存するようにしました。
+</p>
+</li>
+<li>
+<p>
+読み込みの際に、追加するか、上書きするか質問することは止めました。読み込むファイルがcollection.apkgという名前のファイルやバックアップファイルの時には上書きし、その他の場合は追加することにしました。
+</p>
+</li>
+<li>
+<p>
+「xxx個のノートを読み込みました」というメッセージの表示に大きなボックスの代わりにツールチップを使うことにしました。
+</p>
+</li>
+<li>
+<p>
+CSVファイルを読み込む際に、HTMLキャラクタをエスケープするオプションが使えるようになりました。
+</p>
+</li>
+<li>
+<p>
+CSVファイルを読み込む際に、重複を許すか選択できるようになりました。
+</p>
+</li>
+<li>
+<p>
+CSVファイルを読み込む際に、区切り文字の指定を変更すると、フィールド一覧を確実に更新するようにしました。
+</p>
+</li>
+<li>
+<p>
+フィルター単語帳からカードを読み込む際に、通常のカードに変換するようにしました。
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+HTMLの編集に苦痛を感じている人のために、カードスクリーンに[フィールドを追加]ボタンを追加しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+新たに作成したコレクションには新しい2つのノートタイプが含まれるようになりました。「表面と裏面」、「表面と裏面を任意選択」の2種類です。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Ankiは、CSSの誤りの検出を厳しくして、他のクライアントとの一貫性を高めました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールド削除の際の警告を改善しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+概要スクリーンで単語帳一覧上の数が一致しないバグを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+学習中にブラウザーを開いた場合、以前のように選択中のノートを表示し続けるようにし、エンターキーを打つと、単語帳内の全てのカードを素早く表示できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーを開いた時に選択中のカードにフォーカスを置くようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードを削除した時にスクリーンの先頭にカーソルが戻らないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+編集画面を開いて、カードを削除した時にエラーが発生しないようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+保留中のカードの期日を表示するようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドが一つだけのノートが使えるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーで穴埋めボタンを押した時に、ユーザーにノートタイプ変更オプションを示すようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+追加ウィンドウで入力を始めると、直ちにメインウィンドウが[学習し続ける]ボタンに切り替わらなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+危険なLaTeXワードに遭遇した場合のエラーメッセージを改善しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+アップグレードの際のAnki 1.2単語帳に関するエラーを対応しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 1.2と同様にLaTeX内で改行 (newlines) が使えるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+LaTeXが処理できなかった時に、ユーザーに.tex形式のファイルの生成を示すようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードの延期解除は、単語帳一覧に戻った時に行ないます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードを延期した時にフィルター単語帳からそのカードを削除しなくしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳の名前を変更した時、大文字、小文字を混ぜた時に発生するエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ヒントがついている穴埋め問題にドットを表示するのを止めました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳内のカードを編集する時に発生するエラーを修正しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[単語帳を作成] ボタンを単語帳一覧に追加しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザー内で削除キーを押し続けても、複数のカードを削除しなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドにメディアを追加した後に、そのフィールドにフォーカスガ戻るようにしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+他のプログラムから解答画面に戻った時に、エンターキー、スペースキーが使えるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+「今日の学習時間」が1時間を超えた時に表示する「分」を正しくしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+モバイルクライアントで発生するバグを対応しました。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="v2">Changes in Anki 2</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_原文">原文</h3>
+<div class="paragraph"><p>このページの原文は英文です。</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://ankisrs.net/docs/changes.html">Changes in Anki 2(英語)</a>
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_こちらをお読みください">こちらをお読みください</h3>
+<div class="paragraph"><p>非常に急いでいて、この文書全体を読み通す時間がないかもしれません。そのような場合でも、この項目はどうかお読みください。新しいパージョンを使用してびっくりするような点をいくつかまとめています。</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+前のバージョンのAnkiでDropboxを使っていた場合、アップグレードの前に次の項目をお読みください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+これまで、前のバージョンで .anki形式の単語帳の読み込みと書き出しを行っていた方、アップグレードの後にカードが行方不明になった方は、 アップグレードの前に<a href="#missing">この項目</a>をお読みください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+既定では、復習の<a href="#perday">上限</a>を一日あたり100に設定しています。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[もう一回] を押すと、そのカードの<a href="http://ankisrs.net/docs/manual.html#learning">学習中</a>の復習は2になります。従って学習中(オレンジ色の数字)のカード枚数は2増加します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+穴埋め問題を大いに改善しましたが、特別な<a href="#cloze">穴埋め(cloze)ノートタイプ</a>を選択する必要があります。(追加ウィンドウの左上のボタンから選択できます)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+選択学習はまだ行えますが、これまでとは違った方法になります。カードを別の単語帳に移す(カードブラウザーの [単語帳の変更] を使う)か、特定のタグやカードプロパティを検索する<a href="#filtered">フィルター単語帳</a>を作ることになります。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+複数の面を持つ教材、あるいは複数のカードテンプレートを使った教材を学習する場合は、カードを選択する方法に関する<a href="#cardgen">この項目</a>の情報をお読ください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Ankiは、重複しているか確認する場合<a href="#dupes">最初のフィールド</a>だけを調べます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳を削除した後に同期すると、その単語帳は他のデバイスからも同様に削除します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 1で [一覧に表示しない] を指定していた単語帳は、Anki 2は自動的に読み込みません。[ファイル]&gt;[読み込む] から手動で読み込むことは可能です。Anki 1の単語帳は既定ではDocuments\Ankiに保存しています。
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>このページの残りの部分には、更に詳しい変更点を説明しています。更に詳しい情報をご覧になりたい場合は、<a href="http://ankisrs.net/docs/manual.html">ユーザーマニュアル</a>をご覧ください。前のバージョンから完全に書き直しています。</p></div>
+</div>
+<div class="sect2">
+<h3 id="beforeupgrade">Dropbox</h3>
+<div class="paragraph"><p>Ankiの前のバージョンでDropboxを使っていない場合は、この項目を読み飛ばして差し支えありません。</p></div>
+<div class="paragraph"><p>Dropboxを使っていた場合、アップグレードの前に [Settings]&gt;[Preferences] を開き、media項目を [keep media next to deck] に変更してください。その後、順番に一つずつ単語帳を開いて閉じ、メディアファイルを元の場所へ移動します。これで、Anki 2はメディアファイルを見つけることが出来ます。</p></div>
+</div>
+<div class="sect2">
+<h3 id="_単語帳とプロファイル">単語帳とプロファイル</h3>
+<img src="http://ankisrs.net/docs/img/1-decks.png" width=341 height=318 style="float:right;margin:1em;">
+<div class="ulist"><ul>
+<li>
+<p>
+個々の単語帳を別々のファイルに保存する代わりに、Anki 2では全ての単語帳を一つのファイルに保存することになりました。このファイルのことを「コレクション」と呼びます。これによって、単語帳間のカードの移動が簡単になり、単語帳間でのモデルやファクトの共有が可能になりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳は木構造で構造化することができます。下位階層を示す記号に「::」を使います。例えば、「German::My textbook::Lesson 1」
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+複数の単語帳で同じ設定グループを共有する事が出来ます。一つの単語帳の設定を更新すると同じグループの別の単語帳にも更新内容を反映することが出来るようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+一つのコンピュータ上でAnkiを一人以上で使う場合、ユーザー毎に別々のユーザープロファイルを作ることが出来るようになりました。それぞれのユーザープロファイルは、独自の単語帳のコレクションを持ち、Ankiはユーザー毎に別々の設定を記憶します。<a href="http://ankisrs.net/docs/manual.html#profiles">より詳しい情報</a>
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_用語集">用語集</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+「ファクト」は「ノート」に変更しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ノートの「モデル」はノートの「タイプ」に変更しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+「コレクション」には全ての単語帳、カードなどを保存しています。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードを個別のグループに分割でき、それを「単語帳」と呼びます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+「プラグイン」は「アドオン」に変更しました。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="perday">一日あたりの制限</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+新規カードの一日あたりの出題上限は単語帳別に設定でき、親の単語帳の設定に支配されます。つまり、「French」のカードの上限が20枚、「French::Lesson 1」と「French::Lesson 2」がそれぞれ15枚に設定されていれば、「lesson 1」からは15枚出題しますが、「lesson 2」からは5枚しか出題しないことになります。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+同様に単語帳は、一日の復習の上限値を設定していて、既定では100です。上限に達すると、たとえ待機中のカードがあってもAnkiはこれ以上その単語帳から復習を表示しません。「おめでとうページ」に達すると、そのユーザーの最適な記憶力に見合う数まで一日の上限を引き上げるよう助言する告知を表示します。この変更は、ユーザーが中断からAnkiに戻ったあとに感じる圧倒されるような感覚を和らげることを意図しています。膨大な数の期日に達した復習を先延ばしにすることができ、待機中の期日に達したカードを残すのはあるユーザーに取って最善のことではないかもしれませんが、フラストレーションがたまって挫折するのはもっと悪い結末です。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+学習するカードの上限を外さない限り、学習回数は一日あたりの新規カードと復習の設定値の合計になります。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_共有単語帳">共有単語帳</h3>
+<img src="http://ankisrs.net/docs/img/2-overview.png" style="float:right; margin: 1em;">
+<div class="ulist"><ul>
+<li>
+<p>
+共有単語帳はAnkiWebで一覧でき、ブラウザからダウンロードできます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+共有単語帳に評価とコメントを付けることができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ダウンロード済みの単語帳から新しいカードを取り出すことができます。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="selective">選択学習</h3>
+<div class="paragraph"><p>Ankiの新しい単語帳システムは次のような観察に基づいています。</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+「French&#8594;Book 1&#8594;Lesson 3」といった入れ子になったカテゴリは、典型的なユーザーにとっては「french book1 lesson3」より直感的です。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+多くのユーザーにとって古い選択学習システムを使いにくいものでした。その理由は、自分がしたいことを相殺するタグを誤って重複して使用したからか、復習から特定のタグを削除したか削除することを忘れてしまったからです。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+タグを基本とした制限は上手く機能しませんでした。10倍、場合によっては以上の速度低下が見られました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カード毎に学習設定することを希望するユーザーがいました。これに対応するにはタグは現実的ではなく、タグが重複した場合、機能するためにどのタグを優先するすべきか定義する複雑なシステムが必要です。
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>このような問題点を解決するために次のように取り組みました:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 2の標準復習システムは、許可/不許可のタグ一覧ではなく「現在の単語帳」に基づいています。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+タグベースの学習は、柔軟なフィルター単語帳システムを通じてこれまでどおり利用可能です。後ほど詳しく説明します。
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>古い選択学習機能を新しい方法に直接移行する方法は存在しないため、以前の選択学習を使っていた場合、多少の手動の設定が必要となります。</p></div>
+<div class="paragraph"><p>切り替えのためのタグを少数使っていた場合、(例えば「Japanese」や「French」といった)、最善の方法はおそらく、それぞれのタグを順番にブラウザーで検索し、「単語帳を変更」を使って検索したカードを別の単語帳に移動することになります。</p></div>
+<div class="paragraph"><p>新規カードの初回表示を管理するために選択学習を使っていた場合は、(例えばレッスン5から18までは表示しないなど)、それぞれのレッスンを一つずつ単語帳に変換することができます。これは少し面倒です。もっと簡単な方法は、準備が整っていないカードを保留し、準備ができたらレッスン毎の基準に基づいて、保留を解除する方法です。それは次のような手順になります:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+lessonタグを持つカードを「tag:lesson* is:new」で検索し、保留にします。
+</p>
+</li>
+<li>
+<p>
+アップグレード前、レッスン4(lesson4)の途中だった場合、「tag:lesson4 is:new」を検索し、前の段階で保留したカードの保留を解除します。
+</p>
+</li>
+<li>
+<p>
+レッスン5(lesson 5)に移る準備が整ったら、「tag:lesson5」で検索して保留を解除します。
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect2">
+<h3 id="_プロパティ">プロパティ</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+選択学習で説明したように、カードの表示順は、タグの代わりに入れ子になった単語帳で制御するようになりました。単語帳を設定すると、Ankiはアルファベット順に単語帳とそのサブ単語帳の中のカードを調べます。「French::Vocab」、「 French::Sentences」、「French:Misc」といった単語帳にカードがあり、単語帳「French」を選択した場合、カードの取得は最初はMisc、次にSentences、そしてVocabから行います。つまりこれらの単語帳名のアルファベット順です。このプロパティを使って特定のカードを標準より早く復習したり遅くしたりできます。単語名の最初に「!」を付ければ(例、!Vocab)この単語帳のカードを最初に表示します。「_」を単語名の最初に付ければ最後に来ます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+更に細かい粒度で新規カードの表示順を設定するために、ブラウザーには [新規カードを並び替える] コマンドがあります。これを使えば教材の優先順位を設定し、色々な種類が混在したカードの表示順を変更で来ます。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_スケジュール設定">スケジュール設定</h3>
+<img src="http://ankisrs.net/docs/img/3-review.png" style="float:right; margin: 1em;">
+<div class="ulist"><ul>
+<li>
+<p>
+Ankiの学習モードを大きく改善しました。新規カードを初めて表示したとき、古いカードを忘れたときには、通常の復習カードに戻る前に、広がっていく間隔で表示します。詳しい情報はユーザーマニュアルの<a href="http://ankisrs.net/docs/manual.html#learning">learning</a>をご覧ください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+復習は一日あたりの基準だけに基づいてスケジュール設定します。ある日のカードを複数のセッションに分割したい場合は、タイムボックス機能を使うか、単純にある枚数だけ復習して中断し、後ほど再開するかどちらかの方法で行えます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+復習カードを間違えた時だけ、カードの忘却回数が増加します。これは、学習中のカードの間違いは、無駄なカードの判定に利用しないことを意味します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+復習を失敗した時の処理をカスタマイズすることができます。既定では復習を失敗すると、再学習のキューに戻します。再学習カードの学習ステップを別の設定にすることもできます。必要な学習ステップを短縮したり、初回学習したカードと比べて、待機時間を長くするような設定もできます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+復習スケジュールの間隔を他よりも広げたり、縮めたりする乗数を設定できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+期日の数をもっと論理的に、新規&#8594;学習中&#8594;復習の順番で表示するようにしました。ETAとプログレスバーは削除し、タイマーは既定でオフにしました。(上記のスクリーンショットでは、期日のカードの枚数が見ませんが、質問を表示している間だけに表示するからです）
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+学習の数は、キューを完了するのに必要な解答数であって、カードの枚数ではありません。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+標準的な学習では、復習は期日の順に並んでいます。この順番を変えたい場合は、フィルター単語帳を使用してください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+「解答できなかったカードを最後に表示する」ための明示的なオプションはなくなりました。同じ処理を実現するには、学習ステップを自分のセッションの長さ以上の時間(例、1時間)に設定し、環境設定の [先取り学習の限度] の値を同様に増やしてください。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="filtered">フィルター単語帳、詰め込み学習、復習の先取り</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳を使うと、指定した条件と順番に基づいて別の単語帳からカードを集めることができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳は非常に柔軟的です。カードのプレビューをしたり、テスト前の詰め込み学習をしたり、古い選択学習機能のような特定のタグに限定した学習や、特定の並び順で順番待ちのカードを学習したり、復習の先取りをしたり、その日間違えたカードを復習したりすることができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳のスケジュールを(Anki 1.2のように)解答に基づいて再設定したり、(Anki 1.0のように)元のカードのままにしておくことができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィルター単語帳は、古い [予習する] ボタンを置き換えます。これには2つの利点があります。何日間先取りするか指定できることです。そしてAnkiを閉じた後、Anki 1.2のように同じカードをもう一度始める代わりに、終わったところから復習を再開することができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+詳しい情報は次のページをご覧下さい。
+   <a href="http://ankisrs.net/docs/manual.html#filtered">http://ankisrs.net/docs/manual.html#filtered</a>
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_同期">同期</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+多くの場合、複数のデバイスからどちら側を維持するか選択することなく、変更点を統合することができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+完全同期が必要なのは初回同期とノートのフィールド数のような変更の後だけです。完全同期が必要になる変更を加えようとする場合には、その点について警告を受け取り、中止する選択肢を選ぶことができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+多くのカードやノートの修正は、完全同期が必要になりますが、差分同期でもたくさんのデータを処理できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+時刻設定の差で同期が不完全になることはなくなりました。それでも、異なる時刻設定のマシンに移動してカードの期日の増減を認識すると混乱が生じます。このためAnkiは依然として実際の時間と5分以内の差の時刻設定を必要とします。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+全てのデータはインターネットへ送信する前に暗号化されます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+接続がタイムアウトすると、Ankiは自動的に再接続を図ります。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_メディアファイルとlatex">メディアファイルとLaTeX</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+AnkiWebはDropBoxのようのなサードパーティのサービスを必要とすることなく、独自でメディアファイルをサポートしています。特別な設定も必要としません。単語帳を同期する時に、自動的に単語帳のメディアファイルも同期します。Ankiはメディアフォルダーを監視しています。このため、過去にあったような時代遅れのメディアデータベースに伴う問題はなくなりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+メディアとLaTeXの参照はテンプレート内ではもはやサポートしていません。これは共有単語帳で正しく機能しないためです。アップグレード処理では、テンプレートの中にある[sound:{{field}}.mp3]の様な参照を認識して、このようなファイルを埋め込んだメディアタグ(例えば、[sound:apple.mp3])を持つ新しいフィールドを自動的に作成します。手動で参照を追加し直した場合は、メディアデータベースのチェックを行っても、そのメディアファイルが利用中とAnkiは認識しません。メディアの参照が一つ以上のフィールドで構成していた場合 (例、[sound:{{field1}} - {{field2}}.mp3])、これらのファイルは自動的に読み込まれず、手動で設定し直す必要があることに注意してください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+テンプレートに「&lt;img src=logo.jpg&gt;」というような静的なメディア参照が含まれている場合は、このようなメディアファイルは読み込まれませんので、手動でコピーする必要があります。アンダースコア「_」で始まる名前は変更することをお勧めします。そうすると、このメディアファイルはテンプレート中で使用中で、未使用のメディアをチェックする際に削除してはならないことをAnkiは認識します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+アップグレードの際に、Ankiはそれぞれの単語帳の.mediaフォルダー内にあるメディアファイルを新しいコレクションのメディアフォルダーに移動します。複数の単語帳内に同じファイル名の別のファイルがあると、Ankiは自動的にそのメディアファイルの名前を変更します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+何らかの理由でAnkiが元の場所からメディアファイルを移動できない場合、元の.mediaフォルダー内にあるメディアファイルをDocuments/Anki/User 1/collection.mediaへ手動で移動してください。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_ブラウザー">ブラウザー</h3>
+<img src="http://ankisrs.net/docs/img/4-browsing.png" style="float:right; margin: 1em;">
+<div class="ulist"><ul>
+<li>
+<p>
+タグと単語帳は左側のパネル内に表示し、クリックすると検索します。コントロールキーあるいはコマンドキーを押しながらクリックすると、検索文字列に項目が追加されます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+列表示は設定可能です。列ヘッダを右クリックすると列の表示、非表示を設定できます。列をクリックするとその列でソートします。列をドラッグして位置を変えることもできます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+以前のバージョンではある特定のフィールドでブラウザーをソートしていましたが、そうするとそのフィールド持たないノートは表示できないことが起りました。2.0ではノートタイプ別に「ソートフィールド」を持ちます。ソートフィールドを列として表示することができ、ソートを行うことができます。ソートフィールドを変更するには、[フィールド&#8230;] ボタンをクリックしてください。Ankiは、フィールドが数値だけを含む場合は数値で自動的にソートします。もう、数値フィールドであることを設定する必要はありません。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+多くの検索処理は以前より速くなりましたが、遅くなる場合もあります。検索ボックスでは、エンターキーを押していただくことになりました。入力すると自動的に検索が開始するのではありません。他の人たちよりもゆっくり入力して、複雑な検索をしようとする人もいて、そのような人たちにとって自動検索は苦痛になりうるからです。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 1.2では、各フィールドのコピーは外した書式情報は保持していました。このため、たとえ単語の一部に書式情報(太字など)を持っている場合でも、単語を検索し、現れた一致を保持できました。Anki 2ではこのキャッシュの維持は高くつくため外しました。Anki 2では部分的に書式設定されているテキストを検索したい場合、自分で対象を現在のソートフィールドに限定する必要があります。(検索の際にAnkiはそのフィールドを使用します)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+検索基準を変更しても、選択結果は保存しています。一群のカードを選択するようなことを行って、サイドバーの[新規]をクリックすると、新規カードだけに選択結果は絞り込まれます。一度に多くのカードの選択結果を保存するのに時間がかかります。そこで選択結果があまりにも大きすぎる場合には、次回の検索では破棄します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+スケジュールの再設定処理が変更になりました。カードの間隔と易しさをリセットしますが、復習履歴は変更しません。
+ カードの復習履歴を削除する必要がある場合は、マニュアルの再スケジュールを検索してください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ブラウザーは完全な復習履歴を表示します。ツールバーの[情報]ボタンをクリックするとご覧いただけます。このデータは前のバージョンとは違った保存をしていることに注意してください。カードを学んだか、復習したか、再学習したかなど表示は古いデータでは必ずしも正しくなかったかもしれません。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_カードレイアウト">カードレイアウト</h3>
+<img src="http://ankisrs.net/docs/img/5-templates.png">
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 1.2では、{{ field }} 参照は自動的に書式情報を付与しました。これは、"What is the capital city of {{ country }}?" というような、プロンプトのテキストとテンプレートのフィールドのテキストは別の結果になり、ユーザーは代わりに{{{ field }}}を使って必要なHTMLを考えださなくてはならなかったことを意味します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 2.0では、暗黙の書式設定は廃止しました。フォントや色、文字寄せなどをGUIで選択する代わりに、標準のHTMLとCSSとして全てテンプレート内に埋め込まれています。利点として、希望すればカードの背景にグラデーションや画像を使うようなこともできるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[解答を表示する時に、質問を隠す] オプションは廃止しました。Anki 常に質問を解答で置き換えます。テンプレートは既定では解答テキストの上に質問フィールドを含んでいます。Ankiは常に同様に処理します。[質問と解答の間に線を引く] オプションも廃止しました。罫線はテンプレートに含まれていて、お望みであれば削除することができます。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="cardgen">カードの生成と削除</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+以前のバージョンのAnkiでは、カード追加スクリーンの右上にボタンがあり、カードテンプレートの使用可、不可の設定ができました。このボタンだけがコンテンツを新規追加する時にどのカードに追加するか制御していたため、以前追加したコンテンツにカードを追加したい場合、ブラウザーから [カードを作成] 機能を使わなければなりませんでした。これはたくさんの混乱をもたらしました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 2では手動でどのカードを作成するか指定する代わりに、フィールドが空どうかによってカードを生成します。既定では表面のテンプレートのフィールドの少なくとも一つが空でない場合、カードを生成します。特定のフィールドが空でないときにだけ特定のカードを生成するようにAnkiを設定することができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードを選択的に追加したい場合 (難しいコンテンツだけに裏面カードを追加したい場合) には、裏面カードを生成するかどうか制御するフィールドをノートに追加することができます。そのフィールドに任意の文字 (例、「y」) が含まれていると、カードを生成し、空欄の時にはカードは生成しません。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 2が古い単語帳をアップグレードする時に、全てのノートではないがいくつかのノートで利用可能なカードがある場合、そのような必須フィールドを自動的にノートに追加します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 2では個別のカードを手動で削除するオプションはありませんが、手動でカードを削除した場合には、もしフィールドが空でなければ、Ankiは自動的にカードを再度追加します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+必須フィールドの一つが空のときAnkiは即座にはカードを削除しません。これはデータの損失につながるからです。必須フィールドがないカードを削除するには、[ツール]&gt;[メンテナンス]&gt;[白紙] を実行してください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドを空欄にするには、[削除] ボタンを押すよりだけよりもさらにいくつかの段階が必要で、もし復習中にたくさんのカードを削除する必要がある場合は、代わりに保留する方が簡単です。その後、[検索と置換] を使って保留した全てのカードの必須フィールドをまとめて空欄にします。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+カードを選択的に追加する更に詳しい情報はマニュアルの<a href="http://ankisrs.net/docs/manual.html#_card_generation">この項目</a>をご覧ください。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="dupes">フィールドと重複</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドが重複を許さないか、必須かという指定はできなくなりました。Anki は最初のフィールドが空でなく重複していないことを確かめています。しかし、その他のフィールドは確認していません。Ankiは多くのカードが重複していない場合(全てのそのような情報をキャッシュしなければならないため)には、十分なパフォーマンスが得られる訳ではありませんが、単一のフィールドなら与えられた主題が以前入力したものか決定するには十分です。二番目のフィールドにタイプミスが原因の誤った重複があるか調べたい場合は、ブラウザーの[重複を検索する]きのうを使うことができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+更に詳しい情報は、<a href="#dupes2">この質問</a>をご覧ください。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドは消去しにくい特色を持つようになりました。これは、ノートを追加すると、フィールドコンテンツは消去しないでフィールドに残ることを意味します。これは、類似したフィールドコンテンツを持つ一連のノートを追加する時に役立ちます。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_パフォーマンス">パフォーマンス</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳は以前よりかなり縮小しました。ほとんどの方の場合、1/3から1/6まで圧縮しているのが分かるのではないかと思います。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+多くの処理で最適化しました。単語帳の読み込みがずっと速くなり、より円滑に学習できることが分かるのではないかと思います。この変化は、モバイルクライアント上で顕著です。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ハードディスクへのアクセスが頻繁な場合のAnkiのパフォーマンスが向上しました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+グラフの読み込みがかなり速くなり、直ちにコレクション全体のグラフをご覧いただくことが可能になりました。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_エディター">エディター</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドはコンテンツに合わせて動的に広がります。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+フィールドは複雑なHTMLを正しく表示できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+衝突を認識した時に、衝突が起きているノートに移動することができるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+編集モードで画像を縮小サイズで表示しています。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="cloze">穴埋め問題</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+穴埋め問題によって複数の穴埋めを一つの文章から簡単に生成できるようになりました。全ての穴埋めは同じノートを共有し、ノートを編集すると全てのカードが直ちに更新します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+穴埋め問題にLaTeXが使えるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+穴埋めは以前のように太字で青色で表示しますが、テンプレートをカスタマイズすることができます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+以前のバージョンで作った穴埋めは、新しいスタイルに変換できません。新しいカードにだけ適用できます。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_グラフと統計情報">グラフと統計情報</h3>
+<img src="http://ankisrs.net/docs/img/6-graphs.png"  style="float:right; margin: 1em;">
+<div class="ulist"><ul>
+<li>
+<p>
+単語帳の統計情報とグラフは文章とグラフの両方を含む単一のレポートに統合しました。この工程は完全に書き直しました。これまでより詳しい情報をご覧いただけます。復習と再学習、初期の学習の累積学習時間のような比較が簡単になりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+期間選択ボックスを一つにまとめて一番下に配置しました。データの表示を1か月、1年、単語帳の全期間で変更することができるようになりました。このデータは、グラフの中で週、月毎に区分けしていて、このことによって、パフォーマンスの向上とさらに明確な傾向の表示が両方が提供できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+グラフを画像として保存するボタンを配置して、友達や先生とグラフを簡単に共有できるようになりました。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_関連カード同士の間隔">関連カード同士の間隔</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+学習を始めると、その日のための新しいカードを収集します。既定では20枚です。それぞれのカードを表示すると、そのカードの関連カード全てキューの最後に移動します。このため、関連カード同士で最低限20枚は離れています。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+新しい関連カードをさらに離して初回表示したい場合は、新しいカードを別の単語帳に移動するか、ブラウザーの [新規カードを並び替える] 機能を使います。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+復習カードの次回の時間を決定する時に、Ankiは前後の日を調べて関連カードの復習がない日に復習を設定するよう試みます。検討する予測値は設定可能です。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_保存と元に戻す">保存と元に戻す</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+「保存」と「別名で保存」処理は削除しました。保存はユーザーの手を介さずに、復習や追加では5分おきに、そしてその他の様々な処理の後に実行します。より複雑な保存プロセスを導入することで、Ankiはより効率的に保存し、間違った処理から復活できるようになりました。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+アンドゥ (元に戻す) システムを簡略化しました。古いシステムは包括的でしたが、単語帳の更新にかなりのコストが掛かるもので、まれな状況でデータの不一致が起っていました。多段階のアンドゥは復習用に取って置き、その他の破壊的な処理は一段階のアンドゥで対応します。これによって、単語帳を一貫した状態で復元することを保証します。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_ライセンス">ライセンス</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki2.0から、Ankiは、GNU GPL3 licenseから別のGNUライセンス、AGPL3に移行します。このAffero license はGPL3と互換性があり、このため既存のプラグインを再ライセンスする必要がありません。GPL3との主な違いは、webサービスでコードを修正し、実行する人に対して、そのwebサービスのユーザーが修正したコードを入手できることを求めている点です。事実上、ある会社がAnkiのコードの変更点を共有することで返礼しないのであれば、Ankiのコードを使ってオンラインサービスを作ることができないと言えます。この条項は、通常のユーザーには影響がありません。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+さらに注意いただきたいのは、ankiqtがlibankiのようなデュアルライセンスになったことです。この点を活用する当面の計画はありませんが、自分たちの有料コンテンツと一緒に、余分な機能を省いたり、コンテンツを保護したバージョンのAnkiを配布したい会社に対して、将来のカスタムバーションの可能性を開いています。デスクトップバージョンはオープンソースでリリースし続けるつもりで、この点を変更する予定はありません。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 2.0で多くのコードを書き直したので、他の人が貢献してくれたコードは非常にわずかしか残っていません。残りのコードの作者に連絡を取って、ライセンスの変更許諾をお願しました。連絡漏れはないと思いますが、そのような方がいらしたらどうか私まで連絡ください。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_アドオン">アドオン</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+変更が広範にわたるのため、ほとんど全てのアドオンがAnki2.0で動作するには何らかのレベルの修正が必要になります。既に対応済みのアドオンもありますが、その他は将来的に対応する必要があります。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+アップグレードしたら、アドオンサイトにアクセスして、Anki1でお使いになっていたアドオンの新しいバージョンを探してください。アドオンサイトは Anki2 の中のメニューから[ツール]&gt;[アドオン]でアクセスできます。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+アドオン作成ガイドを<a href="http://ankisrs.net/docs/addons.html">こちら</a>に公開しました。古いアドオンを移行する時に注意すべき主要な点をカバーしています。
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="missing">行方不明になった単語帳、カード</h3>
+<div class="paragraph"><p>アップグレードした単語帳からなくなったカードがあったり、空の場合、これは過去に別の単語帳にカードを書き出して、両方の単語帳で並行して学習したことが原因です。一方の単語帳の表示を修正していたとしても、カードは元は同じもので、Ankiはこれらを同じものと判断します。Ankiはこのような使い方を想定していません。</p></div>
+<div class="paragraph"><p>このことは、一つの単語帳のカードを別の単語帳に読み込んだ時に何も起らないことを意味します。(Anki 2.0の場合は、一方の単語帳ではカードが表示され、別の単語帳では表示されない結果になります)</p></div>
+<div class="paragraph"><p>この問題を解決するには、Anki 2ページの最後から、Anki 1.2.8を再度インストールしてください。</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ダウンロード
+  <a href="http://ankisrs.net/download/mirror/archive/plugins-1.2/Make_cards_unique.zip">Make_cards_unique.zip</a>
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 1.2を開き、[設定]&gt;[プラグイン]&gt;[プラグインフォルダーを開く]を選択して移動します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+ダウンロードした .zip ファイルから .py (訳注: makecardsunique.py) を抽出して、プラグインフォルダーに配置します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Anki 1.2を再起動します。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+読み込めなかったそれぞれの単語帳を開き、[Tools]&gt;[Make Cards Unique] を選択します。
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>この作業を行った後、Anki 2で[ファイル]&gt;[読み込む] で単語帳を読み込むことができます。</p></div>
+</div>
+<div class="sect2">
+<h3 id="_質問">質問</h3>
+<div class="paragraph"><p><strong>なぜ全ての単語帳を一つのファイルにしてしまったのですか</strong></p></div>
+<div class="paragraph"><p>この変更で、たくさんのユーザーインターフェースのパーツが単純になりましたし、バージョン2でのパフォーマンスの向上に関係しています。実際に以前よりかなり実行速度が上がりました。単語帳を別のファイルにしたいなら、別のプロファイルを作成することで実現できます。</p></div>
+<div class="paragraph" id="dupes2"><p><strong>なぜ任意の数値のフィールドをユニークなフィールドと設定できないのですか</strong></p></div>
+<div class="paragraph"><p><a href="http://ankisrs.net/docs/manual.html#basics">the basics</a>のノートに関する項目をご覧ください。これら3つのフィールドは全てユニークで、前のバージョンではユーザーはユニークに設定できましたし、実際にそのように設定することが頻繁にありました。問題は、重複を表示するために　Ankiが全ての関連フィールドを(時間がかかりますが)検索するか、フィールドを追加するに従って急速に増大するキャッシュを維持する必要があることです。</p></div>
+<div class="paragraph"><p>上記の例で、与えられた要素を以前入力したかどうか決定するには、実際にはただ一つのフィールドが必要でした。それが選択した要素の名前、数値、シンボルであっても、最初のフィールドに入力するときまで、同じノートを以前入力したかどうか、注意しないでしょう。いずれ削除することになる重複したノートの追加を止めるためには、一つのフィールドで十分です。</p></div>
+<div class="paragraph"><p>言語は事情が異なります。もし、外国語から母国語、母国語から外国語を学習していて、文脈を伴わない個々の単語を学習している場合は、二つの別のノートに同じ意味を入力することもありえます。そのような場合に通知しないのは最善なことではないですが、この場合と上の場合の重要な違いは、上の場合は告知がないと、同じ情報を二度入力するのは無駄な努力になることです。言語の場合は、重複した情報を破棄する必要がありませんが、単に増加し続け、その結果既存の教材と区別されることもあるでしょう。復習している間にプロンプトを見て別の解答を考えている時に、重複した意味が思い浮かぶこと起こりえますが、[重複を検索する] 機能がブラウザーにもあります。</p></div>
+<div class="paragraph"><p>[重複を検索する] はキーを押す度ごとに実行する必要ないので、将来的にはもっと洗練されるかもしれません。現在は厳密に一致するように制限していますが、将来はあいまいな一致が使えるように拡張することは実行不可能ではありません。</p></div>
+<div class="paragraph"><p><strong>なぜDropBoxから離れたのですか</strong></p></div>
+<div class="paragraph"><p>Anki 1.2のメディア同期はこのアプリケーションのその他の機能ほとんど全てよりもたくさんの混乱を引き起こしました。設計通りの動作であっても、ユーザーが設定することが困難で、ユーザーがメディアデータベースを更新せずにメディアフォルダーを変更すると、エラーが起きやすくなっていました。DropBoxがDropBox フォルダーの位置を突き止めようとしたサードパーティのアプリケーションを遮断するサイレントアップデートを公開した時に、さらにAnki 1.2のユーザビリティが悪化しました。2012年7月末、DropBoxは新規アカウントに対して公開リンクを提供することを完全に中止しました。このことは、Ankiが提供していた機能を提供するアプリケーションを望んでいないということ示しています。</p></div>
+<div class="paragraph"><p>メディアホスティングの課金に関する当面の計画はありませんが、一定のサイズ以上ののメディアファールを使っている人に対しては、おそらく長期的にはプレミアアカウントを導入することが必要になるでしょう。これは、現在自腹で払っているホスティング費用の増加に対応するためです。</p></div>
+<div class="paragraph"><p>将来的に支払いが発生することを気にするのであれば、Ankiの環境設定で、同期はカードとノートだけにして、メディアの同期をしないよう設定できます。どのサードパーティの同期サービスを使っても、メディアフォルダーを別のコンピュータと同期することは自由にできます。</p></div>
+<div class="paragraph"><p><strong>なぜ、復習のスケジュールは一日あたりの基準だけになったのですか</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+SuperMemoのアルゴリズムは、一日以下の単位を基準で動作するように設計されていません。その程度では、正確な結果が得られません。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+前のバージョンのAnkiは、夕方復習をして、翌朝再度復習するためは、カードのスケジュールを8時間といった短い間隔に設定する必要がありました。残念なことに、これは、夜間睡眠後の復習は効果的なのですが、朝復習したカードは夕方また期日に達することになります。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+一日の復習期日を朝に設定すると、その日何枚のカードが期日に達するか知ることができ、学習したい数あるいはそれよりも少ない数だけ学習できます。朝が忙しい時にはカードを先延ばしにすることができ、同様に空いた時間がたくさんある時には、一回のセッションで全てのカードを学習することができます。一日のどの時点でカードが期日に達するか決まっていないと、その日学習するのは何枚か簡単には分かりませんし、その日が期日の枚数以上を学習しなければならなくなります。
+</p>
+</li>
+</ul></div>
+<div class="ulist"><ul>
+<li>
+<p>
+初回の学習ステップで、一日以下の単位を基準としたスケジュールがより重要な場合には、Ankiの学習モードを代わりに使うことができます。
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"></div>
+<br>
+</body>
+</html>
