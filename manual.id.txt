@@ -1,907 +1,590 @@
 ++++++++++++++++++++++++++++++
 <%def name="title()">
-Anki Manual
+Buku Petunjuk Anki
 </%def>
 
-<h1>Anki 2.0 User Manual</h1>
+<h1>Panduan Pengguna Anki 2.0</h1>
 
 <script>
     document.getElementById("navmanual").className += " active";
 </script>
 ++++++++++++++++++++++++++++++
 
-Intro Videos
-============
+Video Pengenalan
+================
+
+Video ini berbahasa Inggris:
 
  * http://www.youtube.com/watch?v=QS2G-k2hQyg&feature=plcp[Shared Decks and Review Basics]
  * http://www.youtube.com/watch?v=DnbKwHEQ1mA[Switching Card Order]
  * http://www.youtube.com/watch?v=F1j1Zx0mXME[Styling Cards]
  * http://www.youtube.com/watch?v=5tYObQ3ocrw[Typing in the Answer]
 
-Translations
-============
+Terjemahan
+==========
 
-This page translated into other languages:
+Halaman ini dalam bahasa lain:
 
- * http://ankisrs.net/docs/manual.id.html[Bahasa Indonesia]
- * http://www.dennisproksch.de/anki[Deutsch]
- * http://ankisrs.net/docs/manual.es.html[Español]
- * http://ankisrs.net/docs/manual.fr.html[Français]
- * http://192.167.9.6/Anki_ITA/Manual_ITA.htm[Italiano]
- * http://ankisrs.net/docs/manual.pl.html[Polski]
- * http://wikiwiki.jp/rage2050/?FrontPage[日本語]
+ * http://ankisrs.net/docs/manual.fr.html[Prancis]
+ * http://www.dennisproksch.de/anki[Jerman]
+ * http://192.167.9.6/Anki_ITA/Manual_ITA.htm[Italia]
+ * http://wikiwiki.jp/rage2050/?FrontPage[Jepang]
  * http://www.ankichina.net/anki20.html[简体中文]
+ * http://ankisrs.net/docs/manual.html[Inggris]
 
-These translations are contributed by volunteers. If you would like to help
-translate the manual into a different language, or you would like to look at
-the translations that are currently in progress, please see the
-<<translatingmanual,translating the manual>> section.
+Terjemahan ini dibuat oleh relawan.
+Jika anda ingin membantu menerjemahkan buku petunjuk ini ke bahasa lain, atau jika anda ingin melihat terjemahan yang sedang dalam proses pengerjaan, silahkan lihat bagian <<translatingmanual,translating the manual>>.
 
-Introduction
-============
+Pengenalan
+==========
 
 :website: http://ankisrs.net/[Anki website]
 :ankiweb: https://ankiweb.net/
 
-Anki is a program which makes remembering things easy. Because it is a lot
-more efficient than traditional study methods, you can either greatly decrease
-your time spent studying, or greatly increase the amount you learn.
+Anki adalah program yang membuat mengingat berbagai hal menjadi mudah.
+Karena belajar menggunakan Anki jauh lebih efisien dibandingkan metode belajar tradisional, kamu bisa mengurangi waktu yang kamu gunakan untuk belajar dalam jumlah yang besar, atau meningkatkan banyaknya hal yang kamu pelajari dalam jumlah yang besar.
 
-Anyone who needs to remember things in their daily life can benefit from Anki.
-Since it is content-agnostic and supports images, audio, videos and scientific
-markup (via LaTeX), the possibilities are endless. For example:
+Siapapun yang perlu mengingat hal-hal di kehidupan sehari-harinya bisa mendapat manfaat dari Anki.
+Karena Anki mensupport gambar, audio, video dan notasi matematika (menggunakan LaTeX), software ini bisa digunakan untuk berbagai macam tujuan.
+Contohnya:
 
- - learning a language
- - studying for medical and law exams
- - memorizing people's names and faces
- - brushing up on geography
- - mastering long poems
- - even practicing guitar chords!
+ - belajar bahasa
+ - belajar untuk ujian
+ - mengingat nama dan wajah orang
+ - belajar geografi
+ - menguasai puisi yang panjang
+ - bahkan mempraktekkan chord gitar!
 
-There are two simple concepts behind Anki: 'active recall testing' and 'spaced
-repetition'. They are not known to most learners, despite having been written
-about in the scientific literature for many years. Understanding how they work
-will make you a more effective learner.
+Ada dua konsep sederhana dibalik Anki: 'active recall testing' dan 'spaced repetition (pengulangan dengan jarak waktu)'.
+Konsep-2 ini tidak diketahui banyak orang, meskipun konsep-2 ini sudah ada di literatur ilmiah dalam waktu yang cukup lama.
+Mengerti kedua konsep ini akan membuatmu bisa belajar lebih efektif.
 
 [[active-recall]]
 Active Recall Testing
 ---------------------
 
-'Active recall testing' means being asked a question and trying to remember
-the answer. This is in contrast to 'passive study', where we read, watch or
-listen to something without pausing to consider if we know the answer.
-Research has shown that active recall testing is far more effective at
-building strong memories than passive study. There are two reasons for this:
+'Active recall testing' adalah metode belajar dengan ditanyai sebuah pertanyaan dan mencoba mengingat jawabannya.
+Bandingkan dengan 'belajar pasif', dimana kita membaca, menonton atau mendengarkan sesuatu tanpa berhenti untuk merenungkan apakah kita sudah mengerti apa yang kita pelajari.
+Penelitian telah menunjukkan bahwa kita bisa mengingat apa yang kita pelajari jauh lebih efektif menggunakan active recall testing dibandingkan dengan belajar pasif.
+Ada dua alasan mengapa begini:
 
- - The act of recalling something 'strengthens' the memory, increasing the
-   chances we'll be able to remember it again.
- - When we're unable to answer a question, it tells us we need to return to
-   the material to review or relearn it.
+ - Berusaha mengingat sesuatu 'memperkuat' memori, meningkatkan peluang kita untuk mengingat hal itu lagi
+ - Ketika kita tidak bisa menjawab sebuah pertanyaan, ini tanda bahwa kita perlu kembali untuk me-review / mempelajari ulang hal itu
 
-You have probably encountered active recall testing in your school years
-without even realizing it. When good teachers give you a series of questions
-to answer after reading an article, or make you take weekly progress-check
-tests, they are not doing it simply to see if you understood the material or
-not. By testing you, they are increasing the chances you will be able to
-remember the material in the future.
+Kamu mungkin sudah menemui active recall testing di masa sekolahmu tanpa menyadarinya.
+Ketika guru yang baik memberimu sekumpulan pertanyaan untuk dijawab setelah membaca artikel, atau memberimu tes mingguan untuk mengecek progressmu, mereka melakukan itu bukan hanya untuk melihat apakah kamu mengerti pelajarannya atau tidak.
+Dengan mengetes kamu, mereka meningkatkan peluangmu untuk mengingat apa yang kamu pelajari di masa depan.
 
-A good way to integrate active recall testing into your own studies is to use
-'flashcards'. With traditional paper flashcards, you write a question on one
-side of a card, and the answer on the other side. By not turning the card over
-until you've thought about the answer, you can learn things more
-effectively than passive observation allows.
+Salah satu cara bagus untuk menerapkan active recall testing ke dalam proses belajarmu adalah menggunakan 'flashcard'.
+Dengan flashcard kertas, kamu menulis pertanyaan di satu sisi kertas, dan jawabannya di sisi lain.
+Dengan tidak melihat jawaban di kartu sampai kamu sudah berusaha memikirkan jawabannya sendiri, kamu bisa belajar lebih efektif dibandingkan hanya belajar pasif.
 
-Use It or Lose It
-------------------
+Gunakan atau Kamu Akan Kehilangannya
+------------------------------------
 
-Our brains are efficient machines, and they rapidly discard information that
-doesn't seem useful. Chances are that you don't remember what you had for
-dinner on Monday two weeks ago, because this information is not usually
-useful. If you went to a fantastic restaurant that day and spent the last two
-weeks telling people about how great it was, however, you're likely to still
-remember in vivid detail.
+Otak kita adalah mesin yang efisien, dan mereka dengan cepat membuang informasi yang tampak tidak berguna.
+Kemungkinan kamu tidak ingat apa makan malammu pada Senin dua minggu yang lalu, karena informasi ini biasanya tidak berguna.
+Tapi jika kamu pergi ke restoran & makan enak malam itu, dan kamu bercerita ke banyak orang selama dua minggu ke depan, kemungkinan kamu masih ingat apa yang kamu makan dengan jelas.
 
-The brain's “use it or lose it” policy applies to everything we learn. If you
-spend an afternoon memorizing some science terms, and then don't think about
-that material for two weeks, you'll probably have forgotten most of it. In
-fact, studies show we forget about 75% of material learnt within a 48 hour
-period. This can seem pretty depressing when you need to learn a lot of
-information.
+Kebijakan "gunakan atau buang" otak kita ini berlaku untuk semua hal yang kita pelajari.
+Jika kamu menghabiskan satu siang mengingat beberapa istilah ilmiah, dan kemudian kamu tidak memikirkan hal itu lagi selama dua minggu, kemungkinan kamu akan lupa sebagian besar dari apa yang kamu pelajari.
+Faktanya, penelitian menunjukkan kita lupa sekitar 75% hal yang kita pelajari dalam jangka waktu 48 jam.
+Ini cukup membuat down jika kamu sedang perlu belajar banyak hal.
 
-The solution is simple, however: 'review'. By reviewing newly-learnt
-information, we can greatly reduce forgetting.
+Solusinya sederhana: 'review'. Dengan me-review informasi yang baru dipelajari, kita bisa mengurangi lupa dengan cukup banyak.
 
-The only problem is that traditionally review was not very practical. If you
-are using paper flashcards, it's easy to flick through all of them if you only
-have 30 of them to review, but as the number grows to 300 or 3000, it quickly
-becomes unwieldy.
+Masalahnya adalah, review tidak praktis jika dilakukan secara manual.
+Jika kamu menggunakan flashcard kertas dan kamu hanya punya 30 flashcard, masih mudah untuk me-review semuanya.
+Tapi jika jumlah flashcard-mu mencapai 300 atau 3000, akan sulit untuk melakukan review.
 
 [[spaced-repetition]]
-Spaced Repetition
------------------
+Spaced Repetition (Pengulangan dengan jarak waktu)
+--------------------------------------------------
 
-The 'spacing effect' was reported by a German psychologist in 1885. He
-observed that we tend to remember things more effectively if we spread reviews
-out over time, instead of studying multiple times in one session. Since the
-1930s there have been a number of proposals for utilizing the spacing effect
-to improve learning, in what has come to be called 'spaced repetition'.
+Seorang psikolog Jerman menulis tentang 'spacing effect' pada 1885.
+Dia mengamati bahwa kita cenderung mengingat lebih efektif jika kita memecah-mecah review menjadi beberapa kali dengan jarak waktu, dibandingkan jika kita belajar beberapa kali dalam satu sesi.
+Sejak tahun 1930 sudah ada sejumlah proposal untuk memanfaatkan 'spacing effect' untuk meningkatkan efektivitas proses belajar, dengan sesuatu yang disebut 'spaced repetition'.
 
-One example is in 1972, when a German scientist called Sebastian Leitner
-popularized a method of spaced repetition with paper flashcards. By separating
-the paper cards up into a series of boxes, and moving the cards to a different
-box on each successful or unsuccessful review, it was possible to see at a
-glance a rough estimate of how well a card was known and when it should be
-reviewed again. This was a great improvement over a single box of cards, and
-it has been widely adopted by computerized flashcard software. It is a rather
-rough approach however, as it can't give you an exact date on which you should
-review something again, and it doesn't cope very well with material of varying
-difficulty.
+Salah satu contohnya pada tahun 1972, seorang ilmuwan Jerman bernama Sebastian Leitner mempopulerkan cara penerapan 'spaced repetition' dengan flashcard kertas.
+Dengan memisahkan kartu-kartu ke sederetan kota, dan memindahkan kartu ke kotak yang berbeda sesudah review, maka bisa terlihat seberapa baik kita mengerti materi yang ada di kartu itu dan kapan materi itu perlu di-review lagi.
+Ini peningkatan yang besar dibandingkan hanya menggunakan satu kotak kartu, dan cara ini banyak ditiru oleh software flashcard.
+Tetapi cara ini masih belum cukup baik, karena cara ini tidak memberitahumu tanggal pasti kapan kamu perlu me-review sesuatu lagi, dan cara ini tidak menangani materi dengan tingkat kesulitan yang bervariasi dengan baik.
 
-The biggest developments in the last 30 years have come from the authors of
-SuperMemo, a commercial flashcard program that implements spaced repetition.
-SuperMemo pioneered the concept of a system that keeps track of the ideal time
-to review material and optimizes itself based on the performance of
-the user.
+Perkembangan terbesar dalam 30 tahun terakhir datang dari pencipta SuperMemo, sebuah program flashcard komersil yang menerapkan 'spaced repetition'.
+SuperMemo mempelopori konsep sistem yang menyimpan kapan waktu yang ideal untuk me-review sebuah materi dan mengoptimasi dirinya sendiri berdasarkan performa si pengguna.
 
-In SuperMemo's spaced repetition system, every time you answer a question, you
-tell the program how well you were able to remember it – whether you forgot
-completely, made a small mistake, remembered with trouble, remembered easily,
-etc. The program uses this feedback to decide the optimal time to show you the
-question again. Since a memory gets stronger each time you successfully recall
-it, the time between reviews gets bigger and bigger – so you may see a
-question for the first time, then 3 days later, 15 days later, 45 days later,
-and so on.
+Di program SuperMemo, setiap kali kamu menjawab sebuah pertanyaan, kamu diminta menginputkan seberapa baik kamu bisa mengingat jawabannya - apakah kamu sama sekali lupa, membuat kesalahan kecil, ingat dengan susah, ingat dengan mudah, dll.
+Program ini menggunakan input ini untuk menentukan waktu yang optimal untuk menunjukkan kamu pertanyaan ini lagi.
+Karena memori bertambah kuat setiap kali kamu berhasil mengingat sesuatu, jarak waktu antara review akan semakin bertambah - jadi mungkin kamu akan melihat sebuah pertanyaan untuk pertama kali, kemudian 3 hari lagi, 15 hari lagi, 45 hari lagi, dan seterusnya.
 
-This was a revolution in learning, as it meant material could be learnt and
-retained with the absolute minimum amount of effort necessary. SuperMemo's
-slogan sums it up: with spaced repetition, you can 'forget about forgetting'.
+Ini adalah revolusi dalam pembelajaran, karena materi bisa dipelajari dan diingat dengan jumlah usaha yang minimal. Slogan SuperMemo menggambarkannya dengan baik: dengan 'spaced repetition', kamu bisa melupakan masalah lupa apa yang kamu pelajari.
 
-Why Anki?
----------
+Kenapa Menggunakan Anki?
+------------------------
 
-While there is no denying the huge impact SuperMemo has had on the field, it
-is not without its problems. The program is often criticized for being buggy
-and difficult to navigate. It only runs on Windows computers. It's proprietary
-software, meaning end-users can't extend it or access the raw data. And while
-very old versions are made available for free, they are quite limited for
-modern use.
+Dampak yang diberikan program SuperMemo di bidang pembelajaran memang besar, tapi program ini punya beberapa masalah.
+Program ini sering dikritik karena buggy dan susah digunakan.
+Program ini hanya berjalan di komputer Windows.
+Program ini tidak open source, yang berarti end-user tidak bisa meng-extendnya atau mengakses data mentah mereka.
+Dan meskipun versi yang sangat lama bisa di-download secara gratis, versi tersebut cukup terbatas untuk keperluan masa kini.
 
-Anki addresses these issues. There are free clients for Anki available on many
-platforms, so struggling students and teachers with budgetary constraints are
-not left out. It's open source, with an already flourishing library of add-ons
-contributed by end-users. It's multi-platform, running on Windows, Mac OSX,
-Linux/FreeBSD, and some mobile devices. And it's considerably easier to use
-than SuperMemo.
+Anki mengatasi masalah-masalah ini.
+Program ini tersedia di banyak platform secara gratis, jadi murid dan guru dengan dana terbatas bisa menggunakannya.
+Program ini open-source, dan sudah memiliki banyak add-on yang disumbangkan oleh end-user.
+Program ini multi-platform, berjalan di Windows, Mac OSX, Linux/FreeBSD, dan beberapa mobile device.
+Dan program ini jauh lebih mudah digunakan dibanding SuperMemo.
 
-Internally, Anki's spaced repetition system is based on an older version of the
-SuperMemo algorithm called SM2. Subsequent versions have managed to squeeze out
-a little more learning efficiency, but they come at the cost of greatly
-increased complexity, and they are more susceptible to scheduling errors in
-real-world use. For a more in-depth discussion of this and the differences in
-scheduling algorithms, see the appropriate <<what-algorithm, section in the
-FAQ>>.
+Sistem 'spaced repetition' yang digunakan Anki dibuat berdasarkan algoritma yang digunakan SuperMemo bernama SM2.
+Versi-versi Anki yang lebih baru mempunyai algoritma baru yang sedikit meningkatkan efektifitas belajar, tapi algoritma baru ini lebih kompleks dan lebih rentan membuat kesalahan penjadwalan.
+Untuk diskusi yang lebih mendalam tentang masalah ini dan perbedaan antara macam-macam algoritma penjadwalan, lihat bagian paling bawah halaman ini.
 
 [[basics]]
-The Basics
-==========
+Dasar-dasar
+===========
 
-Cards
+Kartu
 -----
 
-A question and answer pair is called a 'card'. This is based on a paper
-flashcard with a question on one side and the answer on the back. In Anki a
-card doesn't actually look like a physical card, and when you show the answer
-the question remains visible by default. For example, if you're studying basic
-chemistry, you might see a question like:
+Sebuah pasangan pertanyaan dan jawaban disebut kartu / 'Card' di Anki.
+Istilah ini berdasarkan flashcard kertas dengan pertanyaan di satu sisi dan jawabannya di baliknya.
+Di Anki sebuah kartu tidak ditampilkan seperti kartu sungguhan, dan ketika kamu menunjukkan jawaban, pertanyaannya (by default) tetap ditampilkan.
+Sebagai contoh, jika kamu belajar kimia dasar, kamu mungkin melihat pertanyaan seperti:
 
 -----
-Q: Chemical symbol for oxygen?
+Pertanyaan: simbol kimia untuk oksigen?
 -----
 
-After thinking about it, and deciding the answer is O, you click the show
-answer button, and Anki shows you:
+Setelah berpikir, dan memutuskan jawabannya adalah O, kamu meng-klik tombol tunjukkan jawaban, dan Anki menunjukkan:
 
 -----
-Q: Chemical symbol for oxygen?
-A: O
+Pertanyaan: simbol kimia untuk oksigen?
+Jawaban: O
 -----
 
-After confirming that you are correct, you can tell Anki how well you
-remembered, and Anki will choose a next time to show you again.
+Setelah melihat apakah jawabanmu betul / salah, kamu bisa memberi tahu Anki seberapa baik kamu bisa mengingat jawabannya, dan Anki akan mengatur kapan dia akan menunjukkan pertanyaan ini ke kamu lagi.
 
-Decks
------
+Dek
+---
 
-A 'deck' is a group of cards. You can place cards in different decks to study
-parts of your card collection instead of studying everything at once. Each
-deck can have different settings, such as how many new cards to show each day,
-or how long to wait until cards are shown again.
+Sebuah dek adalah sekelompok kartu.
+Kamu bisa mengelompokkan kartu-kartumu dalam beberapa dek untuk mempelajari hanya sebagian kartu saja, alih-alih mempelajari semuanya sekaligus.
+Setiap dek bisa punya setting yang berbeda, seperti berapa banyak kartu baru yang ditunjukkan setiap hari, atau berapa lama untuk menunggu sebelum kartu ditampilkan lagi.
 
-Decks can contain other decks, which allows you to organize decks into a tree.
-Anki uses “::” to show different levels. A deck called “Chinese::Hanzi” refers
-to a “Hanzi” deck, which is part of a “Chinese” deck. If you select “Hanzi”
-then only the Hanzi cards will be shown; if you select “Chinese” then all
-Chinese cards, including Hanzi cards, will be shown.
+Dek bisa memuat dek lain.
+Hal ini membuatmu bisa menata dek dalam struktur pohon.
 
-To place decks into a tree, you can either name them with “::” between each
-level, or drag and drop them from the deck list. Decks that have been nested
-under another deck (that is, that have at least one “::” in their names) are
-often called 'subdecks', and top-level decks are sometimes called 'superdecks'
-or 'parent decks'.
+Anki menggunakan tanda "::" untuk menunjukkan tingkatan yang berbeda.
+Sebuah dek bernama "Mandarin::Hanzi" merujuk pada dek bernama "Hanzi" yang merupakan bagian dari dek "Mandarin".
+Jika kamu memilih "Hanzi" maka hanya kartu-kartu Hanzi yang akan ditunjukkan; jika kamu memilih "Mandarin", maka semua kartu Mandarin, termasuk kartu-kartu Hanzi, akan ditunjukkan.
 
-Anki starts with a deck called “default”; any cards which have somehow become
-separated from other decks will go here. Anki will hide the default deck if it
-contains no cards and you have added other decks. Alternatively, you may rename
-this deck and use it for other cards.
+Untuk menata dek dalam bentuk pohon, kamu bisa: 1) menamai dek dengan tanda "::" di antara setiap level, atau 2) men-drag and drop dek dari tampilan program.
+Dek yang terletak di dalam dek lain sering disebut 'subdeck', dan dek di level atasnya disebut 'superdeck' atau 'parent deck'.
 
-Decks are best used to hold broad categories of cards, rather than specific
-topics such as “food verbs” or “lesson 1”. For more info on this, please see
-the <<manydecks,using decks appropriately>> section.
+Anki mulai dengan dek bernama "default"; kartu apapun yang terpisah dengan dek lain akan masuk ke sini. Anki akan menyembunyikan dek default jika tidak ada kartu di dalamnya dan kamu sudah menambahkan dek lain. Kamu bisa juga mengubah nama dek ini dan menggunakannya untuk kartu lain.
 
-For information on how decks affect the order cards are displayed in, please
-see the <<displayorder,display order>> section.
+Dek paling baik digunakan untuk mengelompokkan kartu secara luas, daripada digunakan untuk mengelompokkan topik yang spesifik seperti "kata kerja yang berhubungan dengan makanan" atau "pelajaran 1". Untuk info lebih lanjut tentang ini, silahkan lihat bagian <<manydecs,using decks appropriately>>.
 
-Notes & Fields
----------------
+Untuk informasi tentang bagaimana dek mempengaruhi urutan kartu ditampilkan, silahkan lihat bagian <<displayorder,display order>>.
 
-When making flashcards, it’s often desirable to make more than one card that
-relates to some information. For example, if you’re learning French, and you
-learn that the word “bonjour” means “hello”, you may wish to create one card
-that shows you “bonjour” and asks you to remember “hello”, and another card
-that shows you “hello” and asks you to remember “bonjour”. One card is testing
-your ability to recognize the foreign word, and the other card is testing your
-ability to produce it.
 
-When using paper flashcards, your only option in this case is to write out the
-information twice, once for each card. Some computer flashcard programs make
-life easier by providing a feature to flip the front and back sides. This is
-an improvement over the paper situation, but there are two major downsides:
+Note dan Field
+--------------
 
- * Because such programs don’t track your performance of recognition and
- production separately, cards will tend not to be shown to you at the optimum
- time, meaning you forget more than you’d like, or you study more than is
- necessary.
- * Reversing the question and answer only works when you want exactly the same
- content on each side. This means it’s not possible to display extra info on the
- back of each card for example.
+Ketika membuat flashcard, seringkali kita ingin membuat lebih dari satu kartu yang berhubungan dengan informasi yang sama.
+Contohnya, jika kamu belajar bahasa Prancis, dan kamu belajar bahwa kata "bonjour" berarti "halo", kamu mungkin ingin membuat satu kartu yang menunjukkan "bonjour" dan memintamu untuk mengingat "halo", dan kartu lain yang menunjukkan "halo" dan memintamu untuk mengingat "bonjour".
+Satu kartu mengetes kemampuanmu untuk mengenali kata asing, dan satu kartu mengetes kammpuanmu untuk mengucapkan kata itu.
 
-Anki solves these problems by allowing you to split the content of your cards
-up into separate pieces of information. You can then tell Anki which pieces of
-information you want on each card, and Anki will take care of creating the
-cards for you and updating them if you make any edits in the future.
+Ketika menggunakan flashcard kertas, satu-satunya pilihanmu dalam kasus ini adalah untuk menulis informasi ini 2x, satu untuk setiap kartu.
+Beberapa program flashcard di komputer membuat hidup lebih mudah dengan menyediakan fitur untuk membalik sisi depan dan belakang.
+Ini adalah perkembangan dibandingkan flashcard kertas, tapi ada 2 kelemahan yang besar:
 
-Imagine we want to study French vocabulary, and we want to include the page
-number on the back of each card. We want our cards to look like this:
+ * Karena program ini tidak men-track performa pengenalan kata-kata & pengucapan secara terpisah, kartu-2 akan cenderung tidak ditunjukkan pada waktu yang optimal, yang berarti kamu lupa lebih banyak daripada seharusnya, atau kamu belajar lebih banyak darpiada seharusnya.
+ * Membalikkan pertanyaan dan jawaban hanya bekerja jika kamu ingin isi yang sama persisi di tiap sisi. Ini berarti kita tidak bisa menampilkan info tambahan di belakang setiap kartu (misalnya).
+
+Anki memecahkan masalah-masalah ini dengan mengijinkan kamu untuk memecah isi kartumu ke banyak potongan informasi yang terpisah. Kemudian kamu bisa memberitahu Anki potongan informasi yang mana yang kamu inginkan di setiap kartu, dan Anki akan mengurus pembuatan kartu untukmu, dan mengupdate kartu-2 jika kamu mengedit informasi tersebut di masa depan.
+
+Bayangkan jika kita ingin belajar kosakata Prancis, dan kita ingin memasukkan nomor halaman di belakang setiap kartu.
+Kita ingin kartu kita untuk terlihat seperti ini:
 
 -----
 Q: Bonjour
-A: Hello
-   Page #12
+A: Halo
+   Halaman #12
 -----
 
-And:
+dan:
 
 -----
-Q: Hello
+Q: Halo
 A: Bonjour
-   Page #12
+   Halaman #12
 -----
 
-In this example, we have three pieces of related information: a French word,
-an English meaning, and a page number. If we put them together, they'd look
-like this:
+Di contoh ini, kita punya 3 potong informasi yang berhubungan: kata Prancis, artinya, dan nomor halaman. Jika kita meletakkan mereka bersama, mereka akan terlihat seperti ini:
 
 -----
-French: Bonjour
-English: Hello
-Page: 12
+Prancis: Bonjour
+Indonesia: Halo
+Halaman: 12
 -----
 
-In Anki, this related information is called a 'note', and each piece of
-information is called a 'field'. So we can say that this type of note has
-three fields: French, English, and Page.
-
-To add and edit fields, click the “Fields...” button while adding or editing
-notes. For more information on fields, please see the <<fields,Customizing
-Fields>> section.
+Di Anki, informasi yang berhubungan ini disebuah sebuah 'note', dan setiap potongan informasi disebut sebuah 'field'. Jadi kita bisa bilang note di atas punya 3 field: Prancis, Indonesia, dan Halaman.
 
 [[cardtypes]]
-Card Types
-----------
+Card Type
+---------
 
-In order for Anki to create cards based on our notes, we need to give it a
-blueprint that says which fields should be displayed on the front or back of
-each card. This blueprint is called a 'card type'. Each type of note can have
-one or more card types; when you add a note, Anki will create one card for each
-card type.
+Supaya Anki bisa membuat kartu berdasarkan note kita, kita perlu memberinya sebuah blueprint yang mengatakan field-field apa yang harus ditampilkan di depan atau belakang setiap kartu. Blueprint ini disebut 'card type'. Setiap note bisa punya 1 / lebih card type; ketika kamu menambah note, Anki akan membuat 1 kartu untuk setiap card type.
 
-Each card type has two 'templates', one for the question and one for the
-answer. In the above French example, we wanted the recognition card to look
-like this:
+Setiap card type punya 2 'template', satu untuk pertanyaan dan satu untuk jawaban. Pada contoh di atas, kita ingin kartu untuk mengenali kata asing terlihat seperti ini:
 
 -----
 Q: Bonjour
-A: Hello
-   Page #12
+A: Halo
+   Halaman #12
 -----
 
-To do this, we can set the question and answer templates to:
+Untuk melakukan ini, kita bisa mengeset template pertanyaan dan jawaban ke:
 
 -----
-Q: {{French}}
-A: {{English}}<br>
-   Page #{{Page}}
+Q: {{Prancis}}
+A: {{Indonesia}}<br>
+   Halaman #{{Halaman}}
 -----
 
-By surrounding a field name in double curly brackets, we tell Anki to replace
-that section with the actual information in the field. Anything not surrounded
-by curly brackets remains the same on each card. (For instance, we don't have
-to type “Page #” into the Page field when adding material – it's added
-automatically to every card.) <br> is a special code that tells Anki to move to
-the next line; more details are available in the <<templates,templates>>
-section.
+Dengan mengelilingi nama field dengan kurung kurawal, kita memberitahu Anki untuk mengganti bagian itu dengan informasi yang ada di / isi field itu. Apapun yang tidak dikelilingin kurung kurawal tetap sama di setiap kartu. (Sebagai contoh, kita tidak perlu untuk megetikkan "Halaman #" ke field Halaman ketika menambah materi - ini ditambahkan otomatis ke setiap kartu). <br> adalah kode khusus yang memberitahu Anki untuk berpindah ke baris berikut; detil lebih lanjut ada di bagian <<templates,templates>>.
 
-The production card templates work in a similar way:
+Template kartu untuk pengucapan punya cara kerja yang sama:
 
 -----
-Q: {{English}}
-A: {{French}}<br>
-   Page #{{Page}}
+Q: {{Indonesia}}
+A: {{Prancis}}<br>
+   Halaman #{{Halaman}}
 -----
 
-Once a card type has been created, every time you add a new note, a card will
-be created based on that card type. Card types make it easy to keep the
-formatting of your cards consistent and can greatly reduce the amount of effort
-involved in adding information. They also mean Anki can ensure related cards
-don't appear too close to each other, and they allow you to fix a typing
-mistake or factual error once and have all the related cards updated at once.
+Setelah card type dibuat, setiap kali kamu menambah note baru, sebuah kartu akan dibuat berdasarkan card type itu.
+Card type memudahkan kita untuk menjaga formatting kartu kita konsisten dan bisa banyak mengurangi jumlah effort yang dibutuhkan untuk menambahkan informasi.
+Card type juga berarti Anki bisa memastikan kartu-kartu yang berhubungan tidak muncul berdekatan satu sama lain, dan card type membuatmu bisa memperbaiki kesalahan di satu tempat dan secara otomatis semua kartu akan terupdate.
 
-To add and edit card types, click the “Cards...” button while adding or editing
-notes. For more information on card types, please see the <<templates,Cards and
-Templates>> section.
+Untuk menambah dan mengedit card type, klik tombol "Cards..." ketika menambah atau mengedit note. Untuk informasi lebih mengenai card type, silahkan lihat bagian <<templates,Cards and Templates>>.
 
+Tipe Note
+---------
 
-Note Types
-----------
+Di Anki, kamu bisa membuat banyak tipe note untuk materi yang berbeda.
+Setiap tipe note punya kumpulan field dan card type-nya sendiri.
+Membuat tipe note yang berbeda untuk setiap topik yang kamu pelajari adalah ide yang bagus.
+Pada contoh belajar bahasa Prancis di atas, kita mungkin membuat tipe note bernama "Bahasa Prancis".
+Jika kita ingin belajar ibukota negara, kita bisa membuat tipe note lain untuk topik ini, dengan field seperti "Negara" dan "Nama Ibukota".
 
-Anki allows you to create different types of notes for different material. Each
-type of note has its own set of fields and card types. It's a good idea to
-create a separate note type for each broad topic you're studying. In the above
-French example, we might create a note type called “French” for that. If we
-wanted to learn capital cities, we could create a separate note type for that
-as well, with fields such as “Country” and “Capital City”.
+Ketika Anki mengecek duplikat, dia hanya membandingkan note-note yang tipenya sama.
+Jadi jika kamu menambahkan ibukota bernama "Orange" menggunakan tipe note "ibukota", kamu tidak akan melihat pesan duplikat ketika kamu menambahkan "orange" di tipe note "Bahasa Prancis".
 
-When Anki checks for duplicates, it only compares other notes of the same
-type. Thus if you add a capital city called “Orange” using the capital city
-note type, you won’t see a duplicate message when it comes time to learn how
-to say “orange” in French.
+Ketika kamu membuat koleksi baru, Anki otomatis menambahkan beberapa tipe note standar.
+Tipe note ini disediakan untuk membuat Anki lebih mudah digunakan untuk pengguna baru, tapi untuk jangka pankang disarankan kamu membuat tipe note-mu sendiri untuk materi yang kamu pelajari.
+Berikut ini adalah tipe note standar yang dibuat Anki:
 
-When you create a new collection, Anki automatically adds some standard note
-types to it. These note types are provided to make Anki easier for new users,
-but in the long run it's recommended you define your own note types for the
-content you are learning. The standard note types are as follows:
+ Basic :: Punya field Depan dan Belakang, dan akan membuat satu kartu. Teks yang kamu masukkan di field Depan akan muncul di depan kartu, dan teks yang kamu masukkan di Belakang akan muncul di belakang kartu.
 
- Basic :: Has Front and Back fields, and will create one card. Text you enter
- in Front will appear on the front of the card, and text you enter in Back will
- appear on the back of the card.
+ Basic (and reversed card) :: Membuat dua kartu untuk teks yang kamu masukkan: satu dari depan->belakang dan satu dari belakang->depan.
 
- Basic (and reversed card) :: Like Basic, but creates two cards for the text
- you enter: one from front->back and one from back->front.
+ Basic (optional reversed card) :: Ini adalah kartu depan->belakang, dan (opsional) kartu belakang->depan. Untuk melakukan ini, ada field ketiga bernama "Add Reverse". Jika kamu memasukkan teks apapun ke field ini, kartu kebalikan akan dibuat. Informasi lebih lanjut ada di bagian <<templates,Card and Templates>>.
 
- Basic (optional reversed card) :: This is a front->back card, and optionally a
- back->front card. To do this, it has a third field called “Add Reverse.” If
- you enter any text into that field, a reverse card will be created. More
- information about this is available in the <<templates,Cards and Templates>>
- section.
+ Cloze :: tipe note yang membuat mudah untuk memilih teks dan mengubahnya menjadi cloze deletion (contoh, "Manusia mendarat di bulan pada tahun [...]" -> "Manusia mendarat di bulan pada tahun 1969"). Informasi lebih lanjut ada di bagian <<cloze,cloze deletion>>.
 
- Cloze :: A note type which makes it easy to select text and turn it into a
- cloze deletion (e.g., “Man landed on the moon in [...]” -> “Man landed on the
- moon in 1969”). More information is available in the <<cloze,cloze deletion>>
- section.
+Untuk menambah tipe notemu sendiri dan mengubah yang sudah ada, kamu bisa menggunakan Tools → Manage Note Types.
 
-To add your own note types and modify existing ones, you can use Tools → Manage
-Note Types.
+NOTE: Note dan tipe note disimpan di koleksimu, bukan di dek individiual.
+Ini berarti kamu bisa menggunakan banyak tipe note di dalam sebuah dek, atau punya kartu-kartu yang berbeda dari note yang sama di dek yang berbeda.
+Ketika kamu menambahkan note menggunakan window Add, kamu bisa memilih tipe note dan dek apa yang digunakan, dan pilihan ini completely independent of each other.
+Kamu bisa juga mengganti tipe note beberapa note <<browsermisc,after you've already created them>>.
 
-NOTE: Notes and note types are common to your whole collection rather than
-limited to an individual deck. This means you can use many different types of
-notes in a particular deck, or have different cards generated from a particular
-note in different decks. When you add notes using the Add window, you can
-select what note type to use and what deck to use, and these choices are
-completely independent of each other. You can also change the note type of some
-notes <<browsermisc,after you've already created them>>.
+Koleksi
+-------
 
-Collection
------------
+'Koleksi' adalah semua materi yang disimpan di Anki - kartu-kartumu, note, dek, tipe note, option-2 dek, dan seterusnya.
 
-Your 'collection' is all the material stored in Anki – your cards, notes, decks,
-note types, deck options, and so on.
+Menambahkan Materi
+==================
 
-Adding Material
-================
+Mendownload Shared Decks
+------------------------
 
-Downloading Shared Decks
--------------------------
+Cara termudah untuk mulai dengan Anki adalah dengan mendownload dek kartu yang sudah dishare oleh orang lain.
 
-The easiest way to get started with Anki is to download a deck of cards
-someone has shared:
+ 1. Buka Anki, dan klik tombol "Get Shared" di bagian paling bawah daftar dek.
+ 2. Ketika kamu menemukan dek yang menarik, klik tombol "Download"
+ 3. Double click file yang didownload untuk memuat dek itu ke Anki, atau gunakan menu File>Import.
+ 
+Catatan: Sekarang kamu belum bisa menambahkan shared deck langsung ke akun AnkiWeb-mu. Kamu perlu meng-import mereka dengan program desktop, kemudian mensinkronkan untuk mengupload dek ke AnkiWeb.
 
- 1. Click the “Get Shared” button at the bottom of the deck list.
- 2. When you’ve found a deck you’re interested in, click the “Download” button
-    to download a deck package.
- 3. Double-click on the downloaded package to load it into Anki, or
-    File->Import it.
+Silahkan lihat <<sharingdecks,sharing decks>> untuk info tentang membagi dekmu dengan orang lain.
 
-Please note that it's not currently possible to add shared decks directly to
-your AnkiWeb account. You need to import them with the desktop program, then
-synchronize to upload them to AnkiWeb.
-
-Please see <<sharingdecks,sharing decks>> for info on sharing your own decks with
-others.
-
-.Self-made versus pre-made
+.Membuat dek sendiri versus menggunakan dek buatan orang lain
 **********************************************************************
 
-Creating your own deck is the most effective way to learn a complex subject.
-Subjects like languages and the sciences can't be understood simply by
-memorizing facts — they require explanation and context to learn effectively.
-Furthermore, inputting the information yourself forces you to decide what the
-key points are, leading to a better understanding.
+Membuat dekmu sendiri adalah cara yang paling efektif untuk belajar subyek yang kompleks.
+Subyek seperti bahasa dan sains tidak bisa dimengerti hanya dengan mengingat fakta - mereka butuh penjelasan dan konteks untuk dipelajari secara efektif.
+Terlebih lagi, menginputkan informasi sendiri memaksamu untuk memutuskan apa poin-poin yang penting, dan ini membuatmu lebih mengerti hal yagng kamu pelajari.
 
-If you are a language learner, you may be tempted to download a long list of
-words and their translations, but this won't teach you a language any more
-than memorizing scientific equations will teach you astrophysics. To learn
-properly, you need textbooks, teachers, or exposure to real-world sentences.
+Jika kamu belajar bahasa kamu mungkin tergoda untuk mendownload daftar panjang kata-kata dan terjemahannya, tapi ini tidak akan mengajarimu bahasa seperti mengingat rumus tidak akan mengajarimu astrofisika.
+Untuk belajar dengan betul, kamu perlu textbook, guru, atau berhadapan dengan kata-kata yang digunakan dalam percakapan sungguhan.
 
- Do not learn if you do not understand.
- --SuperMemo
+Sebagian besar dek yang dibagikan orang dibuat oleh orang yang belajar materi di luar Anki - dari textbook, kelas, TV, dll. Mereka memilih poin-poin yang menarik dari apa yang mereka pelajari dan memasukkannnya ke Anki. Mereka tidak menambahkan latar belakang / penjelasan ke kartu, karena mereka sudah mengerti materinya.
+Jadi ketika orang lain mendownload dek mereka dan mencoba menggunakannya, mereka menemukan sangat sulit menggunakan dek itu karena latar belakang dan penjelasannya tidak ada.
 
-Most shared decks are created by people who are learning material outside of
-Anki – from textbooks, classes, TV, etc. They select the interesting points
-from what they learn and put them into Anki. They make no effort to add
-background information or explanations to the cards, because they already
-understand the material. So when someone else downloads their deck and tries
-to use it, they'll find it very difficult as the background information and
-explanations are missing.
-
-That is not to say shared decks are useless – simply that for complex
-subjects, they should be used as a 'supplement' to external material, not as a
-'replacement' for it. If you're studying textbook ABC and someone has shared a
-deck of ideas from ABC, that's a great way to save some time. And for simple
-subjects that are basically a list of facts, such as capital city names or pub
-quiz trivia, you probably don't need external material. But if you attempt to
-study complex subjects without external material, you will probably meet with
-disappointing results.
+Bukan berarti shared deck itu tidak berguna - hanya saja untuk subyek yang kompleks, mereka sebaiknya digunakan sebagai suplemen untuk materi dari luar, bukan sebagai pengganti. Jika kamu belajar textbook ABC dan seseorang sudah membagi dek berisi ide-ide dari ABC, kamu bisa mendownloadnya & ini adalah cara yang bagus untuk menghemat waktumu.
+Dan untuk subyek sederhana yang pada dasarnya adalah sederetan fakta, seperti nama ibukota, kamu mungkin tidak perlu materi dari luar.
+Tapi jika kamu mencoba belajar subyek yang kompleks tanpa materi dari luar, kemungkinan kamu akan menemui hasil yang mengecewakan.
 **********************************************************************
 
 [[addingnotes]]
-Adding Cards and Notes
------------------------
+Menambahkan Kartu dan Note
+--------------------------
 
-Recall from the <<basics,basics>> that in Anki we add notes rather than cards,
-and Anki creates cards for us. Click 'Add' in the main window, and the Add
-Notes window will appear.
+Ingatlah dari bagian <<basics,basics>> bahwa di Anki kita menambahkan note, bukan kartu, dan Anki yang membuat kartu untuk kita. Klik 'Add' di main window, dan window Add Notes akan muncul.
 
-The top left of the window shows us the current note type. If it does
-not say “Basic,” then you may have added some note types when you downloaded a
-shared deck. The text below assumes that “Basic” is selected.
+Bagian kiri atas window menunjukkan tipe note yang aktif. Jika tipe note bukan "Basic", kemungkinan kamu telah menambahkan beberapa tipe note ketika kamu mendownload sebuah shared deck. Teks di bahwah mengasumsikan "Basic" dipilih.
 
-The top right of the window shows us the deck cards will be added to. If you'd
-like to add cards to a new deck, you can click on the deck name button and
-then click “Add”.
+Bagian kanan atas window menunjukkan dek tempat kartu akan ditambahkan. Jika kamu ingin menambahkan kartu ke dek baru, kamu bisa meng-klik tombol nama dek kemudian klik "Add".
 
-Below the note type, you’ll see some buttons, and an area labeled “Front” and
-“Back”. Front and Back are called 'fields', and you can add, remove and
-rename them by clicking the “Fields...” button above.
+Di bawah tipe note, kamu akan melihat beberapa tombol. Dan area dengan label "Front" dan "Back". Front dan back disebut 'field' dan kamu bisa menambah, menghapus, dan mengubah nama mereka dengan meng-klik tombol "Fields..." di atas.
 
-Below the fields is another area labelled “Tags”. Tags are labels that you can
-attach to your notes, to make organizing and finding notes easier. You can
-leave the tags blank if you wish, or add one or more of them. Tags are
-separated by a space. If the tags area says
+Di bawah fields adalah area lain berlabel "Tags". Tags adalah label yang bisa kamu pasangkan ke note-mu, untuk membuat menata dan mencari note lebih mudah. Kamu bisa membiarkan tag kosong jika kamu mau, atau menambahkan satu / lebih tag. Tag dipisahkan oleh spasi. Jika tag area diisi.
 
  vocab check_with_tutor
 
-...then the note you add would have two tags.
+...maka note yang kamu buat akan punya 2 tag.
 
-When you've entered text into the front and back, you can click the “Add”
-button or press Ctrl+Enter (Command+Enter on a Mac) to add the note to your
-collection. When you do so, a card will be created as well, and placed into the
-deck you chose. If you'd like to edit a card you added, you can click the
-history button to search for a recently added card in the <<browser, browser>>.
+Ketika kamu memasukkan teks ke field front dan back, kamu bisa meng-klik tombol "Add" atau menemakan Ctrl+Enter (Command+Enter di Mac) untuk menambahkan note ke koleksimu. Ketika kamu melakukan itu, sebuah kartu akan dibuat juga, dan ditaruh ke dalam dek yang kamu pilih.
+Jika kamu ingin mengedit kartu yang kamu tambahkan, kamu kamu bisa meng-klik tombol history untuk mencari kartu yang baru ditambahkan di browser. (Browser adalah window terpisah tempat kamu bisa melihat, mencari, dan mengubah kartu di koleksimu).
 
-Anki checks the first field for uniqueness, so it will warn you if you enter
-two cards with a Front field of “apple” (for example). The uniqueness check is
-limited to the current note type, so if you're studying multiple languages, two
-cards with the same Front would not be listed as duplicates as long as you had
-a different note type for each language.
+Anki mengecek field pertama untuk duplikat, jadi dia akan memperingatkan kamu jijka kamu membuat 2 kartu dengan field Front berisi "apel" (sebagai conth). Cek duplikat ini terbatas pada tipe note yang sama, jadi jika kamu belajar banyak bahasa, dua kartu dengan Front yang sama tidak akan dianggap duplikat selama kamu punya tipe note yang berbeda untuk setiap bahasa.
 
-Anki doesn't check for duplicates in other fields automatically for efficiency
-reasons, but the browser has a “Find Duplicates” function which you can run
-periodically.
+Anki tidak mengecek duplikat di field lain secara otomatis untuk alasan efisiensi, tapi browser punya fungsi "Find Duplicates" yang bisa kamu jalankan secara berkala.
 
-For more information on the buttons between the note type and the fields,
-please see the <<editor,editor>> section.
+Untuk informasi lebih lanjut tentnag tombol-2 di antara tipe note dan field, silahkan lihat bagian <<editor,editor>>.
 
 .Best Practices
 **********************************************************************
-Different people like to review in different ways, but there are some general
-concepts to keep in mind. An excellent introduction is
-http://www.supermemo.com/articles/20rules.htm[this article] on the
-SuperMemo site. In particular:
+Tiap orang suka mereview dengan cara yang berbeda, tapi ada beberapa konsep umum untuk diingat. http://www.supermemo.com/articles/20rules.htm[Artikel ini] menjelaskan konsep-2 tersebut dengan baik. Terutama:
 
- * *Keep it simple*: The shorter your cards, the easier they are to review. You
-    may be tempted to include lots of information “just in case,” but reviews
-    will quickly become painful.
+ * *Keep it simple* Semakin pendek kartumu, semakin mudah mereka untuk direview. Kamu mungkin tergoda untuk memasukkan banyak informasi 'siapa tahu perlu', tapi review akan menjadi sulit.
 
- * *Don't memorize without understanding*: If you're studying a language, try
-    to avoid large lists of words. The best way to learn languages is in
-    context, which means seeing those words used in a sentence. Likewise,
-    imagine you're studying a computer course. If you attempt to memorize the
-    mountain of acronyms, you'll find it very difficult to make progress. But
-    if you take the time to understand the concepts behind the acronyms,
-    learning the acronyms will become a lot easier.
+ * *Jangan mengingat tanpa mengerti* Jika kamu belajar bahasa, cobalah untuk menghindari sederetan panjang kata-katau. Cara paling baik untuk belajar bahasa adalah dalam konteks, yang berarti melihat kata-kata tersebut digunakan dalam kalimat. Begitu pula, bayangkan kamu belajar untuk krusus komputer. Jika kamu mencoba mengingat segunung akronim, kamu akan kesulitan untuk maju. Tapi jika kamu berusaha untuk mengerti konsep di balik akronim itu, mempelajari akronim akan menjadi jauh lebih mudah.
 **********************************************************************
 
 [[notetypes]]
-Adding a Note Type
--------------------
+Menambahkan Tipe Note
+---------------------
 
-While basic note types are sufficient for simple cards with only a word or
-phrase on each side, as soon as you find yourself wanting to include more than
-one piece of information on the front or back, it's better to split that
-information up into more fields.
+Note basic memadai untuk kartu sederhana dengan hanya kata atau kalimat di setiap sisi. Begitu kamu mendapati kamu ingin memasukkan lebih dari 1 potong informasi di depan / belakang kartu, lebih baik kamu memecah informasi itu menjadi beberapa field.
 
-You may find yourself thinking "but I only want one card, so why can't I just
-include the audio, a picture, a hint and the translation in the Front field?"
-If you'd prefer to do that, that's fine. But the disadvantage of that approach
-is that all the information is stuck together. If you wanted to sort your
-cards by the hint, you wouldn't be able to do that as it's mixed in with the
-other content. You also wouldn't be able to do things like move the audio from
-the front to the back, except by laboriously copying and pasting it for every
-note. By keeping content in separate fields, you make it much easier to adjust
-the layout of your cards in the future.
+Kamu mungkin mendapati dirimu berpikir "tapi aku hanya ingin satu kartu, jadi kenapa aku tidak memasukkan audio, gambar, hint, dan terjemahan di field Front?"
+Jika kamu ingin melakukan itu, boleh-boleh saja. Tapi kekurangan dari cara ini adalah semua informasinya terikat jadi satu. Jika kamu ingin mengurutkan kartu-kartumu berdasarkan hint, kamu tidak bisa melakukan itu karena hint-nya tercampur dengan konten lain. Kamu juga tidak bisa melakukan hal-hal seperti memindahkan audio dari depan ke belakang kartu, kecuali dengan meng-copy pastenya untuk setiap note. Dengan menyimpan konten di field yang berbeda, akan jauh lebih mudah untuk mengubah layout kartumu di masa depan.
 
-To create a new type of note, choose Tools -> Manage Note Types. Then click
-“Add” to add a new type of note. You'll now see another screen that gives you a
-choice of note types to base the new type on. “Add” means to base the newly
-created type on one that comes with Anki. “Clone” means to base the newly
-created type on one that is already in your collection. For instance, if you’d
-created a French vocab type already, you might want to clone that when creating
-a German vocab type.
+Untuk membuat tipe note baru, di window Add, klik tombol di sebelah "type", kemudian tombol "manage". Kemudian klik "Add" untuk menambah tipe note baru. Kamu akan melihat layar lain yang memberimu pilihan tipe note untuk menjadi dasar tipe note yang akan kamu buat. "Add" berarti tipe yang baru dibuat akan dibuat berdasarkan tipe yang ada dari Anki. "Clone" berarti tipe yang baru dibuat akan dibuat berdasarkan tipe yang ada di koleksimu. Contohnya, jika kamu sudah membuat tipe note French vocab, kamu bisa menggunakan itu saat membuat tipe note German vocab.
 
-After choosing OK, you’ll be asked to name the new type. The subject material
-you’re studying is a good choice here – things like “Japanese”, ”Trivia”, and
-so on. Once you’ve chosen a name, close the Note Types window, and you’ll
-return to the adding window.
+Setelah memilih "OK", kamu akan diminta untuk menamai tipe note baru. Subyek materi yang kamu pelajari adalah pilihan yang bagus - hal-hal seperti "Bahasa Jepang", "Trivia", dan seterusnya. Setelah kamu memilih nama, tutup window Note Types, dan kamu akan kembali ke window adding.
 
 [[fields]]
-Customizing Fields
--------------------
+Mengkustomisasi Field
+---------------------
 
-To customize fields, click the “Fields...” button when adding or editing a
-note, or while the note type is selected in the Manage Note Types window.
+Untuk mengkustomisasi field, klik tombol "Fields..." ketika menambah / mengedit note.
 
-You can add, remove, or rename fields by clicking the appropriate buttons. To
-change the order in which the fields appear in this dialog and the add notes
-dialog, you can use the reposition button, which asks for the numerical
-position you want the field to have. So if you want to change a field to be the
-new first field, enter “1”.
+Kamu bisa menambah, menghapus, atau mengubah nama field dengan menekan tombol yang sesuai. Untuk mengubah urutan tampilnya field di dialog ini dan dialog add notes, kamu bisa menggunakan tombol reposition, yang memintamu menginputkan posisi angka field yang kamu inginkan. Jadi jika kamu ingin memindahkan field menjadi field pertama, masukkan "1".
 
-NOTE: Do not use 'Tags', 'Type', 'Deck', 'Card', or 'FrontSide' as field names,
-as they are <<specialfields,special fields>> and will not work properly.
+Option di bawah layar memungkinkan kamu untuk mengedit macam-macam properti dari field untuk digunakan ketika menambah dan mengedit kartu-kartu. Ini bukan tempat untuk mengkustomisasi apa yang muncul di kartumu ketika review; untuk ini, silahkan lihat <<templates,templates>>.
 
-The options at the bottom of the screen allow you to edit various properties of
-the fields to be used when adding and editing the cards. This is 'not' where you
-customize what appears on your cards when reviewing; for that, please see
-<<templates,templates>>.
+*Editing Font* memungkinkan kamu untuk mengkustomisasi font dan ukuran yang digunakan ketika mengedit note. Ini berguna jika kamu ingin membuat informasi yang tidak penting lebih kecil, atau memperbesar huruf asing yang sulit dibaca. Perubahan yang kamu buat di sini tidak mempengaruhi bagaimana kartu tampak ketika review: untuk melakukan itu, silahkan lihat bab <<templates,templates>>. Tetapi jika kamu meng-enable fungsi "ketikkan jawaban", teks yang kamu ketik akan menggunakan ukuran font di sini.
 
-*Editing Font* allows you to customize the font and size used when editing
-notes. This is useful if you want to make unimportant information smaller, or
-increase the size of foreign characters which are hard to read. The changes you
-make here do not affect how cards appear when reviewing: to do that, please see
-the <<templates,templates>> section. If you have enabled the “type in the
-answer” function, however, the text you type will use the font size defined
-here. (For information about how to change the actual font face when typing the
-answer, please see the <<typinganswers,checking your answer>> section.)
+*Sort by this field..." memberitahu Anki untuk menampilkan field ini di kolom Sort Field dari browser, dan kamu bisa menggunakan ini untuk mengurutkan kartu berdasarkan field itu. Hanya satu field yang bisa menjadi sort field pada satu waktu.
 
-*Sort by this field...* tells Anki to show this field in the Sort Field column
-of the browser. You can use this to sort cards by that field. Only one field
-can be the sort field at once.
+Ketika *Remember last input..." dicheck, Anki tidak akan mengosongi isi field setelah note ditambahkan. Jika kamu mendapati dirimu memasukkan konten yang sama ke beberapa note, fitur ini bisa berguna.
 
-When *Remember last input...* is checked, Anki will not clear out this field’s
-content after a note is added. If you find yourself entering the same content
-into multiple notes, you may find this useful.
+*Reverse text direction* berguna jika kamu mempelajari bahasa yang menampilkan teks dari kanan ke kiri, seperti Arab / Hebrew. Setting ini saat ini hanya mengontrol editing; untuk memastikan teks tampil dengan benar saat review, kamu perlu menyesuaikan <<templatesrtl,template>>.
 
-*Reverse text direction* is useful if you are studying languages that display
-text from right to left (RTL), such as Arabic or Hebrew. This setting
-currently only controls editing; to make sure the text displays correctly
-during review, you'll need to adjust your <<templatesrtl,template>>.
+Setelah kamu menambahkan field, kamu mungkin ingin menambahkan mereka ke depan / belakang kartu-kartumu. Untuk informasi lebih lanjut tentang itu, silahkan lihat bagian <<templates,templates>>.
 
-After you've added fields, you'll probably want to add them to the front or
-back of your cards. For more information on that, please see the
-<<templates,templates>> section.
+NOTE: Jangan menggunakan Tags, Type, Deck, atau Card sebagai nama field, karena mereka adalah <<specialfields,special fields>> dan tidak akan bekerja dengan benar.
 
-Changing Deck / Note Type
---------------------------
+Mengganti Dek / Tipe Note
+-------------------------
 
-While adding, you can click on the top left button to change note type, and
-the top right button to change deck. The window that opens up will not only
-allow you to select a deck or note type, but also to add new decks or manage
-your note types.
+Ketika menambah, kamu bisa meng-klik tombol di pojok kiri atas untuk mengganti tipe note, dan tombol di pojok kanan atas untuk mengganti dek. Window yang terbuka tidak hanya memungkinkan kamu untuk memilih dek / tipe note, tapi juga untuk menambah dek baru atau memanage tipe notemu.
 
 [[manydecks]]
-Using Decks Appropriately
---------------------------
+Menggunakan Dek Dengan Tepat
+----------------------------
 
-Decks are designed to divide your content up into broad categories
-that you wish to study separately, such as English, Geography, and so on. You
-may be tempted to create lots of little decks to keep your content organized,
-such as “my geography book chapter 1”, or “food verbs”, but this is not
-recommended, for the following reasons:
+Dek didesain untuk membagi kontenmu ke kategori yang luas yang ingin kamu pelajari secara terpisah, seperti Bahasa Inggris, Geografi, dan seterusnya. Kamu mungkin tergoda untuk membuat banyak dek kecil agar kontenmu tertata rapi, seperti "buku geografi bab 1", atau "kata kerja yang berhubungan dengan makanan", tapi ini tidak disarankan, karena alasan berikut:
 
-  * Lots of little decks mean you end up reviewing cards in a recognizable order.
-    Whether it's because you're clicking on each deck in turn (which is slow)
-    or you've added a number of decks under a single parent deck, you'll end up
-    seeing all the “chapter 1” or “food verb” cards together. This makes it
-    easier to answer the cards, as you can guess them from the context, which
-    leads to weaker memories. When you need to recall the word or phrase outside
-    Anki, you won't have the luxury of being shown related content first!
-  * Anki was not designed to handle many decks (more than several dozen), and
-    it will slow down as you add more – especially if you're studying on a mobile
-    client. A few extra decks is not going to make a noticeable difference, but
-    if you have many decks the delays will start to add up.
+  * Banyak dek yang kecil-2 berarti kamu akan mereview kartu dengan urutan yang bisa dikenali.
+    Entah karena kamu mengklik setiap dek secara berurutan (yang mana hal ini lambat) atau kamu menambahkan sejumlah dek di bawah satu dek induk, pada akhirnya kamu akan melihat semua kartu-kartu "chapter 1" atau "food verb" bersama-sama. Ini membuat menjawab kartu itu lebih mudah, karena kamu bisa menebak dari konteks, dan hal ini menghasilkan memori yang lebih lemah. Ketika kamu perlu mengingat kata atau frase di luar Anki, kamu tidak akan ditunjukkan konten yang berhubungan dulu!
+  * Anki tidak didesain untuk menangani banyak dek (lebih dari beberapa lusin), dan Anki akan melambat selagi kamu menambahkan lebih banyak dek - terutama jika kamu menggunakan mobile client. Beberapa dek ekstra tidak akan membuat perbedaan yang kentara, tapi jika kamu punya banyak dek delaynya akan mulai terasa.
 
-Instead of creating lots of little decks, it's a better idea to use tags and/or
-fields to classify your content. Instead of creating a “food verbs” decks for
-example, you could add those cards to your main language study deck, and tag
-the cards with “food” and “verb”. Each card can have multiple tags, which means
-you can do things like search for all verbs, or all food-related vocabulary,
-or all verbs that are related to food.
+Alih-alih membuat banyak dek kecil, lebih baik menggunakan tag dan/atau field untuk mengklasifikasi kontenmu.
+Contohnya, alih-alih membuat dek "food verbs", kamu bisa menambahkan kartu-kartu itu ke dek belajar bahasamu, dan men-tag kartu itu dengan "food" dan "verb".
+Setiap kartu bisa punya lebih dari 1 tag, yang berarti kamu bisa melakukan hal seperti mencari semua kata kerja, atau semua kosakata yang berhubungan dengan makanan, atau semua kata kerja yang berhubungan dengan makanan.
 
-For those who like to stay very organized, you can add fields to your notes
-to classify your content, such as “book”, “page”, and so on. Anki supports
-searching in specific fields, which means you can do a search for
-“book:'my book' page:63” and immediately find what you're looking for.
+Untuk orang-orang yang sangat rapi, kamu bisa menambahkan field ke note-mu untuk mengklasifikasi kontenmu, seperti "buku", "halaman", dan seterusnya. Anki mensupport pencarian di field tertentu, yang berarti kamu bisa mencari "buku:'judul bukuku' halaman:63" dan menemukan apa yang kamu cari dengan segera.
 
-Anki's <<filtered,custom study and filtered deck>> features make this
-especially powerful, as you can create temporary decks out of search terms.
-This allows you to review your content mixed together in a single deck most of
-the time (for optimum memory), but also create temporary decks when you need to
-focus on particular material, such as before a test. The general rule is that
-if you always want to be able to study some content separately, it should be in
-a normal deck, and if you only occasionally need to be able to study it
-separately (for a test, when under a backlog, etc), tags/fields and filtered
-decks are better.
+Fitur custom study dan filtered deck milik Anki (dibahas belakangan di manual) membuat pencarian ini semakin powerful, karena kamu bisa membuat dek sementara dari hasil pencarian.
+Ini memungkinkan kamu untuk mereview kontemu bercampur bersama dalam 1 dek most of the time (untuk memori yang optimal), tapi juga memungkinkan kamu membuat dek sementara ketika kamu perlu untuk fokus ke materi tertentu, seperti saat sebelum tes/ulangan.
+Aturan umumnya adalah jika kamu selalu ingin mempelajari sebuah konten secara terpisah, konten itu sebaiknya berada di dek normal yang baru, dan jika kamu hanya kadang-kadang perlu mempelajarinya terpisah (seperti untuk tes, dll), maka tag/field dan filtered deck lebih baik.
 
-Studying
-==========
+Belajar
+=======
 
-When you have found a deck you like or entered some notes in, it's time to
-start studying.
+Ketika kamu sudah menemukan dek yang kamu suka / memasukkan beberapa note, saatnya mulai belajar.
 
-Decks
-------
+Dek
+---
 
-Study in Anki is limited to the currently selected deck as well as any decks it
-contains.
+Belajar di Anki terbatas hanya pada dek yang sedang terpilih, dan dek apapun yang ada di dalamnya. Kamu bisa mengganti dek yang sedang terpilih dengan mengklik "Decks" di window utama.
 
-On the decks screen, your decks will be displayed in a list. There are two
-number columns, 'due' and 'new'. 'Due' is the count of waiting reviews and
-cards currently in learning. 'New' is the number of new cards that are ready to
-be learnt that day.
+Di layar decks, dek-dekmu akan ditampilkan dalam bentuk list. Ada 2 kolom angka, 'due' dan 'new'. 'Due' adalah jumlah kartu yang menunggu review dan kartu yang sedang dipelajari. 'New' adalah jumlah kartu yang menunggu untuk dipelajari hari itu.
 
-When you click on a deck, it will become the 'current deck', and Anki will
-change to the study screen. You can return to the deck list to change the
-currently selected deck at any time by clicking on “Decks” at the top of the
-main window. (You can also use the <<studydeck,Study Deck>> feature to select a
-new deck from the keyboard, or you can press the ‘s’ key to study the currently
-selected deck.)
+Ketika kamu mengklik dek, dek itu akan menjadi 'current deck', dan Anki akan pindah ke layar belajar.
 
-You can click the gears button to the right of a deck to rename or delete a
-deck, change its options, or <<exporting,export>> it.
+Kamu bisa mengklik tombol roda gigi di kanan dek untuk merename atau menghapus dek, atau mengkustomisasi option mereka.
 
-[[deckoverview]]
 Study Overview
 --------------
 
-After clicking on a deck to study, you'll see a screen that shows you how many
-cards are due today. This is called the 'deck overview' screen. The cards are
-split into three types:
+Setelah mengklik dek untuk dipelajari, kamu akan melihat layar yang menunjukkan berapa banyak kartu yang dijadwalkan hari ini. Ada tiga tipe:
 
- * *New* refers to cards that you have downloaded or entered in, but have
-   never been studied before.
- * *Learning* refers to cards that were seen for the first time recently,
-   and are still being learnt.
- * *To Review* refers to cards that were previously learnt, and now need to be
-   reviewed so you don't forget them.
+ * *New* merujuk pada kartu yang sudah kamu download / buat, tapi belum pernah dipelajari sebelumnya.
+ * *Learning* merujuk pada kartu yang baru-baru ini pertama dilihat, dan masih dipelajari.
+ * *To Review* merujuk pada kartu-kartu yang sebelumnya dipelajari, dan perlu direview agar kamu tidak lupa.
+ 
+Untuk memulai sesi belajar, klik tombol *Study Now*. Anki akan menunjukkan kamu kartu-kartu sampai kartu-kartu yang perlu ditunjukkan hari ini habis.
 
-To start a study session, click the *Study Now* button. Anki will proceed to
-show you cards until the cards to be shown for the day have run out.
+Ketika belajar, kamu bisa kembali ke overview dengan menekan tombol "s" di keyboard.
 
-While studying, you can return to the overview by pressing the “s” key on your
-keyboard.
+Pertanyaan
+----------
 
-Questions
----------
+Ketika sebuah kartu ditampilkan, hanya pertanyaannya yang ditampilkan pada awalnya. Setelah memikirkan apa jawabannya, klik tombol *Show Answer* atau tekan tombol spacebar. Kemudian jawabannya akan ditunjukkan. Tidak mengapa jika kamu butuh waktu untuk mengingat jawabannya, tapi aturan umumnya adalah jika kamu tidak bisa menjawab dalam 10 detik, lebih baik menyerah dan melihat jawabannya daripada terus berusaha mengingat.
 
-When a card is shown, only the question is shown at first. After thinking about
-the answer, either click the *Show Answer* button, or press the spacebar. The
-answer will then be shown. It's okay if it takes you a little while to recall
-the answer, but as a general rule if you can't answer within about 10 seconds,
-it's probably better to give up and show the answer than keep struggling to
-remember.
+Ketika jawabannya ditampilkan, bandingkanlah jawaban yang kamu pikirkan dengan jawaban yang ditampilkan, dan beritahu Anki seberapa baik kamu mengingat jawaban itu. Jika kamu tidak percaya diri untuk membandingkan jawabanmu dengan akurat, kamu bisa meminta Anki untuk memintamu mengetikkan jawaban, alih-alih sekedar menunjukkan jawabannya ke kamu. Jika kamu ingin melakukan ini, silahkan lihat bagian <<templates,templates>>.
 
-When the answer is shown, you should compare the answer you thought of with the
-answer which is shown and tell Anki how well you remembered. If you don't trust
-yourself to compare your answer accurately, you can ask Anki to
-<<typinganswers,prompt you to type in the answer>> rather than just showing it
-to you.
-
-The number of buttons available for grading depends on whether the card is
-being 'learnt' or 'reviewed'.
+Jumlah tombol yang ada untuk penilaian tergantung pada apakah kartu itu sedang dipelajari atau direview.
 
 [[learning]]
 Learning
+--------
+
+Ketika mempelajari kartu baru, atau mempelajari ulang kartu yang telah kamu lupakan, Anki akan menunjukkan kamu kartu-kartu itu 1 kali / lebih untuk membantumu mengingatnya. By default ada 2 step: 1 menit dan 10 menit. Kamu bisa mengganti jumlah step dan delay di antaranya dengan menekan tombol *Options* selagi melihat study overview.
+
+Ada 3 tombol rating ketika belajar:
+
+*Again* menggerakkan kartu kembali ke langkah pertama.
+
+*Good* memindahkan kartu ke langkah berikut. Jika kartu ada di langkah terakhir, kartu diubah menjadi review card. By default, setelah kartu mencapai akhir dari learning step, kartu itu akan ditampilkan lagi esok harinya, dan kemudian dengan delay yang semakin lama.
+
+*Easy* dengan segera meng-convert kartu menjadi review card, meskipun masih ada steps. By default, kartu akan ditunjukkan lagi 4 hari kemudian, dan kemudian dengan delay yang semakin lama. Tombol easy tidak akan ditampilkan jika kamu ada di mode belajar ulang dan iu akan memberi interval yang sama dengan "good."
+
+Ketika kartu dilihat untuk pertama kali, mereka mulai dari step satu. Ini berarti menjawab *Good* di sebuah kartu untuk pertama kali akan menampilkannya 1 kali lagi dalam 10 menit, dan step 1 menit awal akan dilewati.
+
+Kamu bisa menggunakan tombol 1, 2, dan 3 di keyboard untuk memilih tombol tertentu, di mana 1 = *Again*. Menekan spacebar akan memilih *Good*.
+
+Jika tidak ada kartu lain untuk ditunjukkan ke kamu hari itu, Anki by default menunjukkan learning card lagi meskipun jedanya belum lewat sepenuhnya. Jika kamu lebih suka menunggu jeda belajar yang penuh, kamu bisa mengganti behavior ini di <<preferences,preferences>>.
+
+Mereview
 ---------
 
-When learning new cards, or when relearning cards that you have forgotten, Anki
-will show you the cards one or more times to help you memorize them. Each time
-is called a 'learning step'. By default there are two steps: 1 minute and 10
-minutes. You can change the number of steps and the delays between them in the
-<<deckoptions,deck options>>.
+Ketika sebuah kartu sudah dipelajari sebelumnya dan sudah siap untuk direview lagi, ada 4 tombol untuk menilai jawabanmu:
 
-There are three rating buttons when learning:
+*Again* menandai jawabanmu sebagai salah, dan meminta Anki untuk menunjukkan kartu ini lebih sering di masa depan. Silahkan lihat bagian <<lapses,lapses>> untuk informasi lebih lanjut tentang bagaimana lapsed reviews ditangani.
 
-*Again* moves the card back to the first step.
+*Hard* menunjukkan kartu dengan jeda yang sedikit lebih lama daripada jeda yang terakhir, dan memberitahu Anki untuk lebih konservatif dalam menjadwalkan kartu ini di masa mendatang.
 
-*Good* moves the card to the next step. If the card was on the final step, the
-card is converted into a review card (it 'graduates'). By default, once the
-card has reached the end of the learning steps, the card will be shown again
-the next day, then at increasingly long delays (see the next section).
+*Good* memberitahu Anki bahwa jedanya sudah tepat, dan tingkat kesulitan kartu ini tidak perlu diturunkan atau dinaikkan. Di default starting easiness, kartu akan ditunjukkan lagi kira-kira 2 1/2 kali lebih lama dari sebelumnya - jadi jika kamu menunggu 10 hari untuk melihat kartu ini sebelumnya, jeda berikutnya sekitar 25 hari.
 
-*Easy* immediately converts the card into a review card, even if there were
-steps remaining. By default, the card will be shown again 4 days later, and
-then at increasingly long delays. The easy button will not be shown if you are
-in relearning mode and it would give the same interval as “good.”
+*Easy* memberitahu Anki kamu mendapati jedanya terlalu pendek. Kartu akan dijadwalkan lebih jauh ke masa depan daripada 'Good', dan Anki akan lebih agresif dalam menjadwalkan kartu di masa depan. Karena 'Easy' dengan cepat meningkatkan jeda, paling baik ini digunakan hanya untuk kartu-kartu yang paling mudah saja. Biasanya kamu seharusnya mendapati dirimu menjawab 'Good'.
 
-When cards are seen for the first time, they start at step one. This means
-answering *Good* on a card for the first time will show it one more time in 10
-minutes, and the initial 1 minute step will be skipped. If you push Again,
-though, the card will come back in 1 minute.
+Seperti kartu yang masih dipelajari, kamu bisa menggunakan 1-4 di keyboard untuk memilih jawaba. Menekan spacebar akan memilih 'Good'.
 
-You can use the 1, 2 and 3 keys on your keyboard to select a particular
-button, where 1 is *Again*. Pressing the spacebar will select *Good*.
+Due Count dan Estimasi Waktu
+----------------------------
 
-If there are no other cards to show you, Anki will show learning cards again
-even if their delay has not elapsed completely. If you'd prefer to wait the
-full learning delay, you can change this behaviour in the
-<<preferences,preferences>>.
+Ketika hanya pertanyaan yang ditampilkan, Anki menampilkan tiga angka seperti 12 + 34 + 56.
+Mereka merepresentasikan kartu-kartu baru, kartu-kartu yang sedang dipelajari, dan kartu-kartu untuk direview.
+Jika kamu ingin tidak melihat angka-angka, kamu bisa mematikan mereka di preferences Anki.
 
-Reviewing
----------
+NOTE: By default, ketika kamu lupa sebuah kartu, Anki akan menunjukkannya setelah 1 menit dan kemudian 10 menit.
+Karena dua review dibutuhkan, gagal mengingat sebuah kartu akan menambahkan angka yang tengah (oranye) dengan 2.
 
-When a card has been previously learnt and is ready to be reviewed again,
-there are four buttons to rate your answer:
+Ketika jawabannya ditampilkan, Anki menunjukkan estimasi kapan kartu akan ditunjukkan lagi di atas setiap tombol.
+Jika kamu ingin tidak melihat estimasinya, kamu juga bisa mendisable mereka di preferences Anki.
 
-*Again* marks your answer as incorrect and asks Anki to show the card more
-frequently in the future. The card is said to have 'lapsed'. Please see the
-<<lapses,lapses>> section for more information about how lapsed reviews are
-handled.
-
-*Hard* shows the card at a slightly longer delay than last time, and tells
-Anki to show the card more frequently in the future.
-
-*Good* tells Anki that the last delay was about right, and the card easiness
-doesn't need to be adjusted down or up. At the default starting easiness, the
-card will be shown again approximately 2 1/2 times longer than the previous
-time, so if you had waited 10 days to see the card previously, the next delay
-would be about 25 days.
-
-*Easy* tells Anki you found the delay too short. The card will be
-scheduled further into the future than 'Good', and Anki will schedule the card
-less frequently in the future. Because 'Easy' rapidly increases
-the delay, it's best used for only the easiest of cards. Usually you should
-find yourself answering 'Good' instead.
-
-As with learning cards, you can use 1-4 on the keyboard to select an answer.
-Pressing the spacebar will select 'Good'.
-
-Due Counts and Time Estimates
--------------------------------
-
-When only the question is shown, Anki shows three numbers like 12 + 34 + 56 at
-the bottom of the screen. These represent the new cards, cards in learning, and
-cards to review. If you'd prefer not to see the numbers, you can turn them off
-in Anki's preferences.
-
-NOTE: The numbers count 'reviews' needed to finish all the cards in that queue,
-not the number of 'cards'. If you have multiple steps configured for lapsed
-cards, the number will increase by more than one when you fail a card, since
-that card needs to be shown several times.
-
-When the answer is shown, Anki shows an estimate of the next time a card will
-be shown above each button. If you'd prefer not to see the estimates, you can
-disable them in Anki's <<preferences,preferences>>.
-
-NOTE: Anki additionally adds a small amount of random variation to the next due
-times, in order to prevent cards that were introduced together and always rated
-the same from always staying next to each other. This variation is not shown on
-the time estimates but will be applied after selecting the button.
+NOTE: Anki menambahkan sedikit variasi random ke waktu kartu ditunjukkan berikutnya, untuk mencegah kartu yang di-input bersama dan selalu di-rate sama selalu tampil berbarengan.
+Variasi ini tidak ditampilkan di estimasi waktu tapi akan diaplikasikan setelah memilih tombol.
 
 [[editmore]]
-Editing and More
-------------------
+Editing dan Lain-Lain
+---------------------
 
-You can click the *Edit* button in the bottom left to edit the current note.
-When you finish editing, you'll be returned to study. The editing screen works
-very similarly to the <<addingnotes,add notes>> screen.
+Kamu bisa mengklik tombol *Edit* di pojok kiri bawah untuk mengedit current note.
+Ketika kamu selesai mengedit, kamu akan kembali ke study.
+Layar editing sangat mirip dengan layar <<addingnotes,add notes>>.
 
-At the bottom right of the review screen is a button labeled *More*. This
-button provides some other operations you can do on the current card or note:
+Di pojok kanan bawah adalah tombol berlabel *More*.
+Tombol ini menyediakan beberapa operasi lain yang bisa kamu lakukan di current card / note:
 
  Mark Note ::
-  Adds a “marked” tag to the current note, so it can be easily found in the
-  browser. This is useful when you want to take some action on the note at a
-  later date, such as looking up a word when you get home. Marked cards also
-  show a small star in the upper-right-hand corner during reviews.
- Bury Card / Note ::
-  Hides a card or all of the note's cards from review until the next day. (If
-  you want to unbury cards before then, you can click the “unbury” button on
-  the <<deckoverview,deck overview>> screen.) This is useful if you cannot
-  answer the card at the moment or you want to come back to it another time.
-  Burying can also <<siblings,happen automatically>> for cards of the same
-  note. If cards were in learning when they are buried, they are moved back to
-  the new card queue or review queue prior to being buried.
- Suspend Card / Note ::
-  Hides a card or all of the note's cards from review until they are manually
-  unsuspended (by clicking the suspend button in the browser). This is useful if
-  you want to avoid reviewing the note for some time, but don't want to delete
-  it. If cards were in learning when they are suspended, they are moved back
-  to the new card queue or review queue prior to being suspended.
- Delete Note ::
-  Deletes the note and all of its cards.
- Options ::
-  Edit the options for the current deck.
+  Tambahkan tag "marked" ke current note, supaya note ini bisa ditemukan dengan mudah  di browser.
+  Fitur ini berguna ketika kamu ingin mengambil sebuah tindakan ke note ini di lain waktu, seperti me-lookup sebuah kata ketika kamu pulang.
+  Kartu yang di-mark juga menunjukkan bintang kecil di pojok kanan atas pada saat review.
+ Kubur Kartu / Note ::
+  Sembunyikan sebuah kartu atau semua kartu dari sebuah note dari proses review sampai mereka secara manual di-unsuspend (dengan cara mengklik tombol suspend di browser).
+  Berguna jika kamu tidak ingin me-review sebuah kartu untuk jangka waktu tertentu, tapi tidak ingin menghapusnya.
+ Hapus Note ::
+  Menghapus note dan semua kartunya.
+ Card Options ::
+  Mengedit opsi-opsi untuk current card.
  Replay Audio ::
-  If the card has audio on the front or back, play it again.
- Record Own Voice ::
-  Record from your microphone for the purposes of checking your pronunciation.
-  This recording is temporary and will go away when you move to the next card.
-  If you want to add audio to a card permanently, you can do that in the edit
-  window.
- Replay Own Voice ::
-  Replay the previous recording of your voice (presumably after showing the
-  answer).
+  Jika kartu punya audio, maka audionya akan diputar kembali.
+ Rekam Suara Sendiri ::
+  Merekan suaramu sendiri untuk tujuan mengecek pronunciation.
+  (Rekaman ini bersifat temporary dan akan hilang ketika kamu berpindah ke kartu berikut.
+  Jika kamu ingin menambahkan audio ke kartu secara permanen, kamu bisa melakukan itu di window edit.)
+ Replay Suara Sendiri ::
+  Replay rekaman sebelumnya dari suara kita sendiri.
 
 [[displayorder]]
 Display Order
 --------------
 
-Studying will show cards from the selected deck and any decks it contains.
-Thus, if you select your “French” deck, “French::Vocab” and “French::My
-Textbook::Lesson 1” will be shown as well.
+Studying will show cards from the selected deck, and any decks it contains.
+Thus if you select "French", "French::Vocab" and "French::My Textbook::Lesson
+1" and so on will all be shown as well.
 
 For new cards and reviews, Anki fetches cards from the decks in alphabetical
-order. So in the above example, you would get cards first from “French”, then
-“My Textbook”, and finally “Vocab”. You can use this to control the order cards
-appear in, placing high priority cards in decks that appear higher in the list.
-When computers sort text alphabetically, the “-” character comes before
-alphabetical characters, and “\~” comes after them. So you could call the deck
-“-Vocab” to make them appear first, and you could call the other deck “~My
-Textbook” to force it to appear after everything else.
+order. So in the above example, you would get cards first from "French", then
+"My Textbook", and finally "Vocab". You can use this fact to control the order
+cards appear in, placing high priority cards in decks that appear higher in
+the list. When computers sort text alphabetically, the "-" character comes
+before alphabetical characters, and "\~" comes after them. So if you called the
+deck "-Vocab", your vocab cards would appear first, and you could call the
+other deck "~My Textbook" to force it to appear after everything else.
 
 New cards and reviews are fetched separately, and Anki won't wait until both
 queues are empty before moving on to the next deck, so it's possible you'll be
 exposed to new cards from a different deck to the reviews or vice versa. If
-you don't want this, click directly on the deck you want to study instead of
+you don't want that, click directly on the deck you want to study instead of
 one of the parent decks.
 
-Since cards in learning are somewhat time-critical, they are fetched from all
-decks at once and shown in the order they are due.
+Cards in learning are fetched from all decks at once, because they are
+somewhat time critical, and shown in the order they are due.
+
+For more fine-grained ordering of new cards, you can change the order in the
+<<browser,browser>>.
 
 To control the order reviews from a given deck appear in, or change new cards
-from ordered to random order, please see the <<deckoptions,deck options>>. For
-more fine-grained ordering of new cards, you can change the order in the
-<<browser,browser>>.
+from ordered to random order, please see the <<deckoptions,deck options>>.
 
 [[siblings]]
 == Siblings and Burying ==
@@ -913,23 +596,23 @@ different cloze deletions from the same text. These related cards are called
 that's usually not helpful.
 
 When you answer a card that has siblings, Anki prevents the card's siblings
-from being shown in the same session by automatically 'burying' them. Buried
+from being shown in the same session by automatically burying them. Buried
 cards are hidden from review until the clock rolls over to a new day or you
-manually unbury them using the “Unbury” button that's visible at the bottom of
-the <<deckoverview,deck overview>> screen.
+manually unbury them using the "Unbury" button that's visible at the bottom of
+the screen after clicking on a deck in the deck list.
 
-Anki will only bury siblings that are new or review cards. It will not hide
-cards in learning, as time is of the essence for those cards. On the other
-hand, when you study a learning card, any new/review siblings will be buried.
+Anki will only bury siblings that are new cards, or review cards. It will not
+hide cards in learning, as time is of the essence for those cards, and
+technical reasons also prevent this. On the other hand, when you study a
+learning card, any new/review siblings will be buried.
 
-If you want to see more than one card of a note per day when learning or
-reviewing cards, you can stop Anki from burying cards in the <<deckoptions,deck
-options>>.
+If you want to see more than one card of a note when learning new cards, you
+can stop Anki from burying cards in the <<newopts,deck options>>.
 
 [[studyshortcuts]]
-== Keyboard Shortcuts ==
+== Keyboard Shortcuts  ==
 
-Most of the common operations in Anki have keyboard shortcuts. Most of them
+Many of the common operations in Anki have keyboard shortcuts. Most of them
 are discoverable in the interface: menu items list their shortcuts next to
 them, and hovering the mouse cursor over a button will generally show its
 shortcut in a tooltip.
@@ -942,27 +625,27 @@ answer most cards with space and keep one finger on 1 for when they forget.
 [[studydeck]]
 The "Study Deck" item in the Tools menu allows you to quickly
 switch to a deck with the keyboard. You can trigger it with the '/' key. When
-opened, it will display all of your decks and show a filter area at the top.
+opened, it will display all of your decks, and show a filter area at the top.
 As you type characters, Anki will display only decks matching the characters
 you type. You can add a space to separate multiple search terms, and Anki will
-show only decks that match all the terms. So “ja 1” or “on1 ja” would both
-match a deck called “Japanese::Lesson1”.
+show only decks that match all the terms. So "ja 1" or "on1 ja" would both
+match a deck called "Japanese::Lesson1".
 
 == Falling Behind ==
 
 If you fall behind in your reviews, Anki will prioritize cards that have been
-waiting the longest. It does this by taking the 200 cards that have been
-waiting the longest and showing them to you in a random order up until your
-daily review limit. This ordering ensures that no cards will be left waiting
-indefinitely, but it means that if you introduce new cards, their reviews won't
-appear until you've gotten through your backlog.
+waiting the longest. It does this by taking the 200 cards that have been waiting
+the longest, and showing them to you in a random order up until your daily
+review limit. This ordering ensures that no cards will be left waiting
+indefinitely, but it means that if you introduce new cards, their reviews
+won't appear until you've gotten through your backlog.
 
-If you wish to change the order of the overdue reviews, you can do so by
-creating a <<filtered,filtered deck>>.
+If you wish to change the order of the overdue reviews, you can do so by creating
+a filtered deck, as described in a later section of the manual.
 
 When you answer cards that have been waiting for a while, Anki factors in that
 delay when determining the next time a card should be shown. Please see the
-section on Anki’s spaced-repetition <<what-algorithm,algorithm>> for more
+frequently asked questions section at the bottom of the manual for more
 information.
 
 [[editor]]
@@ -979,11 +662,11 @@ On the top left are two buttons, which open the <<fields,fields>> and
 <<templates,cards>> windows.
 
 On the right are buttons that control formatting. Bold, italic and underline
-work like they do in a word processing program. The next two buttons allow you to
+work like they do in a wordprocessing program. The next two buttons allow you to
 subscript or superscript text, which is useful for chemical compounds like
 H~2~O or simple math equations like x^2^.
 
-The icon with the red X clears any formatting in the currently selected text.
+The icon with the red cross clears any formatting in the currently selected text.
 This includes colours, bold, etc.
 
 The next button allows you to change text colour.
@@ -995,15 +678,14 @@ on the web and choosing 'Copy Image') and paste it into the field that you want
 to place it in. For more information about media, please see the
 <<media,media>> section.
 
-The red circle button allows you to record from your computer’s microphone and
-attach the recording to the note.
+The red circle button allows you to record your voice and attach it to the note.
 
 The last button allows you to add advanced mathematical markup called
-<<latex,LaTeX>> to your notes or edit the underlying formatting.
+<<latex,LaTeX>> to your notes, or edit the underlying formatting.
 
 Most of the buttons have shortcut keys. You can hover the mouse cursor over a
-button to see its shortcut. For the LaTeX/HTML menu, use Ctrl+t, then t, e
-or m to select the three LaTeX types, and Ctrl+Shift+x to edit the HTML.
+button to see its shortcut. For the LaTeX/HTML menu, use Ctrl+t then t, e
+or m to select the three LaTeX types, and Ctrl+shift+x to edit the HTML.
 
 [[cloze]]
 Cloze Deletion
@@ -1016,14 +698,11 @@ example, if you have the sentence:
 Canberra was founded in 1913.
 -----
 
-...and you create a cloze deletion on “1913”, then the sentence would become:
+...and you create a cloze deletion on "1913", then the sentence would become:
 
 -----
 Canberra was founded in [...].
 -----
-
-Sometimes sections that have been removed in this fashion are said to be
-'occluded'.
 
 For more information on why you might want to use cloze deletion, see rule
 number 5 http://www.supermemo.com/articles/20rules.htm[here].
@@ -1038,7 +717,7 @@ with:
 Canberra was founded in {{c1::1913}}.
 -----
 
-The “c1” part means that you've created one cloze deletion on the sentence.
+The "c1" part means that you've created one cloze deletion on the sentence.
 You can create more than one deletion if you'd like. For example, if you
 select Canberra and click [...] again, the text will now look like:
 
@@ -1060,14 +739,14 @@ have the following on the question:
 [...] was founded in 1913.
 -----
 
-You can also elide multiple sections on the same card. In the above example, if
-you change c2 to c1, only one card would be created, with both Canberra and
-1913 hidden. If you hold down alt (option on a Mac) while creating a cloze,
-Anki will automatically use the same number instead of incrementing it.
+You can also elide multiple sections at once. In the above example, if you
+change c2 to c1, only one card would be created, with both Canberra and 1913
+hidden. If you hold down alt (option on a Mac) while creating a cloze, Anki
+will automatically use the same number instead of incrementing it.
 
 Cloze deletions don't need to fall on word boundaries, so if you select
-“anberra” rather than “Canberra” in the above example, the question would
-appear as “C[...] was founded in 1913”, giving you a hint.
+"anberra" rather than "Canberra" in the above example, the question would
+appear as "C[...] was founded in 1913", giving you a hint.
 
 You can also give yourself hints that don't match the text. If you replace the
 original sentence with:
@@ -1113,17 +792,17 @@ The default cloze note type has a second field called Extra, that is shown on
 the answer side of each card. It can be used for adding some usage notes or
 extra information.
 
-The cloze note type is treated specially by Anki, and cannot be created based
-on a regular note type. If you wish to customize it, please make sure to clone
-the existing Cloze type instead of another type of note.
+The cloze note type is treated specially by Anki, and can not be created
+based on a regular note type. If you wish to customize it, please make sure
+to clone the existing Cloze type instead of another type of note.
 
 Inputting Foreign Characters and Accents
 ------------------------------------------
 
-Windows, Mac and Linux provide built-in support for typing most languages.
-There is no need to buy a different keyboard. Some flashcard programs try to
-save you the trouble of enabling support on your computer by providing a
-clickable set of buttons for each foreign character or their own conversion
+Windows, Mac and Linux provide built-in support for other languages. There is
+no need to buy a different keyboard. Some flashcard programs try to save you
+the trouble of enabling support on your computer, and provide a clickable set
+of buttons for each foreign character, or provide their own conversion
 utilities. However, this makes input a lot slower. One person
 http://www.glowingfaceman.com/2008/12/french-revolution-day-7.html[writes]:
 
@@ -1145,28 +824,23 @@ If you're learning a right to left language, there are lots of other things to
 consider. Please see http://dotancohen.com/howto/rtl_right_to_left.html[this
 page] for more information.
 
-To learn more, please search Google for something like “input Japanese on a
-mac” or “input German on windows”, as there is plenty of good information
+To learn more, please search Google for something like "input Japanese on a
+mac" or "input German on windows", as there is plenty of good information
 available.
-
-NOTE: The toolkit Anki is built on has trouble dealing with a few input
-methods, such as holding down keys to select accented characters on Mac OS X.
-Fortunately, there are usually other input methods that will work properly –
-please research other options for your operating system.
 
 [[templates]]
 Cards and Templates
 ====================
 
 As mentioned in the <<cardtypes,basics>> section, Anki creates cards
-automatically, based on the notes you add. (Please read the basics section if
-you have not done so already, as the rest of this section assumes that you have
-read it.)
+automatically for use, based on your notes. You can configure the cards Anki
+should create and what should be shown on them when adding or editing material
+by clicking on the "Cards..." button. Please read the basics section if you
+have not done so already, as the rest of this section assumes that you have
+read it.
 
-You can configure the cards Anki should create and what should be shown on them
-when adding or editing material by clicking on the “Cards...” button. At the
-top of the window you'll see a set of tabs, one for each card type. You can
-click the plus on the right if you'd like to add another card type to the
+At the top of the window you'll see a set of tabs, one for each card type. You
+can click the plus on the right if you'd like to add another card type to the
 current note type. Similarly, if you'd like to delete one, you can do so by
 clicking the X on the tab.
 
@@ -1181,21 +855,24 @@ On the right is a preview of the front and back of the currently selected card.
 If you opened the window while adding notes, the preview will be based on the
 text you had typed into the Add Notes window. If you opened the window while
 editing a note, the preview will be based on the content of that note. If you
-opened the window from Tools -> Manage Note Types, Anki will display each
+opened the window from Tools → Manage Note Types, Anki will display each
 field's name in parentheses in place of content.
+
+You can watch http://www.youtube.com/watch?v=F1j1Zx0mXME[a video about
+this styling cards] on YouTube.
 
 At the bottom of the window is a More button that gives you options to rename
 or reorder the cards, as well as the following two options:
 
- * The 'Deck Override' option allows you to change the deck that cards generated
+ * The "Deck Override" option allows you to change the deck that cards generated
 from the current card type will be placed into. By default, cards are placed
 into the deck you provide in the Add Notes window. If you set a deck here, that
 card type will be placed into the deck you specified, instead of the deck
-listed in the Add Notes window. This can be useful if you want to separate cards
-into different decks (for instance, when studying a language, to put production
+listed in the Add Notes window. This can be used if you want to separate cards
+into different decks (for instance, for studying a language, to put production
 cards in one deck and recognition cards in another). You can check which deck
 the cards are currently going to by choosing Deck Override again.
- * The 'Browser Appearance' option allows you to set different (perhaps simplified)
+ * The Browser Appearance option allows you to set different (perhaps simplified)
 templates for display in the Question and Answer columns of the browser; see
 <<columntemplates,browser appearance>> for more information.
 
@@ -1205,29 +882,32 @@ templates for display in the Question and Answer columns of the browser; see
 You can watch http://www.youtube.com/watch?v=DnbKwHEQ1mA[a video about
 reversing cards] on YouTube.
 
+If you want to reverse your existing cards, when editing a card, click the
+Cards button, and then Flip.
+
 If you want to create cards that go in both directions (e.g., both
-“ookii”->“big” and “big”->“ookii”), you have several options. The simplest is
-to select the “Basic (and reversed card)” built-in note type. This will
+"ookii"->"big" and "big"->"ookii"), you have several options. The simplest is
+to select the "Basic (and reversed card)" built-in note type. This will
 generate two cards, one in each direction.
 
 If you want to generate reverse cards for only some of your material (perhaps
 you only want to take the time to study reverses for the most important
 material, or some of your cards don't make sense reversed), you can select the
-“Basic (optional reversed card)” note type. This note type generates a
+"Basic (optional reversed card)" note type. This note type generates a
 forward-only card when you fill in only the first two fields; if you
-additionally enter something in the “Add Reverse” field (like a 'y'), Anki will
+additionally enter something in the "Add Reverse" field (like a 'y'), Anki will
 generate a reverse card as well. The contents of this field will never be
 displayed on a card.
 
 If you later decide you don't want a reverse card that you added, you can
-delete it by removing the text from the “Add Reverse” field. Similarly, if you
+delete it by removing the text from the "Add Reverse" field. Similarly, if you
 want to add a reverse card, you can add text to the “Add Reverse” field. If you
 didn't select the optional reverse note type to begin with, you can use Edit →
 Change Note Type in the browser to change it.
 
 NOTE: To avoid loss of scheduling information if you make an editing mistake,
 Anki does not automatically delete cards after you remove the text from the
-“add reverse” field. To complete the deletion, run Tools -> Empty Cards from the
+“add reverse” field. To complete the deletion, run Tools → Empty Cards from the
 main window.
 
 If you’re using a more complex note type (for instance, one with three cards)
@@ -1251,8 +931,8 @@ writing '\{\{front\}\}' will not work properly.
 
 Your templates are not limited to a list of fields. You can also include
 arbitrary text on your templates. For example, if you're studying capital
-cities, and you've created a note type with a “Country” field, you might
-create a front template like this:
+cities, and you've created a note type with a "Country" field, you might
+create a question like this:
 
 -----
 What's the capital city of {{Country}}?
@@ -1268,8 +948,8 @@ The default back template will look something like this:
 {{Back}}
 -----
 
-This means “show me the text that's on the front side, then a divider line, and
-then the Back field”.
+This means "show me the text that's on the question, then a divider line, and
+then the back field".
 
 The 'id=answer' part tells Anki where the divider is between the question and
 the answer. This allows Anki to automatically scroll to the spot where the
@@ -1301,33 +981,32 @@ and back templates look like:
 -----
 
 To type in the foreign word and check if you are correct, you need to edit
-your front template so that it looks like this:
+your question template so that it looks like this:
 
 -----
 {{Native Word}}
 {{type:Foreign Word}}
 -----
 
-Note that we have added 'type:' in front of the field we want to compare. Since
-FrontSide is on the back of the card, the type answer box will appear on the
-back as well. (If you don't have FrontSide on the back of your card, you will
-need to add the type directive to the answer side as well.)
+Note that we have added 'type:' in front of the field we want to compare, and
+it is copied into the answer section as well. If you don't have FrontSide on
+the back of your card, you will need to add the same type directive to the
+answer side as well.
 
 When reviewing, Anki will display a text box where you can type in the answer,
 and upon hitting enter or showing the answer, Anki will show you which parts
 you got right and which parts you got wrong. The text box's font size will be
-the size you configured for that field (via the “Fields” button when editing).
+the size you configured for that field (via the "Fields" button when editing).
 
 This feature does not change how the cards are answered, so it's still up to
 you to decide how well you remembered or not.
 
 NOTE: Only one typing comparison can be used on a card. If you add the above
 text multiple times, it will not work. It also only supports a single line, so
-it is not useful for comparing against a field that is comprised on multiple
-lines.
+it is not useful for comparing against a field that is comprised on multiple lines.
 
-Anki uses a monospaced font for the answer comparison so that the “provided”
-and “correct” sections line up. If you wish to override the font, you can put
+Anki uses a monospaced font for the answer comparison so that the "provided"
+and "correct" sections line up. If you wish to override the font, you can put
 the following at the bottom of your styling section:
 
 -----
@@ -1335,28 +1014,31 @@ code#typeans { font-family: "myfontname"; }
 -----
 
 Advanced users can override the default type-answer colours with the css
-classes 'typeGood', 'typeBad' and 'typeMissed'. At the time of writing, only
-the computer version of Anki supports these classes.
+classes typeGood, typeBad and typeMissed. At the time of writing, only the
+computer version of Anki supports these classes.
 
 It is also possible to type in the answer for cloze deletion cards. To do this,
 add \{\{type:cloze:Text}} to both the front and back template, so the back looks
 something like this:
 
 -----
+{{FrontSide}}
+
+<hr id=answer>
+
 {{cloze:Text}}
 {{type:cloze:Text}}
-{{Extra}}
 -----
 
-Note that since the cloze type does not use FrontSide, this must be added to
-both sides on a cloze note type.
+Note that unlike with regular cards, this must be added to both sides on a
+cloze note type.
 
 If there are multiple sections elided, you can separate the answers in the text
 box with a comma.
 
 NOTE: Type answer boxes will not appear in the <<currentnote-preview,"preview"
 dialog>> in the browser. When you review or look at the preview in the card
-types window, they will display.
+types window, they should display.
 
 == Newlines ==
 
@@ -1391,20 +1073,11 @@ line, you would use
 {{Field 2}}
 -----
 
-[[cardstyling]]
 == Card Styling ==
 
-You can watch http://www.youtube.com/watch?v=F1j1Zx0mXME[a video about
-styling cards] on YouTube.
-
-In between the front and back template is the card styling. Here you can change
-the background colour of the card, the default font, the text alignment, and so
-on.
-
-NOTE: This is 'not' where you change the font for type answer
-comparisons, type answer textboxes, or editing textboxes; to learn how to
-change these fonts, please see the <<typinganswers,checking your answer>> and
-<<fields,customizing fields>> sections.
+In between the front and back template is the card styling. Here you can
+change the background colour of the card, the default font, the text
+alignment, and so on.
 
 The standard options available to you are:
 
@@ -1419,21 +1092,18 @@ The standard options available to you are:
  text-align ::
   Whether the text should be aligned in the center, left, or right.
  color ::
-  The color of the text. Simple color names like 'blue', 'lightyellow', and so
+  The color of the text. Simple color names like 'blue', 'lightyellow' and so
   on will work, or you can use HTML color codes to select arbitrary colors.
   Please see http://htmlcolorcodes.org/[this webpage] for more information.
  background-color ::
   The color of the card background.
 
-Any CSS can be placed in the styling section – advanced users may wish to do
-things like add a background image or gradient, for example. If you’re
-wondering how to get some particular formatting, please search the web for
-information about how to do it in CSS, as there is a great deal of
-documentation available.
+Arbitrary CSS can be placed in the styling section - advanced users may wish
+to do things like add a background image or gradient for example.
 
 The styling is shared between all cards, which means that when you make an
 adjustment it will affect all cards for that note type. It is also possible to
-specify card-specific styling, however. The following example will use a yellow
+specify card-specific styling. The following example will use a yellow
 background on all cards except the first one:
 
 -----
@@ -1449,9 +1119,9 @@ styling section:
 img { max-width: none; max-height: none; }
 -----
 
-If you try to change the style for images and find that the star that appears
-on marked cards is affected (for instance, it becomes way too large), you can
-target it with the following:
+NOTE: If you try to change the style for images and find that the star that appears
+on a card is affected (for instance, it becomes way too large), you can target
+it with the following:
 
 -----
 img#star { ... }
@@ -1466,8 +1136,8 @@ particularly important when studying foreign languages, as Anki will sometimes
 be unable to correctly display characters unless an appropriate font has been
 chosen.
 
-Say you have an “Expression” field, and you want to give it the OSX Thai
-font “Ayuthaya”. Imagine your template already reads:
+Say you have an "Expression" field, and you want to give it the OSX Thai
+font "Ayuthaya". Imagine your template already reads:
 
 -----
 What is {{Expression}}?
@@ -1489,9 +1159,9 @@ And the following behind it:
 -----
 
 By wrapping the text like the above, we tell Anki to style the wrapped text
-with a custom style called “mystyle1”, which we will create later.
+with a custom style called "mystyle1", which we will create later.
 
-Thus if we wanted the entire “What is ...?” expression to use the Thai font,
+Thus if we wanted the entire "What is ...?" expression to use the Thai font,
 we would use:
 
 -----
@@ -1552,9 +1222,6 @@ It's also possible to bundle custom fonts with your deck, so you don't need to
 install them on your computer or mobile device. Please see the
 <<installingfonts,installing fonts>> section for more info.
 
-Please see the <<cardstyling,card styling>> section for more information on the
-styling options you can use here.
-
 == Hint Fields ==
 
 It's possible to add a field to the front or back of a card, but make it
@@ -1567,16 +1234,14 @@ principle' on http://www.supermemo.com/articles/20rules.htm before proceeding.
 First, you'll need to add a field to store the hint in if you have not already.
 Please see the <<fields,fields>> section if you're not sure how to do this.
 
-Assuming you've created a field called MyField, you can tell Anki to include it
-on the card but hide it by default by adding the following to your template:
+Assuming you've created a field called MyField, you can tell Anki to hide it
+by default by adding the following to your template:
 
 -----
 {{hint:MyField}}
 -----
 
-This will show a link labeled “show hint”; when you click it, the content of
-the field will be displayed on the card. (If MyField is empty, nothing will be
-shown.)
+If MyField is blank, nothing will be shown.
 
 If you show the hint on the question and then reveal the answer, the hint will
 be hidden again. If you want to have the hint always revealed when the answer
@@ -1600,7 +1265,7 @@ The card's deck: {{Deck}}
 
 The type of card ("Forward", etc): {{Card}}
 
-The content of the front template (only valid in back template): {{FrontSide}}
+The front text (only valid in back template): {{FrontSide}}
 -----
 
 FrontSide will not include any audio that was on the front side of the card.
@@ -1612,29 +1277,29 @@ As with other fields, special field names are case sensitive.
 [[cardgeneration]]
 == Card Generation & Deletion ==
 
-Anki will not create cards with empty front sides. Thus if “My Field” was
+Anki will not create cards with empty front sides. Thus if "My Field" was
 empty, and one card's front template included only that field, the card would
 not be created.
 
-If no cards can be created because all of the cards would have empty front
-sides, then the Add Notes window will warn you and not allow the note to be
-added until at least one card would be generated.
+If no cards can be created, then the Add Notes window will warn you and not
+allow the note to be added until at least one card would be generated.
 
 When you edit a previously added note, Anki will automatically create extra
-cards if they were previously blank but no longer are. If your edits have made
-some cards blank when they previously were not, however, Anki will not delete
-them immediately, as that could lead to accidental data loss. To remove the
-empty cards, go to Tools -> Empty Cards in the main window. You will be shown a
-list of empty cards and be given the option to delete them.
+cards if they were previously blank, but no longer so.
 
-Because of the way that card generation works, it is not possible to manually
-delete individual cards (they would just end up being recreated the next time
-the note was edited). Instead, you should make the relevant conditional
-replacement fields empty and then use the Empty Cards option. (If you don’t
-have fields set up to control card generation, please see the sections on
-<<reversingcards,reversed cards>> and <<selectivegeneration,selective card
-generation>>.) If you need to do this for many notes at once, you can use the
-<<findreplace,find and replace>> feature in the browser.
+If your edits have made some cards blank, Anki will not delete them
+immediately, as that could lead to accidental data loss. To remove empty cards,
+in the main window go to Tools → Empty Cards. You will be shown a list of empty
+cards and be given the option to delete them.
+
+It is not possible to manually delete individual cards (rather than notes),
+because they would end up being recreated the next time the note was edited.
+Instead, you should make the relevant conditional replacement fields empty and
+then use the Empty Cards option. (If you don’t have fields set up to control
+card generation, please see the sections on <<reversingcards,reversed cards>>
+and <<selectivegeneration,selective card generation>>.) If you need to do this
+for many notes at once, you can use the <<findreplace,find and replace>>
+feature in the browser.
 
 Anki does not consider special fields or non-field text for the purposes of
 card generation. Thus if your front template looked like the following, no
@@ -1647,8 +1312,7 @@ Where is {{Country}} on the map?
 [[selectivegeneration]]
 == Selective Card Generation ==
 
-Please read the previous section on <<cardgeneration,card generation and
-deletion>> before you read this.
+Please read the previous section before you read this.
 
 Sometimes you may want to generate extra cards for only some of your material,
 such as testing your ability to recall the most important words of a set. You
@@ -1697,8 +1361,8 @@ see the <<importing,importing>> section for more information.
 [[conditionalreplacement]]
 == Conditional Replacement ==
 
-It is possible to include certain text, fields, or HTML on your cards only if a
-field is empty or not empty. An example:
+It is possible to include certain text on your cards only if a field is empty
+or not empty. An example:
 
 -----
 This text is always shown.
@@ -1717,18 +1381,6 @@ A real life example is only showing a label if the field is not empty:
 -----
 {{#Tags}}Tags: {{Tags}}{{/Tags}}
 -----
-
-Or say you want to display a specific field in blue on the front of your card
-if there are extra notes on the back (perhaps the fact that there are notes
-serves as a reminder that you should spend more time thinking about the
-answer). You can style the field as follows:
-
------
-{{#Notes}}<span style="color:blue;">{{/Notes}}
-{{FieldToFormat}}
-{{#Notes}}</span>{{/Notes}}
------
-
 
 You can also use conditional replacement to control which cards are generated.
 This works since Anki will not <<cardgeneration,generate cards>> which would
@@ -1765,7 +1417,7 @@ replacements:
 
 Keep in mind that, as mentioned in the <<cardgeneration,card generation>>
 section, this only works when you place the conditional replacement code on the
-'front' of the card; if you do this on the back, you will simply end up with
+''front'' of the card; if you do this on the back, you will simply end up with
 cards with a blank back side. Similarly, since this works by checking if the front field would be empty, it is important to make sure you wrap the 'entire' front side in the conditional replacement; for instance, the following would not work as expected:
 
 -----
@@ -1940,8 +1592,6 @@ And in the template:
 <div class=jp>{{Field}}</div>
 -----
 
-For different iOS devices, you can use '.iphone' and '.ipad'.
-
 You can also use properties like .gecko, .opera, and .ie to select particular
 browsers when using AnkiWeb. Please see
 http://rafael.adm.br/css_browser_selector/ for a full list of options.
@@ -1971,8 +1621,7 @@ After that, we need to update the template:
  . Click *Add* at the top of the main screen, and then select the note type
    you want to change with the top left button.
  . Click *Cards*.
- . In the styling section, add the following text to the bottom (after the
-   last "}" character), replacing
+ . In the styling section, add the following text to the bottom, replacing
    "_arial.ttf" with the name of the file you copied into your media folder:
 -----
 @font-face { font-family: myfont; src: url('_arial.ttf'); }
@@ -2003,7 +1652,7 @@ On your front or back template, wrap the field you want to style in the followin
 code, replacing "FieldName" with the name of your field.
 
 -----
-<span class="mystyle">{{FieldName}}</span>
+<span style="mystyle">{{FieldName}}</span>
 -----
 
 In the styling section, in addition to the font-face line described above,
@@ -2020,10 +1669,10 @@ Keep "myfont" as is, as it references the font you embedded.
 == Javascript ==
 
 As Anki cards are treated like webpages, it is possible to embed some
-Javascript on your cards via inline script tags in the template (loading
-external files using src= is not supported). As this is an advanced feature, we
-can not guarantee any particular Javascript will work, and can not provide any
-assistance when things are not working. If in doubt, it's best to avoid it.
+Javascript on your cards via inline script tags in the template. As this is an
+advanced feature, we can not guarantee any particular Javascript will work,
+and can not provide any assistance when things are not working. If in doubt,
+it's best to avoid it.
 
 Each Anki client may implement card display differently, so you will need to
 test the behaviour across platforms. A number of clients are implemented
@@ -2199,8 +1848,7 @@ become overwhelmed by the reviews required.
 *Graduating interval* is the delay between answering 'Good' on a card with no
 steps left, and seeing the card again.
 
-*Easy interval* is the delay between answering 'easy' on a learning card and
-seeing it in review mode for the first time.
+*Easy interval* is the delay between answering 'easy' on a card and seeing it again.
 
 *Starting ease* controls the easiness that cards start out with. It is set
 when a card graduates from learning for the first time. It defaults to 250%,
@@ -2481,7 +2129,6 @@ keyboard. It is comprised of three sections: the 'sidebar' on the left, the
 positioning the mouse between two sections, it is possible to click and drag to
 expand one section and shrink another.
 
-[[sidebar]]
 Sidebar
 --------
 
@@ -2489,30 +2136,25 @@ The sidebar on the left allows quick access to common search terms. Various
 search terms as described below are listed, along with all deck names and tag
 names. Clicking on an item will search for it.
 
-You can hold down Ctrl (command on a Mac) and click in order to append the
+You can hold down ctrl (command on a Mac) and click in order to append the
 clicked item to the current search with an AND condition, instead of starting a
 new search. If you wanted to show learning cards that were also in the German
 deck for instance, you could click on "Learning", then ctrl+click on "German".
 
-You can hold down Shift to create an OR search instead of an AND. For example,
+You can hold down shift to create an OR search instead of an AND (for example,
 you could click one deck, then shift-click another to show cards from either of
-the decks in the same view.
+the decks in the same view).
 
-You can hold down Alt (option on a Mac) in order to reverse the search (prepend
-a '-') – for instance, to show all cards in a current deck that do _not_ have a
-certain tag. Alt/option can be combined with either Ctrl or Shift (e.g., Ctrl-Alt-clicking will result in adding a new search term that is negated).
-
-
-To remove tags that are not used by any notes, use Tools>Check Database from
-the main window.
+You can hold down alt (option on a Mac) in order to reverse the search (prepend
+a '-') (for instance, to show all cards in a current deck that do _not_ have a
+certain tag).
 
 [[searching]]
 Searching
 ---------
 
 Above the card list is a search box. You can type in various things there to
-search for cards. (If you’d rather select what you’re looking for in a list,
-please take a look at the <<sidebar,sidebar>> section above.)
+search for cards.
 
 === Simple searches ===
 
@@ -2550,8 +2192,7 @@ Things to note from the above:
  * Anki is only able to search within formatting in the <<fields,sort
    field>> you've configured. For example, if you add "**exa**mple" to one of your
    fields, this will not be matched when searching for "example" unless that field
-   is the sort field. If a word is not formatted, or the formatting does not change
-   in the middle of the word, then Anki will be able to find it in any field.
+   is the sort field.
 
 === Limiting to a field ===
 
@@ -2563,7 +2204,7 @@ default.
    says "a dog" will not match.
  front:*dog* :: find notes with Front field containing dog somewhere
  front: :: find notes that have an empty Front field
- front:_* :: find notes that have a non-empty Front field
+ -front: :: find notes that have a non-empty Front field
  front:* :: find notes that have a Front field, empty or not
 
 === Tags, decks, cards and notes ===
@@ -2585,14 +2226,13 @@ default.
 
  note:basic :: search for cards with a Basic note type
 
-=== Card state ===
+=== Card types ===
 
  is:due :: review cards and learning cards waiting to be studied
  is:new :: new cards
  is:learn :: cards in learning
  is:review :: reviews (both due and not due) and lapsed cards
  is:suspended :: cards that have been manually suspended
- is:buried :: cards that have been buried, either <<automatically,siblings>> or manually
 
 Cards that have lapsed fall into several of these categories, so it may be useful to combine them to get more precise results:
 
@@ -2633,16 +2273,14 @@ their notes were added a long time ago.
 
 For speed, rating searches are limited to 31 days.
 
-=== Object IDs ===
+=== Note and card IDs ===
 
- nid:123 :: all cards of the note with note id 123
- cid:123 :: the card with card id 123
- mid:123 :: find note types with note type id 123
+ nid:1000000000000 :: all cards of the note with given note ID
+ cid:1000000000000 :: the card with given card ID
 
-Note and card IDs can be found in the <<stats,card info>> dialog in the browser.
-Note type IDs can be found by clicking on a note type in the Browse screen.
-These searches may also be helpful when doing add-on development or otherwise
-working closely with the database.
+Note and card IDs can be found in the <<stats,card info>> dialog in the
+browser. These searches may also be helpful when doing add-on development or
+otherwise working closely with the database.
 
 [[cardlist]]
 Card List
@@ -2711,9 +2349,7 @@ its review history. For more information, see the <<stats,statistics>> section.
 in different decks, so if you want to move all cards in a note, you should
 first use Edit > Select Notes.
 
-'Add Tags' and 'Remove Tags' allow you to add or remove tags from notes in
-bulk. To remove unused tags from the list on the left, use Tools>Check
-Database from the main window.
+'Add Tags' and 'Remove Tags' allow you to add or remove tags in bulk.
 
 'Delete' removes the selected card(s) and their notes. It is not possible to
 remove individual cards, as individual cards are controlled by the
@@ -2766,18 +2402,12 @@ Unlike the check that happens when you add cards manually, the duplicate
 finding feature is not limited to a single note type. This means that by
 default, it will search in all note types that have the field you provided.
 
-The 'optional limit' text box allows you to narrow down where Anki will look
-for duplicates. If you only want to search for duplicates in the "French Vocab"
-and "French Verbs" note types, you would enter:
+The search area allows you to narrow down where Anki will look for duplicates.
+If you only want to search for duplicates in the "French Vocab" and "French
+Verbs" note types, you would enter:
 
 -----
 note:'french vocab' or note:'french verbs'
------
-
-Or you might want to look only for duplicates in a particular deck, so you could use:
-
------
-deck:'myDeck'
 -----
 
 The search syntax is the same as used when searching in the browser. Please
@@ -2919,9 +2549,7 @@ It is also possible to move all cards back to their home decks at once:
    delete a filtered deck.
 
 NOTE: In the current implementation, if you empty or delete a filtered deck
-while cards are still in learning, they will be turned back into new cards. In
-the case of failed reviews in relearning, any remaining relearning steps will be
-skipped.
+while cards are still in learning, they will be turned back into new cards.
 
 == Creating Manually ==
 
@@ -2972,9 +2600,8 @@ sorted list first.
   Display cards that you added first (have the earliest creation date) first.
  Order due ::
   Display cards with the earliest due date first.
- Latest added first ::
-  Display cards that you've most recently added to the deck first. (This is the
-  opposite of 'Order added'.)
+ Latest seen first ::
+  Display cards that you've seen most recently in reviews first.
  Relative overdueness ::
   Display cards that are most overdue in relation to their current interval
   first (for instance, a card with a current interval of 5 days overdue by 2
@@ -3154,12 +2781,12 @@ tabs can be imported into Anki, provided some conditions are met.
 
  * The files must be plain text (myfile.txt). Other formats like myfile.xls,
    myfile.rtf, myfile.doc must be saved as a plain text file first.
- * The files must be in UTF-8 format (see below).
+ * The files must be in UTF-8 format (see below)
  * Anki determines the number of fields in the file by looking at the first
-   (non-commented) line. Any lines in the file which have a different number of
-   fields will be ignored.
- * The first line also defines the separating character – if Anki finds a ';'
-   on the first line it will use that, if it finds a comma it'll use that,
+   (non-commented) line. Any other lines in the file which don't match this
+   number will be ignored.
+ * The first line also defines the separating character - if Anki finds a ';'
+   on the first line it will use that - if it finds a comma it'll use that,
    etc.
 
 Fields in your text file can be mapped to any field in your notes, including
@@ -3174,24 +2801,24 @@ This is an example of a valid file:
 
 -----
 foo bar; bar baz; baz quux
-apple; banana; grape
+field1; field2; field3
 -----
 
 There are two ways to include newlines in fields.
 
-*Escape the multi-lines by placing the contents of the field in quotation marks*:
+*Escape the multi-lines*:
 
 -----
-hello; "this is
+hello [tab] "this is
 a two line answer"
-two; this is a one line one
+two [tab] this is a one line one
 -----
 
 *Use HTML new lines*:
 
 -----
-hello; this is<br>a two line answer
-two; this is a one line one
+hello [tab] this is<br>a two line answer
+two [tab] this is a one line one
 -----
 
 You need to turn on the "allow HTML in fields" checkbox in the import dialog
@@ -3325,7 +2952,6 @@ dialog.
 For info on how duplicates are handled in .apkg files, please see the
 <<apkg-export,Deck Packages>> section below.
 
-[[exporting]]
 = Exporting =
 
 Exporting allows you to save part of your collection as a text file or
@@ -3418,7 +3044,7 @@ File Locations
 
 On Windows and OSX, Anki stores all of its files in an Anki folder, located in
 your Documents folder. On other operating systems, your files are stored in
-~/Documents/Anki by default.
+~/Anki by default.
 
 Within the Anki folder, the program-level and profile-level preferences are
 stored in a file called prefs.db.
@@ -3563,24 +3189,13 @@ The easiest way to take a manual backup is to back up your entire Anki folder.
 Please make sure you close Anki first, as backups may be corrupt if run while
 Anki is open.
 
-To restore from a backup:
-
- . First create a copy of your backups folder, as each time you close Anki it
-   deletes the oldest backup, and if you're trying different backup files you
-   could accidentally end up deleting the backup you need. To do this, locate
-   your Documents/Anki/User 1/backups folder, and copy the entire folder
-   somewhere safe, like your desktop.
- . Open Anki and the profile you want to restore. If your profile is corrupt and
-   won't open, you can rename your Documents/Anki/User 1/collection.anki2 file
-   to something else to tell Anki to recreate an empty collection when you next
-   open the profile.
- . With the profile open, use File>Import and import a backup from the copy of
-   the backups folder you created on your desktop. In the file selection dialog,
-   you can set it to detail mode using one of the icons so that the modification
-   date is shown on each file - that will give you an idea of which backup you
-   need.
- . If the backup you imported was not old enough, try an older one until you
-   locate an appropriate one.
+To restore from a backup, simply close Anki, open Documents/Anki/<profile
+name>/backups, and double-click on the most recent backup in order to import
+it. This will overwrite your whole collection with the backup copy. If you need
+to import only part of a backup (for instance, a single deck you messed up),
+you can do so by creating a new <<profiles,profile>> and importing the backup
+into there, then exporting the deck you want to restore and importing it into
+the other profile.
 
 Anki also logs deleted notes to a text file called deleted.txt in your profile
 folder. These notes are in a text format that can be read by File>Import,
@@ -3762,33 +3377,6 @@ The stats window uses some terms that you may not be familiar with:
   cards, especially when they are in the "new" queue to be shown for the first
   time.
 
-Today
------
-
-At the top of the statistics window is a brief list of textual statistics about
-the reviews that you have completed today. A “review” in this context is 'one
-answering of a card', so a card might count as multiple reviews if it needed to
-be seen multiple times, and a learning card could count as a “review.” A couple
-of the stats whose meaning may not be immediately obvious:
-
- Again count ::
-  This is the number of reviews that you have failed (i.e., pressed Again on).
-  The correct percentage listed afterwards is the number of cards you did 'not'
-  fail divided by the total number of cards you studied.
- Learn, Review, Relearn, Filtered ::
-  The number of reviews that were learning cards, review cards, relearning
-  cards, or studied in a filtered deck when not due.
-
-The stats for the current day are not a good overall indicator of your learning
-progress; everyone has bad days and good days, and seeing that you got a lower
-percentage correct on a particular day should not be cause for concern. The
-remainder of the stats, which take longer periods of time into account, will
-give more useful information if you wish to try to change your study habits or
-scheduling settings based on your performance.
-
-The “today” statistics are unaffected by the time period selected at the bottom
-of the window.
-
 The Graphs
 -----------
 
@@ -3857,7 +3445,7 @@ http://sqlitebrowser.org/[SQLite Browser], which will allow you to look around
 the database as well as export a CSV version of tables for import into another
 program.
 
-The most important table for statistics is the 'revlog' table, which stores an
+The most important table for statistics is the ''revlog'' table, which stores an
 entry for each review that you conduct. The columns are as follows:
 
 id ::
@@ -3867,7 +3455,7 @@ id ::
   milliseconds.)
 cid ::
   The ID of the card that was reviewed. You can look up this value in the id
-  field of the 'cards' table to get more information about the card, although
+  field of the ''cards'' table to get more information about the card, although
   note that the card could have changed between when the revlog entry was
   recorded and when you are looking it up. It is also the millisecond timestamp
   of the card's creation time.
@@ -3909,7 +3497,7 @@ folder. It will generate a report of files in the media folder that are not
 used by any notes, and media referenced in notes but missing from your media
 folder. It does not scan question or answer templates, which is why you can't
 place media references to fields in the template. If you need a static image or
-sound on every card, name it with a leading _ (e.g., '_dog.jpg') to tell Anki to
+sound on every card, name it with a leading _ (e.g., ''_dog.jpg'') to tell Anki to
 ignore it when checking for media. If you delete media using the unused media
 check, Anki will move it into your operating system's trash folder, so you can
 recover if you accidentally delete media that shouldn't have been deleted.
@@ -4187,10 +3775,6 @@ paste in the top section. When you've done so, please press Ctrl+Return
 If you've been asked to paste the resulting output, please copy it from the
 bottom area, and paste it back to the support person.
 
-If you press Ctrl+Shift+Return instead of just Ctrl+Return, Anki will try to
-print the result rather than doing what you asked it to. If you are getting
-unexpected errors, please make sure you’re not holding down the Shift key.
-
 [[add-ons]]
 = Add-ons =
 
@@ -4238,9 +3822,9 @@ To learn how to write your own add-ons, please see the link:addons.html[add-on w
 Sharing Decks Publicly
 -----------------------
 
-To share decks with the general public, <<syncing,synchronize>> them with
-AnkiWeb, then log into AnkiWeb and click on "Share" from the menu next to the
-deck you wish to share.
+To share decks with other people, <<syncing,synchronize>> them with AnkiWeb,
+then log into AnkiWeb and click on "Share" from the menu next to the deck you
+wish to share.
 
 If you shared a deck previously (including with previous versions of Anki),
 you can update it by clicking "Share" as above. Please ensure the name of the
@@ -4258,24 +3842,17 @@ able to update the existing copy.
 Sharing Decks Privately
 ------------------------
 
-If you'd like to share decks with a limited group of people (such as a study
-group or class) rather than the general public, you can do so by sharing them
-outside of AnkiWeb.
+To share a deck privately, use File>Export and export in the packaged Anki
+deck format (including media if necessary). You can then place the resulting
+deck.apkg file on a private website for people to download, or mail it to the
+relevant people.
 
-To share a deck privately, go to the File menu and choose Export. Select a
-single deck (not "All Decks"), and turn off "include scheduling information".
-This will produce an .apkg file which you can share with others.
+Both desktop and mobile clients make it easy to import from an apkg file
+simply by clicking on it. AnkiWeb does not have the ability to import apkg
+files however, so the recipients of your deck will need to have the desktop
+client or Anki on their smartphone.
 
-You can share the .apkg file by emailing it to people, placing it on a website
-or shared folder, or using a free file sharing service like Dropbox or Google
-Drive and sending people a link.
-
-Both the computer version and mobile clients make it easy to import from an
-apkg file simply by clicking or tapping on it. AnkiWeb does not have the
-ability to import apkg files however, so the recipients of your deck will need
-to have the computer version or Anki on their mobile device.
-
-When a user imports an .apkg file, cards that already exist in their collection
+When a user imports a .apkg file, cards that already exist in their collection
 will be ignored and any new cards will be added. As long as they use the same
 note type, modified cards will also be updated. To prevent data loss, cards
 that have been deleted in the new apkg file will not be deleted in the user's
@@ -4383,7 +3960,8 @@ to spend too much time correcting them, but your mileage may vary.)
 
 The following translations are currently in progress:
 
-* Hungarian
+* Chinese
+* http://ankisrs.net/docs/manual.pl.html[Polish]
 
 If you would like to help with one of these translations, please contact us on
 TenderApp and we will put you in touch with the user(s) currently working on
@@ -4457,7 +4035,7 @@ to recognize the correct answer even if they can't produce it themselves.
 
 Furthermore, good multiple choice questions have well chosen "distractors" -
 answers that are similar to the correct answer. A computer can look for
-similarly spelt words, but it is not capable of choosing good distractors for
+similary spelt words, but it is not capable of chosing good distractors for
 more complicated topics.
 
 If you are studying for a test and you have a sample test with a multiple
@@ -4609,7 +4187,6 @@ AnkiDroid is written by a separate group of volunteers. Since they based it on
 the free desktop version I make available (and rely on AnkiWeb in order to
 synchronize decks), they decided to make it freely available as well.
 
-[[what-algorithm]]
 == What spaced repetition algorithm does Anki use? ==
 
 Anki was originally based on the SuperMemo SM5 algorithm. However, Anki's
