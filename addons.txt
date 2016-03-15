@@ -92,7 +92,7 @@ be very useful when you want to know how to use a particular GUI component.
 'ankiqt' には、Anki のユーザーインターフェイス部分が含まれています。Anki のユーザー
 インターフェイスは、PyQt 上に構築されています。PyQt とは、クロスプラットフォーム GUI
 ツールキット Qt に対する Python バインディングです。PyQt は、Qt の API に密接に動作
-します。http://doc.qt.nokia.com/4.7/index.html[Qt documentation] は、特定の GUI
+します。http://doc.qt.io/qt-4.8/index.html[Qt documentation] は、特定の GUI
 コンポーネントの使い方を調べたい時に、非常に役立ちます。
 
 /////
