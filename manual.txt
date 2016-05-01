@@ -29,6 +29,7 @@ This page translated into other languages:
  * http://ankisrs.net/docs/manual.fr.html[Français]
  * http://192.167.9.6/Anki_ITA/Manual_ITA.htm[Italiano]
  * http://ankisrs.net/docs/manual.pl.html[Polski]
+ * http://ankisrs.net/docs/manual.ir.pdf[فارسى]
  * http://wikiwiki.jp/rage2050/?FrontPage[日本語]
  * http://www.ankichina.net/anki20.html[简体中文]
 
@@ -916,7 +917,9 @@ When you answer a card that has siblings, Anki prevents the card's siblings
 from being shown in the same session by automatically 'burying' them. Buried
 cards are hidden from review until the clock rolls over to a new day or you
 manually unbury them using the “Unbury” button that's visible at the bottom of
-the <<deckoverview,deck overview>> screen.
+the <<deckoverview,deck overview>> screen. Anki will bury siblings even if the
+siblings are not in the same deck (for instance, if you use the
+<<deckoverride,deck override>> feature).
 
 Anki will only bury siblings that are new or review cards. It will not hide
 cards in learning, as time is of the essence for those cards. On the other
@@ -1187,6 +1190,7 @@ field's name in parentheses in place of content.
 At the bottom of the window is a More button that gives you options to rename
 or reorder the cards, as well as the following two options:
 
+[[deckoverride]]
  * The 'Deck Override' option allows you to change the deck that cards generated
 from the current card type will be placed into. By default, cards are placed
 into the deck you provide in the Add Notes window. If you set a deck here, that
@@ -2029,7 +2033,8 @@ Each Anki client may implement card display differently, so you will need to
 test the behaviour across platforms. A number of clients are implemented
 by keeping a long running webpage and dynamically updating parts of it as cards
 are reviewed, so your Javascript will need to update sections of the document
-rather than doing things like document.write.
+using things like document.getElementById() rather than doing things like
+document.write().
 
 Functions like window.alert are also not available. Anki will write
 javascript errors to the terminal, so if you're running on a Mac or Windows
@@ -2458,7 +2463,7 @@ http://user%40workdomain.com:pass@proxy.company.com:8080
 -----
 
 To set environmental variables on Windows, please see
-http://www.itechtalk.com/thread3595.html
+https://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/sysdm_advancd_environmnt_addchange_variable.mspx?mfr=true
 
 If you're on a Mac, please see http://stackoverflow.com/questions/135688/setting-environment-variables-in-os-x
 
@@ -2942,6 +2947,10 @@ possible in the browser are also possible for filtered decks, such as limiting
 to tags, finding cards forgotten a certain number of times, and so on. Please
 see the <<searching,searching>> section of the manual for more information on
 the different possibilities.
+
+NOTE: Filtered decks can not include cards that are suspended, buried, or
+already in a different filtered deck. For this reason, a search in the browser
+may reveal cards that don't end up in the filtered deck.
 
 The *limit* option controls how many cards will be gathered into the deck. The
 order you select controls both the order cards are gathered in, and the order

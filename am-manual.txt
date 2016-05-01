@@ -3,8 +3,13 @@
 AnkiMobile 2.0 User Manual
 ___________________________
 
-Introduction
-============
+= Help & Bugs =
+
+There's a dedicated http://help.ankisrs.net[support site] for
+questions, suggestions and bug reports. I monitor the site on a daily basis,
+and also employ someone to help answer questions.
+
+= Introduction =
 
 Thank you for buying AnkiMobile! Anki development would not be able to
 continue without your support, so it is greatly appreciated.
@@ -26,12 +31,6 @@ the top, and when a list of possible matches appears, choose the "Find on
 page" option at the bottom to search through this page.
 
 *On a computer*, choose Find from the Edit menu in most browsers.
-
-= Help & Bugs =
-
-There's a dedicated http://ankisrs.net/docs/help.html[support site] for
-questions, suggestions and bug reports. I monitor the site on a daily basis,
-and also employ someone to help answer questions.
 
 [[adding]]
 = Adding Decks =
@@ -328,6 +327,10 @@ answer buttons when the answer is shown.
 Audio Buttons :: Allows you to hide the play button that appears for each
 audio file you've placed on the card. Useful if you'd rather replay audio via
 the "Replay Audio" action bound to a swipe or tap.
+Always Duck + Ignore Mute :: While AnkiMobile is running, any music that is
+playing in other apps will be played at a reduced volume to make it easier to
+hear the audio on your cards. When enabled, this option will also allow audio
+to play automatically even when the mute/vibrate/silent switch is turned on.
 Pinch Scales Text :: Normally when you do a pinch gesture, Anki will expand or
 contract any images that have been shrunk to fit the screen. If you enable
 this option, the text will also scale when you pinch.
