@@ -53,9 +53,9 @@ version of Anki that's provided on the website, as there are no instructions
 available for building it from scratch on those platforms.
 /////
 
-プラグインの開発には、特定の開発環境は必要ありません。テキストエディタがあれば十分です。
-WindowsやMacをお使いの方は、このサイトからパッケージ版のAnkiをお使いください。これらの
-プラットフォーム上で、ゼロからAnkiを構築するために入手可能な説明はないからです。
+プラグインの開発には、特別な開発環境は必要ありません。テキストエディタがあれば十分です。
+Windows や Mac をお使いの方は、このサイトで提供しているパッケージ版の Anki をお使いください。これらの
+プラットフォーム上でゼロから Anki を構築するための説明が入手できないためです。
 
 /////
 While you can write plugins in a simple text editor like notepad, you may want
@@ -78,7 +78,7 @@ answering cards, and so on. It is used by Anki's GUI, and can also be included
 in command line programs to access Anki decks without the GUI.
 /////
 
-'libanki' には、「背後」で動作する全てのコードが含まれています。コレクションを開いたり、
+'anki' には、「背後」で動作する全てのコードが含まれています。コレクションを開いたり、
 カードを取得し、回答する処理などです。これは、Anki の GUI が使用していますが、GUI を使わず
 に Anki 単語帳にアクセスするコマンドラインプログラムに含めることもできます。
 
@@ -89,7 +89,7 @@ closely, so the http://doc.qt.io/qt-4.8/index.html[Qt documentation] can
 be very useful when you want to know how to use a particular GUI component.
 /////
 
-'ankiqt' には、Anki のユーザーインターフェイス部分が含まれています。Anki のユーザー
+'aqt' には、Anki のユーザーインターフェイスの部分が含まれています。Anki のユーザー
 インターフェイスは、PyQt 上に構築されています。PyQt とは、クロスプラットフォーム GUI
 ツールキット Qt に対する Python バインディングです。PyQt は、Qt の API に密接に動作
 します。http://doc.qt.io/qt-4.8/index.html[Qt documentation] は、特定の GUI
@@ -115,7 +115,7 @@ Anki が起動すると、Anki は、Documents/Anki/addons フォルダの中に
 Add the following to a test.py file in your add-ons folder:
 /////
 
-次に示す test.py ファイルを、自分の add-ons フォルダーに追加してみてください:
+次に示す test.py ファイルを、自分のアドオンフォルダーに追加してみてください:
 
 /////
 -----
@@ -146,7 +146,7 @@ mw.form.menuTools.addAction(action)
 /////
 
 -----
-# ankiqt からメインウィンドウオブジェクト (mw) を読み込みます
+# aqt からメインウィンドウオブジェクト (mw) を読み込みます
 from aqt import mw
 # utils.py から "show info" ツールを読み込みます
 from aqt.utils import showInfo
@@ -154,7 +154,7 @@ from aqt.utils import showInfo
 from aqt.qt import *
 
 # 次のようなメニュー項目を追加してみましょう。まず最初にメニュー項目が利用可能になったら
-# 呼び出される関数を作ります。
+# 呼び出す関数を作成します。
 
 def testFunction():
     # 現在使用中のコレクションの中のカードの枚数を取得します
@@ -165,7 +165,7 @@ def testFunction():
 
 # 新しいメニュー項目 "test" を作成します。
 action = QAction("test", mw)
-# この項目をクリックしたら testFunction が呼び出されるように設定します。
+# この項目をクリックしたら testFunction を呼び出すように設定します。
 mw.connect(action, SIGNAL("triggered()"), testFunction)
 # そして、この設定をツールメニューに反映します。
 mw.form.menuTools.addAction(action)
@@ -203,8 +203,8 @@ loaded.
 
 コレクションファイル上の全ての操作は、mw.col を通じてアクセスします。基本的な例で
 何ができるがご紹介します。注意してほしいのは、上の例のように testFunction() の中で行ってください。
-アドオンの中で直接実行することはできません。それは、Ankiを起動中に、コレクションやプロファイルを
-読み込む前にアドオンが初期化されるからです。
+アドオンの中で直接実行することはできません。それは、Anki を起動中にアドオンが初期化し、その後にコレクションやプロファイルを
+読み込むからです。
 
 /////
 *Get a due card:*
@@ -333,7 +333,7 @@ Almost every GUI operation has an associated function in libanki, so any of
 the operations that Anki makes available can also be called in an add-on.
 /////
 
-ほとんど全ての GUI 処理は libanki 内に関連する関数を持っています。このため、Anki が利用
+ほとんど全ての GUI 処理は 'anki' 内に関連する関数を持っています。このため、Anki が利用
 できるどんな処理でも、アドオンの中で同様に呼び出すことができます。
 
 /////
@@ -354,7 +354,7 @@ you must make sure to call col.close() when you're done,
 or those changes will be lost.
 /////
 
-Ankiの外部のコレクションに何らかの修正を加えたときは、修正が済んだら col.close() を必ず呼び出さなければなりません。
+Anki の外部のコレクションに何らかの修正を加えたときは、修正が済んだら col.close() を必ず呼び出さなければなりません。
 これを怠ると修正点は失われます。
 
 /////
@@ -370,7 +370,7 @@ files. Please see the http://www.sqlite.org/lang.html[SQLite documentation]
 for more information.
 /////
 
-libanki がサポートしていない処理を実行する必要がある場合は、データベースに直接アクセスする
+'anki' がサポートしていない処理を実行する必要がある場合は、データベースに直接アクセスする
 ことができます。Anki コレクションは、SQLite ファイル内に保存されています。詳しい情報は、
 http://www.sqlite.org/lang.html[SQLite documentation]をご覧ください。
 
@@ -440,7 +440,7 @@ ids_and_ivl = mw.col.db.all("select id, ivl from cards")
 intermediate list. eg:*
 /////
 
-*execute() は、中間リストを作らずに結果の集まりへの処理を繰り返すのに使えます。例:*
+*execute() は、中間リストを作らずに結果の集合への処理を繰り返すのに使えます。例:*
 
 -----
 for id, ivl in mw.col.db.execute("select id, ivl from cards limit 3"):
@@ -474,7 +474,7 @@ easier. There are two types: 'hooks' take some arguments and return no value,
 and 'filters' take a value and return it (perhaps modified).
 /////
 
-フックは、アドオンの作成がもっと簡単になるように、コードのほんの少しの箇所に追加されました。
+フックをコードのわずかな箇所に追加して、アドオンの作成がもっと簡単になるようにしました。
 フックは 2 種類あります。'hooks' は引数を取り、戻り値はありませんが、'filters' 引数を取り、
 (おそらく何らかの修正を加えて) 値を返します。
 
@@ -483,8 +483,8 @@ A simple example of the former is in the leech handling. When the scheduler
 (libanki/sched.py) discovers a leech, it calls:
 /////
 
-'hook' の簡単な例は、記憶困難なカード (leech) の処理の中に見つかります。スケジューラー
-(libanki/sched.py) が、記憶困難なカードを見つけると、'hook' を呼び出します。
+'hook' の簡単な例は、無駄なカード (leech) の処理の中に見つかります。スケジューラー
+(anki/sched.py) が、無駄なカードを見つけると、'hook' を呼び出します。
 
 -----
 runHook("leech", card)
@@ -496,7 +496,7 @@ as moving the card to a "Difficult" deck, you could do it with the following
 code:
 /////
 
-記憶困難なカードが現れた時に、特定の処理を行いたい場合、例えばそのカードを "Difficult"
+無駄なカードが現れた時に、特定の処理を行いたい場合、例えばそのカードを "Difficult"
 という名前の単語帳に移動する場合、次のようなコードで実現できます。
 
 
@@ -526,8 +526,8 @@ from aqt.mw import mw
 def onLeech(card):
     # スケジューラーが修正する際には、 .flush() を使わずに修正できます。
     card.did = mw.col.decks.id("Difficult")
-    # カードが詰め込み単語帳の中にある場合は、元の復習時期で元の単語帳に戻さなければ
-    # なりません
+    # カードがフィルター単語帳の中にある場合は、復習時期を元に戻して取得元の単語帳に
+    # 戻さなければなりません
     card.odid = 0
     if card.odue:
         card.due = card.odue
@@ -577,7 +577,7 @@ any single add-on makes a change, the UI will reload the note to show updates.
 
 filter は 3 つの引数を指定できます。修正フラグ、ノート、現在のフィールドです。
 filter が変更を加えない場合は、修正フラグは受け取った値と同じ値を返します。
-変更を加えた場合は、True を返します。このようにして、どんな単一のアドオンでも変更を加えると
+変更を加えた場合は、True を返します。このようにして、どんなアドオンでも変更を加えると
 ユーザーインターフェイスは、ノートを読み込み直して、更新内容を表示します。
 
 /////
@@ -585,7 +585,7 @@ The Japanese Support add-on uses this hook to automatically generate one field
 from another. A slightly simplified version is presented below:
 /////
 
-Japanese Support アドオンは、このフックを使って別の欄から新しい欄を自動的に生成します。
+Japanese Support アドオンは、このフックを使って別のフィールドからフィールドを自動的に生成します。
 単純化したものを次に示します。
 
 /////
@@ -634,7 +634,7 @@ def onFocusLost(flag, n, fidx):
     # japanese model か?
     if "japanese" not in n.model()['name'].lower():
         return flag
-    # src 欄と dst 欄を持つか?
+    # src フィールドと dst フィールドがあるか?
     for c, name in enumerate(mw.col.models.fieldNames(n.model())):
         for f in srcFields:
             if name == f:
@@ -645,10 +645,10 @@ def onFocusLost(flag, n, fidx):
                 dst = f
     if not src or not dst:
         return flag
-    # dst 欄は入力済みか?
+    # dst フィールドは入力済みか?
     if n[dst]:
         return flag
-    # イベントは src 欄で発生したか?
+    # イベントは src フィールドで発生したか?
     if fidx != srcIdx:
         return flag
     # ソーステキストを取得
@@ -675,8 +675,8 @@ latex.py uses this filter to convert text in LaTeX tags into images.
 /////
 
 filter の第一引数は、必ず返される引数です。このフォーカスを失った時の filter の中では、
-引数はフラグですが、別のオブジェクトになる場合もあります。例えば、libanki/collection.py
-の中では、_renderQA() は、カードの表面と裏面用に生成した HTML を持つ "mungeQA" filter
+引数はフラグですが、別のオブジェクトになる場合もあります。例えば、anki/collection.py
+の中では、_renderQA() は、カードの表面と裏面用に生成した HTML を収容する "mungeQA" filter
 を呼び出します。latex.py は、この filter を LaTeX タグの中のテキストを画像に変換する
 のに使っています。
 
@@ -1091,16 +1091,16 @@ colllection object is defined in libanki's collection.py. Other useful files
 to check out are cards.py, notes.py, sched.py, models.py and decks.py.
 /////
 
-libanki と ankiqt の両方が http://github.com/dae/ で入手できます。コレクション
-オブジェクトは、libanki の collection.py の中で定義されています。他に調べる価値のある
-ファイルは、cards.py、notes.py、sched.py、models.py や decks.py があります。
+anki と aqt の両方が http://github.com/dae/ で入手できます。コレクション
+オブジェクトは、anki の collection.py の中で定義されています。他に調べる価値のある
+ファイルは、cards.py、notes.py、sched.py、models.py や decks.py です。
 
 /////
 It can also be helpful to look in the ankiqt source to see how it's calling
 libanki for a particular operation, or to learn more about the GUI.
 /////
 
-ankiqt のソースコード見ることも、特定の処理のための libanki の呼び出し方や GUI の詳細
+aqt のソースコード見ることも、特定の処理のための anki の呼び出し方や GUI の詳細
 を理解するのに役立ちます。
 
 /////
@@ -1116,7 +1116,7 @@ And finally, it can also be extremely helpful to browse other add-ons to see
 how they accomplish something.
 /////
 
-最後になりますが、他のアドオンが何かを実現している方法を見ることも、非常に役立つことです。
+最後になりますが、他のアドオンが何かを実現している方法を見ることも、非常に役立ちます。
 
 /////
 = Porting Anki 1.2 plugins =
@@ -1158,14 +1158,14 @@ Some of the main changes to be aware of:
  * テーブルの変更: facts->notes、reviewHistory->revlog
  * フィールドは、現在 notes テーブルに 'flds' という単体のテキストフィールドに保存している。
    各フィールドは \x1f で区切られている。
- * cardTags テーブルは廃止になりました。以前と同様の方法で検索するには
+ * cardTags テーブルを廃止しました。以前と同様の方法で検索するには
    col.findCards("tag:x note:y card:z") をお使いください。
  * スケジュールのコードは全て sched.py にあります。単語帳のコードは collection.py です。
  * notes テーブルを一括更新する場合は、findReplace() を使わないでください。
    必ず col.updateFieldCache() を呼び出してください。
- * Q/A キャッシュは廃止になりました。このため質問か解答を生成していないカードの中を
+ * Q/A キャッシュを廃止しました。このため質問か解答を生成していないカードの中を
    テキスト検索することはできません。
- * 変更の前にコレクションを保存するには、古いやり直しシステムの代わりに 
+ * 変更の前にコレクションを保存するには、古いアンドゥ (元に戻す) システムの代わりに 
    mw.checkpoint("Undo Name") を呼び出してください。ユーザーが操作をやり直す場合、
    保存済みの状態に戻ります。
  * 変更の同期を確実にするには、ノートやカードをデータベース内で修正した場合に、mod の更新と
@@ -1173,7 +1173,7 @@ Some of the main changes to be aware of:
  * 同様に、モデルや単語帳を修正した場合は、適切なマネージャで必ず save() を呼んでください。
  * タイマーを設定する場合は、mw.progress.timer() を使って、データベース処理の最中に
    タイマーが起動することが決して起らないようにしてください。
- * stats テーブルは廃止されました。同期中のマージはできなくなりました。統計は revlog 
+ * stats テーブルを廃止しました。同期中のマージはできなくなりました。統計は revlog 
    テーブルから引き出す必要があります。
 
 /////
