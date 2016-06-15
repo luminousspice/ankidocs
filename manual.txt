@@ -1602,6 +1602,8 @@ The type of note: {{Type}}
 
 The card's deck: {{Deck}}
 
+The card's subdeck: {{Subdeck}}
+
 The type of card ("Forward", etc): {{Card}}
 
 The content of the front template (only valid in back template): {{FrontSide}}
@@ -4394,6 +4396,7 @@ to spend too much time correcting them, but your mileage may vary.)
 The following translations are currently in progress:
 
 * Hungarian
+* Portuguese
 
 If you would like to help with one of these translations, please contact us on
 TenderApp and we will put you in touch with the user(s) currently working on
@@ -4411,6 +4414,7 @@ an email or a Github pull request.
 Frequently Asked Questions
 ===========================
 
+[[duetimestoobig]]
 == I haven't studied for a while, and now the next due times are too big! ==
 
 When you use Anki every day, each time a card is answered correctly, it gets a
@@ -4712,9 +4716,8 @@ If you press...
   and the ease is increased by 15 percentage points.
 
 For Hard, Good, and Easy, the next interval is additionally multiplied by the
-'interval modifier'. If the card is being reviewed late, the number of days
-that the card is overdue will be added to the current interval before doing
-these calculations.
+'interval modifier'. If the card is being reviewed late, additional days will
+be added to the current interval, as described <<duetimestoobig,here>>.
 
 There are a few limitations on the scheduling values that cards can take. Eases
 will never be decreased below 130%; SuperMemo’s research has shown that eases
