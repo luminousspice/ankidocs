@@ -21,7 +21,7 @@ _ Anki 2.0 アドオンの作成 _
 /////
 
  * 英語: http://ankisrs.net/docs/addons.html
- * по-русски: http://finpapa.ucoz.ru/ankitest-addons.html
+ * ロシア語: http://finpapa.ucoz.ru/ankitest-addons.html
 
 /////
 = Overview =
@@ -582,7 +582,7 @@ True. In this way, if any single add-on makes a change, the UI will reload the
 note to show updates.
 /////
 
-filter は 3 つの引数を指定できます。修正フラグ、ノート、現在のフィールドです。
+このサンプルでは、それぞれの filter は 3 つの引数を受け取ります。修正フラグ、ノート、現在のフィールドです。
 filter が変更を加えない場合は、修正フラグは受け取った値と同じ値を返します。
 変更を加えた場合は、True を返します。このようにして、どんなアドオンでも変更を加えると
 ユーザーインターフェイスは、ノートを読み込み直して、更新内容を表示します。
@@ -690,6 +690,9 @@ filter の第一引数は、必ず返される引数です。このフォーカ�
 /////
 In Anki 2.1, a hook was added for adding buttons to the editor. It can be used
 like so:
+/////
+
+Anki 2.1 では、エディタにボタンを追加するフックを追加しました。次のように使います。
 
 -----
 from aqt.utils import showInfo
@@ -709,6 +712,7 @@ def addMyButton(buttons, editor):
 addHook("setupEditorButtons", addMyButton)
 -----
 
+/////
 = Monkey Patching and Method Wrapping =
 /////
 
@@ -974,7 +978,7 @@ top area, and then press ctrl+return/command+return to evaluate them. An
 example session follows:
 /////
 
-Anki には、REPL が含まれています。プログラムの中から Ctrl+: または Command+: を押すと
+Anki には、REPL が含まれています。プログラムの中から https://apps.ankiweb.net/docs/manual.html#debug-console[shortcut key] を押すと
 ウィンドウが立ち上がります。上の欄に式や文を入力し、ctrl+return/command+return を押すと
 評価します。セッション例を次に挙げます。
 
