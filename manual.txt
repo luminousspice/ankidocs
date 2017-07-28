@@ -5,6 +5,7 @@ Anki Manual
 
 <h1>Anki 2.0 User Manual</h1>
 
+<!-- highlight Docs tab in header -->
 <script>
     document.getElementById("navmanual").className += " active";
 </script>
@@ -13,25 +14,26 @@ Anki Manual
 Intro Videos
 ============
 
- * http://www.youtube.com/watch?v=QS2G-k2hQyg&feature=plcp[Shared Decks and Review Basics]
- * http://www.youtube.com/watch?v=DnbKwHEQ1mA[Switching Card Order]
- * http://www.youtube.com/watch?v=F1j1Zx0mXME[Styling Cards]
- * http://www.youtube.com/watch?v=5tYObQ3ocrw[Typing in the Answer]
+ * http://www.youtube.com/watch?v=QS2G-k2hQyg&yt:cc=on[Shared Decks and Review Basics]
+ * http://www.youtube.com/watch?v=DnbKwHEQ1mA&yt:cc=on[Switching Card Order]
+ * http://www.youtube.com/watch?v=F1j1Zx0mXME&yt:cc=on[Styling Cards]
+ * http://www.youtube.com/watch?v=5tYObQ3ocrw&yt:cc=on[Typing in the Answer]
 
 Translations
 ============
 
 This page translated into other languages:
 
- * http://ankisrs.net/docs/manual.id.html[Bahasa Indonesia]
+ * https://apps.ankiweb.net/docs/manual.id.html[Bahasa Indonesia]
  * http://www.dennisproksch.de/anki[Deutsch]
- * http://ankisrs.net/docs/manual.es.html[Español]
- * http://ankisrs.net/docs/manual.fr.html[Français]
- * http://192.167.9.6/Anki_ITA/Manual_ITA.htm[Italiano]
- * http://ankisrs.net/docs/manual.pl.html[Polski]
- * http://ankisrs.net/docs/manual.ir.pdf[فارسى]
+ * https://apps.ankiweb.net/docs/manual.es.html[Español]
+ * https://apps.ankiweb.net/docs/manual.fr.html[Français]
+ * https://web.archive.org/web/20160423223801/http://192.167.9.6/Anki_ITA/Manual_ITA.htm[Italiano]
+ * https://apps.ankiweb.net/docs/manual.pl.html[Polski]
+ * http://ankidroid.ir/anki.pdf[فارسى]
  * http://wikiwiki.jp/rage2050/?FrontPage[日本語]
- * http://www.ankichina.net/anki20.html[简体中文]
+ * https://www.ankichina.net/anki20.html[简体中文]
+ * http://finpapa.ucoz.ru/ankitest-manual.html[по-русски]
 
 These translations are contributed by volunteers. If you would like to help
 translate the manual into a different language, or you would like to look at
@@ -41,7 +43,7 @@ the translations that are currently in progress, please see the
 Introduction
 ============
 
-:website: http://ankisrs.net/[Anki website]
+:website: https://apps.ankiweb.net/[Anki website]
 :ankiweb: https://ankiweb.net/
 
 Anki is a program which makes remembering things easy. Because it is a lot
@@ -93,7 +95,7 @@ until you've thought about the answer, you can learn things more
 effectively than passive observation allows.
 
 Use It or Lose It
-------------------
+-----------------
 
 Our brains are efficient machines, and they rapidly discard information that
 doesn't seem useful. Chances are that you don't remember what you had for
@@ -243,7 +245,7 @@ For information on how decks affect the order cards are displayed in, please
 see the <<displayorder,display order>> section.
 
 Notes & Fields
----------------
+--------------
 
 When making flashcards, it’s often desirable to make more than one card that
 relates to some information. For example, if you’re learning French, and you
@@ -412,16 +414,18 @@ completely independent of each other. You can also change the note type of some
 notes <<browsermisc,after you've already created them>>.
 
 Collection
------------
+----------
 
 Your 'collection' is all the material stored in Anki – your cards, notes, decks,
 note types, deck options, and so on.
 
 Adding Material
-================
+===============
 
 Downloading Shared Decks
--------------------------
+------------------------
+
+You can watch http://www.youtube.com/watch?v=QS2G-k2hQyg&yt:cc=on[a video about Shared Decks and Review Basics] on YouTube.
 
 The easiest way to get started with Anki is to download a deck of cards
 someone has shared:
@@ -476,7 +480,7 @@ disappointing results.
 
 [[addingnotes]]
 Adding Cards and Notes
------------------------
+----------------------
 
 Recall from the <<basics,basics>> that in Anki we add notes rather than cards,
 and Anki creates cards for us. Click 'Add' in the main window, and the Add
@@ -544,7 +548,7 @@ SuperMemo site. In particular:
 
 [[notetypes]]
 Adding a Note Type
--------------------
+------------------
 
 While basic note types are sufficient for simple cards with only a word or
 phrase on each side, as soon as you find yourself wanting to include more than
@@ -576,7 +580,7 @@ return to the adding window.
 
 [[fields]]
 Customizing Fields
--------------------
+------------------
 
 To customize fields, click the “Fields...” button when adding or editing a
 note, or while the note type is selected in the Manage Note Types window.
@@ -622,7 +626,7 @@ back of your cards. For more information on that, please see the
 <<templates,templates>> section.
 
 Changing Deck / Note Type
---------------------------
+-------------------------
 
 While adding, you can click on the top left button to change note type, and
 the top right button to change deck. The window that opens up will not only
@@ -631,7 +635,7 @@ your note types.
 
 [[manydecks]]
 Using Decks Appropriately
---------------------------
+-------------------------
 
 Decks are designed to divide your content up into broad categories
 that you wish to study separately, such as English, Geography, and so on. You
@@ -674,16 +678,16 @@ separately (for a test, when under a backlog, etc), tags/fields and filtered
 decks are better.
 
 Studying
-==========
+========
 
 When you have found a deck you like or entered some notes in, it's time to
 start studying.
 
 Decks
-------
+-----
 
-Study in Anki is limited to the currently selected deck as well as any decks it
-contains.
+Study in Anki is limited to the currently selected deck as well as any
+subdecks it contains.
 
 On the decks screen, your decks will be displayed in a list. There are two
 number columns, 'due' and 'new'. 'Due' is the count of waiting reviews and
@@ -699,6 +703,9 @@ selected deck.)
 
 You can click the gears button to the right of a deck to rename or delete a
 deck, change its options, or <<exporting,export>> it.
+
+When a deck has subdecks, the cards will appear from <<displayorder,each deck
+in turn>>.
 
 [[deckoverview]]
 Study Overview
@@ -742,7 +749,7 @@ being 'learnt' or 'reviewed'.
 
 [[learning]]
 Learning
----------
+--------
 
 When learning new cards, or when relearning cards that you have forgotten, Anki
 will show you the cards one or more times to help you memorize them. Each time
@@ -807,7 +814,7 @@ As with learning cards, you can use 1-4 on the keyboard to select an answer.
 Pressing the spacebar will select 'Good'.
 
 Due Counts and Time Estimates
--------------------------------
+-----------------------------
 
 When only the question is shown, Anki shows three numbers like 12 + 34 + 56 at
 the bottom of the screen. These represent the new cards, cards in learning, and
@@ -830,7 +837,7 @@ the time estimates but will be applied after selecting the button.
 
 [[editmore]]
 Editing and More
-------------------
+----------------
 
 You can click the *Edit* button in the bottom left to edit the current note.
 When you finish editing, you'll be returned to study. The editing screen works
@@ -875,11 +882,11 @@ button provides some other operations you can do on the current card or note:
 
 [[displayorder]]
 Display Order
---------------
+-------------
 
 Studying will show cards from the selected deck and any decks it contains.
-Thus, if you select your “French” deck, “French::Vocab” and “French::My
-Textbook::Lesson 1” will be shown as well.
+Thus, if you select your “French” deck, the subdecks “French::Vocab” and
+“French::My Textbook::Lesson 1” will be shown as well.
 
 For new cards and reviews, Anki fetches cards from the decks in alphabetical
 order. So in the above example, you would get cards first from “French”, then
@@ -891,10 +898,10 @@ alphabetical characters, and “\~” comes after them. So you could call the de
 Textbook” to force it to appear after everything else.
 
 New cards and reviews are fetched separately, and Anki won't wait until both
-queues are empty before moving on to the next deck, so it's possible you'll be
-exposed to new cards from a different deck to the reviews or vice versa. If
-you don't want this, click directly on the deck you want to study instead of
-one of the parent decks.
+queues are empty before moving on to the next deck, so it's possible you'll
+be exposed to new cards one deck while seeing reviews from another deck, or
+vice versa. If you don't want this, click directly on the deck you want to
+study instead of one of the parent decks.
 
 Since cards in learning are somewhat time-critical, they are fetched from all
 decks at once and shown in the order they are due.
@@ -973,7 +980,7 @@ Editing
 =======
 
 Features
----------
+--------
 
 The editor is shown when <<addingnotes,adding notes>>, <<editmore,editing a
 note>> during reviews, or <<browser,browsing>>.
@@ -1010,7 +1017,7 @@ or m to select the three LaTeX types, and Ctrl+Shift+x to edit the HTML.
 
 [[cloze]]
 Cloze Deletion
----------------
+--------------
 
 'Cloze deletion' is the process of hiding one or more words in a sentence. For
 example, if you have the sentence:
@@ -1121,45 +1128,48 @@ on a regular note type. If you wish to customize it, please make sure to clone
 the existing Cloze type instead of another type of note.
 
 Inputting Foreign Characters and Accents
-------------------------------------------
+----------------------------------------
 
-Windows, Mac and Linux provide built-in support for typing most languages.
-There is no need to buy a different keyboard. Some flashcard programs try to
-save you the trouble of enabling support on your computer by providing a
-clickable set of buttons for each foreign character or their own conversion
-utilities. However, this makes input a lot slower. One person
-http://www.glowingfaceman.com/2008/12/french-revolution-day-7.html[writes]:
+All modern computers have built in support for typing
+accents and foreign characters, and multiple ways to go
+about it. The method we recommend is using a keyboard layout
+for the language you want to learn.
 
-[quote]
-By the way, if you're learning any foreign language with exotic characters,
-even just the Spanish ñ, I encourage you to look into how to efficiently
-type those characters. When I first started studying Japanese, I didn't
-know how to type Japanese characters. I'd just copy-and-paste things to
-make flashcards and/or communicate with people. And if I wanted to type
-something original, that meant painstakingly finding, then
-copying-and-pasting each individual character. With my U.S.-bought
-computer, it was kind of a pain to get Japanese IME support (and it
-involved borrowing a Windows XP disk from a friend since you need one to
-install Microsoft's Japanese IME). But it was worth it a million times
-over. In retrospect, I should have done that as one of my very first steps
-when I first set out to learn Japanese.
+Languages with a separate script like Japanese, Chinese,
+Thai and so on have their own layouts specifically for that
+language.
 
-If you're learning a right to left language, there are lots of other things to
-consider. Please see http://dotancohen.com/howto/rtl_right_to_left.html[this
+European languages that use accents may have their own
+layout, but can often by typed on a generic "international
+keyboard" layout. These work by typing the accent, then the
+character you want accented - eg an apostrophe (') then the
+letter a (a) gives á.
+
+To add the international keyboard on Windows machines, please see
+https://support.microsoft.com/en-au/kb/306560
+
+To add it on Macs, please see
+http://www.macworld.com/article/1147039/os-x/accentinput.html
+
+Keyboards for a specific language are added in a similar
+way, but we can not cover them all here. For more
+information, please try searching Google for "input Japanese
+on a mac", "type Chinese on Windows 10", and so on.
+
+If you're learning a right to left language, there are lots
+of other things to consider. Please see
+http://dotancohen.com/howto/rtl_right_to_left.html[this
 page] for more information.
 
-To learn more, please search Google for something like “input Japanese on a
-mac” or “input German on windows”, as there is plenty of good information
-available.
-
-NOTE: The toolkit Anki is built on has trouble dealing with a few input
-methods, such as holding down keys to select accented characters on Mac OS X.
-Fortunately, there are usually other input methods that will work properly –
-please research other options for your operating system.
+NOTE: The toolkit Anki is built on has trouble dealing with
+a few input methods, such as holding down keys to select
+accented characters on Mac OS X, and typing characters by
+holding down the alt key and typing a numeric code on
+Windows.
 
 [[templates]]
 Cards and Templates
-====================
+===================
 
 As mentioned in the <<cardtypes,basics>> section, Anki creates cards
 automatically, based on the notes you add. (Please read the basics section if
@@ -1206,7 +1216,7 @@ templates for display in the Question and Answer columns of the browser; see
 [[reversingcards]]
 == Reverse Cards ==
 
-You can watch http://www.youtube.com/watch?v=DnbKwHEQ1mA[a video about
+You can watch http://www.youtube.com/watch?v=DnbKwHEQ1mA&yt:cc=on[a video about
 reversing cards] on YouTube.
 
 If you want to create cards that go in both directions (e.g., both
@@ -1285,7 +1295,7 @@ or div instead.
 [[typinganswers]]
 == Checking Your Answer ==
 
-You can watch http://www.youtube.com/watch?v=5tYObQ3ocrw[a video about
+You can watch http://www.youtube.com/watch?v=5tYObQ3ocrw&yt:cc=on[a video about
 this feature] on YouTube.
 
 If you'd like to type in the answer and have Anki compare your input to the
@@ -1398,7 +1408,7 @@ line, you would use
 [[cardstyling]]
 == Card Styling ==
 
-You can watch http://www.youtube.com/watch?v=F1j1Zx0mXME[a video about
+You can watch http://www.youtube.com/watch?v=F1j1Zx0mXME&yt:cc=on[a video about
 styling cards] on YouTube.
 
 In between the front and back template is the card styling. Here you can change
@@ -1683,6 +1693,7 @@ every card (eg, a company logo at the top of each card):
 <img src="_logo.jpg">
 -----
 
+[[mediarefs]]
 === Field References ===
 
 Media references to fields are not allowed. They may or may not display during
@@ -1966,9 +1977,8 @@ font, we'll need to add it to the media folder:
  . Rename the file, adding an underscore at the start, so it becomes like
    "_arial.ttf". Adding an underscore will tell Anki that this file will be
    used on a template, and should not be deleted when checking for unused media.
- . In your computer's file browser, go to your Documents folder, then the Anki
-   folder inside it, and then a folder called "User 1" (or your profile name
-   if you've renamed/added profiles).
+ . In your computer's file browser, go to your <<files,Anki Folder>>, and then a
+   folder called "User 1" (or your profile name if you've renamed/added profiles).
  . Inside the folder, you should see a folder called collection.media. Drag
    the renamed file to that folder.
 
@@ -2050,7 +2060,7 @@ are causing problems.
 
 [[profiles]]
 Profiles
----------
+--------
 
 If more than one person wants to use Anki on your computer, you can set up a
 separate profile for each user. Each user profile has their own collection,
@@ -2071,7 +2081,7 @@ each other's decks and settings in a classroom environment.
 
 [[preferences]]
 Preferences
-------------
+-----------
 
 The preferences are available from the Tools menu on Windows/Linux, or the
 Anki menu on a Mac. If you have multiple profiles, any changes you make will
@@ -2224,7 +2234,7 @@ setting needs to be large enough for the cards of multiple notes to be
 included.
 
 Reviews
---------
+-------
 
 *Maximum reviews/day* allows you to set an upper limit on the number of
 reviews to show each day. When this limit is reached, Anki will not show any
@@ -2339,7 +2349,7 @@ The leech options control the way Anki handles leeches. Please see the leech
 section for more information.
 
 General
---------
+-------
 
 Anki monitors how long it takes you to answer each question so that it can
 show you how long was spent studying each day. The time taken does not
@@ -2354,7 +2364,7 @@ for each card in the study area.
 
 By default, Anki automatically plays audio on the front and back of cards. If
 you uncheck 'automatically play audio', Anki will not play audio until you
-click the replay audio button.
+press the replay audio key, `r` or `F5`.
 
 The 'when answer shown, replay both question and answer audio' option controls
 what happens when you choose to replay audio while the answer is shown. Please
@@ -2362,7 +2372,7 @@ note that it does not control what happens when you show the answer; for that
 please see <<specialfields,this section>>.
 
 Description
-------------
+-----------
 
 This section allows you to edit the deck description, which is shown in the
 study overview. The description is automatically set when downloading shared
@@ -2379,19 +2389,25 @@ AnkiWeb is a service that allows you to keep your collection synchronized across
 multiple devices, and to study online. Please sign up for a {ankiweb}[free
 account] before following the steps below.
 
+[[syncingsetup]]
 Setup
-------
+-----
 
 To start syncing your collection across devices, click the sync button (the
 top right one on the main screen), or press 'y' on your keyboard. You'll be
 prompted for your AnkiWeb ID and password, which you created in the signup
 process.
 
-When you synchronize your collection for the first time, Anki will not be able
-to merge the content stored on AnkiWeb and the content stored on your
-computer, so you'll need to choose which side you'd like to keep. Once the
-initial setup is completed however, Anki will be able to merge changes from
-multiple locations with a few exceptions.
+When you synchronize your collection for the first time, Anki will ask you if
+you want to upload or download. If you have cards on your computer and your
+AnkiWeb account is empty, choose "upload" to send your data to AnkiWeb. If you
+have cards on AnkiWeb from another device, and no cards on your computer,
+choose "download" to replace the empty local collection with the cards that
+are on AnkiWeb. If you have different cards on both devices,
+<<mergingconflicts,more work is required>> to avoid losing data.
+
+Once the initial one way sync is completed, Anki will be able to merge changes
+from multiple locations with a few exceptions.
 
 NOTE: If you have multiple people using Anki on one machine and have
 created a profile for each user, each user will need to create their own
@@ -2399,14 +2415,14 @@ AnkiWeb account to sync with. If you attempt to synchronize multiple profiles
 with a single AnkiWeb account, you will lose data.
 
 Automatic Syncing
-------------------
+-----------------
 
 Once syncing is enabled, Anki will automatically sync each time your
 collection is closed or opened. If you would prefer to synchronize manually,
 you can disable automatic syncing in Anki's preferences.
 
 Media
-------
+-----
 
 Anki will synchronize any sounds and images used by your notes. It will notice
 when media has been added or removed from your media folder, but will not
@@ -2418,7 +2434,7 @@ file system, as Anki may not be able to detect media changes on a FAT32
 filesystem.
 
 Conflicts
-----------
+---------
 
 Reviews and note edits can be merged, so if you review or edit on two
 different devices before syncing, Anki will preserve your changes from both
@@ -2433,19 +2449,73 @@ you, and give you the option of aborting the operation. If you choose to
 continue, you'll be asked to choose whether to keep the local copy or the copy
 on AnkiWeb when your collection is next synchronized.
 
+If you choose Upload to make the content on AnkiWeb a copy of the content on
+your local device, you then need to sync any other devices you use, and choose
+Download, so they too have the same content. Once all devices have the same
+content, future syncs will be able to merge again.
+
 If you wish to force a full upload or download (for example, because you
 accidentally deleted a deck on one side and want to restore the deck rather
 than having its deletion synchronized), you can check the "On next sync, force
 changes in one direction" box in Tools>Preferences>Network, then sync as usual.
 (You'll be given the option to choose which side you want to use.)
 
-Proxies
---------
+[[mergingconflicts]]
+Merging Conflicts
+------------------
 
-Anki syncs over secure HTTP connections. If you need a proxy to access the
-internet, Anki should automatically pick up your system proxy settings if
-you're on Windows or OS X, and will honour the HTTP_PROXY environment variable
-if you're on another platform.
+Because the <<syncingsetup,first sync>> can only sync changes in one
+direction, if you have added different content to different devices or
+profiles before setting syncing up, content on one device will be lost if you
+overwrite it with the content from the other device. With some work, it is
+possible to manually merge data into a single collection.
+
+Start by taking a backup on each device/profile, in case something goes wrong. With
+the computer version you can use File>Export to export "all decks" with
+scheduling information and media files included, and save the file somewhere
+safe. In AnkiMobile, the Add/Export button on the decks list screen will let
+you export all decks with media.
+
+Next, if one of your devices is a mobile device, synchronize it first. If
+there's a conflict, choose "upload" to overwrite any existing data on AnkiWeb
+with the data from your mobile device. If both devices/profiles are on your
+computer, synchronize the device/profile with the most number of decks first.
+
+Now return to the other device/profile. If automatic syncing is enabled, a
+message may pop up asking if you want to upload or download. Click the cancel
+button - we don't want to sync yet.
+
+Once you're looking at the deck list, click the cog icon next to the first
+deck, and choose "export". Export the content with scheduling information and
+media included, and save the .apkg file somewhere. Now you'll need to repeat
+this for each top-level deck.
+
+Once all top-level decks have been exported, click the sync button at the top
+right, and choose "download", which will overwrite the local content with the
+content you synced from your other device.
+
+You can now use File>Import to import the .apkg files you exported earlier,
+which will merge the exported content with the existing content, so everything will
+be in one place.
+
+Firewalls
+---------
+
+Anki needs to be able to make outbound HTTPS connections to sync. At a minimum
+it must be able to connect to ankiweb.net, sync.ankiweb.net and
+msync.ankiweb.net. These domains may change over time, so we recommend you allow
+wildcard access to *.ankiweb.net.
+
+If you have a firewall on your machine, you should add an exception for Anki. If
+you are on a work or school network, please contact your network administrator
+for assistance - it is not something we can help you with.
+
+Proxies
+-------
+
+If you need a proxy to access the internet, Anki should automatically pick up
+your system proxy settings if you're on Windows or OS X, and will honour the
+HTTP_PROXY environment variable if you're on another platform.
 
 Please note that advanced proxy setup via .pac or .wpad files is not supported
 in Anki.
@@ -2477,6 +2547,10 @@ proxy details as described above, or use a personal proxy server that you
 route traffic through, which in turn connects to the upstream proxy that requires
 authentication.
 
+NOTE: Heavily locked down networks that intercept secure connections and present
+their own certificate instead may cause Anki to throw up SSL errors. We do not
+support using Anki in such environments.
+
 [[browser]]
 = Browser =
 
@@ -2490,7 +2564,7 @@ expand one section and shrink another.
 
 [[sidebar]]
 Sidebar
---------
+-------
 
 The sidebar on the left allows quick access to common search terms. Various
 search terms as described below are listed, along with all deck names and tag
@@ -2599,7 +2673,7 @@ default.
  is:learn :: cards in learning
  is:review :: reviews (both due and not due) and lapsed cards
  is:suspended :: cards that have been manually suspended
- is:buried :: cards that have been buried, either <<automatically,siblings>> or manually
+ is:buried :: cards that have been buried, either <<siblings,automatically>> or manually
 
 Cards that have lapsed fall into several of these categories, so it may be useful to combine them to get more precise results:
 
@@ -2651,9 +2725,12 @@ Note type IDs can be found by clicking on a note type in the Browse screen.
 These searches may also be helpful when doing add-on development or otherwise
 working closely with the database.
 
+NOTE: Object IDs will not work in the mobile clients, and are not intended to be
+used in filtered decks at the moment.
+
 [[cardlist]]
 Card List
-----------
+---------
 
 The card list displays cards that match the current search.
 
@@ -2693,7 +2770,7 @@ card type editor instead of showing what would be seen during review.
 
 [[currentnote-preview]]
 Current Note
---------------
+------------
 
 The bottom right area displays the currently selected card's note. For more
 information about cards and notes, please see <<basics,the basics>>. For more
@@ -2705,7 +2782,7 @@ this will not display any type answer fields on your cards, which makes it
 easier to preview cards quickly.
 
 Toolbar
---------
+-------
 
 Up the top of the browser window is the toolbar.
 
@@ -2728,7 +2805,7 @@ remove individual cards, as individual cards are controlled by the
 
 [[findreplace]]
 Find and Replace
---------------
+----------------
 
 This option (Edit>Find and Replace) allows you to replace text in the cards you
 have selected. The regular expression option allows you to perform complex
@@ -2761,7 +2838,7 @@ document. There are a number of tutorials available on the web. Please see
 http://docs.python.org/library/re.html for the particular format Anki uses.
 
 Finding Duplicates
--------------------
+------------------
 
 You can use the Edit>Find Duplicates option to search for notes that have the
 same content. When you open the window, Anki will look at all of your note
@@ -2798,7 +2875,7 @@ the browser and handle them all from the same screen.
 
 [[browsermisc]]
 Other Menu Items
------------------
+----------------
 
 Some other items in the Edit menu:
 
@@ -2897,7 +2974,8 @@ Here is a summary of each of the options:
   vacation, but it will not help with cards you have learnt recently. Please
   see the <<reviewingahead,reviewing ahead>> section below for more info.
  Preview new cards ::
-  Show cards that you have recently added.
+  Show cards that you have recently added, without converting them to review
+  cards as they are answered.
  Study by card state or tag ::
   Select a certain number of cards from the current deck to study. You can
   choose to select new cards only, due cards only, or all cards; after you
@@ -3013,9 +3091,11 @@ cards being learnt, lapsed reviews, and reviews ahead of time.
 
 == Counts ==
 
-In a filtered deck, reviews that were already due are displayed as the review
-count as normal. Learning cards and non-due reviews are counted in the new
-card count, due to how the underlying implementation works.
+In a filtered deck, reviews that were already due are displayed in the review
+count as normal. Learning cards and non-due reviews are counted in the new card
+count, due to how the underlying implementation works. Reviews that were not due
+are not scheduled like new cards however - Anki uses a special algorithm that
+takes into account how close they were to their normal due time when reviewed.
 
 == Due Reviews ==
 
@@ -3042,11 +3122,11 @@ delay. This calculation works on a sliding scale.
 
 NOTE: Because reviewing a card shortly after it is scheduled has little impact
 on scheduling (eg, a card due tomorrow with a one day interval will remain due
-tomorrow if reviewed early), *the "review early" custom study setting is not
+tomorrow if reviewed early), *the "review ahead" custom study setting is not
 appropriate for repeated use*. If used to go through a week's worth of cards
 before a trip, the mature cards will be rescheduled into the future and the
 new cards will remain at small intervals, because you don't know them well
-enough for them to be rescheduled further. If you review early again the next
+enough for them to be rescheduled further. If you review ahead again the next
 day, all you'll end up doing is going through those same new cards again, to
 little benefit.
 
@@ -3081,7 +3161,7 @@ Filtered decks can be useful for catching up when you've fallen behind in your
 reviews. One Anki user describes the way they use the filtered decks to catch
 up as follows:
 
-++++++++
+++++
 <i>
 <p>I did this for a backlog of 800 cards with filtered subdecks. Worked very
 well for me.
@@ -3103,17 +3183,17 @@ addition to the ones that become due regularly. You can still motor through
 them when you feel like it - or you can do a specific number per day like you
 would for new cards. Up to you.
 </i>
-+++++++++
+++++
 
 = Leeches =
 
 Leeches are cards that you keep on forgetting. Because they require so many
 reviews, they take up a lot more of your time than other cards.
 
-Anki can help you identify leeches. Each time a review card 'lapses', a
-counter is increased. When that counter reaches 8, the note is tagged as a
-leech, and the card is suspended. The threshold, and whether to suspend or
-not, can be adjusted in the <<deckoptions,deck options>>.
+Anki can help you identify leeches. Each time a review card 'lapses' (is failed
+while it is review mode), a counter is increased. When that counter reaches 8,
+the note is tagged as a leech, and the card is suspended. The threshold, and
+whether to suspend or not, can be adjusted in the <<deckoptions,deck options>>.
 
 Anki will continue to issue leech warnings periodically for a difficult card.
 The warning interval is half the initial leech threshold. That is, if you have
@@ -3123,7 +3203,7 @@ lapses. (12, 16, etc)
 Once a leech is found, there are a number of ways you can handle it.
 
 Waiting
----------
+-------
 
 Some leeches are caused by 'interference'. For example, an English learner
 may have recently learnt the words "disappoint" and "disappear". As they look
@@ -3135,7 +3215,7 @@ the words suspended until you have learnt the other one well, and then
 unsuspend it in the browser.
 
 Deleting
----------
+--------
 
 Another way to manage leeches is to delete them. Consider if the material
 you're struggling with is important enough to make it worth your while. By
@@ -3143,7 +3223,7 @@ selectively deleting difficult and obscure items, you can dedicate more time
 to learning other material, and studying becomes a lot more fun.
 
 Editing
---------
+-------
 
 Another approach is to change the way the information is presented. Perhaps
 the cards you have created have too much information on them, or perhaps
@@ -3374,7 +3454,7 @@ There are two different kinds of packaged decks.
 When you export all decks with scheduling included, this is called a
 'collection package'. Anki will copy your entire collection into a file called
 "collection.apkg", and place it on your desktop. A collection package is
-used to back up your collection or to synchronize to AnkiMobile via iTunes.
+used to back up your collection, or copy it to another device.
 
 When this file is later imported, Anki will delete all the current cards in
 the collection, and replace the collection with the items in the
@@ -3408,7 +3488,7 @@ so that they will have a clean copy of it.
 = Managing Files and Your Collection =
 
 Checking Your Collection
---------------------------
+------------------------
 
 It's a good idea to occasionally check your collection file for problems. You
 can do this via the Tools>Check Database menu item. Checking the database
@@ -3426,11 +3506,22 @@ check for errors or rebuild the tag list when automatically optimizing.
 
 [[files]]
 File Locations
----------------
+--------------
 
-On Windows and OSX, Anki stores all of its files in an Anki folder, located in
-your Documents folder. On other operating systems, your files are stored in
-~/Documents/Anki by default.
+On *Windows*, the latest Anki versions store your Anki files in your appdata
+folder. You can access it by opening the file manager, and typing
+`%APPDATA%\Anki2` in the location field. Older versions of Anki stored
+your Anki files in a folder called `Anki` in your `Documents` folder.
+
+On *Mac* computers, recent Anki versions store all their files in the
+`~/Library/Application Support/Anki2` folder. The Library folder is hidden by
+default, but can be revealed in Finder by holding down the option key while
+clicking on the Go menu. If you're on an older Anki version, your Anki files
+will be in your `Documents/Anki` folder.
+
+On *Linux*, recent Anki versions store your data in `~/.local/share/Anki2`, or
+`$XDG_DATA_HOME/Anki2` if you have set a custom data path. Older versions of Anki
+stored your files in `~/Documents/Anki` or `~/Anki`.
 
 Within the Anki folder, the program-level and profile-level preferences are
 stored in a file called prefs.db.
@@ -3446,17 +3537,9 @@ WARNING: You should never copy or move your collection while Anki is open.
 Doing so could cause your collection to become corrupted. Please don't
 move or modify the other files in the folder either.
 
-NOTE: On Unix systems, Anki deliberately uses ~/Documents/Anki rather than a hidden
-folder. The bulk of the data stored in that folder is important user data
-rather than easily restored preferences, and it would be a disaster if a user
-lost it because they overlooked it when backing up files. There are also more
-and more Linux users who are not familiar with hidden folders. If you're an
-advanced user, you can specify a custom folder with a command line argument,
-described in the next section.
-
 [[startupopts]]
 Startup Options
-----------------
+---------------
 
 If you have made a destructive change on one computer and have an undamaged
 copy on another computer, you may wish to start Anki without syncing in order
@@ -3502,15 +3585,9 @@ icon, but it is possibile to start Anki with a custom base folder from a termina
 open /Applications/Anki.app --args -b ~/myankifolder
 -----
 
-NOTE: If you want to permanently change the interface language, delete
-Documents/Anki/prefs.db and the initial startup screen will be shown
-again. After doing so, you'll need to add any profiles you were using again.
-As long as you use the same profile name as before, Anki will pick up the
-files from before.
-
 [[thirdpartysync]]
 DropBox and File Syncing
--------------------------
+------------------------
 
 We do not recommend you sync your Anki folder directly with a third-party
 synchronization service, as it can lead to database corruption when files are
@@ -3526,7 +3603,7 @@ folder, launches Anki, and then copies the files back when Anki is closed. This
 will ensure that the files are never synchronized while they are open.
 
 Network Filesystems
---------------------
+-------------------
 
 We strongly recommend you have Anki store your files on a local hard disk, as
 network filesystems can lead to database corruption. If a network filesystem
@@ -3534,23 +3611,23 @@ is your only option, regular use of Tools>Check Database to detect corruption
 is recommended.
 
 Running from a Flash Drive
----------------------------
+--------------------------
 
-Anki can be installed on a flash drive and run as a portable application:
+Anki can be installed on a USB / flash drive and run as a portable application:
 
  * Copy the \Program Files\Anki folder to the flash drive, so you have a
    folder like G:\Anki.
  * Create a text file called G:\anki.bat with the following text:
 
 -----
-\anki\anki.exe -b \ankidata
+anki\anki.exe -b \ankidata
 -----
 
 If you would like to prevent the black command prompt window from remaining
 open, you can instead use:
 
 -----
-start /b \anki\anki.exe -b \ankidata
+start /b anki\anki.exe -b \ankidata
 -----
 
  * Double-clicking on anki.bat should start Anki with the user data stored in
@@ -3560,7 +3637,7 @@ NOTE: Media syncing with AnkiWeb may not work if your flash drive is formatted
 as FAT32. Please format the drive as NTFS to ensure media syncs correctly.
 
 Backups
----------
+-------
 
 Each time your collection is closed (when closing Anki, switching profiles, or
 synchronizing your deck), Anki exports your collection into the backups
@@ -3580,12 +3657,11 @@ To restore from a backup:
  . First create a copy of your backups folder, as each time you close Anki it
    deletes the oldest backup, and if you're trying different backup files you
    could accidentally end up deleting the backup you need. To do this, locate
-   your Documents/Anki/User 1/backups folder, and copy the entire folder
+   your <<files,Anki folder>>, and copy the entire folder
    somewhere safe, like your desktop.
  . Open Anki and the profile you want to restore. If your profile is corrupt and
-   won't open, you can rename your Documents/Anki/User 1/collection.anki2 file
-   to something else to tell Anki to recreate an empty collection when you next
-   open the profile.
+   won't open, you can rename the User 1/collection.anki2 file to something else
+   to tell Anki to recreate an empty collection when you next open the profile.
  . With the profile open, use File>Import and import a backup from the copy of
    the backups folder you created on your desktop. In the file selection dialog,
    you can set it to detail mode using one of the icons so that the modification
@@ -3601,7 +3677,7 @@ time, so if you have deleted notes from different note types, you'll need to
 split the file into separate files for each note type first.
 
 Inaccessible Harddisk
-----------------------
+---------------------
 
 If Anki can't write to files in the <<files,Anki folder>>, a message will be
 displayed on startup saying that Anki can't write to the harddisk, and Anki
@@ -3609,7 +3685,7 @@ will close. If you're unsure how to fix the permissions, please contact
 someone near you who is knowledgable about computers and can help you out.
 
 Permissions of Temp Folder
----------------------------
+--------------------------
 
 Anki uses the system's temporary folder to store temporary data. If the
 permissions of this folder have been changed from the default settings by a
@@ -3630,7 +3706,7 @@ Properties.
 install the control will actually be inherited from c:\users\your-username.
 
 Corrupt Collections
----------------------
+-------------------
 
 Anki uses a file format that is robust against program and computer crashes,
 but it's still possible for your collection to become corrupt if the files are
@@ -3704,9 +3780,12 @@ Check that you didn't get an error message, and that temp.file is not empty.
 The procedure optimizes the collection in the process, so it's normal for the
 new file to be somewhat smaller than the old one.
 
-When you've confirmed the file is not empty, copy it over collection.anki2,
-making sure you still have a backup of the original version. Then start Anki
-and go to Tools>Check Database to make sure the collection has been
+When you've confirmed the file is not empty:
+
+- rename the original collection.anki2 file to something else
+- rename temp.file to collection.anki2
+- move collection.anki2 back into your collection folder, overwriting the old version
+- start Anki and go to Tools>Check Database to make sure the collection has been
 successfully restored.
 
 [[stats]]
@@ -3714,7 +3793,7 @@ Graphs and Statistics
 =====================
 
 Card Info
-----------
+---------
 
 You can display information about a card by clicking the Info button in the
 toolbar while browsing. Most of the displayed information should be
@@ -3732,7 +3811,7 @@ self-explanatory. A few notes:
   with the "Good" button.
 
 Statistics
------------
+----------
 
 The statistics window is accessed by clicking on the graphs icon in the top
 right of the main window, or by pressing Shift+S. The statistics window will
@@ -3754,7 +3833,7 @@ included when you look at statistics for the whole collection.
 
 [[cardtypedefinitions]]
 Types of Cards
----------------
+--------------
 The stats window uses some terms that you may not be familiar with:
 
  Mature ::
@@ -3780,8 +3859,8 @@ Today
 At the top of the statistics window is a brief list of textual statistics about
 the reviews that you have completed today. A “review” in this context is 'one
 answering of a card', so a card might count as multiple reviews if it needed to
-be seen multiple times, and a learning card could count as a “review.” A couple
-of the stats whose meaning may not be immediately obvious:
+be seen multiple times, and a learning card answered also counts as a “review.”
+A couple of the stats whose meaning may not be immediately obvious:
 
  Again count ::
   This is the number of reviews that you have failed (i.e., pressed Again on).
@@ -3802,7 +3881,7 @@ The “today” statistics are unaffected by the time period selected at the bot
 of the window.
 
 The Graphs
------------
+----------
 
  Forecast ::
   This graph shows an estimated number of reviews that will be due on a given
@@ -3813,7 +3892,7 @@ The Graphs
   does not count reviews that are currently overdue, so if you have a large
   backlog, the overdue cards will not be displayed.
  Review Count ::
-  This graph shows how many cards you have studied in the past. The bars may
+  This graph counts the number of card reviews you have done. The bars may
   correspond to days, weeks, or months, depending on the time period you've
   selected at the bottom of the screen. The differently colored blocks show how
   many of the cards you answered on each day were <<cardtypedefinitions,mature>>, young,
@@ -3852,14 +3931,15 @@ The Graphs
 
 
 Manual Analysis
-----------------
+---------------
 
-If you're interested in getting information from your statistics other than what
-Anki provides, you have several options.
+If you're interested in getting information from your statistics other than
+what Anki provides, it is possible to access the data directly. Because of the
+complexity involved, this is not something we can provide any support for.
 
-One is to <<add-ons,write an add-on>> that adds another graph or more details to
-the statistics window. There are several add-ons of this sort on AnkiWeb
-already, which you can look at to get an idea of how it works.
+One option is to <<add-ons,write an add-on>> that adds another graph or more
+details to the statistics window. There are several add-ons of this sort on
+AnkiWeb already, which you can look at to get an idea of how it works.
 
 A more powerful and more complex option is to extract the review log information
 directly from Anki's database and analyze it in an external program. Anki uses a
@@ -3941,7 +4021,8 @@ notes. When you review a card, Anki will call LaTeX and display the generated
 image instead.
 
 Installing and Assumed Knowledge
----------------------------------
+--------------------------------
+
 Anki's LaTeX support is not turn-key: it is assumed that you know how to use
 LaTeX already, and that you have it installed. If you have no experience with
 LaTeX, please consult one of the many guides available on the internet. If you
@@ -3967,7 +4048,7 @@ NOTE: If you are not using the above LaTeX packages, you will need to
 use the "edit LaTeX" add-on to specify the full path to latex and dvipng.
 
 LaTeX on Web/Mobile
---------------------
+-------------------
 
 When you review a card with LaTeX on it, Anki will generate an image for that
 LaTeX and place the image in your collection's media folder for future use.
@@ -3980,11 +4061,13 @@ all the images, please go to Tools>Check Media. After that, syncing should
 upload the generated media to AnkiWeb and the other clients.
 
 Example
---------
+-------
 
 The most general way to input LaTeX content is to surround it with
 [latex][/latex] tags. There's a shortcut button for this documented in the
 <<editor,editor>> section.
+
+WARNING: [latex] tags must be used inside a field - placing them in the card template will <<mediarefs,cause problems>>.
 
 For example, entering the following on the front of an Anki flashcard:
 
@@ -4049,7 +4132,7 @@ Does the sum below converge?
 respectively.
 
 LaTeX packages
----------------
+--------------
 
 Anki allows you to customize the LaTeX preamble so you can import custom
 packages for chemistry, music and so on. For example, imagine you find an
@@ -4158,7 +4241,7 @@ will (and LaTeX ignores spaces in math mode, so your equation will render the sa
 
 
 Unsafe commands
------------------
+---------------
 
 Anki prohibits certain commands like \input or \def from being used on cards or
 in templates, because allowing them could allow malicious shared decks to
@@ -4188,10 +4271,11 @@ check something. Unless asked to enter text in the "debug console", you will
 probably not need this. Advanced users may like to read more about it in the
 add-ons page, linked below.
 
-When asked to enter text into the "debug console", please start Anki, and in
-the main window, press Ctrl+: (that is the control key and colon key at the
-same time), or on a Mac, Command+: (command key and colon key at the same
-time). When you do so, a new window should pop up.
+When asked to enter text into the "debug console", please start Anki, and in the
+main window, press Ctrl+: (that is the control key and colon key at the same
+time - you may need to also press shift), or on a Mac, Command+: (command key
+and colon key at the same time - you may need to also press shift). When you do
+so, a new window should pop up.
 
 In the window that has popped up, please paste the text you were asked to
 paste in the top section. When you've done so, please press Ctrl+Return
@@ -4204,7 +4288,7 @@ print the result rather than doing what you asked it to. If you are getting
 unexpected errors, please make sure you’re not holding down the Shift key.
 
 [[add-ons]]
-= Add-ons =
+== Add-ons ==
 
 Anki's capabilities can be extended with add-ons. Add-ons can provide features
 like extra support for specific languages, extra control over scheduling, and
@@ -4248,7 +4332,7 @@ To learn how to write your own add-ons, please see the link:addons.html[add-on w
 
 [[sharingdecks]]
 Sharing Decks Publicly
------------------------
+----------------------
 
 To share decks with the general public, <<syncing,synchronize>> them with
 AnkiWeb, then log into AnkiWeb and click on "Share" from the menu next to the
@@ -4262,13 +4346,19 @@ old one. Updating a shared deck will not reset the download counts or ratings.
 You can delete a shared deck that you have uploaded using the Delete button on
 the shared deck's page.
 
+When you update a shared deck, users who downloaded the deck previously will not
+automatically receive updates. If they download the deck again and re-import it,
+newly added material will be imported without altering their existing study
+progress, provided neither you nor the user has altered the note type since the
+first import.
+
 NOTE: When updating a deck, AnkiWeb expects the deck to be at the same
 location as before. If you shared a deck when it was called "Korean Verbs" for
 example, and then renamed it to "Korean::Korean Verbs", resharing will not be
 able to update the existing copy.
 
 Sharing Decks Privately
-------------------------
+-----------------------
 
 If you'd like to share decks with a limited group of people (such as a study
 group or class) rather than the general public, you can do so by sharing them
@@ -4295,12 +4385,12 @@ collection, so if you need to delete cards from users' decks for whatever
 reason, you will need to contact them about it.
 
 Sharing Add-ons
-----------------
+---------------
 
 Please see the add-on documentation above.
 
 App Translations
------------------
+----------------
 
 Translations can be done directly from the
 https://translations.launchpad.net/anki/trunk[translation website].
@@ -4370,7 +4460,7 @@ translations when it is next started.
 
 [[translatingmanual]]
 Translating the Manual
------------------------
+----------------------
 
 If you're a fairly technical user, you may want to translate the
 https://raw.github.com/dae/ankidocs/master/manual.txt[source file] of the
@@ -4403,16 +4493,14 @@ TenderApp and we will put you in touch with the user(s) currently working on
 it.
 
 Contributing Code
--------------------
+-----------------
 
-Anki's source code is available at http://github.com/dae
+Anki's source code is available at https://github.com/dae/anki
 
-If you have bugfixes or believe your changes would benefit many people, please
-have a look at the LICENSE file, and if you agree to the license, drop Damien
-an email or a Github pull request.
+Before contributing, please see the README.contributing file in that repo.
 
 Frequently Asked Questions
-===========================
+==========================
 
 [[duetimestoobig]]
 == I haven't studied for a while, and now the next due times are too big! ==
@@ -4734,6 +4822,8 @@ noticing a slight discrepancy between what you select and the intervals your
 cards actually get, this is probably the cause.
 
 = Resources =
+
+== SuperMemo ==
 
 The SuperMemo site has a lot of good information about spaced repetition and
 memory: http://www.supermemo.com/
