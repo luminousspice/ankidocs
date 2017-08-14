@@ -14,7 +14,7 @@ h4 { margin-bottom: 0.5em; margin-top: 1em; }
 
 - Uses the same scheduling, syncing and file format as Anki 2.0.x, so you can upgrade and downgrade at will.
 - Upgraded to the latest support libraries (Python 3, Qt 5.9), bringing fixes for crashes, better handling of high resolution displays, non-Latin text, and the latest web standards.
-- Requires a modern system - Windows 7+, OSX 10.10+, or a Linux distro from around 2016+.
+- Requires a modern system - Windows 7+, OSX 10.10+, or a Linux distro from around 2014+.
 - Add-ons will need to be updated to work with 2.1.
 
 == Stability ==
@@ -46,11 +46,127 @@ https://anki.tenderapp.com/discussions/beta-testing
 
 == Downloads ==
 
-The latest beta is Beta 4. You can get it from https://apps.ankiweb.net/downloads/beta/
+You can get the latest beta from https://apps.ankiweb.net/downloads/beta/
 
 Use .exe for Windows, .dmg for Mac, and .bz2 for Linux.
 
 == Detailed changes ==
+
+=== Changes in beta 11 ===
+
+- Simplify the browser window:
+** Items in the top toolbar have been moved into the menu bar.
+** The sidebar has been replaced with a dropdown menu.
+- Remove 'mark' action in favour of 'flags':
+** Flags are set on individual cards rather than the whole note.
+** A card can be set to one of four different coloured flags.
+** The reviewer and browser will show and set flags.
+** Other clients will need to be updated to display and set flags, but flagged
+cards should keep their flags when synced to older clients.
+- Limit the length of the card layout summary, and remove the ordinals.
+- Fix clozes in brackets losing formatting.
+- Restore maximize button in edit window.
+- Disable rather than hide the card type list in cloze note types.
+- Remove icons from a few screens.
+- Bundle a new mplayer on OSX which works on older CPUs.
+
+=== Changes in beta 10 ===
+
+- Improve the MathJax rendering speed, which was making the fade out/in
+animations slower than they should have been.
+- Revert the "answer on top" experiment and remove the delay when revealing
+the answer side.
+- Delays can be customized via the qFade/aFade variables in Javascript - set
+to 0 to disable.
+- Added the ability to override JS/CSS over all note types, so you can do
+things like customize the fade duration globally. More info: https://github.com/dae/anki/commit/55b782581d39f3a4b184ff3f24a59d51ad8c9e83
+- Hide sound tags in preview screen.
+- Make sure exporting doesn't try to export subfolders.
+- Fix operations like suspend not working correctly when multiple cards selected.
+- Remove border on bottom area.
+- Better support for high resolution displays on Windows.
+- Fix the toolbar in the browser not resizing to fit.
+- Display used fields in card type list.
+- Fix the focus not returning to the front field when adding cards.
+- Fix an issue that was preventing some styling in card templates from
+overriding the defaults.
+
+=== Changes in beta 9 ===
+
+- Update the card layout screen to use a dropdown instead of tabs, and render
+the preview more efficiently.
+- The card layout and preview window in the browser now render cards the same
+way as the review screen.
+- Fix a bug that was preventing Anki from shutting down properly on Windows.
+- Fix a bug that was causing images not to show if the media server port was
+in use.
+- Support make install/uninstall on Linux.
+- Make the down key do the right thing when browser window opened.
+- Make it easier for add-ons to override shortcuts for a specific state.
+
+=== Changes in beta 8 ===
+
+Experiment with showing the question below the answer, which makes the fade
+out/in step more natural, and means the answer will always appear in the same
+place. Please let me know if you like it or hate it. Will only work if your
+back template starts with \{\{FrontSide}} <hr id=answer>.
+
+Also:
+
+- Fixed "shortcut key" getting duplicated (thanks to David).
+- Fixed pasting of files with a hash in the filename (thanks to David).
+- Fixed some errors caused by closing a window before it had a chance to
+initialize (based on a patch by David).
+- Fixed autoplay on the answer side.
+- Fixed some issues with screens getting stuck when closing the browser window, etc.
+- Possible fix for Anki failing to run on some Windows machines.
+
+=== Changes in beta 7 ===
+
+- Removed the preloading code from the previous beta, as it was causing a
+number of problems.
+- Added a transition when revealing the answer - necessary now that we're not
+preloading the answer.
+- Fix the type in the answer function.
+- Reworked the focus handling in the editor, which fixes a bug that could
+cause the first field to be overwritten when navigating via the preview
+screen.
+- Fixed a similar bug triggered by dropping text onto Anki when another window
+had focus.
+- Fix gifs failing to display.
+- The mhchem module is now bundled and enabled by default, so you can typeset
+chemical equations:
+https://mhchem.github.io/MathJax-mhchem/
+- Work around MathJax failing to display when part of it is cloze deleted.
+- Possible fix for Anki failing to exit properly.
+- Fix field content appearing under the editor buttons.
+- Fix some encoding errors when generating LaTeX and showing JS errors.
+- Change the add/del tags shortcuts so they don't conflict with the jump to
+tags function.
+- Prevent some errors when holding down navigation keys/navigating too quickly.
+- Fix some issues that were preventing the Linux build from working for some users.
+
+=== Changes in beta 6 ===
+
+Linux users: there are two Linux builds for this release. The "normal" build
+should now work on Ubuntu 14.04 and similar distributions, and should be fine
+for more modern distributions too. If you encounter a problem with the normal
+build, please try the alternate one, and let us know that the normal one is
+not working for you.
+
+Other changes:
+
+- Add a fade out/fade in transition between cards when reviewing, which
+minimises pop-in for cards using images and MathJax.
+- Render the answer at the same time as the question so it can be revealed
+instantly.
+- Fix a bug that was overriding the font of some columns in the browser when
+they shouldn't be overridden.
+- Add the ability to turn off font overriding in the "browser appearance"
+screen.
+- Fix \n appearing when hitting enter in new whitespace mode.
+- Fix translations not working on a Mac.
+- Fix the upload/download dialog not working in KDE on Linux.
 
 === Changes in beta 5 ===
 
