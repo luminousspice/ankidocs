@@ -101,8 +101,11 @@ use a particular GUI component.
 'aqt' には、Anki のユーザーインターフェイスの部分が含まれています。Anki のユーザー
 インターフェイスは、PyQt 上に構築されています。PyQt とは、クロスプラットフォーム GUI
 ツールキット Qt に対する Python バインディングです。PyQt は、Qt の API に密接に動作
-します。http://doc.qt.io/qt-5/index.html[Qt documentation] は、特定の GUI
+します。Qt documentation は、特定の GUI
 コンポーネントの使い方を調べたい時に、非常に役立ちます。
+
+* Anki 2.0.x は、http://doc.qt.io/qt-4.8/index.html[Qt 4.8] を使っています。
+* Anki 2.1.x は、http://doc.qt.io/qt-5/index.html[Qt 5.9] を使っています。
 
 /////
 When Anki starts up, it checks for .py files in the Documents/Anki/addons
@@ -906,8 +909,7 @@ As mentioned in the overview, the Qt documentation is invaluable for learning
 how to display different GUI widgets.
 /////
 
-上記にあるとおり、http://doc.qt.io/qt-5/index.html[Qt documentation] が
-色々な GUI を表示する方法を学ぶのに非常に貴重な文書です。
+概要で話したとおり、Qt documentation は 色々な GUI ウィジェットを表示する方法を学ぶのに非常に貴重な文書です。
 
 /////
 One particular thing to bear in mind is that objects are garbage collected in
@@ -937,8 +939,12 @@ def myfunc():
     widget.show()
 -----
 
+/////
 This is often not required when you create a Qt object and give it an existing
 object as the parent, as the parent will keep a reference to the object.
+/////
+
+Qt オブジェクトを作って、既存のオブジェクトを親とするときには、このことはあまり必要としません。それは、親オブジェクトが新規オブジェクトを参照し続けるからです。
 
 /////
 = Standard Modules =
