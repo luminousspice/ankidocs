@@ -91,8 +91,11 @@ in command line programs to access Anki decks without the GUI.
 /////
 'aqt' contains the UI part of Anki. Anki's UI is built upon PyQt, Python
 bindings for the cross-platform GUI toolkit Qt. PyQt follows Qt's API very
-closely, so the http://doc.qt.io/qt-5/index.html[Qt documentation] can
-be very useful when you want to know how to use a particular GUI component.
+closely, so the documentation can be very useful when you want to know how to
+use a particular GUI component.
+
+* Anki 2.0.x uses http://doc.qt.io/qt-4.8/index.html[Qt 4.8]
+* Anki 2.1.x uses http://doc.qt.io/qt-5/index.html[Qt 5.9]
 /////
 
 'aqt' には、Anki のユーザーインターフェイスの部分が含まれています。Anki のユーザー
@@ -899,9 +902,8 @@ hook to be added.
 = Qt =
 
 /////
-As mentioned above, the http://doc.qt.io/qt-5/index.html[Qt
-documentation] is invaluable for learning how to display different GUI
-widgets.
+As mentioned in the overview, the Qt documentation is invaluable for learning
+how to display different GUI widgets.
 /////
 
 上記にあるとおり、http://doc.qt.io/qt-5/index.html[Qt documentation] が
@@ -934,7 +936,9 @@ def myfunc():
     mw.myWidget = widget = QWidget()
     widget.show()
 -----
-        
+
+This is often not required when you create a Qt object and give it an existing
+object as the parent, as the parent will keep a reference to the object.
 
 /////
 = Standard Modules =
