@@ -30,12 +30,10 @@ doing it periodically after upgrading as well.
 
 Most add-ons will need to be updated before they'll work with Anki 2.1. When
 you install 2.1, it will create a separate folder for add-ons, and not import
-any existing ones you have installed. Some add-on authors have updated their
-add-ons to work with 2.1, and updated the description on their add-on page to
-mention that the add-on works in 2.1 as well.
+any existing ones you have installed.
 
 If you're an add-on author, you can read more about the required changes on
-https://github.com/dae/anki/blob/master/README.addons
+https://apps.ankiweb.net/docs/addons21.html
 
 == Problems ==
 
@@ -51,6 +49,68 @@ You can get the latest beta from https://apps.ankiweb.net/downloads/beta/
 Use .exe for Windows, .dmg for Mac, and .bz2 for Linux.
 
 == Detailed changes ==
+
+=== Changes in beta 13 ===
+
+Add-on authors can now upload separate files to AnkiWeb for 2.0 and 2.1
+support, and Anki 2.1 will automatically list and download the 2.1 versions.
+
+The add-on menu has been moved into a separate dialog, which supports:
+
+- checking for and downloading updates
+- deleting and disabling multiple add-ons at once
+- viewing an add-on's page
+
+Add-ons are now always stored in a single folder, and need to be uploaded as a
+.zip - please see the updated docs for more information:
+
+https://apps.ankiweb.net/docs/addons21.html#add-on-folders
+https://apps.ankiweb.net/docs/addons21.html#sharing-add-ons
+
+Also:
+
+* Helper routines in editor to make porting add-ons easier (thanks to Glutanimate)
+* Catch errors when card templates contain invalid HTML (thanks to Alicia)
+* Fix translations and shortcuts on editor buttons.
+* Revert the undo shortcut change in the previous beta.
+* The Check Media function can now fix a corrupt media database.
+* Remember export folder location.
+* Make sure debug console and tooltips closed when closing profile.
+* A fix for Anki failing to start on some Windows machines.
+
+=== Changes in beta 12 ===
+
+Fixes an issue that could allow a specially crafted .apkg file to write files
+outside the media folder during import. AnkiWeb shared decks were not
+affected, but upgrading is strongly recommended if you import .apkg files from
+third party sources. A big thanks to David Bailey for discovering this issue.
+2.0.47 is also available with this fix.
+
+Also:
+
+* Rewrote parts of the collection opening/closing code and window closing
+code, which should ensure the collection isn't closed until windows have a
+chance to clean up.
+* The profile manager now has a button to restore a profile to an automatic
+backup, which will take care of clearing out a corrupt collection and make
+sure backups are not rotated when restoring.
+* Added an optional sidebar to the browse screen; toggle via the Filter button.
+* Icon tweaks.
+* Ctrl+1-9 can be used to jump to the first 9 card templates in the card layout screen.
+* Add a default note type for typing in the answer.
+* Backups now include the date in the filename.
+* Backups are sent to the trash instead of being deleted outright.
+* Fix decks being moved to the default deck when dragged to the bottom (thanks
+to David Bailey)
+* Fixed some issues with field contents being updated with the wrong content.
+* Better support for DPI scales that are not multiples of 100% on Windows.
+* The Filter button now uses more obvious titles when splitting menus into
+submenus, and will split the decks and note type lists if necessary as well.
+* Tweak some shortcuts.
+* Better error when internet offline.
+* Drop support for profile passwords.
+* Fix shift+tab in the editor on Windows/Linux.
+* Restored support for the marked tag.
 
 === Changes in beta 11 ===
 
