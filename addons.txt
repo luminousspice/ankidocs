@@ -8,13 +8,21 @@ Writing Anki 2.0.x Add-ons
 ++++++++++++++++++++++++++++++
 /////
 
-_ Anki 2.0 アドオンの作成 _
+_ Anki 2.0.x アドオンの作成 _
 
+/////
 = Other Versions =
+/////
 
+= 他のバージョン =
+
+/////
 This document covers add-on writing for Anki 2.0.x. For instructions on
 writing add-ons for the beta builds of Anki 2.1.x, please see
 https://apps.ankiweb.net/docs/addons21.html
+/////
+
+この文書では、Anki 2.0.x 用のアドオンの作成について扱います。Anki 2.1.x Beta 用については https://apps.ankiweb.net/docs/addons21.html をご覧ください。
 
 /////
 = Translations =
