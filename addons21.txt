@@ -28,14 +28,15 @@ https://apps.ankiweb.net/docs/addons.html
 = Translations =
 /////
 
-= 原文 =
+= 他の言語 =
 
 /////
  * 日本語: http://rs.luminousspice.com/ankiaddons21/
  * по-русски: http://finpapa.ucoz.ru/ankitest-addons.html#addons21
 /////
 
- * 英語: https://apps.ankiweb.net/docs/addons21.html
+ * 英語 (原文): https://apps.ankiweb.net/docs/addons21.html
+ * ロシア語: http://finpapa.ucoz.ru/ankitest-addons.html#addons21
 
 /////
 = Overview =
@@ -536,20 +537,24 @@ for id, ivl in mw.col.db.execute("select id, ivl from cards limit 3"):
 /////
 Add-ons should never modify the schema of existing tables, as that may
 break future versions of Anki.
+/////
 
+アドオンは、既存のテーブルのスキーマを決して変更してはいけません。そうすると将来のバージョンの Anki を破壊するかもしれないからです。
+
+/////
 If you need to store addon-specific data, consider using Anki's
 <<configuration>> support.
+/////
 
+アドオン独自のデータが必要な場合は、Anki の <<configuration, 設定>> サポートの使用を考慮してください。
+
+/////
 If you need the data to sync across devices, small options can be stored
 within mw.col.conf. Please don't store large amounts of data there, as
 it's sent on every sync.
 /////
 
-アドオンが、コレクションの中のテーブルを修正することが決してないように注意してください。
-このことは、Anki 将来のバージョンで変更になる場合があります。プラグイン専用のデータを保存する
-必要がある時には、衝突を避けて新しいテーブルを作るか、別のファイルにデータを保存するようにして
-ください。小さい設定項目は、mw.col.conf の中に保存できますが、同期の度にコピーするため、
-大規模なデータを保存しないでください。
+デバイス間でデータを同期する必要する場合は、小さな設定項目を mw.col.conf に保存できます。そこに大量なデータは保存しないでください。同期のたびに送ることになるからです。
 
 /////
 = Hooks =
@@ -1102,19 +1107,35 @@ In your add-on's code:
     config = mw.addonManager.getConfig(__name__)
     print("var is", config['myvar'])
 
+/////
 When updating your add-on, you can make changes to config.json. Any newly
 added keys will be merged with the existing configuration.
+/////
 
+アドオンを更新する時には、config.json を変更することができます。既存の設定と新規追加のキーを統合します。
+
+/////
 If you change the value of existing keys in config.json, users who have
 customized their configuration will continue to see the old values unless they
 use the "restore defaults" button.
+/////
 
+config.json の中の既存のキーの値を変更する場合は、設定をカスタマイズしたユーザーが、"restore defaults" ボタンを押さない限り、古い値を使い続けることになります。
+
+/////
 If you need to programmatically modify the config, you can save your changes with:
+/////
+
+設定をプログラムで変更する必要がある場合は、次のように変更を保存します。
 
     mw.addonManager.writeConfig(__name__, config)
 
+/////
 NOTE: If no config.json file exists, getConfig() will return None - even if you have
 called writeConfig().
+/////
+
+注意: config.json が存在しない場合は、getConfig() は None を返します。たとえ、writeConfig() を呼んでいたとしてもです。
 
 /////
 Add-ons that manage options in their own GUI can have that GUI
@@ -1423,7 +1444,7 @@ You can upload a .zip you've created to https://ankiweb.net/shared/addons/
 = Anki 2.0 アドオンの移植 =
 
 Python 3
------------
+--------
 
 /////
 Anki 2.1 requires Python 3.6 or later. After installing Python 3 on your
@@ -1445,7 +1466,7 @@ code that you need to manually modify.
 ほとんどの単純なコードは自動的に変換できますが、手作業で変更の必要がある箇所が残るかもしれません。
 
 Qt5 / PyQt5
---------------
+----------
 
 /////
 The syntax for connecting signals and slots has changed in PyQt5. Recent PyQt4
@@ -1468,12 +1489,6 @@ convert the code:
 あるアドオン作者が次のツールがコードを自動的に変換するのに役立ったと報告してくれました。
 https://github.com/rferrazz/pyqt4topyqt5
 
-Anki 2.0 との互換性
-
-scheduler に手を加えているほとんどのアドオンは、わずかな変更だけで 2.1 で動作するでしょう。reviewer、browser、editor の動作を変更するアドオンはさらに多くの作業を必要とします。
-
-これまで単一の .py ファイルでアドオンを配布していた方は、前の「アドオンの共有」項目で紹介した方法で、改めて zip ファイルを作る必要があります。
-
 /////
 The Qt modules are in 'PyQt5' instead of 'PyQt4'. You can do a conditional
 import, but an easier way is to import from aqt.qt - eg
@@ -1483,56 +1498,97 @@ Qt モジュールは、'PyQt4' の代わりに 'PyQt5' の中にあります。
 
   from aqt.qt import *
 
-
-最も困難な箇所は、サポートを停止した QtWebKit から QtWebEngine への変更です。WebView を使って単純ではない操作をしている場合は、Anki 2.1 へのコードの移植は、ある程度の作業が必要になります。
-
+/////
 That will import all the Qt objects like QDialog without having to specify the
 Qt version.
+/////
 
+これは、特定の Qt のバージョンを指定することなく、QDialog のような全ての Qt オブジェクトを読み込みます。
+
+/////
 Single .py add-ons need their own folder
-----------------------------------------
+/////
+単一の .py アドオンにも独自のフォルダが必要
+------------------------
 
+/////
 Each add-on is now stored in its own folder. If your add-on was previously
 called `demo.py`, you'll need to create a `demo` folder with an `__init__.py` file.
+/////
 
+それぞれのアドオンは、独自のフォルダに保存することになりました。以前 `demo.py` という名前をつけていたアドオンの場合、`demo` というフォルダと、`__init__.py` を一緒に作る必要あります。
+
+/////
 If you don't care about 2.0 compatibility, you can just rename `demo.py` to
 `demo/__init__.py`.
+/////
 
+2.0 との互換性を気にしないなら、名前を `demo.py` を `demo/__init__.py` に変更するだけで済みます。
+
+/////
 If you plan to support 2.0 with the same file, you can copy your original file
 into the folder (`demo.py` -> `demo/demo.py`), and then import it relatively
 by adding the following to `demo/__init__.py`:
+/////
+
+同じファイルで 2.0 をサポートする計画の場合は、元のファイルをフォルダーにコピーして (`demo.py` -> `demo/demo.py`)、さらに次のような `demo/__init__.py` を追加して、相対的にアドオンを読み込みます。
 
     from . import demo
 
+/////
 The folder needs to be zipped up when uploading to AnkiWeb. For more info,
 please see <<sharing,sharing add-ons>>.
+/////
 
+AnkiWeb にアップロードする時にはフォルダを Zip ファイルに収める必要があります。さらに詳しい情報は <<sharing,アドオンの共有>> をご覧ください。
+
+/////
 Supporting both 2.0 and 2.1 in one codebase
---------------------------------------------
+/////
+2.0 と 2.1 を一つのコードベースでサポート
+------------------------
 
+/////
 Most Python 3 code will run on Python 2 as well, so it is possible to update
 your add-ons in such a way that they run on both Anki 2.0 and 2.1. Whether
 this is worth it depends on the changes you need to make.
+/////
 
+ほとんどの Python 3 のコードは、Python 2 でも動作します。このため、Anki 2.0 と 2.1 の両方で動作するようにアドオンを更新することが可能です。このようにする価値があるかどうかは、必要のある変更内容によります。
+
+/////
 Most add-ons that affect the scheduler should require only minor changes to
 work on 2.1. Add-ons that alter the behaviour of the reviewer, browser or
 editor may require more work.
+/////
 
+scheduler に手を加えているほとんどのアドオンは、わずかな変更だけで 2.1 で動作するでしょう。reviewer、browser、editor の動作を変更するアドオンはさらに多くの作業を必要とします。
+
+/////
 The most difficult part is the change from the unsupported QtWebKit to
 QtWebEngine. If you do any non-trivial work with webviews, some work will be
 required to port your code to Anki 2.1, and you may find it difficult to
 support both Anki versions in the one codebase.
+/////
 
+最も困難な箇所は、サポートを停止した QtWebKit から QtWebEngine への変更です。WebView を使って単純ではない操作をしている場合は、Anki 2.1 へのコードの移植は、ある程度の作業が必要になり、一つのコードベースで両方のバージョンの Anki をサポートするのは難しいと考えるかもしれません。
+
+/////
 If you find your add-on runs without modification, or requires only minor
 changes, you may find it easiest to add some if statements to your code and
 upload the same file for both 2.0.x and 2.1.x.
+/////
 
+修正なしにアドオンが動作する場合、あるいはわずかな変更が必要な場合には、if 文をコードに追加して、同じファイルで 2.0.x と 2.1.x の両方をサポートするファイルをアップロードするのが一番簡単かもしれません。
+
+/////
 If your add-on requires more significant changes, you may find it easier to
 stop providing updates for 2.0.x, or to maintain separate files for the two
 Anki versions.
+/////
 
-ほとんどの Python 3 のコードは、Python 2 でも動作します。このため理論上は、Anki 2.0 と 2.1 の両方で動作するようにアドオンを更新することが可能です。アドオンの動作の内容によって、特別なコードを使わずに両方のバージョンで動作することができるか、別々のコードパスで実行する if 文を追加する必要があるか決まります。しかし、これは必要以上の作業になるかもしれません。そこで AnkiWeb は 2.0.x 用と 2.1.x 用のアドオンを別々のファイルでアップロードすることをサポートしました。これによって、既存のコードをコピーし、2.1 へ移植し、そして移植したファイルを別にアップロードすることがもっと簡単になります。必要に応じて 2.0.x のコードを更新し続けられますし、時間がないなら追加の更新を避けることもできます。
- 
+もっと大きい変更が必要な場合は、2.0.x に対する更新を停止し、あるいは別のファイルで二つのバージョンをサポートすることを維持するのがより簡単かもしれません。
+
 /////
 Webview Changes
 /////
