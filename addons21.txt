@@ -193,6 +193,11 @@ original add-on name, when it was downloaded, and whether it's enabled or not.
 Anki はさらにフォルダに meta.json ファイルを保存して、ダウンロードした時の元のアドオン名と、アドオンの利用許可を追跡ます。
 
 /////
+You should not store user data in the add-on folder, as it's
+<<configuration,deleted when the user upgrades an add-on>>.
+/////
+
+/////
 = A Simple Add-On =
 /////
 
@@ -1146,6 +1151,15 @@ displayed when the config button is clicked:
 
     mw.addonManager.setConfigAction(__name__, myOptionsFunc)
 
+If you need to store user data in external files, avoid storing the files in
+the add-on folder, as they will be lost when the user upgrades the add-on. One
+alternative would be to store files in the documents folder:
+
+    os.path.join(
+      QStandardPaths.writableLocation(
+        QStandardPaths.DocumentsLocation),
+      "myfile.data")
+
 [[reviewjs]]
 /////
 = Javascript in the reviewer =
@@ -1541,6 +1555,13 @@ please see <<sharing,sharing add-ons>>.
 /////
 
 AnkiWeb にアップロードする時にはフォルダを Zip ファイルに収める必要があります。さらに詳しい情報は <<sharing,アドオンの共有>> をご覧ください。
+
+Folders are deleted when upgrading
+-----------------------------------
+
+Avoid storing user data in your add-on's folder, as the folder is deleted when
+users download an update. Consider using the new <<configuration,config API>>
+or the documents folder instead.
 
 /////
 Supporting both 2.0 and 2.1 in one codebase
