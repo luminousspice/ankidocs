@@ -144,7 +144,7 @@ will be shown. If you had an add-on selected, the add-on's module folder will
 be shown, and you will need to go up one level.
 /////
 
-Anki のメインウィンドウのメニューから Tools>Add-ons と選ぶと、アドオンフォルダの最上位階層にアクセスできます。View Files ボタンを押すとフォルダがポップアップします。アドオンをまだ何もインストールしていない場合は、最上位のアドオンフォルダが開きます。アドオンを選択している場合は、アドオンのモジュールフォルダーが開きます。これは最上位階層の一つ下の階層になります。
+Anki のメインウィンドウのメニューから Tools>Add-ons と選ぶと、アドオンフォルダの最上位階層にアクセスできます。View Files ボタンを押すとフォルダがポップアップします。アドオンをまだ何もインストールしていない場合は、最上位のアドオンフォルダが開きます。アドオンを選択している場合は、アドオンのモジュールフォルダが開きます。これは最上位階層の一つ下の階層になります。
 
 /////
 The add-ons folder is named "addons21", corresponding to Anki 2.1. If you have
@@ -197,6 +197,8 @@ You should not store user data in the add-on folder, as it's
 <<configuration,deleted when the user upgrades an add-on>>.
 /////
 
+ユーザーデータをアドオンフォルダに保存できません。<<configuration,そのようなデータは、ユーザーがアドオンをアップグレードすると、削除される>>からです。
+
 /////
 = A Simple Add-On =
 /////
@@ -207,7 +209,7 @@ You should not store user data in the add-on folder, as it's
 Add the following to `my_first_addon/__init__.py` in your add-ons folder:
 /////
 
-次に示す `my_first_addon/__init__.py` を、自分のアドオンフォルダーに追加してみてください:
+次に示す `my_first_addon/__init__.py` を、自分のアドオンフォルダに追加してみてください:
 
 /////
 -----
@@ -1151,9 +1153,13 @@ displayed when the config button is clicked:
 
     mw.addonManager.setConfigAction(__name__, myOptionsFunc)
 
+/////
 If you need to store user data in external files, avoid storing the files in
 the add-on folder, as they will be lost when the user upgrades the add-on. One
 alternative would be to store files in the documents folder:
+/////
+
+ユーザーデータを外部ファイルに記録する場合は、アドオンフォルダに保存するのは避けてください。ユーザーがアドオンをアップグレードすると失われるからです。一つの代替案として、次のようにドキュメントフォルダに保存する方法があります。
 
     os.path.join(
       QStandardPaths.writableLocation(
@@ -1407,7 +1413,7 @@ AnkiWeb expects a .zip file of the contents of an add-on module, without
 the folder name. For example, if you have a module like the following:
 /////
 
-AnkiWeb は、アドオンモジュールを収録するには .zip ファイルを要求します。フォルダー名は必要しとません。例えば、次のようなモジュールを持っているとします。
+AnkiWeb は、アドオンモジュールを収録するには .zip ファイルを要求します。フォルダ名は必要しとません。例えば、次のようなモジュールを持っているとします。
 
   addons21/myaddon/__init__.py
   addons21/myaddon/my.data
@@ -1426,7 +1432,7 @@ If you include the folder name in the zip like the following, AnkiWeb will not
 accept the zip file:
 /////
 
-フォルダー名を含めた次のような zip ファイルは、AnkiWeb は受け付けません。
+フォルダ名を含めた次のような zip ファイルは、AnkiWeb は受け付けません。
 
  myaddon/__init__.py
  myaddon/my.data
@@ -1545,7 +1551,7 @@ into the folder (`demo.py` -> `demo/demo.py`), and then import it relatively
 by adding the following to `demo/__init__.py`:
 /////
 
-同じファイルで 2.0 をサポートする計画の場合は、元のファイルをフォルダーにコピーして (`demo.py` -> `demo/demo.py`)、さらに次のような `demo/__init__.py` を追加して、相対的にアドオンを読み込みます。
+同じファイルで 2.0 をサポートする計画の場合は、元のファイルをフォルダにコピーして (`demo.py` -> `demo/demo.py`)、さらに次のような `demo/__init__.py` を追加して、相対的にアドオンを読み込みます。
 
     from . import demo
 
@@ -1556,12 +1562,19 @@ please see <<sharing,sharing add-ons>>.
 
 AnkiWeb にアップロードする時にはフォルダを Zip ファイルに収める必要があります。さらに詳しい情報は <<sharing,アドオンの共有>> をご覧ください。
 
+/////
 Folders are deleted when upgrading
------------------------------------
+/////
+アップグレードでフォルダを削除
+--------------
 
+/////
 Avoid storing user data in your add-on's folder, as the folder is deleted when
 users download an update. Consider using the new <<configuration,config API>>
 or the documents folder instead.
+/////
+
+アドオンフォルダにユーザーデータを保存するのは避けてください。ユーザーがアップデートをダウンロードする時にそのフォルダを削除するからです。代わりに新しい <<configuration,Config API>> や、ドキュメントフォルダを検討してください。
 
 /////
 Supporting both 2.0 and 2.1 in one codebase
