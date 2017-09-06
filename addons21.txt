@@ -1166,20 +1166,30 @@ alternative would be to store files in the documents folder:
         QStandardPaths.DocumentsLocation),
       "myfile.data")
 
-= Reviewer 内の Javascript =
-
-前のカードをフェードアウトした後にコードを実行するフックが使えるようになりました。その後次のカードをフェードインします。簡単な例を紹介します。
-
 [[reviewjs]]
+/////
 = Javascript in the question and answer =
+/////
+= 質問解答画面での JavaScript =
 
+/////
 (coming in 2.1.0beta16)
+/////
 
+(2.1.0beta16 で導入予定)
+
+/////
 Anki provides a hook to modify the question and answer HTML before it is
 displayed in the review screen, preview dialog, and card layout screen. This
 can be useful for adding Javascript to the card.
+/////
 
+Anki は、復習画面やプレビューダイアログ、カードレイアウト画面に質問や解答を表示する前に HTML を変更するフックを提供します。 このフックはカードに JavaScript を追加するのに役立ちます。
+
+/////
 An example:
+/////
+例:
 
     from anki.hooks import addHook
     def prepare(html, card, context):
@@ -1189,23 +1199,43 @@ An example:
     </script>"""
     addHook('prepareQA', prepare)
 
+/////
 The hook takes three arguments: the HTML of the question or answer, the
 current card object (so you can limit your add-on to specific note types for
 example), and a string representing the context the hook is running in.
+/////
 
+このフックは三つの引数を取ります。質問または解答の HTML、現在のカードオブジェクト (これによって、例えば特定のノートタイプにアドオンを限定することができます)、フックを実行するコンテキストを示す文字列です。
+
+/////
 Make sure you return the modified HTML.
+/////
 
+変更した HTML を必ず戻すようにしてください。
+
+/////
 Context is one of: "reviewQuestion", "reviewAnswer", "clayoutQuestion",
 "clayoutAnswer", "previewQuestion" or "previewAnswer".
+/////
 
+コンテキストは次の中から一つ選びます。"reviewQuestion", "reviewAnswer", "clayoutQuestion", "clayoutAnswer", "previewQuestion", "previewAnswer"
+
+/////
 NOTE: The answer preview in the card layout screen, and the previewer set to
 "show both sides" will only use the "Answer" context. This means Javascript
 you append on the back side of the card should not depend on Javascript that
 is only added on the front.
+/////
 
+注意: カードレイアウト面での解答のプレビューや、"show both sides (両面表示)" を設定したプレビュー画面は、"Answer" コンテキストだけ使えます。これは カードの裏面に追加した Javascript は、表面だけに追加した JavaScript に依存すべきではないことを意味します。
+
+/////
 Because Anki fades the previous text out before revealing the new text,
 Javascript hooks are required to perform actions like scrolling at the correct
 time. You can use them like so:
+/////
+
+Anki は新しいテキストを表示する前に、前のテキストをフェードアウトするため、JavaScript のフックは、適切なタイミングでスクロールするようにアクションを実行する必要があります。次のように行います。
 
     from anki.hooks import addHook
     def prepare(html, card, context):
