@@ -1155,22 +1155,41 @@ displayed when the config button is clicked:
 
 ユーザーデータを外部ファイルに記録する場合は、アドオンフォルダに保存するのは避けてください。ユーザーがアドオンをアップグレードすると失われるからです。一つの代替案として、次のようにドキュメントフォルダに保存する方法があります。
 
+/////
 Avoid key names starting with an underscore - they are reserved for future use
 by Anki.
+/////
+
+キー名の最初にアンダースコアを使うのを避けてください。Anki が将来利用するために予約しています。
 
 [[userfiles]]
+/////
 = User Files =
+/////
+= ユーザーファイル =
 
+/////
 When your add-on needs configuration data other than simple keys and values,
 it can use a special folder called user_files in the root of your add-on's
 folder. Any files placed in this folder will be preserved when the add-on is
 upgraded. All other files in the add-on folder are removed on upgrade.
+/////
 
+アドオンの設定に簡単なキーと値の組み合わせ以外のデータが必要な時は、"user_files" という名前の特別なフォルダをアドオンフォルダのルートに置いて使うことができます。このフォルダに置いたファイルはどれも、アドオンの更新時に保護します。アドオンフォルダのこれ以外のファイルは全て更新時に削除します。
+
+/////
 To ensure the user_files folder is created for the user, you can put a
 README.txt or similar file inside it before zipping up your add-on.
+/////
 
+ユーザー用の "user_files" フォルダを必ず確実に作るには、アドオンを zip ファイルにする前に README.txt や 同じようなファイルをその中に置くことで可能です。
+
+/////
 When Anki upgrades an add-on, it will ignore any files in the .zip that
 already exist in the user_files folder.
+/////
+
+Anki がアドオンを更新する時は、zip ファイルの中で "user_files" にすでに存在するファイルはどれも無視します。
 
 [[reviewjs]]
 /////
@@ -1634,12 +1653,14 @@ Folders are deleted when upgrading
 アップグレードでフォルダを削除
 --------------
 
-アドオンフォルダにユーザーデータを保存するのは避けてください。ユーザーがアップデートをダウンロードする時にそのフォルダを削除するからです。代わりに新しい <<configuration,Config API>> や、ドキュメントフォルダを検討してください。
-
+/////
 When an add-on is upgraded, all files in the add-on folder are deleted. The
 only exception is the special <<userfiles,user_files folder>>. If your add-on
 requires more than simple key/value configuration, make sure you store the
 associated files in the user_files folder, or it will be lost on upgrade.
+/////
+
+アドオンを更新する時には、アドオンフォルダのすべてのファイルを削除します。例外は特別な <<userfiles,user_files フォルダ>> だけです。アドオンが単純なキー/値の組み合わせ以外の設定データが必要な場合は、必ず関連するファイルを "user_files" に保存して、更新時に失われるのを避けてください。
 
 /////
 Supporting both 2.0 and 2.1 in one codebase
