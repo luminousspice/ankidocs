@@ -1063,10 +1063,10 @@ Anki は、このプログラムの実行に必要な標準モジュールだけ
 
 /////
 This only works with pure Python modules - modules that require C extensions
-such as numpy will not work when bundled, since your modules will not match
-the architecture Anki was packaged on. If you're doing something
-sophisticated, you'll need to get your users to install a standalone copy of
-Python instead.
+such as numpy are much more difficult to package, as you would need to compile
+them for each of the operating systems Anki supports. If you're doing something
+sophisticated, it would be easier to get your users to install a standalone
+copy of Python instead.
 /////
 
 この場合、pure Python モジュールは使えますが、numpy のような C 拡張を必要とするモジュールを同梱しても動作しません。その理由は、そのモジュールが Anki をパッケージしたアーキテクチャと一致しないためです。もし込み入ったことをするのであれば、代わりにユーザーに Python のスタンドアロンファイルをインストールしてもらう必要があります。
