@@ -1069,7 +1069,7 @@ sophisticated, it would be easier to get your users to install a standalone
 copy of Python instead.
 /////
 
-この場合、pure Python モジュールは使えますが、numpy のような C 拡張を必要とするモジュールを同梱しても動作しません。その理由は、そのモジュールが Anki をパッケージしたアーキテクチャと一致しないためです。もし込み入ったことをするのであれば、代わりにユーザーに Python のスタンドアロンファイルをインストールしてもらう必要があります。
+この場合、pure Python モジュールは使えますが、numpy のような C 拡張を必要とするモジュールを同梱するのは非常に困難です。その理由は、Anki がサポートするオペレーティングシステム用にそれぞれコンパイルする必要があるからです。もし込み入ったことをするのであれば、代わりにユーザーに Python のスタンドアロンファイルをインストールしてもらう方が簡単です。
 
 [[configuration]]
 /////
