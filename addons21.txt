@@ -1767,7 +1767,7 @@ that catches shortcuts not attached to a menu or button has had to be changed.
 setStateShortcuts() fires a hook that can be used to adjust the shortcuts for
 a given state.
 /////
-- WebEngine には、WebKit のような keyPressEvent() を提供していません。このため、メニューやボタンに割り当ててないショートカットを捕捉するコードは変更しなければなりませんでした。例として、reviewer.py が setStateShortcuts() を呼んでいる方法をご覧ください。
+- WebEngine には、WebKit のような keyPressEvent() を提供していません。このため、メニューやボタンに割り当ててないショートカットを捕捉するコードは変更しなければなりませんでした。setStateShortcuts()  は、指定した状態のショートカットを調節するのに使えるフックを呼び出します。
 
 /////
 Reviewer Changes
