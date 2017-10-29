@@ -37,10 +37,10 @@ https://apps.ankiweb.net/docs/addons21.html
 
 == Video drivers ==
 
-If you run into crashes or black screens, your video drivers may be to blame.
-On Linux, please try start the beta with the following:
+If you run into crashes or black screens, your video drivers (such as nouveau)
+may be to blame. On Linux, please try start the beta with the following:
 
-    QT_OPENGL=software bin/anki
+    QT_XCB_FORCE_SOFTWARE_OPENGL=1 bin/anki
 
 On Windows, please try opening cmd.exe, and typing the following
 
@@ -64,6 +64,56 @@ You can get the latest beta from https://apps.ankiweb.net/downloads/beta/
 Use .exe for Windows, .dmg for Mac, and .bz2 for Linux.
 
 == Detailed changes ==
+
+=== Changes in beta 23 ===
+
+- Fix field contents not persisting when dragging media files onto field.
+
+=== Changes in beta 22 ===
+
+- Fix hang when copying and pasting between fields.
+- Strip excess whitespace when pasting external content, which was breaking
+cloze deletions.
+
+=== Changes in beta 21 ===
+
+Pasting now strips more by default, such as links, headers and tables. Holding
+down the shift key while pasting will reduce the level of filtering.
+
+Also:
+
+- Pasting a link to an image or sound hosted on a HTTPS website should no longer fail.
+- Fix the question audio replaying when answer shown.
+- Make sure the interface is disabled while progress/sync bar displayed.
+- Fix error when undoing then immediately hitting enter on a type answer card.
+- Fix missing styling when answer revealed too quickly.
+- Fix shift+tab in the editor on macOS.
+- Filter out background and font style when pasting between fields.
+- Don't leave a .wav file around when recording.
+- Drop support for experimental 'new style whitespace' handling.
+- Fix inability to paste link to .aspx file.
+- Fix media check not detecting media references in cloze deletions.
+- Ctrl+d can be used in the tag selector of custom study to deselect all tags.
+- Fix link to _anki.png in template not working.
+
+=== Changes in beta 20 ===
+
+- Probable fix for intermittent startup error on Windows.
+- Fix 'not responding' process on macOS.
+- Don't capture media keys.
+
+=== Changes in beta 19 ===
+
+Built with the recently released Qt 5.9.2. Please report any improvements or
+regressions.
+
+=== Changes in beta 18 ===
+
+- If mpv is unavailable or too old, use mplayer instead.
+- Remove "unexpected DPI" message and --lodpi option; tweak handling of scaling.
+- Don't show album artwork when playing audio.
+- Increase the default number of backups, and stop sending them to the recycling bin.
+- Show field numbers in the Fields dialog.
 
 === Changes in beta 17 ===
 
